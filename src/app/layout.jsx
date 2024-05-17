@@ -1,7 +1,8 @@
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const comfortaa = Comfortaa({subsets: ["latin"]});
+const comfortaa = Comfortaa({ subsets: ["latin"] });
 
 export const metadata = {
   title: "LNBG London Coin - Initial Coin Offering",
@@ -11,7 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={comfortaa.className}>{children}</body>
+      <body className={`bg-[url('/bgs/body-bg.png')] ${comfortaa.className}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
