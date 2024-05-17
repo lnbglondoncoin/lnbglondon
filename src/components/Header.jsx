@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 const Header = () => {
   // on scroll make header fixed
   const [isSticky, setIsSticky] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsSticky(true);
@@ -82,9 +83,67 @@ const Header = () => {
           </Link>
         </nav>
         {/* for small screens */}
-        <button className="lg:hidden">
+        <button className="lg:hidden" onClick={() => setIsMenuOpen(true)}>
           <Image src="/icons/menu.svg" width={30} height={30} alt="menu" />
         </button>
+        {/* Drop down */}
+        {isMenuOpen && (
+          <nav className="bg-secondary absolute left-0 top-0 z-50 flex h-screen w-full flex-col items-center justify-center gap-y-5">
+            <button
+              className="absolute right-7 top-7"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Image
+                src="/icons/close.svg"
+                width={20}
+                height={20}
+                alt="close"
+              />
+            </button>
+            <Link
+              href="/"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              Home
+            </Link>
+            <Link
+              href="/#aboutus"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              About Us
+            </Link>
+            <Link
+              href="/our-team"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              Our Team
+            </Link>
+            <Link
+              href="/cryptocurrencies"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              Crypto Currencies
+            </Link>
+            <Link
+              href="/cryptocurrencies"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              Coin Market
+            </Link>
+            <Link
+              href="/cryptocurrencies"
+              onClick={() => setIsMenuOpen(false)}
+              className="hover:border-primary font-semibold hover:border-b hover:text-primary"
+            >
+              Contact
+            </Link>
+          </nav>
+        )}
       </div>
     </header>
   );
