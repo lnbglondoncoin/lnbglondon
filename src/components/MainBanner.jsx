@@ -1,9 +1,11 @@
 import Image from "next/image";
+import BubblesAnimation from "./Particles";
 
 const MainBanner = () => {
   return (
-    <section className="flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px] xl:h-screen">
-      <div className="flex w-full max-w-7xl flex-col items-center gap-10 px-5 xl:flex-row">
+    <section className="relative flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px] xl:h-screen">
+      <BubblesAnimation />
+      <div className="z-10 flex w-full max-w-7xl flex-col items-center gap-10 px-5 xl:flex-row">
         <Image
           className="w-5/12"
           src="/bitcoin.png"
@@ -20,10 +22,10 @@ const MainBanner = () => {
             Shaping the Future
           </span>
           <div className="flex items-center gap-x-5">
-            <button className="hover:border-primary rounded-full border-4 border-white px-5 py-2 text-lg font-medium transition-all duration-150 ease-in hover:text-primary sm:px-8 sm:py-3">
+            <button className="rounded-full border-4 border-white px-5 py-2 text-lg font-medium transition-all duration-150 ease-in hover:border-primary hover:text-primary sm:px-8 sm:py-3">
               Details
             </button>
-            <button className="hover:border-primary rounded-full border-4 border-white px-5 py-2 text-lg font-medium transition-all duration-150 ease-in hover:text-primary sm:px-8 sm:py-3">
+            <button className="rounded-full border-4 border-white px-5 py-2 text-lg font-medium transition-all duration-150 ease-in hover:border-primary hover:text-primary sm:px-8 sm:py-3">
               Whitepaper
             </button>
           </div>

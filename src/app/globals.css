@@ -6,3 +6,8 @@ html {
   background-color: #16181d;
   color: white;
 }
+
+#tsparticles {
+  height: 100vh;
+  width: 100vw;
+}
