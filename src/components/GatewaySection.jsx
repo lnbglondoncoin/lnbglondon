@@ -3,8 +3,8 @@ import Image from "next/image";
 const GatewaySection = () => {
   return (
     <section className="flex items-center justify-center px-5 py-10">
-      <div className="grid min-h-screen gap-10 w-full max-w-7xl grid-cols-1 lg:grid-cols-2">
-        <div className="flex flex-col gap-y-5 px-5">
+      <div className="grid min-h-screen w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
+        <div className="flex flex-col justify-center gap-y-5 px-5">
           <span className="text-2xl tracking-widest text-primary">
             Invest in the Future of Finance
           </span>

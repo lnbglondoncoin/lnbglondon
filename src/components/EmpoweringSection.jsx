@@ -13,7 +13,7 @@ const EmpoweringSection = () => {
           <div className="h-2 w-2 rounded-full bg-primary"></div>
           <div className="h-2 w-2 rounded-full bg-primary"></div>
         </div>
-        <h1 className="text-center text-6xl font-bold leading-[4.5rem] tracking-tighter">
+        <h1 className="text-center text-5xl sm:text-6xl font-bold leading-[4.5rem] tracking-tighter">
           Empowering Companies & Empowering You
           <span className="text-primary">.</span>
         </h1>

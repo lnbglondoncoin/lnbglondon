@@ -3,7 +3,7 @@ const LaptopSection = () => {
     <div className="flex items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat px-5 py-10">
       <div className="flex h-full w-full max-w-7xl justify-end sm:bg-[url('/pc.png')] bg-contain bg-no-repeat">
         <div className="flex h-full w-full justify-center max-w-3xl flex-col gap-y-7 rounded-lg bg-black/60 p-10">
-          <div className="span text-6xl font-bold leading-[4.5rem]">
+          <div className="span text-5xl sm:text-6xl font-bold leading-[4.5rem]">
             Ready to Embrace the Future of Finance?
           </div>
           <span className="text-lightgray">
