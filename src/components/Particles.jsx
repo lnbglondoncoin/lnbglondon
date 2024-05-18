@@ -51,7 +51,7 @@ const BubblesAnimation = () => {
       defaultThemes: {},
       delay: 0,
       fullScreen: {
-        enable: true,
+        enable: false,
         zIndex: 0,
       },
       detectRetina: true,
@@ -416,7 +416,9 @@ const BubblesAnimation = () => {
       pauseOnBlur: true,
       pauseOnOutsideViewport: true,
       smooth: false,
-      style: {},
+      style: {
+        zIndex: -10,
+      },
       zLayers: 100,
       name: "Snow",
       motion: {
