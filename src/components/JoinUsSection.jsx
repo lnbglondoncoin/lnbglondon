@@ -5,7 +5,7 @@ const JoinUsSection = () => {
   return (
     <section className="flex items-center justify-center px-5 pt-20">
       <div className="w-full max-w-7xl border-t border-darkgray pt-20">
-        <div className="grid w-full grid-cols-1 gap-10 bg-[url('/bgs/clock.svg')] bg-contain bg-center bg-no-repeat py-20 lg:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-10 bg-[url('/bgs/clock.svg')] bg-contain bg-center bg-no-repeat py-20 lg:grid-cols-2 px-3 sm:px-7">
           <div className="flex flex-col gap-y-10">
             <div className="flex gap-x-1 px-1">
               <div className="h-2 w-2 rounded-full bg-primary"></div>
