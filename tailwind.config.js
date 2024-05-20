@@ -15,6 +15,8 @@ module.exports = {
         danger: "#ff3133",
         warning: "#8dc647",
         darkgray: "#666d7a",
+        ash: "#1F2129",
+        coal: "#131418",
       },
     },
   },

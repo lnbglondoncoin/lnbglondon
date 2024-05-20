@@ -5,7 +5,7 @@ import BubblesAnimation from "./Particles";
 
 const Footer = () => {
   return (
-    <footer className="flex h-full w-full flex-col items-center justify-center bg-[#1F2129] px-5 pt-10">
+    <footer className="flex h-full w-full flex-col items-center justify-center bg-coal px-5 pt-10">
       <div className="grid w-full max-w-7xl grid-cols-1 px-5 lg:grid-cols-2">
         <div className="flex flex-col gap-7">
           <div className="flex items-center gap-x-3">

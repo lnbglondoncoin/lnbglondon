@@ -7,7 +7,7 @@ const ProgressBar = () => {
           $50M
         </h3>
       </div>
-      <div className="h-4 w-full rounded-full border-4 border-[#1F2129] sm:h-[17px]">
+      <div className="border-ash h-4 w-full rounded-full border-4 sm:h-[17px]">
         <div
           className="h-full rounded-full bg-primary"
           style={{ width: `50%` }}
