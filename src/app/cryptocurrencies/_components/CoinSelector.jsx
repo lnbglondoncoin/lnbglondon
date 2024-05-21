@@ -1,6 +1,6 @@
 const CoinSelector = ({ selectedCoin, setSelectedCoin }) => {
   return (
-    <div className="flex items-center justify-center px-5">
+    <div className="flex items-center justify-center px-5 pb-5 md:pb-20">
       <div className="flex h-fit w-full max-w-7xl justify-center gap-x-2 gap-y-10 rounded-2xl md:flex-wrap md:gap-x-7">
         {selectedCoin === "bitcoin" ? (
           <div className="group relative flex cursor-pointer flex-col items-center justify-center">
