@@ -1,5 +1,6 @@
 import React from 'react'
 import CoinsGraph from './_components/CoinsGraph'
+import Graphs from './_components/Graphs'
 
 const CryptocurrenciesPage = () => {
   return (
