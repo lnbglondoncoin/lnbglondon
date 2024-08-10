@@ -83,34 +83,30 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="flex w-full max-w-[458px] justify-between">
-      <div className="flex flex-col items-center gap-y-6">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary sm:h-20 sm:w-20 sm:border-4 sm:text-2xl sm:font-bold">
-          {timer.substring(1, 2)}
-          {timer.substring(0, 1)}
-        </div>
-        <span className="">Days</span>
+    <div className="flex w-full justify-center gap-5">
+      <div className="flex flex-col items-center gap-y-1">
+        <span className="text-4xl font-bold text-primary">
+          {timer.substring(0, 2)}
+        </span>
+        <span className="">days</span>
       </div>
-      <div className="flex flex-col items-center gap-y-6">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary sm:h-20 sm:w-20 sm:border-4 sm:text-2xl sm:font-bold">
-          {timer.substring(3, 4)}
-          {timer.substring(4, 5)}
-        </div>
-        <span className="">Hours</span>
+      <div className="flex flex-col items-center gap-y-1">
+        <span className="text-4xl font-bold text-primary">
+          {timer.substring(3, 5)}
+        </span>
+        <span className="">hours</span>
       </div>
-      <div className="flex flex-col items-center gap-y-6">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary sm:h-20 sm:w-20 sm:border-4 sm:text-2xl sm:font-bold">
-          {timer.substring(6, 7)}
-          {timer.substring(7, 8)}
-        </div>
-        <span className="">Mins</span>
+      <div className="flex flex-col items-center gap-y-1">
+        <span className="text-4xl font-bold text-primary">
+          {timer.substring(6, 8)}
+        </span>
+        <span className="">mins</span>
       </div>
-      <div className="flex flex-col items-center gap-y-6">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary sm:h-20 sm:w-20 sm:border-4 sm:text-2xl sm:font-bold">
-          {timer.substring(9, 10)}
-          {timer.substring(10)}
-        </div>
-        <span className="">Secs</span>
+      <div className="flex flex-col items-center gap-y-1">
+        <span className="text-4xl font-bold text-primary">
+          {timer.substring(9, 11)}
+        </span>
+        <span className="">secs</span>
       </div>
     </div>
   );

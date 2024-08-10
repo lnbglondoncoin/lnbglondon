@@ -1,11 +1,12 @@
 import CountdownTimer from "./CountdownTimer";
+import PresaleCard from "./PresaleCard";
 import ProgressBar from "./ProgressBar";
 
 const JoinUsSection = () => {
   return (
     <section className="flex items-center justify-center px-5 pt-20">
       <div className="w-full max-w-7xl border-t border-darkgray pt-20">
-        <div className="grid w-full grid-cols-1 gap-10 bg-[url('/bgs/clock.svg')] bg-contain bg-center bg-no-repeat py-20 lg:grid-cols-2 px-3 sm:px-7">
+        <div className="grid w-full grid-cols-1 gap-10 bg-[url('/bgs/clock.svg')] bg-contain bg-center bg-no-repeat px-3 py-20 sm:px-7 lg:grid-cols-2">
           <div className="flex flex-col gap-y-10">
             <div className="flex gap-x-1 px-1">
               <div className="h-2 w-2 rounded-full bg-primary"></div>
@@ -55,36 +56,7 @@ const JoinUsSection = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center gap-y-10 rounded-lg bg-black/50 p-10">
-            <span className="text-center text-2xl font-bold tracking-tighter text-white">
-              Distribution <br /> Ends in:
-            </span>
-            <CountdownTimer />
-            <button className="rounded-full border-4 border-green-600 bg-green-600 px-10 py-4 font-bold uppercase tracking-tighter transition-all duration-200 ease-in-out hover:bg-transparent hover:text-green-600">
-              Buy LNBG Coin
-            </button>
-            <div className="mt-10 w-full">
-              <ProgressBar />
-            </div>
-            <div className="flex h-full w-full items-end justify-between">
-              <div className="flex flex-col">
-                <span className="text-xs tracking-tighter text-gray2 sm:text-sm">
-                  Token Price:
-                </span>
-                <span className="text-2xl font-bold text-lightgray sm:text-4xl">
-                  $10.00
-                </span>
-              </div>
-              <div className="flex flex-col text-right">
-                <span className="text-xs tracking-tighter text-gray2 sm:text-sm">
-                  LNBG Total Supply:
-                </span>
-                <span className="text-2xl font-bold text-lightgray sm:text-4xl">
-                  10,000,000
-                </span>
-              </div>
-            </div>
-          </div>
+          <PresaleCard />
         </div>
       </div>
     </section>
