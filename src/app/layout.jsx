@@ -2,6 +2,10 @@ import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { StoreProvider } from "@/context/Store/Store";
+import { Web3Modal } from "@/context/Web3Modal";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const comfortaa = Comfortaa({ subsets: ["latin"] });
 
@@ -14,9 +18,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`bg-[url('/bgs/body-bg.png')] ${comfortaa.className}`}>
+      <Web3Modal>
+            <StoreProvider>
+        <ToastContainer />
         <Header />
         {children}
         <Footer />
+        </StoreProvider>
+        </Web3Modal>
       </body>
     </html>
   );
