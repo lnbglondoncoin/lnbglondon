@@ -1,7 +1,8 @@
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
+import MovingBar from "@/components/moving-bar/MovingBar";
 
 const comfortaa = Comfortaa({ subsets: ["latin"] });
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`bg-[url('/bgs/body-bg.png')] ${comfortaa.className}`}>
+        <MovingBar />
         <Header />
         {children}
         <Footer />

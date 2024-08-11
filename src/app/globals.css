@@ -33,3 +33,88 @@ img {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.ticker-container:hover > * {
+  animation-play-state: paused;
+}
+
+.ticker-text {
+  white-space: nowrap;
+  animation: ticker 40s linear infinite; /* Adjust the duration as needed */
+  white-space: nowrap;
+}
+
+.ticker-text2 {
+  white-space: nowrap;
+  animation: ticker2 40s linear infinite; /* Adjust the duration as needed */
+  position: absolute;
+  white-space: nowrap;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes ticker2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.moving-div {
+  position: absolute; /* Absolute positioning to move divs */
+  animation: move 5s linear infinite; /* Infinite linear animation */
+}
+
+@keyframes move {
+  0% {
+    left: 100%; /* Start off-screen on the right */
+  }
+  100% {
+    left: -50px; /* End off-screen on the left */
+  }
+}
+
+/* Additional styling for spacing the divs */
+.moving-div:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.moving-div:nth-child(3) {
+  animation-delay: 1s;
+}
+.moving-div:nth-child(4) {
+  animation-delay: 1.5s;
+}
+.moving-div:nth-child(5) {
+  animation-delay: 2s;
+}
+.moving-div:nth-child(6) {
+  animation-delay: 2.5s;
+}
+.moving-div:nth-child(7) {
+  animation-delay: 3s;
+}
+.moving-div:nth-child(8) {
+  animation-delay: 3.5s;
+}
+.moving-div:nth-child(9) {
+  animation-delay: 4s;
+}
+.moving-div:nth-child(10) {
+  animation-delay: 4.5s;
+}
+.moving-div:nth-child(11) {
+  animation-delay: 5s;
+}
+.moving-div:nth-child(12) {
+  animation-delay: 5.5s;
+}

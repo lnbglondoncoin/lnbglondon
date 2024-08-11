@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BubblesAnimation from "./Particles";
+import BubblesAnimation from "../animations/Particles";
 
 const MainBanner = () => {
   return (

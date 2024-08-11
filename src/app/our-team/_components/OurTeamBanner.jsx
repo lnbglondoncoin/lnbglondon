@@ -1,4 +1,4 @@
-import BubblesAnimation from "@/components/Particles";
+import BubblesAnimation from "@/components/animations/Particles";
 import Link from "next/link";
 
 const OurTeamBanner = () => {

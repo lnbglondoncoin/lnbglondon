@@ -24,128 +24,130 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`left-0 top-0 z-50 flex w-full items-center justify-center py-5 ${
-        isSticky ? "bg-coal fixed shadow-md" : "absolute bg-transparent"
-      }`}
-    >
-      <div className="flex w-full max-w-7xl items-center justify-between px-5">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-x-3">
-          <Image
-            className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16"
-            src="/coins/lnbgcoin.png"
-            width={60}
-            height={60}
-            alt="lnbgcoin"
-          />
-          <span className="font-sans text-2xl font-black md:text-3xl">
-            LNBG COIN
-          </span>
-        </Link>
-        {/* Nav */}
-        <nav className="hidden items-center gap-x-7 text-lightgray lg:flex">
-          <Link
-            href="/"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            Home
+    <>
+      <header
+        className={`left-0 z-50 flex w-full items-center justify-center py-5 ${
+          isSticky ? "fixed top-0 bg-coal shadow-md" : "absolute top-[46px] bg-transparent"
+        }`}
+      >
+        <div className="flex w-full max-w-7xl items-center justify-between px-5">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-x-3">
+            <Image
+              className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16"
+              src="/coins/lnbgcoin.png"
+              width={60}
+              height={60}
+              alt="lnbgcoin"
+            />
+            <span className="font-sans text-2xl font-black md:text-3xl">
+              LNBG COIN
+            </span>
           </Link>
-          <Link
-            href="/#aboutus"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            About Us
-          </Link>
-          <Link
-            href="/our-team"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            Our Team
-          </Link>
-          <Link
-            href="/cryptocurrencies"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            Crypto Currencies
-          </Link>
-          <Link
-            href="/cryptocurrencies"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            Coin Market
-          </Link>
-          <Link
-            href="/cryptocurrencies"
-            className="font-semibold hover:border-b hover:border-primary hover:text-primary"
-          >
-            Contact
-          </Link>
-        </nav>
-        {/* for small screens */}
-        <button className="lg:hidden" onClick={() => setIsMenuOpen(true)}>
-          <Image src="/icons/menu.svg" width={30} height={30} alt="menu" />
-        </button>
-        {/* Drop down */}
-        {isMenuOpen && (
-          <nav className="absolute left-0 top-0 z-50 flex h-screen w-full flex-col items-center justify-center gap-y-5 bg-secondary">
-            <button
-              className="absolute right-7 top-7"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <Image
-                src="/icons/close.svg"
-                width={20}
-                height={20}
-                alt="close"
-              />
-            </button>
+          {/* Nav */}
+          <nav className="hidden items-center gap-x-7 text-lightgray lg:flex">
             <Link
               href="/"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               Home
             </Link>
             <Link
               href="/#aboutus"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               About Us
             </Link>
             <Link
               href="/our-team"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               Our Team
             </Link>
             <Link
               href="/cryptocurrencies"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               Crypto Currencies
             </Link>
             <Link
               href="/cryptocurrencies"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               Coin Market
             </Link>
             <Link
               href="/cryptocurrencies"
-              onClick={() => setIsMenuOpen(false)}
               className="font-semibold hover:border-b hover:border-primary hover:text-primary"
             >
               Contact
             </Link>
           </nav>
-        )}
-      </div>
-    </header>
+          {/* for small screens */}
+          <button className="lg:hidden" onClick={() => setIsMenuOpen(true)}>
+            <Image src="/icons/menu.svg" width={30} height={30} alt="menu" />
+          </button>
+          {/* Drop down */}
+          {isMenuOpen && (
+            <nav className="absolute left-0 top-0 z-50 flex h-screen w-full flex-col items-center justify-center gap-y-5 bg-secondary">
+              <button
+                className="absolute right-7 top-7"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <Image
+                  src="/icons/close.svg"
+                  width={20}
+                  height={20}
+                  alt="close"
+                />
+              </button>
+              <Link
+                href="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                Home
+              </Link>
+              <Link
+                href="/#aboutus"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                About Us
+              </Link>
+              <Link
+                href="/our-team"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                Our Team
+              </Link>
+              <Link
+                href="/cryptocurrencies"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                Crypto Currencies
+              </Link>
+              <Link
+                href="/cryptocurrencies"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                Coin Market
+              </Link>
+              <Link
+                href="/cryptocurrencies"
+                onClick={() => setIsMenuOpen(false)}
+                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              >
+                Contact
+              </Link>
+            </nav>
+          )}
+        </div>
+      </header>
+    </>
   );
 };
 

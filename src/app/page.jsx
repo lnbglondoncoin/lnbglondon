@@ -1,11 +1,12 @@
-import EarnFreeSection from "@/components/EarnFreeSection";
-import EmpoweringSection from "@/components/EmpoweringSection";
-import FiveCoinsSection from "@/components/FiveCoinsSection";
-import GatewaySection from "@/components/GatewaySection";
-import JoinUsSection from "@/components/JoinUsSection";
-import LaptopSection from "@/components/LaptopSection";
-import MainBanner from "@/components/MainBanner";
-import PartnersSection from "@/components/PartnersSection";
+import EarnFreeSection from "@/components/sections/EarnFreeSection";
+import EmpoweringSection from "@/components/sections/EmpoweringSection";
+import FiveCoinsSection from "@/components/sections/FiveCoinsSection";
+import GatewaySection from "@/components/sections/GatewaySection";
+import JoinUsSection from "@/components/sections/JoinUsSection";
+import LaptopSection from "@/components/sections/LaptopSection";
+import MainBanner from "@/components/sections/MainBanner";
+import PartnersSection from "@/components/sections/PartnersSection";
+import RoadmapSection from "@/components/sections/RoadmapSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <LaptopSection />
       <PartnersSection />
       <JoinUsSection />
+      <RoadmapSection />
       <EarnFreeSection />
     </main>
   );
