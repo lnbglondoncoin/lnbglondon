@@ -10,6 +10,7 @@ const getData = async () => {
   };
   try {
     const response = await axios.get(baseUrl, { headers });
+    console.log("RES", response);
     const data = response.data.data;
     const detailedTokenData = await axios.get(
       "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info",
@@ -42,7 +43,7 @@ const MovingBar = async () => {
       className={`ticker-text${number === 2 ? "2" : ""} text-neutralLight z-[999] flex h-[46px] w-fit select-none items-center gap-x-16 bg-black px-5`}
     >
       {data?.map((coin, index) => (
-        <div className="flex gap-x-4" key={index}>
+        <div className="flex gap-x-4 font-extralight" key={index}>
           <Image src={coin.logoUrl} width={20} height={20} alt="bitcoin" />
           <span className="text-sm">{coin.name}</span>
           <span className="text-sm">

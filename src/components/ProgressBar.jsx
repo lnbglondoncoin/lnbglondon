@@ -1,4 +1,4 @@
-const ProgressBar = () => {
+const ProgressBar = ({soldPercentage}) => {
   return (
     <div className="flex w-full flex-col gap-y-1">
       <div className="flex justify-between">
@@ -10,7 +10,7 @@ const ProgressBar = () => {
       <div className="border-ash h-4 w-full rounded-full border-4 sm:h-[17px]">
         <div
           className="h-full rounded-full bg-primary"
-          style={{ width: `50%` }}
+          style={{ width: `${soldPercentage}` }}
         ></div>
       </div>
       <div className="flex justify-between py-1 md:py-1.5">

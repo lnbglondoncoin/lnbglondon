@@ -8,7 +8,7 @@ const GatewaySection = () => {
           <span className="text-2xl tracking-widest text-primary">
             Invest in the Future of Finance
           </span>
-          <span className="text-5xl font-bold leading-[3.5rem] text-white">
+          <span className="text-4xl sm:text-5xl font-bold text-white">
             Gateway to Defi Blockchain Solutions{" "}
             <span className="text-primary">.</span>
           </span>

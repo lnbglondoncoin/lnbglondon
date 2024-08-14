@@ -3,7 +3,7 @@ const RoadmapSection = () => {
     <div className="flex w-full border-y-4 border-primary py-2 mt-10">
       <section className="flex w-full flex-col items-center justify-center border-y-4 border-dashed border-primary bg-coal px-10 py-20">
         <div className="flex w-full max-w-7xl flex-col items-center justify-center">
-          <h1 className="text-6xl font-bold uppercase">RoadMap</h1>
+          <h1 className="text-4xl sm:text-6xl font-bold uppercase">RoadMap</h1>
           <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
             <Card
               step="Q1"
