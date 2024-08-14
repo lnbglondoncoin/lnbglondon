@@ -7,6 +7,7 @@ import LaptopSection from "@/components/sections/LaptopSection";
 import MainBanner from "@/components/sections/MainBanner";
 import PartnersSection from "@/components/sections/PartnersSection";
 import RoadmapSection from "@/components/sections/RoadmapSection";
+import WhyInvestSection from "@/components/sections/WhyInvestSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <FiveCoinsSection />
       <GatewaySection />
       <EmpoweringSection />
+      <WhyInvestSection />
       <LaptopSection />
       <PartnersSection />
       <JoinUsSection />

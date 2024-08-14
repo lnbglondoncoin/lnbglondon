@@ -5,8 +5,20 @@ import BubblesAnimation from "../animations/Particles";
 
 const Footer = () => {
   return (
-    <footer className="flex h-full w-full flex-col items-center justify-center bg-coal px-5 pt-10">
-      <div className="grid w-full max-w-7xl grid-cols-1 px-5 lg:grid-cols-2">
+    <footer className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-coal px-5 pt-10">
+      <div className="absolute inset-0 flex rotate-45 items-center">
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+      </div>
+      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 px-5 lg:grid-cols-2">
         <div className="flex flex-col gap-7">
           <div className="flex items-center gap-x-3">
             <Image
@@ -43,7 +55,7 @@ const Footer = () => {
         </div>
         <div className="bg-[url('/bgs/dotted-map-white.png')] bg-contain bg-center bg-no-repeat"></div>
       </div>
-      <div className="mt-10 flex w-full flex-col items-center justify-center gap-2 border-t border-darkgray py-5 text-sm">
+      <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 border-t border-darkgray py-5 text-sm">
         © All right reserved 2022.
         <div className="flex">
           <span className="cursor-pointer text-lightgray hover:text-primary">

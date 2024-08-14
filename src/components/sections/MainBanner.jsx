@@ -13,12 +13,12 @@ const MainBanner = () => {
           height={450}
           alt="bitcoin"
         />
-        <div className="flex w-7/12 flex-col items-center lg:items-start gap-y-10 text-center lg:text-left">
-          <h1 className="text-4xl font-bold tracking-tighter md:text-[5.5rem] md:leading-[6rem]">
+        <div className="flex w-7/12 flex-col items-center lg:items-start gap-y-5 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-5xl font-bold md:text-6xl">
             Digital Finance C<span className="tracking-normal">ry</span>
             ptocurrency<span className="text-primary">.</span>
           </h1>
-          <span className="min-w-[250px] text-2xl tracking-tighter text-primary md:text-6xl">
+          <span className="min-w-[250px] text-2xl text-primary md:text-6xl">
             Shaping the Future
           </span>
           <div className="flex items-center gap-x-5">
