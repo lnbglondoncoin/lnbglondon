@@ -71,7 +71,7 @@ img {
 
 .moving-div {
   position: absolute; /* Absolute positioning to move divs */
-  animation: move 5s linear infinite; /* Infinite linear animation */
+  animation: move 10s linear infinite; /* Infinite linear animation */
 }
 
 @keyframes move {
@@ -85,36 +85,47 @@ img {
 
 /* Additional styling for spacing the divs */
 .moving-div:nth-child(2) {
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 .moving-div:nth-child(3) {
-  animation-delay: 1s;
-}
-.moving-div:nth-child(4) {
-  animation-delay: 1.5s;
-}
-.moving-div:nth-child(5) {
   animation-delay: 2s;
 }
-.moving-div:nth-child(6) {
-  animation-delay: 2.5s;
-}
-.moving-div:nth-child(7) {
+.moving-div:nth-child(4) {
   animation-delay: 3s;
 }
-.moving-div:nth-child(8) {
-  animation-delay: 3.5s;
-}
-.moving-div:nth-child(9) {
+.moving-div:nth-child(5) {
   animation-delay: 4s;
 }
-.moving-div:nth-child(10) {
-  animation-delay: 4.5s;
-}
-.moving-div:nth-child(11) {
+.moving-div:nth-child(6) {
   animation-delay: 5s;
 }
+.moving-div:nth-child(7) {
+  animation-delay: 6s;
+}
+.moving-div:nth-child(8) {
+  animation-delay: 7s;
+}
+.moving-div:nth-child(9) {
+  animation-delay: 8s;
+}
+.moving-div:nth-child(10) {
+  animation-delay: 9s;
+}
+.moving-div:nth-child(11) {
+  animation-delay: 10s;
+}
 .moving-div:nth-child(12) {
-  animation-delay: 5.5s;
+  animation-delay: 11s;
+}
+
+.why-invest-box {
+  background: url(/coin.png), url(/bg.png);
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    300px 250px,
+    100% 100%;
+  background-position:
+    90% 100%,
+    50% 50%;
 }

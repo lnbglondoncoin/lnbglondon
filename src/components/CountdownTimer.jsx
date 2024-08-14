@@ -85,28 +85,28 @@ const CountdownTimer = () => {
   return (
     <div className="flex w-full justify-center gap-5">
       <div className="flex flex-col items-center gap-y-1">
-        <span className="text-4xl font-bold text-primary">
+        <span className="text-2xl font-semibold text-primary">
           {timer.substring(0, 2)}
         </span>
-        <span className="">days</span>
+        <span className="text-xs">days</span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
-        <span className="text-4xl font-bold text-primary">
+        <span className="text-2xl font-semibold text-primary">
           {timer.substring(3, 5)}
         </span>
-        <span className="">hours</span>
+        <span className="text-xs">hours</span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
-        <span className="text-4xl font-bold text-primary">
+        <span className="text-2xl font-semibold text-primary">
           {timer.substring(6, 8)}
         </span>
-        <span className="">mins</span>
+        <span className="text-xs">mins</span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
-        <span className="text-4xl font-bold text-primary">
+        <span className="text-2xl font-semibold text-primary">
           {timer.substring(9, 11)}
         </span>
-        <span className="">secs</span>
+        <span className="text-xs">secs</span>
       </div>
     </div>
   );

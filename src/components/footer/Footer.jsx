@@ -6,17 +6,17 @@ import BubblesAnimation from "../animations/Particles";
 const Footer = () => {
   return (
     <footer className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-coal px-5 pt-10">
-      <div className="absolute inset-0 flex rotate-45 items-center">
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="moving-div h-[2600px] w-[80px] bg-ash/50"></div>
+      <div className="absolute inset-0 flex rotate-45 items-center justify-between">
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
+        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
+        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
+        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
+        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
       </div>
       <div className="static z-10 grid w-full max-w-7xl grid-cols-1 px-5 lg:grid-cols-2">
         <div className="flex flex-col gap-7">

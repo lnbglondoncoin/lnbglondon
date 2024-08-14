@@ -40,7 +40,7 @@ const Header = () => {
               height={60}
               alt="lnbgcoin"
             />
-            <span className="font-sans text-2xl font-black md:text-3xl">
+            <span className="text-2xl font-semibold md:text-3xl">
               LNBG COIN
             </span>
           </Link>
@@ -48,37 +48,37 @@ const Header = () => {
           <nav className="hidden items-center gap-x-7 text-lightgray lg:flex">
             <Link
               href="/"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               Home
             </Link>
             <Link
               href="/#aboutus"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               About Us
             </Link>
             <Link
               href="/our-team"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               Our Team
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               Crypto Currencies
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               Coin Market
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+              className="hover:border-b hover:border-primary hover:text-primary"
             >
               Contact
             </Link>

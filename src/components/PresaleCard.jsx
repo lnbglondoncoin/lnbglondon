@@ -132,14 +132,14 @@ const PresaleCard = () => {
       <div className="flex w-full flex-col gap-3 rounded-xl bg-coal px-4 py-5">
         <span className="text-sm font-bold text-gray2">USD raised</span>
         <div className="flex flex-wrap items-end gap-1 font-bold">
-          <span className="text-4xl text-primary">
+          <span className="text-3xl text-primary">
             ${roundOff(contractData?.raisedAmount)}
           </span>
-          <span className="pb-1 text-xl font-normal text-gray2">
+          <span className="pb-1 text-lg font-normal text-gray2">
             /$7,000,000
           </span>
         </div>
-        <div className="text-sm text-gray2/60">
+        <div className="text-xs text-gray2/60">
           74,214,591 of 215,000,000 tokens
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
@@ -153,8 +153,8 @@ const PresaleCard = () => {
         <span>You pay:</span>
         <span>You receive:</span>
       </div>
-      <div className="flex w-full items-center">
-        <div className="flex w-full items-center gap-2 rounded-l-xl border border-gray2 px-3 py-3 text-lg">
+      <div className="flex w-full gap-2 sm:gap-0 flex-col sm:flex-row items-center">
+        <div className="flex w-full items-center gap-2 rounded-xl sm:rounded-l-xl border border-gray2 px-3 py-3 text-lg">
           {selectedToken == "Ethereum"
             ? ethSvg
             : selectedToken == "USDC"
@@ -168,7 +168,7 @@ const PresaleCard = () => {
             className="w-full bg-transparent text-gray2"
           />
         </div>
-        <div className="flex w-full items-center gap-2 rounded-r-xl border border-gray2 px-3 py-3 text-lg">
+        <div className="flex w-full items-center gap-2 rounded-xl sm:rounded-r-xl border border-gray2 px-3 py-3 text-lg">
           <Image
             src="/coins/lnbgcoin.png"
             width={30}
@@ -180,7 +180,7 @@ const PresaleCard = () => {
             // inputMode="numeric"
             value={Number(
               ethers.utils.formatEther(lnbgValue?.toString()),
-            )?.toFixed(6)}
+            )?.toFixed(4)}
             onChange={handleTokenChange}
             className="w-full bg-transparent text-gray2"
           />

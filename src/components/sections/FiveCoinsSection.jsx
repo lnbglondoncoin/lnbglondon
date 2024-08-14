@@ -25,7 +25,6 @@ const getData = async () => {
 
 const FiveCoinsSection = async () => {
   const data = await getData();
-  console.log(data);
   return (
     <div className="flex items-center justify-center px-5 py-20">
       <div className="flex h-fit w-full max-w-7xl flex-wrap justify-center gap-x-14 gap-y-10 rounded-2xl bg-[#131519] bg-[url('/bgs/graph.png')] bg-bottom bg-no-repeat p-20">

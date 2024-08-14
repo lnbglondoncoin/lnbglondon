@@ -1,40 +1,25 @@
 import { ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const WhyInvestSection = () => {
   return (
     <section className="flex w-full items-center justify-center px-5">
       <div className="flex flex-col gap-10 py-10">
-        <div className="grid w-full max-w-7xl lg:grid-cols-2 gap-0.5 bg-primary p-0.5">
+        <div className="grid w-full max-w-7xl gap-0.5 bg-[#353550] p-0.5 lg:grid-cols-2">
           <div className="flex flex-col gap-0.5">
             <div className="bg-coal p-10">
-              <h1 className="font-sans text-7xl font-extrabold uppercase leading-[4.5rem]">
+              <h1 className="text-4xl font-bold uppercase sm:text-6xl sm:leading-[4.5rem]">
                 Why invest <br /> in LNBG?
               </h1>
             </div>
-            <div className="relative flex h-full flex-col overflow-hidden bg-ash p-5">
-              <div className="absolute inset-0 flex rotate-45 items-center">
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-                <div className="moving-div h-[600px] w-[30px] bg-secondary"></div>
-              </div>
-              <div className="static z-10 flex justify-between">
-                <div className="h-4 w-4 rounded-sm border-l-4 border-t-4 border-primary"></div>
-                <div className="h-4 w-4 rounded-sm border-r-4 border-t-4 border-primary"></div>
-              </div>
-              <div className="static z-10 flex h-full flex-col gap-4 px-8 py-4">
+            <div className="why-invest-box relative flex h-full w-full flex-col overflow-hidden bg-cover p-5">
+              <div className="static z-10 flex h-full min-h-[320px] flex-col gap-4 px-8 py-4">
                 <p className="w-fit rounded-sm bg-primary px-1 font-sans text-xl text-black">
                   <span className="font-bold">+100%</span> in 2 months
                 </p>
                 <div className="flex items-center gap-5">
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-gray2">
+                    <span className="text-[10px] text-gray2 sm:text-sm">
                       Price now
                     </span>
                     <span className="font-sans text-3xl font-extrabold">
@@ -43,7 +28,7 @@ const WhyInvestSection = () => {
                   </div>
                   <div className="flex">{chevRight}</div>
                   <div className="flex flex-col">
-                    <span className="text-sm font-bold text-gray2">
+                    <span className="text-[10px] text-gray2 sm:text-sm">
                       Price at listing
                     </span>
                     <span className="font-sans text-3xl font-extrabold">
@@ -52,34 +37,30 @@ const WhyInvestSection = () => {
                   </div>
                 </div>
               </div>
-              <div className="static z-10 flex justify-between">
-                <div className="h-4 w-4 rounded-sm border-b-4 border-l-4 border-primary"></div>
-                <div className="h-4 w-4 rounded-sm border-b-4 border-r-4 border-primary"></div>
-              </div>
             </div>
           </div>
-          <div className="flex flex-col gap-0.5">
-            <div className="flex flex-col gap-5 p-10 text-black">
-              <p className="flex gap-2 text-xl">
-                <span className="font-black uppercase">First Release</span>
-                <span className="text-black/70">JUL 24</span>
+          <div className="flex flex-col gap-0.5 justify-center">
+            <div className="flex h-full flex-col gap-5 bg-black p-10">
+              <p className="flex flex-col gap-2 text-xl sm:flex-row">
+                <span className="font-bold uppercase">First Release</span>
+                <span className="text-white/70">JUL 24</span>
               </p>
-              <span className="text-lg text-black/75">
+              <span className="text-lg text-white/50">
                 We're launching a crypto investment platform with secure Vaults
                 offering high APY. New features will be added based on your
                 feedback.
               </span>
-              <span className="text-xl font-black">
+              <span className="text-xl font-semibold">
                 Invest safely, earn reliably. <br /> Your input shapes what's
                 next
               </span>
             </div>
-            <div className="flex flex-col justify-center gap-1 bg-secondary px-10 py-20">
+            <div className="flex flex-col justify-center gap-1 bg-secondary px-10 py-16">
               <span className="text-2xl uppercase text-gray2">
                 Supportive community of:
               </span>
               <p className="flex gap-2 font-sans text-4xl">
-                <span className="font-black">7456</span>
+                <span className="font-bold">7456</span>
                 <span className="font-light uppercase text-gray2">Holders</span>
               </p>
             </div>

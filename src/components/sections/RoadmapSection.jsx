@@ -1,47 +1,46 @@
 const RoadmapSection = () => {
   return (
-    <div className="flex w-full border-y-4 border-primary py-2 mt-10">
-      <section className="flex w-full flex-col items-center justify-center border-y-4 border-dashed border-primary bg-coal px-10 py-20">
-        <div className="flex w-full max-w-7xl flex-col items-center justify-center">
-          <h1 className="text-4xl sm:text-6xl font-bold uppercase">RoadMap</h1>
-          <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
-            <Card
-              step="Q1"
-              year="2024"
-              points={[
-                "Presale Launch",
-                "Community Building",
-                "MVP Lauch: Vaults & Exchange",
-              ]}
-            />
-            <Card
-              step="Q2"
-              year="2024"
-              points={[
-                "Token Generation Event",
-                "One-click Investment feature",
-                "Airdrop",
-              ]}
-              active
-            />
-            <Card
-              step="Q3"
-              year="2024"
-              points={["Staking", "Lending Aggregator", "Zap-in and zap-out"]}
-            />
-            <Card
-              step="Q4"
-              year="2025"
-              points={[
-                "AI-Broker feature",
-                "Insurance program",
-                "Leverage farming",
-              ]}
-            />
-          </div>
+    <section className="mt-10 flex w-full flex-col items-center justify-center bg-coal px-10 pt-20">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center">
+        <h1 className="text-4xl font-bold uppercase sm:text-6xl">RoadMap</h1>
+        <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
+          <Card
+            step="Q1"
+            year="2024"
+            points={[
+              "Presale Launch",
+              "Community Building",
+              "MVP Lauch: Vaults & Exchange",
+            ]}
+          />
+          <Card
+            step="Q2"
+            year="2024"
+            points={[
+              "Token Generation Event",
+              "One-click Investment feature",
+              "Airdrop",
+            ]}
+            active
+          />
+          <Card
+            step="Q3"
+            year="2024"
+            points={["Staking", "Lending Aggregator", "Zap-in and zap-out"]}
+          />
+          <Card
+            step="Q4"
+            year="2025"
+            points={[
+              "AI-Broker feature",
+              "Insurance program",
+              "Leverage farming",
+            ]}
+          />
         </div>
-      </section>
-    </div>
+      </div>
+      <div className="w-full bg-[url(/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"></div>
+    </section>
   );
 };
 

@@ -10,7 +10,6 @@ const getData = async () => {
   };
   try {
     const response = await axios.get(baseUrl, { headers });
-    console.log("RES", response);
     const data = response.data.data;
     const detailedTokenData = await axios.get(
       "https://pro-api.coinmarketcap.com/v1/cryptocurrency/info",

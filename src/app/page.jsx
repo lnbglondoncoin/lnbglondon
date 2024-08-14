@@ -7,6 +7,7 @@ import LaptopSection from "@/components/sections/LaptopSection";
 import MainBanner from "@/components/sections/MainBanner";
 import PartnersSection from "@/components/sections/PartnersSection";
 import RoadmapSection from "@/components/sections/RoadmapSection";
+import TokenomicsSection from "@/components/sections/TokenomicsSection";
 import WhyInvestSection from "@/components/sections/WhyInvestSection";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <PartnersSection />
       <JoinUsSection />
       <RoadmapSection />
+      <TokenomicsSection />
       <EarnFreeSection />
     </main>
   );

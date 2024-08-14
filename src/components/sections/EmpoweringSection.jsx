@@ -13,11 +13,11 @@ const EmpoweringSection = () => {
           <div className="h-2 w-2 rounded-full bg-primary"></div>
           <div className="h-2 w-2 rounded-full bg-primary"></div>
         </div>
-        <h1 className="text-center text-5xl sm:text-6xl font-bold leading-[4.5rem] tracking-tighter">
+        <h1 className="text-center text-4xl sm:text-5xl font-bold tracking-tighter">
           Empowering Companies & Empowering You
           <span className="text-primary">.</span>
         </h1>
-        <span className="text-2xl tracking-tight text-lightgray">
+        <span className="text-xl sm:text-2xl tracking-tight text-lightgray">
           Through tokenization of equity and assets
         </span>
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
