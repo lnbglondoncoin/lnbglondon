@@ -22,7 +22,7 @@ const EmpoweringSection = () => {
         </span>
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
-            <span className="text-7xl font-bold text-primary">6386</span>
+            <span className="text-6xl font-bold text-primary">6386</span>
             <span className="text-2xl font-bold">More leads</span>
             <span className="text-sm tracking-wide text-gray2">
               Our platform generates additional web traffic of highly motivated
@@ -31,7 +31,7 @@ const EmpoweringSection = () => {
             <div className="h-1 w-20 rounded-full bg-darkgray transition-all duration-200 ease-in-out group-hover:w-56 group-hover:bg-primary"></div>
           </div>
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
-            <span className="text-7xl font-bold text-primary">16000</span>
+            <span className="text-6xl font-bold text-primary">16000</span>
             <span className="text-2xl font-bold">Higher Sales</span>
             <span className="text-sm tracking-wide text-gray2">
               Our platform generates a steady flow of motivated crypto users to
@@ -40,7 +40,7 @@ const EmpoweringSection = () => {
             <div className="h-1 w-20 rounded-full bg-darkgray transition-all duration-200 ease-in-out group-hover:w-56 group-hover:bg-primary"></div>
           </div>
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
-            <span className="text-7xl font-bold text-primary">8327</span>
+            <span className="text-6xl font-bold text-primary">8327</span>
             <span className="text-2xl font-bold">Clients worldwide</span>
             <span className="text-sm tracking-wide text-gray2">
               Our streamlined automated processes make all the work for you. It
@@ -49,7 +49,7 @@ const EmpoweringSection = () => {
             <div className="h-1 w-20 rounded-full bg-darkgray transition-all duration-200 ease-in-out group-hover:w-56 group-hover:bg-primary"></div>
           </div>
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
-            <span className="text-7xl font-bold text-primary">
+            <span className="text-6xl font-bold text-primary">
               2000<span className="text-darkgray">+</span>
             </span>
             <span className="text-2xl font-bold">More leads</span>
