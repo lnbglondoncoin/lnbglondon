@@ -4,6 +4,7 @@ import Button from "@/components/buttons/Button";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ConnectWalletButton from "./_components/ConnectWalletButton";
 
 export default function DashboardPage() {
   // --------------For hydration error-------------------
@@ -29,13 +30,10 @@ export default function DashboardPage() {
                 height={280}
                 alt="globe"
               />
-              <span className="text-4xl font-semibold w-full">
+              <span className="w-full text-4xl font-semibold">
                 Connect wallet to access your dashboard
               </span>
-              <Button
-                title="Connect Wallet"
-                className="text-lg font-semibold text-black"
-              />
+              <ConnectWalletButton />
             </div>
           ) : (
             <div className="relative flex h-[320px] w-full flex-col items-center justify-end gap-5 rounded-xl bg-ash px-10 py-16">
@@ -46,13 +44,10 @@ export default function DashboardPage() {
                 height={280}
                 alt="globe"
               />
-              <span className="text-4xl font-semibold w-full">
+              <span className="w-full text-4xl font-semibold">
                 Connect wallet to access your dashboard
               </span>
-              <Button
-                title="Connect Wallet"
-                className="text-lg font-semibold text-black"
-              />
+              <ConnectWalletButton />
             </div>
           ))}
       </div>

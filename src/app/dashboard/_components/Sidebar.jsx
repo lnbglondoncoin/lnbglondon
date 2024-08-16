@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -203,20 +202,20 @@ export default function Sidebar() {
       </div>
       <div className="relative hidden min-h-screen min-w-[280px] flex-col justify-between bg-ash lg:flex">
         <div
-          className="pointer-events-none absolute right-0 top-14 h-12 w-8 bg-coal"
+          className="pointer-events-none absolute right-0 top-16 h-12 w-8 bg-coal"
           style={{
             clipPath: "polygon(79% 18%, 100% 0, 100% 100%, 79% 82%)",
           }}
         ></div>
         <div className="flex flex-col">
-          <div className="flex w-full items-center gap-3 px-10 py-7">
+          <div className="flex w-full items-center gap-3 px-10 py-8">
             <Image
               src="/coins/lnbgcoin.png"
               alt="logo"
               width={40}
               height={40}
             />
-            <h1 className="text-center text-2xl font-semibold text-white">
+            <h1 className="text-center text-3xl font-semibold text-white">
               LNBG Dapp
             </h1>
           </div>

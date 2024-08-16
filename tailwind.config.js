@@ -21,6 +21,7 @@ module.exports = {
         lightgray: "#c3c9d4",
         gray2: "#a1abbd",
         primary: "#ffba00",
+        primary2: "#FFFc54",
         secondary: "#16181d",
         danger: "#ff3133",
         warning: "#8dc647",
