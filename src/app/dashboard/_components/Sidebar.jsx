@@ -26,7 +26,7 @@ export default function Sidebar() {
     <>
       <div className="flex w-full justify-between bg-ash px-10 py-5 lg:hidden">
         <div className="flex w-full items-center gap-3">
-          <Image src="/coins/lnbgcoin.png" alt="logo" width={40} height={40} />
+          <Image src="/logo.svg" alt="logo" width={40} height={40} />
           <h1 className="text-center text-2xl font-semibold text-white">
             LNBG Dapp
           </h1>
@@ -39,12 +39,7 @@ export default function Sidebar() {
             <SheetHeader>
               <SheetTitle>
                 <div className="flex w-full items-center gap-3 px-10 py-7">
-                  <Image
-                    src="/coins/lnbgcoin.png"
-                    alt="logo"
-                    width={40}
-                    height={40}
-                  />
+                  <Image src="/logo.svg" alt="logo" width={40} height={40} />
                   <h1
                     className={cn(
                       "text-center text-2xl font-semibold text-white",
@@ -209,12 +204,7 @@ export default function Sidebar() {
         ></div>
         <div className="flex flex-col">
           <div className="flex w-full items-center gap-3 px-10 py-8">
-            <Image
-              src="/coins/lnbgcoin.png"
-              alt="logo"
-              width={40}
-              height={40}
-            />
+            <Image src="/logo.svg" alt="logo" width={40} height={40} />
             <h1 className="text-center text-3xl font-semibold text-white">
               LNBG Dapp
             </h1>

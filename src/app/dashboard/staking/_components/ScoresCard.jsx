@@ -24,21 +24,21 @@ export default function ScoresCard() {
       </div>
       <div className="flex flex-col gap-3">
         <span className="text-primary2 text-sm font-semibold uppercase">
-          My scores
+          Total scores
         </span>
         <div className="flex items-baseline gap-1">
           <span className="w-fit text-nowrap font-semibold text-gray2">
-            My staked amount:
+            All Participants:
           </span>
           <div className="w-full border-b border-dashed border-gray2/50"></div>
-          <div className="flex items-center gap-1">0{lockIcon}</div>
+          <div className="flex items-center gap-1">4987{lockIcon}</div>
         </div>
         <div className="flex items-baseline gap-1">
           <span className="w-fit text-nowrap font-semibold text-gray2">
             My staked amount:
           </span>
           <div className="w-full border-b border-dashed border-gray2/50"></div>
-          <div className="flex items-center gap-1">0{lockIcon}</div>
+          <div className="flex items-center gap-1">87,222,231{lockIcon}</div>
         </div>
       </div>
     </div>

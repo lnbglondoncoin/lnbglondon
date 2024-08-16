@@ -14,7 +14,7 @@ export default function StakingInfo() {
         <div className="w-[12px]">
           <Dot size={12} />
         </div>
-        Locked LNBG will be distributed to all $LNBG holders on the Blast
+        Locked LNBG will be distributed to all $LNBG holders on the LNBG
         network based on the snapshot of balances from May 31, 2024.
       </div>
       <div className="flex w-full items-baseline gap-3 text-lg">

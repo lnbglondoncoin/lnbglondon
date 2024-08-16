@@ -6,6 +6,7 @@ import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 import ConnectWalletButton from "../../_components/ConnectWalletButton";
+import { dogecoin, ethSvg, usdtSvg } from "@/components/icons";
 
 export default function BridgeCard() {
   // --------------For hydration error-------------------
@@ -17,56 +18,63 @@ export default function BridgeCard() {
   // ----------------------------------------------------
 
   const { isConnected } = useWeb3ModalAccount();
-  const [tab, setTab] = useState("Stake");
-  const [selectedOffer, setSelectedOffer] = useState("12 months");
-  const [stake, setStake] = useState(null);
+  const [fromValue, setFromValue] = useState(null);
   return (
-    <div className="col-span-2 flex w-full flex-col items-center gap-5 rounded-3xl bg-ash p-5">
+    <div className="col-span-3 flex w-full flex-col items-center gap-5 rounded-3xl bg-ash p-5 lg:col-span-2">
       <span className="text-3xl font-semibold">Bridge ETH To BSC Mainnet</span>
-      <div className="flex w-full flex-col gap-1">
+      <div className="flex w-full flex-col gap-5">
         <div className="flex w-full items-center justify-between">
           <div className="flex w-full items-center gap-2">
             <div className="text-xl text-gray2/70">From:</div>
-            <div className="flex items-center gap-1 rounded-full bg-black px-5 py-1 text-xl text-gray2">
+            {/* <div className="flex items-center gap-1 rounded-full bg-black px-5 py-1 text-xl text-gray2">
               Switch Network {bridgeIcon}
-            </div>
+            </div> */}
           </div>
-          <div className="text-xl text-gray2/70 text-nowrap">Balance: 0.0015</div>
+          <div className="text-nowrap text-xl text-gray2/70">
+            Balance: 0.0015
+          </div>
         </div>
         <div className="flex w-full items-center gap-2 border-b border-gray2/50 pb-2">
-          {lockIcon}
           <input
             type="text"
             inputMode="numeric"
-            name="stake"
-            id="stake"
-            value={stake}
-            placeholder="0.0"
-            onChange={(e) => setStake(e.target.value)}
+            name="fromValue"
+            id="fromValue"
+            value={fromValue}
+            placeholder="0"
+            onChange={(e) => setFromValue(e.target.value)}
             className="w-full border-none bg-transparent text-3xl outline-none"
           />
+          <div className="flex items-center gap-1 text-nowrap rounded-full bg-black py-1.5 pl-1.5 pr-3 text-lg text-gray2">
+            {ethSvg} Eth {bridgeIcon}
+          </div>
         </div>
       </div>
-      <div className="flex w-full items-center justify-between text-xl">
-        <div className="flex items-center gap-1">
-          Your Reward:{" "}
-          {stake && (
-            <span className="text-primary2 font-semibold">
-              {stake ? stake * 0.24 : 0} Locked LNBG
-            </span>
-          )}
+      <div className="flex w-full flex-col gap-5">
+        <div className="flex w-full items-center gap-2">
+          <div className="text-xl text-gray2/70">To:</div>
+          Target
         </div>
-        {stake && (
-          <div className="text-primary2 flex items-center gap-1 font-semibold">
-            <Activity size={20} />
-            <span>{stake ? stake * 0.48 : 0}</span>
+        <div className="flex w-full items-center gap-2 border-b border-gray2/50 pb-2">
+          <input
+            type="text"
+            inputMode="numeric"
+            name="fromValue"
+            id="fromValue"
+            value={fromValue}
+            placeholder="0"
+            onChange={(e) => setFromValue(e.target.value)}
+            className="w-full border-none bg-transparent text-3xl outline-none"
+          />
+          <div className="flex items-center gap-1 text-nowrap rounded-full bg-black py-1.5 pl-1.5 pr-3 text-lg text-gray2">
+            {usdtSvg} USDT {bridgeIcon}
           </div>
-        )}
+        </div>
       </div>
       {isClient &&
         (isConnected ? (
           <Button
-            title="Stake"
+            title="Bridge"
             className="hover:bg-primary2 bg-primary text-xl font-semibold uppercase text-black"
           />
         ) : (
