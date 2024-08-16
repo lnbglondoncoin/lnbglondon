@@ -2,8 +2,8 @@ import { Dot } from "lucide-react";
 
 export default function StakingInfo() {
   return (
-    <div className="col-span-2 flex w-full flex-col items-center gap-3 rounded-3xl bg-ash p-5">
-      <h1 className="w-full text-xl font-medium">Staking info</h1>
+    <div className="col-span-3 flex w-full flex-col items-center gap-3 rounded-3xl bg-ash p-5 lg:col-span-2">
+      <h1 className="w-full text-center text-2xl font-medium">Staking info</h1>
       <div className="flex w-full items-baseline gap-3 text-lg">
         <div className="w-[12px]">
           <Dot size={12} />

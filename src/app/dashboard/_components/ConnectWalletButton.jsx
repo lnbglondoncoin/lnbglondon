@@ -9,7 +9,7 @@ export default function ConnectWalletButton() {
     <Button
       title="Connect Wallet"
       onClick={() => open()}
-      className="text-lg font-semibold text-black"
+      className="hover:bg-primary2 bg-primary text-lg font-semibold text-black"
     />
   );
 }

@@ -1,9 +1,3 @@
-"use client";
-
-import Button from "@/components/buttons/Button";
-import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
 import StakingCard from "./_components/StakingCard";
 import ScoresCard from "./_components/ScoresCard";
 import StakingInfo from "./_components/StakingInfo";

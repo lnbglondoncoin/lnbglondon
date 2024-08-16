@@ -200,11 +200,11 @@ export default function Sidebar() {
           </SheetContent>
         </Sheet>
       </div>
-      <div className="relative hidden min-h-screen min-w-[280px] flex-col justify-between bg-ash lg:flex">
+      <div className="relative hidden min-h-[calc(100vh-1.5rem)] min-w-[280px] flex-col justify-between rounded-3xl bg-ash lg:flex">
         <div
-          className="pointer-events-none absolute right-0 top-16 h-12 w-8 bg-coal"
+          className="pointer-events-none absolute right-0 top-32 h-12 w-8 bg-coal"
           style={{
-            clipPath: "polygon(79% 18%, 100% 0, 100% 100%, 79% 82%)",
+            clipPath: "polygon(100% 0, 61% 85%, 100% 100%)",
           }}
         ></div>
         <div className="flex flex-col">

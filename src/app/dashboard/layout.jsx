@@ -9,7 +9,7 @@ const font = Rajdhani({
 
 export default function layout({ children }) {
   return (
-    <div className={cn("flex flex-col bg-coal lg:flex-row", font.className)}>
+    <div className={cn("flex flex-col lg:p-3 bg-coal lg:flex-row", font.className)}>
       <Sidebar />
       {children}
     </div>

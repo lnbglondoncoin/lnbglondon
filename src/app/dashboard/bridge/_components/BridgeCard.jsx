@@ -7,7 +7,7 @@ import { Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 import ConnectWalletButton from "../../_components/ConnectWalletButton";
 
-export default function StakingCard() {
+export default function BridgeCard() {
   // --------------For hydration error-------------------
   const [isClient, setIsClient] = useState(false);
 
@@ -21,93 +21,18 @@ export default function StakingCard() {
   const [selectedOffer, setSelectedOffer] = useState("12 months");
   const [stake, setStake] = useState(null);
   return (
-    <div className="relative col-span-3 flex w-full flex-col items-center gap-5 rounded-3xl bg-ash p-5 lg:col-span-2">
-      <div
-        className="bg-primary2 absolute -top-2.5 px-5 lg:px-12 py-0.5 text-sm font-semibold text-black"
-        style={{
-          clipPath:
-            "polygon(1% 0%, 99% 0%, 100% 50%, 99% 100%, 1% 100%, 0% 50%)",
-        }}
-      >
-        Hurry to Catch the Increased APR!
-      </div>
-      <div className="flex w-full items-center gap-5 text-lg font-medium">
-        <button
-          onClick={() => setTab("Stake")}
-          className={cn(
-            tab == "Stake" ? "text-white" : "text-gray2",
-            "uppercase",
-          )}
-        >
-          Stake
-        </button>
-        <button
-          onClick={() => setTab("Unstake")}
-          className={cn(
-            tab == "Unstake" ? "text-white" : "text-gray2",
-            "uppercase",
-          )}
-        >
-          Unstake
-        </button>
-      </div>
-      <div className="grid w-full grid-cols-1 sm:grid-cols-3 rounded-[2rem] sm:rounded-full bg-gray2/10 p-1">
-        <button
-          onClick={() => setSelectedOffer("12 months")}
-          className={cn(
-            "flex w-full flex-col items-center justify-center gap-1 rounded-full py-1",
-            selectedOffer == "12 months" && "border border-white/50",
-          )}
-        >
-          12 months
-          <div className="flex items-center gap-1 font-semibold">
-            <span className="">APR </span>
-            <span className="text-primary2">24%</span>
-            <span className="text-gray2/50 line-through">12%</span>
-          </div>
-        </button>
-        <button
-          onClick={() => setSelectedOffer("6 months")}
-          className={cn(
-            "flex w-full flex-col items-center justify-center gap-1 rounded-full py-1",
-            selectedOffer == "6 months" && "border border-white/50",
-          )}
-        >
-          6 months
-          <div className="flex items-center gap-1 font-semibold">
-            <span className="">APR </span>
-            <span className="text-primary2">18%</span>
-            <span className="text-gray2/50 line-through">9%</span>
-          </div>
-        </button>
-        <button
-          onClick={() => setSelectedOffer("3 months")}
-          className={cn(
-            "flex w-full flex-col items-center justify-center gap-1 rounded-full py-1",
-            selectedOffer == "3 months" && "border border-white/50",
-          )}
-        >
-          3 months
-          <div className="flex items-center gap-1 font-semibold">
-            <span className="">APR </span>
-            <span className="text-primary2">12%</span>
-            <span className="text-gray2/50 line-through">6%</span>
-          </div>
-        </button>
-      </div>
-      <span className="w-full text-lg font-semibold">
-        LOCK-UP FOR{" "}
-        <span className="text-primary2 uppercase">
-          {selectedOffer} | APR{" "}
-          {selectedOffer == "12 months"
-            ? "24%"
-            : selectedOffer == "6 months"
-              ? "18%"
-              : "12%"}
-        </span>
-      </span>
+    <div className="col-span-2 flex w-full flex-col items-center gap-5 rounded-3xl bg-ash p-5">
+      <span className="text-3xl font-semibold">Bridge ETH To BSC Mainnet</span>
       <div className="flex w-full flex-col gap-1">
-        <div className="w-full text-xl text-gray2/70">Your Stake:</div>
+        <div className="flex w-full items-center justify-between">
+          <div className="flex w-full items-center gap-2">
+            <div className="text-xl text-gray2/70">From:</div>
+            <div className="flex items-center gap-1 rounded-full bg-black px-5 py-1 text-xl text-gray2">
+              Switch Network {bridgeIcon}
+            </div>
+          </div>
+          <div className="text-xl text-gray2/70 text-nowrap">Balance: 0.0015</div>
+        </div>
         <div className="flex w-full items-center gap-2 border-b border-gray2/50 pb-2">
           {lockIcon}
           <input
@@ -150,6 +75,24 @@ export default function StakingCard() {
     </div>
   );
 }
+
+const bridgeIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="18px"
+    height="18px"
+    fill="none"
+    viewBox="0 0 18 19"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+      d="M15 7.5H3l3.13-4M3 11.5h12l-3.13 4"
+    ></path>
+  </svg>
+);
 
 const lockIcon = (
   <svg

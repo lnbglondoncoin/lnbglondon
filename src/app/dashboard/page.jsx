@@ -22,28 +22,14 @@ export default function DashboardPage() {
         <h1 className="mb-5 text-5xl font-semibold text-white">Dashboard</h1>
         {isClient &&
           (isConnected ? (
-            <div className="relative flex h-[320px] w-full flex-col items-center justify-end gap-5 rounded-xl bg-ash px-10 py-16">
-              <Image
-                className="pointer-events-none absolute bottom-0 opacity-20 blur-[1px] filter"
-                src="/globe.svg"
-                width={650}
-                height={280}
-                alt="globe"
-              />
+            <div className="flex h-[320px] w-full flex-col items-center justify-end gap-5 rounded-xl bg-ash bg-[url(/bgs/bg-2.png)] bg-cover bg-center bg-no-repeat px-10 py-16">
               <span className="w-full text-4xl font-semibold">
                 Connect wallet to access your dashboard
               </span>
               <ConnectWalletButton />
             </div>
           ) : (
-            <div className="relative flex h-[320px] w-full flex-col items-center justify-end gap-5 rounded-xl bg-ash px-10 py-16">
-              <Image
-                className="pointer-events-none absolute bottom-0 opacity-20 blur-[1px] filter"
-                src="/globe.svg"
-                width={650}
-                height={280}
-                alt="globe"
-              />
+            <div className="flex h-[320px] w-full flex-col items-center justify-end gap-5 rounded-xl bg-ash bg-[url(/bgs/bg-2.png)] bg-cover bg-center bg-no-repeat px-10 py-16">
               <span className="w-full text-4xl font-semibold">
                 Connect wallet to access your dashboard
               </span>
