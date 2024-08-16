@@ -27,7 +27,9 @@ const Header = () => {
     <>
       <header
         className={`left-0 z-50 flex w-full items-center justify-center py-5 ${
-          isSticky ? "fixed top-0 bg-coal shadow-md" : "absolute top-[46px] bg-transparent"
+          isSticky
+            ? "fixed top-0 bg-coal shadow-md"
+            : "absolute top-[46px] bg-transparent"
         }`}
       >
         <div className="flex w-full max-w-7xl items-center justify-between px-5">
@@ -48,37 +50,37 @@ const Header = () => {
           <nav className="hidden items-center gap-x-7 text-lightgray lg:flex">
             <Link
               href="/"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Home
             </Link>
             <Link
               href="/#aboutus"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               About Us
             </Link>
             <Link
               href="/our-team"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Our Team
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Crypto Currencies
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Coin Market
             </Link>
             <Link
               href="/cryptocurrencies"
-              className="hover:border-b hover:border-primary hover:text-primary"
+              className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Contact
             </Link>
@@ -104,42 +106,42 @@ const Header = () => {
               <Link
                 href="/"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 Home
               </Link>
               <Link
                 href="/#aboutus"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 About Us
               </Link>
               <Link
                 href="/our-team"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 Our Team
               </Link>
               <Link
                 href="/cryptocurrencies"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 Crypto Currencies
               </Link>
               <Link
                 href="/cryptocurrencies"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 Coin Market
               </Link>
               <Link
                 href="/cryptocurrencies"
                 onClick={() => setIsMenuOpen(false)}
-                className="font-semibold hover:border-b hover:border-primary hover:text-primary"
+                className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
                 Contact
               </Link>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, createContext } from "react";
 import { ethers, providers, utils } from "ethers";
 import CryptoJS from "crypto-js";
@@ -24,6 +24,10 @@ import {
 } from "@web3modal/ethers5/react";
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
+import MovingBar from "@/components/moving-bar/MovingBar";
+import Header from "@/components/Header";
+import Footer from "@/components/footer/Footer";
+import { usePathname } from "next/navigation";
 
 // const getProviderMasterContract = () => {
 //   const providers = process.env.REACT_MAIN_RPC;
@@ -63,6 +67,7 @@ export const StoreProvider = ({ children }) => {
   const [masterContractProposalData, setMasterContractProposalData] = useState(
     [],
   );
+  const pathname = usePathname();
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,
@@ -366,18 +371,15 @@ export const StoreProvider = ({ children }) => {
     }
   };
 
-
   const networkChange = async () => {
-
     let chainid = process.env.NEXT_PUBLIC_CHAIN_ID;
 
     if (isConnected && chainId?.toString() !== chainid?.toString()) {
-      console.log(chainid, chainId, "chainidchainid")
+      console.log(chainid, chainId, "chainidchainid");
       useSwitchNetwork(Number(chainid));
-      return
+      return;
     }
-  }
-
+  };
 
   //////////////////////////////////////////  MASTER CONTRACT STAKING ///////////////////////////////
   //////////////////////////////////////////  MASTER CONTRACT STAKING ///////////////////////////////
@@ -1184,7 +1186,15 @@ export const StoreProvider = ({ children }) => {
           // setTronConnected,
         }}
       >
+        <ToastContainer />
+        {pathname.startsWith("/dashboard") ? null : (
+          <>
+            <MovingBar />
+            <Header />
+          </>
+        )}
         {children}
+        {pathname.startsWith("/dashboard") ? null : <Footer />}
       </Store.Provider>
     </>
   );

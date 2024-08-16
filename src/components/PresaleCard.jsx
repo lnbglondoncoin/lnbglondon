@@ -13,8 +13,9 @@ import {
   useWeb3ModalError,
 } from "@web3modal/ethers5/react";
 import { ethers } from "ethers";
+import React from "react";
 
-const PresaleCard = () => {
+export default function PresaleCard() {
   const {
     contractData,
     BuyWithUSDTandUSDC,
@@ -26,6 +27,14 @@ const PresaleCard = () => {
     presaleStart,
     presaleStop,
   } = useContext(Store);
+
+  // --------------For hydration error-------------------
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  // ----------------------------------------------------
 
   const { open, connectWallet } = useWeb3Modal();
   const { address, chainId, isConnected } = useWeb3ModalAccount();
@@ -153,8 +162,8 @@ const PresaleCard = () => {
         <span>You pay:</span>
         <span>You receive:</span>
       </div>
-      <div className="flex w-full gap-2 sm:gap-0 flex-col sm:flex-row items-center">
-        <div className="flex w-full items-center gap-2 rounded-xl sm:rounded-l-xl border border-gray2 px-3 py-3 text-lg">
+      <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
+        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2 px-3 py-3 text-lg sm:rounded-l-xl">
           {selectedToken == "Ethereum"
             ? ethSvg
             : selectedToken == "USDC"
@@ -168,7 +177,7 @@ const PresaleCard = () => {
             className="w-full bg-transparent text-gray2"
           />
         </div>
-        <div className="flex w-full items-center gap-2 rounded-xl sm:rounded-r-xl border border-gray2 px-3 py-3 text-lg">
+        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2 px-3 py-3 text-lg sm:rounded-r-xl">
           <Image
             src="/coins/lnbgcoin.png"
             width={30}
@@ -195,53 +204,49 @@ const PresaleCard = () => {
           <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">+17%</div>
         </div>
       </div>
-
-      {/* <button onClick={()=>open()} className="mt-10 w-full rounded-full bg-primary py-3 font-bold text-black">
-      Connect Wallet
-    </button> */}
-      {isConnected ? (
-        selectedToken == "Ethereum" ? (
-          <button
-            className="mt-10 w-full rounded-full bg-primary py-3 font-bold text-black"
-            disabled={loader}
-            onClick={() => BuyWithETH(lnbgValue?.toString(), tokenAmount)}
-          >
-            Buy
-          </button>
-        ) : selectedToken == "USDC" ? (
-          <button
-            className="mt-10 w-full rounded-full bg-primary py-3 font-bold text-black"
-            disabled={loader}
-            onClick={() =>
-              BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), false)
-            }
-          >
-            Buy
-          </button>
+      {isClient &&
+        (isConnected == true ? (
+          selectedToken == "Ethereum" ? (
+            <button
+              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+              disabled={loader}
+              onClick={() => BuyWithETH(lnbgValue?.toString(), tokenAmount)}
+            >
+              Buy
+            </button>
+          ) : selectedToken == "USDC" ? (
+            <button
+              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+              disabled={loader}
+              onClick={() =>
+                BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), false)
+              }
+            >
+              Buy
+            </button>
+          ) : (
+            isConnected ==
+            false(
+              <button
+                className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+                disabled={loader}
+                onClick={() =>
+                  BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
+                }
+              >
+                Buy
+              </button>,
+            )
+          )
         ) : (
           <button
-            className="mt-10 w-full rounded-full bg-primary py-3 font-bold text-black"
-            disabled={loader}
-            onClick={() =>
-              BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
-            }
+            className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+            onClick={() => open()}
           >
-            Buy
+            Connect Wallet
           </button>
-        )
-      ) : (
-        <button
-          className="mt-10 w-full rounded-full bg-primary py-3 font-bold text-black"
-          onClick={() => open()}
-        >
-          {" "}
-          Connect Wallet{" "}
-        </button>
-      )}
-
+        ))}
       <span className="text-sm text-gray2/60">How to buy?</span>
     </div>
   );
-};
-
-export default PresaleCard;
+}

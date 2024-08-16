@@ -1,6 +1,4 @@
-import CountdownTimer from "../CountdownTimer";
 import PresaleCard from "../PresaleCard";
-import ProgressBar from "../ProgressBar";
 
 const JoinUsSection = () => {
   return (

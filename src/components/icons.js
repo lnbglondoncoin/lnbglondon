@@ -71,7 +71,7 @@ export const usdcSvg = (
 
 export const bitcoin = (
   <svg
-    class="woox-icon"
+    className="woox-icon"
     data-name="Layer 1"
     viewBox="0 0 26.97 35.33"
     fill="currentColor"
@@ -85,7 +85,7 @@ export const bitcoin = (
 
 export const dogecoin = (
   <svg
-    class="woox-icon"
+    className="woox-icon"
     data-name="Layer 1"
     viewBox="0 0 32.69 20"
     fill="currentColor"
@@ -93,12 +93,12 @@ export const dogecoin = (
     <g id="Dash_DASH" data-name="Dash DASH">
       <path
         d="M38.42 42H16.27l1.84-6h19.37l2.72-8H20.86l1.84-6h21.73a4.34 4.34 0 0 1 1.87.53 2.84 2.84 0 0 1 1.4 1.38 3.9 3.9 0 0 1 .52 1.73 3.73 3.73 0 0 1-.28 2.1l-2.82 8.87a10.88 10.88 0 0 1-1 1.9 9.85 9.85 0 0 1-1.64 1.69 13.19 13.19 0 0 1-1.94 1.27l-.2.08a5.6 5.6 0 0 1-1.92.45zm-20.8-1h20.8a4.78 4.78 0 0 0 1.57-.4l.13-.05a12.63 12.63 0 0 0 1.73-1.14 8.86 8.86 0 0 0 1.45-1.48 10.09 10.09 0 0 0 .87-1.66L47 27.4a2.92 2.92 0 0 0 .22-1.64 3.05 3.05 0 0 0-.4-1.37 1.94 1.94 0 0 0-.92-.94 3.55 3.55 0 0 0-1.47-.44h-21l-1.22 4h19.38L38.2 37H18.85z"
-        class="cls-1"
+        className="cls-1"
         transform="translate(-15.57 -22)"
       ></path>
       <path
         d="M28.13 35H15.57l1.83-6h12.43zm-11.21-1h10.45l1.13-4H18.16z"
-        class="cls-1"
+        className="cls-1"
         transform="translate(-15.57 -22)"
       ></path>
     </g>
@@ -107,7 +107,7 @@ export const dogecoin = (
 
 export const ethereum = (
   <svg
-    class="woox-icon"
+    className="woox-icon"
     data-name="Layer 1"
     viewBox="0 0 22.62 36.84"
     fill="currentColor"
@@ -115,22 +115,22 @@ export const ethereum = (
     <g id="Ethereum_ETH" data-name="Ethereum ETH">
       <path
         d="M32 15.52L41.93 32 32 37.86 22.07 32 32 15.52zm0-1.94L20.69 32.34 32 39.02l11.3-6.68L32 13.58z"
-        class="cls-1"
+        className="cls-1"
         transform="translate(-20.69 -13.58)"
       ></path>
       <path
         d="M32 28.67l9.09 3.82L32 37.86l-9.09-5.37L32 28.67zm0-1.09l-11.31 4.76L32 39.02l11.3-6.68L32 27.58z"
-        class="cls-1"
+        className="cls-1"
         transform="translate(-20.69 -13.58)"
       ></path>
       <path
         d="M39.78 37.73L32 48.7l-7.78-10.96 7.27 4.3.5.3.52-.3 7.27-4.3zm3.53-3.24L32 41.16 20.7 34.5 32 50.41l11.31-15.94z"
-        class="cls-1"
+        className="cls-1"
         transform="translate(-20.69 -13.58)"
       ></path>
       <path
         d="M10.81 1.88h1v22.79h-1zM10.81 27.75h1v7.87h-1z"
-        class="cls-1"
+        className="cls-1"
       ></path>
     </g>
   </svg>
@@ -138,7 +138,7 @@ export const ethereum = (
 
 export const litecoin = (
   <svg
-    class="woox-icon"
+    className="woox-icon"
     data-name="Layer 1"
     viewBox="0 0 27.248 29"
     fill="currentColor"
@@ -152,7 +152,7 @@ export const litecoin = (
 
 export const ripple = (
   <svg
-    class="woox-icon"
+    className="woox-icon"
     data-name="Layer 1"
     viewBox="0 0 29.098 31.372"
     fill="currentColor"
