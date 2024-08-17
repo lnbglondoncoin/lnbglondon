@@ -1,10 +1,8 @@
-import BubblesAnimation from "@/components/animations/Particles";
 import Link from "next/link";
 
 const OurTeamBanner = () => {
   return (
     <section className="relative flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px] xl:h-screen">
-      <BubblesAnimation />
       <div className="z-10 flex w-full max-w-7xl flex-col items-center gap-10 px-5 text-center">
         <span className="text-xl sm:text-2xl tracking-[0.2em] text-primary">
           LNBG LONDON TEAM

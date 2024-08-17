@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import FooterBubblesAnimation from "./FooterParticles";
-import BubblesAnimation from "../animations/Particles";
 
 const Footer = () => {
   return (

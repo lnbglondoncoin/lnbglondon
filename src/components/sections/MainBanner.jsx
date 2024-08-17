@@ -1,19 +1,11 @@
 import Image from "next/image";
-import BubblesAnimation from "../animations/Particles";
 import Button from "../buttons/Button";
+import PresaleCard from "../PresaleCard";
 
 const MainBanner = () => {
   return (
-    <section className="relative flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px] xl:h-screen">
-      <BubblesAnimation />
+    <section className="relative flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px] xl:min-h-screen">
       <div className="z-10 flex w-full max-w-7xl flex-col items-center gap-10 px-5 xl:flex-row">
-        <Image
-          className="w-5/12"
-          src="/bitcoin.png"
-          width={450}
-          height={450}
-          alt="bitcoin"
-        />
         <div className="flex w-7/12 flex-col items-center gap-y-5 text-center lg:items-start lg:text-left">
           <h1 className="text-3xl font-bold sm:text-5xl md:text-6xl">
             Digital Finance C<span className="tracking-normal">ry</span>
@@ -27,6 +19,7 @@ const MainBanner = () => {
             <Button title="Whitepaper" />
           </div>
         </div>
+        <PresaleCard />
       </div>
     </section>
   );

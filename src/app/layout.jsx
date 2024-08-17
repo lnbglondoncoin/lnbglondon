@@ -1,13 +1,9 @@
-import { Comfortaa, Unbounded } from "next/font/google";
+import { Unbounded } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/footer/Footer";
-import MovingBar from "@/components/moving-bar/MovingBar";
 import { StoreProvider } from "@/context/Store/Store";
 import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
 
-const comfortaa = Comfortaa({ subsets: ["latin"] });
 const unbounded = Unbounded({ subsets: ["latin"] });
 
 export const metadata = {
