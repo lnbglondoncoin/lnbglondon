@@ -1,6 +1,6 @@
 const LaptopSection = () => {
   return (
-    <div className="flex w-full items-center justify-center bg-[url(/bgs/bg-2.png)] bg-contain bg-center bg-no-repeat px-5 py-20 2xl:bg-cover">
+    <div className="flex w-full items-center 2xl:min-h-[1200px] justify-center bg-[url(/bgs/bg-2.png)] bg-contain bg-center bg-no-repeat px-5 py-20 2xl:bg-cover">
       <div className="flex h-full w-full max-w-7xl justify-end bg-contain bg-no-repeat sm:bg-[url(/pc.png)]">
         <div className="flex h-full w-full max-w-3xl flex-col justify-center gap-y-7 rounded-lg bg-black/60 p-10">
           <div className="span text-4xl font-bold sm:text-6xl sm:leading-[4.5rem]">

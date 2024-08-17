@@ -1,7 +1,7 @@
 const RoadmapSection = () => {
   return (
-    <section className="mt-10 flex w-full flex-col items-center justify-center bg-coal px-10 pt-20">
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center">
+    <section className="mt-10 flex w-full flex-col items-center justify-center">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center px-10 pt-20 rounded-xl bg-coal">
         <h1 className="text-4xl font-bold uppercase sm:text-6xl">RoadMap</h1>
         <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
@@ -38,8 +38,8 @@ const RoadmapSection = () => {
             ]}
           />
         </div>
-      </div>
       <div className="w-full bg-[url(/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"></div>
+      </div>
     </section>
   );
 };

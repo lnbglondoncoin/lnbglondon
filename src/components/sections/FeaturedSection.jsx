@@ -27,8 +27,8 @@ export default function FeaturedSection() {
     });
   }, [api]);
   return (
-    <section className="flex w-full items-center bg-coal justify-center px-5 py-20">
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center">
+    <section className="flex w-full items-center justify-center">
+      <div className="flex w-full max-w-7xl flex-col bg-coal py-20 rounded-xl px-5 items-center justify-center">
         <h1 className="text-3xl font-semibold">Featured in</h1>
         <Carousel
           className="flex items-center gap-10"

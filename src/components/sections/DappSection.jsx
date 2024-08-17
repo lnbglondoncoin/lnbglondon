@@ -2,11 +2,11 @@ import Button from "../buttons/Button";
 
 export default function DappSection() {
   return (
-    <div className="flex w-full bg-[url(/robot.png)] bg-cover bg-center">
-      <div className="flex w-full items-center justify-center bg-black/70 px-5 py-20">
-        <div className="grid w-full max-w-7xl md:grid-cols-2 md:px-10">
+    <div className="flex w-full items-center justify-center">
+      <div className="flex w-full items-center max-w-7xl justify-center bg-[url(/robot.png)] bg-cover bg-center">
+        <div className="grid w-full max-w-7xl bg-black/70 px-5 py-20 md:grid-cols-2 md:px-10">
           <div className="flex flex-col gap-10">
-            <div className="flex w-fit flex-col gap-2 text-4xl sm:text-6xl font-bold">
+            <div className="flex w-fit flex-col gap-2 text-4xl font-bold sm:text-6xl">
               <h1 className="rounded bg-gradient-to-r from-primary/30 to-white/10 p-1">
                 LNBG DAPP
               </h1>
@@ -19,7 +19,7 @@ export default function DappSection() {
               and Cybro Points. Select the ideal vault for your strategy and
               boost your portfolio today.
             </span>
-            <div className="flex flex-col md:flex-row items-center gap-5 md:gap-10">
+            <div className="flex flex-col items-center gap-5 md:flex-row md:gap-10">
               <Button
                 title="Launch App"
                 className="h-full px-20 text-sm font-bold uppercase shadow-xl shadow-primary/30"
