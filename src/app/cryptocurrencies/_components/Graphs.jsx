@@ -21,7 +21,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
   coin = coin.charAt(0).toUpperCase() + coin.slice(1);
   return (
     <div className="flex items-center justify-center">
-      <div className="mx-5 h-full min-h-screen w-full max-w-7xl rounded-lg bg-coal p-5 py-10 sm:p-20 sm:py-20">
+      <div className="mx-5 h-full w-full max-w-7xl rounded-lg bg-coal p-5 py-10 sm:p-20 sm:py-20">
         <div className="mb-5 flex gap-x-5">
           <h1 className="text-2xl font-bold">
             {coin + " "}

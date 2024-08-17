@@ -45,7 +45,7 @@ const WhyInvestSection = () => {
                 <span className="font-bold uppercase">First Release</span>
                 <span className="text-white/70">JUL 24</span>
               </p>
-              <span className="text-lg text-white/50">
+              <span className="text-lg text-white/50 font-sans">
                 We're launching a crypto investment platform with secure Vaults
                 offering high APY. New features will be added based on your
                 feedback.

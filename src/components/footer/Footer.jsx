@@ -3,26 +3,14 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden bg-coal px-5 pt-10">
-      <div className="absolute inset-0 flex rotate-45 items-center justify-between">
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
-        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
-        <div className="hidden h-[2600px] w-[80px] bg-ash/50 sm:block"></div>
-        <div className="h-[2600px] w-[80px] bg-ash/50"></div>
-      </div>
-      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 px-5 lg:grid-cols-2">
+    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-coal bg-[url(/footer-bg.svg)] bg-cover bg-center px-5 pt-20">
+      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 lg:grid-cols-4">
         <div className="flex flex-col gap-7">
           <div className="flex items-center gap-x-3">
             <Image
-              src="/coins/lnbgcoin.png"
-              width={70}
-              height={70}
+              src="/logo.png"
+              width={50}
+              height={50}
               alt="logo"
               quality={100}
             />
@@ -30,11 +18,10 @@ const Footer = () => {
               LNBG COIN
             </span>
           </div>
-          <span className="text-gray2">
+          <span className="font-sans text-sm text-gray2">
             Discover the future of decentralized funding with Lnbg Coin. Harness
             the power of blockchain technology, unlock new investment
-            opportunities, and generate passive revenue. Join our vibrant
-            community and be part of the financial revolution.
+            opportunities, and generate passive revenue.
           </span>
           <div className="flex gap-5">
             <Link className="hover:text-primary" href="/">
@@ -51,10 +38,96 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="bg-[url('/bgs/dotted-map-white.png')] bg-contain bg-center bg-no-repeat"></div>
+        <div className="flex flex-col gap-3 py-5 items-center">
+          <h1 className="mb-1">COMPANY</h1>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            About us
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Services
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Careers
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Teams
+          </Link>
+        </div>
+        <div className="flex flex-col gap-3 py-5 items-center">
+          <h1 className="mb-1">RESOURCES</h1>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Whitepaper
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Lightpaper
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Github
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Roadmap
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Documentation
+          </Link>
+        </div>
+        <div className="flex flex-col gap-3 py-5 items-center">
+          <h1 className="mb-1">COMMUNITY</h1>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Roles
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Ecosystem
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            Blogs
+          </Link>
+          <Link
+            href="/"
+            className="font-sans text-sm text-gray2 hover:text-primary"
+          >
+            FAQs
+          </Link>
+        </div>
       </div>
-      <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 border-t border-darkgray py-5 text-sm">
-        © All right reserved 2022.
+      <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
+        Copyright © All right reserved 2024.
         <div className="flex">
           <span className="cursor-pointer text-lightgray hover:text-primary">
             LNBG LONDON

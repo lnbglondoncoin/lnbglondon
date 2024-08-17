@@ -163,7 +163,7 @@ export default function PresaleCard() {
         <span>You receive:</span>
       </div>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
-        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2 px-3 py-3 text-lg sm:rounded-l-xl">
+        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
           {selectedToken == "Ethereum"
             ? ethSvg
             : selectedToken == "USDC"
@@ -177,7 +177,7 @@ export default function PresaleCard() {
             className="w-full bg-transparent text-gray2"
           />
         </div>
-        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2 px-3 py-3 text-lg sm:rounded-r-xl">
+        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
           <Image
             src="/coins/lnbgcoin.png"
             width={30}

@@ -36,10 +36,10 @@ const Header = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-x-3">
             <Image
-              className="h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16"
+              className=""
               src="/logo.png"
-              width={60}
-              height={60}
+              width={50}
+              height={50}
               alt="lnbgcoin"
             />
             <span className="text-2xl font-semibold md:text-3xl">
@@ -91,7 +91,7 @@ const Header = () => {
           </button>
           {/* Drop down */}
           {isMenuOpen && (
-            <nav className="absolute left-0 top-0 z-50 flex h-screen w-full flex-col items-center justify-center gap-y-5 bg-secondary">
+            <nav className="absolute left-0 top-0 z-50 flex w-full flex-col items-center justify-center gap-y-5 bg-secondary">
               <button
                 className="absolute right-7 top-7"
                 onClick={() => setIsMenuOpen(false)}

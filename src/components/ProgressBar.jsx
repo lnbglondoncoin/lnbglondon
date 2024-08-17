@@ -1,4 +1,5 @@
 const ProgressBar = ({soldPercentage}) => {
+  console.log(soldPercentage, "soldPercentage");
   return (
     <div className="flex w-full flex-col gap-y-1">
       <div className="flex justify-between">

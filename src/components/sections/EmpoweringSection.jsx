@@ -2,8 +2,8 @@ import React from "react";
 
 const EmpoweringSection = () => {
   return (
-    <section className="flex items-center justify-center text-center">
-      <div className="flex min-h-screen w-full max-w-7xl flex-col items-center justify-center gap-y-10 bg-[url('/bgs/dotted-map.png')] bg-center bg-no-repeat px-5 py-10">
+    <section className="flex items-center justify-center bg-[url('/bgs/dotted-map.png')] bg-center bg-no-repeat py-20 text-center">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-y-10 px-5 py-10">
         <div className="flex gap-x-1">
           <div className="h-2 w-2 rounded-full bg-primary"></div>
           <div className="h-2 w-2 rounded-full bg-primary"></div>
@@ -13,18 +13,18 @@ const EmpoweringSection = () => {
           <div className="h-2 w-2 rounded-full bg-primary"></div>
           <div className="h-2 w-2 rounded-full bg-primary"></div>
         </div>
-        <h1 className="text-center text-4xl sm:text-5xl font-bold tracking-tighter">
+        <h1 className="text-center text-4xl font-bold tracking-tighter sm:text-5xl">
           Empowering Companies & Empowering You
           <span className="text-primary">.</span>
         </h1>
-        <span className="text-xl sm:text-2xl tracking-tight text-lightgray">
+        <span className="text-xl tracking-tight text-lightgray sm:text-2xl">
           Through tokenization of equity and assets
         </span>
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
             <span className="text-6xl font-bold text-primary">6386</span>
             <span className="text-2xl font-bold">More leads</span>
-            <span className="text-sm tracking-wide text-gray2">
+            <span className="tracking-wide  font-sans text-gray2">
               Our platform generates additional web traffic of highly motivated
               crypto users to each of our partners.
             </span>
@@ -33,7 +33,7 @@ const EmpoweringSection = () => {
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
             <span className="text-6xl font-bold text-primary">16000</span>
             <span className="text-2xl font-bold">Higher Sales</span>
-            <span className="text-sm tracking-wide text-gray2">
+            <span className="tracking-wide  font-sans text-gray2">
               Our platform generates a steady flow of motivated crypto users to
               our partners.thanks to our dynamic networks.
             </span>
@@ -42,7 +42,7 @@ const EmpoweringSection = () => {
           <div className="group flex max-w-72 cursor-pointer flex-col items-center gap-y-5 text-center">
             <span className="text-6xl font-bold text-primary">8327</span>
             <span className="text-2xl font-bold">Clients worldwide</span>
-            <span className="text-sm tracking-wide text-gray2">
+            <span className="tracking-wide  font-sans text-gray2">
               Our streamlined automated processes make all the work for you. It
               is simple and easy solution for anyone.
             </span>
@@ -53,7 +53,7 @@ const EmpoweringSection = () => {
               2000<span className="text-darkgray">+</span>
             </span>
             <span className="text-2xl font-bold">More leads</span>
-            <span className="text-sm tracking-wide text-gray2">
+            <span className="tracking-wide  font-sans text-gray2">
               We validate crypto service providers before listing them to
               protect our users from widespread crypto frauds and scams.
             </span>

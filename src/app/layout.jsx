@@ -3,6 +3,10 @@ import "./globals.css";
 import { StoreProvider } from "@/context/Store/Store";
 import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import MovingBar from "@/components/moving-bar/MovingBar";
+import Header from "@/components/Header";
+import Footer from "@/components/footer/Footer";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
 
@@ -16,7 +20,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`bg-[url('/bgs/body-bg.png')] ${unbounded.className}`}>
         <Web3Modal>
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider>
+            <ToastContainer />
+            <MovingBar />
+            <Header />
+            {children}
+            <Footer />
+          </StoreProvider>
         </Web3Modal>
       </body>
     </html>

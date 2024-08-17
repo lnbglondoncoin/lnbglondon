@@ -19,14 +19,14 @@ const JoinUsSection = () => {
               Join us on this exciting journey{" "}
               <span className="text-primary">!</span>
             </h1>
-            <span className="text-gray2">
+            <span className="font-sans text-lg text-gray2">
               In today's rapidly evolving financial landscape, Lnbg Coin emerges
               as a trailblazer, offering a gateway to decentralized funding and
               a world of untapped potential. Our mission is to revolutionize the
               way asset owners raise funds globally, harnessing the
               transformative capabilities of blockchain technology.
             </span>
-            <span className="text-gray2">
+            <span className="font-sans text-lg text-gray2">
               Lnbg Coin aligns perfectly with the principles of decentralized
               finance (DeFi), a paradigm that seeks to democratize financial
               services and make them accessible to everyone. Our platform
@@ -34,7 +34,7 @@ const JoinUsSection = () => {
               providing individuals and businesses with a seamless experience in
               navigating the decentralized funding landscape.
             </span>
-            <span className="text-gray2">
+            <span className="font-sans text-lg text-gray2">
               Invest in Lnbg Coin today and become part of a global movement
               that is reshaping the future of funding. Unleash the power of
               tokenization, unlock new horizons of financial opportunity, and

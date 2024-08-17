@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { arrowLeft } from "../icons";
 
-const PartnersSection = () => {
+export default function FeaturedSection() {
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -27,8 +27,9 @@ const PartnersSection = () => {
     });
   }, [api]);
   return (
-    <div className="flex items-center justify-center px-5">
-      <div className="flex w-full max-w-7xl items-center justify-center gap-x-10 px-5">
+    <section className="flex w-full items-center bg-coal justify-center px-5 py-20">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center">
+        <h1 className="text-3xl font-semibold">Featured in</h1>
         <Carousel
           className="flex items-center gap-10"
           setApi={setApi}
@@ -45,8 +46,9 @@ const PartnersSection = () => {
               <Image
                 quality={100}
                 src="/clients/client1.png"
-                width={160}
-                height={50}
+                width={180}
+                height={60}
+                className="grayscale"
                 alt="client1"
               />
             </CarouselItem>
@@ -54,8 +56,9 @@ const PartnersSection = () => {
               <Image
                 quality={100}
                 src="/clients/client2.png"
-                width={160}
-                height={50}
+                width={180}
+                height={60}
+                className="grayscale"
                 alt="client1"
               />
             </CarouselItem>
@@ -63,8 +66,9 @@ const PartnersSection = () => {
               <Image
                 quality={100}
                 src="/clients/client3.png"
-                width={160}
-                height={50}
+                width={180}
+                height={60}
+                className="grayscale"
                 alt="client1"
               />
             </CarouselItem>
@@ -72,8 +76,9 @@ const PartnersSection = () => {
               <Image
                 quality={100}
                 src="/clients/client4.png"
-                width={160}
-                height={50}
+                width={180}
+                height={60}
+                className="grayscale"
                 alt="client1"
               />
             </CarouselItem>
@@ -81,8 +86,9 @@ const PartnersSection = () => {
               <Image
                 quality={100}
                 src="/clients/client5.png"
-                width={160}
-                height={50}
+                width={180}
+                height={60}
+                className="grayscale"
                 alt="client1"
               />
             </CarouselItem>
@@ -94,9 +100,25 @@ const PartnersSection = () => {
             {arrowLeft}
           </button>
         </Carousel>
+        <div className="grid w-full md:grid-cols-2 rounded-3xl md:rounded-[32px] bg-black p-1.5">
+          <Image
+            src="/feature.png"
+            width={600}
+            height={400}
+            className="w-full"
+          />
+          <div className="flex flex-col items-center text-center justify-center gap-5 p-10">
+            <h1 className="text-4xl font-bold">
+              6285 <span className="uppercase text-gray2/70">Holders</span>
+            </h1>
+            <span className="font-sans text-xl text-gray2">
+              With our supporters, we're building something bigger and more
+              impactful with each new connection. Join now our network of
+              innovators!
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default PartnersSection;
+}

@@ -3,7 +3,7 @@ import Image from "next/image";
 const EarnFreeSection = () => {
   return (
     <section className="flex items-center justify-center px-5 py-10">
-      <div className="grid min-h-screen w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center gap-y-5 px-5">
           <span className="text-2xl tracking-widest text-primary">
             Our Refferal Program
@@ -12,19 +12,19 @@ const EarnFreeSection = () => {
             Earn free lnbg coins with Every Referral{" "}
             <span className="text-primary">.</span>
           </span>
-          <span className="text-gray2">
+          <span className="text-gray2 font-sans text-lg">
             Ready to start earning free Lnbg Coins? Log in to your Lnbg Coin
             account today and grab your unique referral link. Share it with your
             network and watch your coin balance grow with each successful
             referral.
           </span>
-          <span className="text-gray2">
+          <span className="text-gray2 font-sans text-lg">
             Join us in building a strong and vibrant community of Lnbg Coin
             supporters. Together, we can shape the future of decentralized
             finance and create new opportunities for financial growth and
             empowerment.
           </span>
-          <span className="text-gray2">
+          <span className="text-gray2 font-sans text-lg">
             Don't miss out on this exciting opportunity to earn free coins while
             introducing others to the world of Lnbg Coin. Start referring today
             and let's make a difference together!

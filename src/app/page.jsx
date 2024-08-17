@@ -1,5 +1,7 @@
+import DappSection from "@/components/sections/DappSection";
 import EarnFreeSection from "@/components/sections/EarnFreeSection";
 import EmpoweringSection from "@/components/sections/EmpoweringSection";
+import FeaturedSection from "@/components/sections/FeaturedSection";
 import FiveCoinsSection from "@/components/sections/FiveCoinsSection";
 import GatewaySection from "@/components/sections/GatewaySection";
 import JoinUsSection from "@/components/sections/JoinUsSection";
@@ -14,13 +16,15 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <MainBanner />
-      <FiveCoinsSection />
+      <FeaturedSection />
+      {/* <FiveCoinsSection /> */}
       <GatewaySection />
-      <EmpoweringSection />
+      {/* <EmpoweringSection /> */}
       <WhyInvestSection />
+      <DappSection />
       <LaptopSection />
-      <PartnersSection />
-      <JoinUsSection />
+      {/* <PartnersSection /> */}
+      {/* <JoinUsSection /> */}
       <RoadmapSection />
       <TokenomicsSection />
       <EarnFreeSection />

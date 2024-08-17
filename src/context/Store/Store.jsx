@@ -1186,15 +1186,7 @@ export const StoreProvider = ({ children }) => {
           // setTronConnected,
         }}
       >
-        <ToastContainer />
-        {pathname.startsWith("/dashboard") ? null : (
-          <>
-            <MovingBar />
-            <Header />
-          </>
-        )}
         {children}
-        {pathname.startsWith("/dashboard") ? null : <Footer />}
       </Store.Provider>
     </>
   );

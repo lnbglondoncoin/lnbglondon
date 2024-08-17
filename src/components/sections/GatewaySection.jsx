@@ -2,17 +2,20 @@ import Image from "next/image";
 
 const GatewaySection = () => {
   return (
-    <section className="flex items-center justify-center px-5 py-10" id="aboutus">
-      <div className="grid min-h-screen w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
+    <section
+      className="flex items-center justify-center px-5 py-20"
+      id="aboutus"
+    >
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center gap-y-5 px-5">
           <span className="text-2xl tracking-widest text-primary">
             Invest in the Future of Finance
           </span>
-          <span className="text-4xl sm:text-5xl font-bold text-white">
+          <span className="text-4xl font-bold text-white sm:text-5xl">
             Gateway to Defi Blockchain Solutions{" "}
             <span className="text-primary">.</span>
           </span>
-          <span className="text-gray2">
+          <span className="font-sans text-lg text-gray2">
             Lnbg Coin DeFi is a revolutionary decentralized application (dApp)
             browser designed to provide seamless access to the world of
             decentralized finance (DeFi) applications. Our platform serves as a
@@ -20,7 +23,7 @@ const GatewaySection = () => {
             protocols and decentralized applications, empowering them to take
             control of their financial journey.
           </span>
-          <span className="text-gray2">
+          <span className="font-sans text-lg text-gray2">
             With Lnbg coin DeFi, you gain access to a diverse ecosystem of DeFi
             applications that offer exciting opportunities for lending,
             borrowing, yield farming, decentralized exchanges, and much more.
