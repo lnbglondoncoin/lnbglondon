@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`bg-black ${unbounded.className}`}>
+      <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>
           <StoreProvider>
             <ToastContainer />

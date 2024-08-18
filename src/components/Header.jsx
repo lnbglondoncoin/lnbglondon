@@ -28,7 +28,7 @@ const Header = () => {
       <header
         className={`left-0 z-50 flex w-full items-center justify-center py-5 ${
           isSticky
-            ? "fixed top-0 bg-coal shadow-md"
+            ? "fixed top-0 bg-[#11121a] shadow-md"
             : "absolute top-[46px] bg-transparent"
         }`}
       >
@@ -38,8 +38,8 @@ const Header = () => {
             <Image
               className=""
               src="/logo.png"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               alt="lnbgcoin"
             />
             <span className="text-2xl font-semibold md:text-3xl">

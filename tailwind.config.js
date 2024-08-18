@@ -27,7 +27,7 @@ module.exports = {
         warning: "#8dc647",
         darkgray: "#666d7a",
         ash: "#1F2129",
-        coal: "#131418",
+        coal: "#0a0b10",
       },
       keyframes: {
         "accordion-down": {

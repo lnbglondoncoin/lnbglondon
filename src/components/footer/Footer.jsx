@@ -3,14 +3,14 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-coal bg-[url(/footer-bg.svg)] bg-cover bg-center px-5 pt-20">
-      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 lg:grid-cols-4">
+    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-[#11121a] bg-cover bg-center px-5 pt-20">
+      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-7">
           <div className="flex items-center gap-x-3">
             <Image
               src="/logo.png"
-              width={50}
-              height={50}
+              width={40}
+              height={40}
               alt="logo"
               quality={100}
             />
@@ -38,7 +38,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-3 py-5 items-center">
+        <div className="flex flex-col gap-3 lg:items-center py-5">
           <h1 className="mb-1">COMPANY</h1>
           <Link
             href="/"
@@ -65,7 +65,7 @@ const Footer = () => {
             Teams
           </Link>
         </div>
-        <div className="flex flex-col gap-3 py-5 items-center">
+        <div className="flex flex-col gap-3 lg:items-center py-5">
           <h1 className="mb-1">RESOURCES</h1>
           <Link
             href="/"
@@ -98,7 +98,7 @@ const Footer = () => {
             Documentation
           </Link>
         </div>
-        <div className="flex flex-col gap-3 py-5 items-center">
+        <div className="flex flex-col gap-3 lg:items-center py-5">
           <h1 className="mb-1">COMMUNITY</h1>
           <Link
             href="/"
