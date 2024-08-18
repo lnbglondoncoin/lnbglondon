@@ -136,7 +136,7 @@ export default function PresaleCard() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-y-5 rounded-lg bg-black/50 px-5 py-6 md:px-8 md:py-9">
+    <div className="flex flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9">
       <h1 className="text-xl font-extrabold uppercase">Buy LNBG Coin</h1>
       <div className="flex w-full flex-col gap-3 rounded-xl bg-coal px-4 py-5">
         <span className="text-sm font-bold text-gray2">USD raised</span>
