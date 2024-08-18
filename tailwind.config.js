@@ -26,7 +26,7 @@ module.exports = {
         danger: "#ff3133",
         warning: "#8dc647",
         darkgray: "#666d7a",
-        ash: "#1F2129",
+        ash: "#11121a",
         coal: "#0a0b10",
       },
       keyframes: {

@@ -28,7 +28,7 @@ const Header = () => {
       <header
         className={`left-0 z-50 flex w-full items-center justify-center py-5 ${
           isSticky
-            ? "fixed top-0 bg-[#11121a] shadow-md"
+            ? "fixed top-0 bg-ash shadow-md"
             : "absolute top-[46px] bg-transparent"
         }`}
       >

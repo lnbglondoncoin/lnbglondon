@@ -1,7 +1,7 @@
 const RoadmapSection = () => {
   return (
     <section className="mt-10 flex w-full flex-col items-center justify-center">
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center px-10 pt-20 rounded-xl bg-coal">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center px-10 pt-20 rounded-xl bg-ash">
         <h1 className="text-4xl font-bold uppercase sm:text-6xl">RoadMap</h1>
         <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
@@ -47,7 +47,7 @@ const RoadmapSection = () => {
 const Card = ({ step, year, points, active = false }) => {
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-xl bg-ash p-2.5 ${active && "scale-105 border-4 border-dashed border-primary"}`}
+      className={`relative w-full overflow-hidden rounded-xl bg-coal p-2.5 ${active && "scale-105 border-4 border-dashed border-primary"}`}
     >
       {active && (
         <div className="absolute inset-0 flex rotate-45 items-center">
@@ -70,7 +70,7 @@ const Card = ({ step, year, points, active = false }) => {
         </span>
         <span className="pt-0.5 text-gray2">{year}</span>
       </div>
-      <div className="relative z-10 mt-1 flex w-full flex-col gap-2 rounded-lg bg-coal p-4">
+      <div className="relative z-10 mt-1 flex w-full flex-col gap-2 rounded-lg bg-ash p-4">
         {points.map((point, index) => (
           <div className="flex items-center gap-2 font-bold" key={index}>
             <div className="h-1.5 w-1.5 bg-primary"></div>
