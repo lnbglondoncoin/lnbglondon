@@ -3,7 +3,7 @@ import Button from "../buttons/Button";
 export default function DappSection() {
   return (
     <div className="flex w-full items-center justify-center">
-      <div className="flex w-full items-center max-w-7xl justify-center bg-[url(/robot.png)] bg-cover bg-center">
+      <div className="flex w-full items-center max-w-7xl justify-center bg-[url(/robot.png)] bg-cover rounded-xl overflow-hidden bg-center">
         <div className="grid w-full max-w-7xl bg-black/70 px-5 py-20 md:grid-cols-2 md:px-10">
           <div className="flex flex-col gap-10">
             <div className="flex w-fit flex-col gap-2 text-4xl font-bold sm:text-6xl">

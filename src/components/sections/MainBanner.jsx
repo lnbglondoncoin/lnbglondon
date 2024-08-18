@@ -9,7 +9,7 @@ const MainBanner = () => {
       <Vortex
         backgroundColor="transparent"
         containerClassName="h-full w-full max-w-screen"
-        // rangeY={800}
+        rangeY={800}
         particleCount={700}
         baseHue={50}
         className="flex h-full w-full items-center justify-center pb-10 pt-[120px]"
