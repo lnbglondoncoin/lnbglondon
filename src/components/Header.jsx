@@ -73,13 +73,14 @@ const Header = () => {
               Crypto Currencies
             </Link>
             <Link
-              href="/cryptocurrencies"
+              href="https://lnbg-dapp.vercel.app"
+              target="_blank"
               className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
-              Coin Market
+              Dapp
             </Link>
             <Link
-              href="/cryptocurrencies"
+              href="/contact"
               className="font-sans hover:border-b hover:border-primary hover:text-primary"
             >
               Contact
@@ -139,7 +140,7 @@ const Header = () => {
                 Coin Market
               </Link>
               <Link
-                href="/cryptocurrencies"
+                href="/contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="font-sans hover:border-b hover:border-primary hover:text-primary"
               >
