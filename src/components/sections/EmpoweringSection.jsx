@@ -2,7 +2,7 @@ import React from "react";
 
 const EmpoweringSection = () => {
   return (
-    <section className="flex items-center justify-center bg-[url('/bgs/dotted-map.png')] bg-center bg-no-repeat py-20 text-center">
+    <section className="flex items-center justify-center bg-[url('/bgs/dotted-map.png')] bg-center bg-no-repeat py-20 text-center overflow-hidden max-w-[100vw]">
       <div className="flex w-full max-w-7xl flex-col items-center justify-center gap-y-10 px-5 py-10">
         <div className="flex gap-x-1">
           <div className="h-2 w-2 rounded-full bg-primary"></div>

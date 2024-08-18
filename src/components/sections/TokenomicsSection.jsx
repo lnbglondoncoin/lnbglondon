@@ -1,11 +1,28 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { leftToRightVariants, rightToLeftVariants } from "../variants";
+
 const TokenomicsSection = () => {
   return (
-    <section className="flex w-full justify-center px-1">
+    <section className="flex w-full justify-center px-1 overflow-hidden max-w-[100vw]">
       <div className="flex w-full max-w-7xl flex-col items-center gap-10 py-20">
-        <h1 className="text-center text-3xl font-bold sm:text-4xl md:text-5xl">
+        <motion.h1
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+          className="text-center text-3xl font-bold sm:text-4xl md:text-5xl"
+        >
           TOKENOMICS
-        </h1>
-        <div className="flex h-[350px] w-[350px] flex-col bg-[url(/tokenomics.png)] bg-[length:190px_190px] bg-center bg-no-repeat sm:h-[460px] sm:w-[640px] sm:bg-[length:270px_270px]">
+        </motion.h1>
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="flex h-[350px] w-[350px] flex-col bg-[url(/tokenomics.png)] bg-[length:190px_190px] bg-center bg-no-repeat sm:h-[460px] sm:w-[640px] sm:bg-[length:270px_270px]"
+        >
           <div className="flex h-full w-full flex-col gap-3">
             <div className="flex w-full flex-col items-center">
               <span className="text-sm text-gray2">Total tokens:</span>
@@ -98,7 +115,7 @@ const TokenomicsSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

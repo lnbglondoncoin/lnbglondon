@@ -1,18 +1,32 @@
-import { ChevronRight } from "lucide-react";
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
 const WhyInvestSection = () => {
   return (
-    <section className="flex w-full items-center justify-center px-5">
+    <section className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden px-5">
       <div className="flex flex-col gap-10 py-10">
         <div className="grid w-full max-w-7xl gap-0.5 bg-[#353550] p-0.5 lg:grid-cols-2">
           <div className="flex flex-col gap-0.5">
-            <div className="bg-coal p-10">
+            <motion.div
+              initial="hide"
+              whileInView="show"
+              exit="show"
+              variants={leftToRightVariants}
+              className="bg-coal p-10"
+            >
               <h1 className="text-4xl font-bold uppercase sm:text-6xl sm:leading-[4.5rem]">
                 Why invest <br /> in LNBG?
               </h1>
-            </div>
-            <div className="why-invest-box relative flex h-full w-full flex-col overflow-hidden bg-cover p-5">
+            </motion.div>
+            <motion.div
+              initial="hide"
+              whileInView="show"
+              exit="show"
+              variants={leftToRightVariants}
+              className="why-invest-box relative flex h-full w-full flex-col overflow-hidden bg-cover p-5"
+            >
               <div className="static z-10 flex h-full min-h-[320px] flex-col gap-4 px-8 py-4">
                 <p className="w-fit rounded-sm bg-primary px-1 font-sans text-xl text-black">
                   <span className="font-bold">+100%</span> in 2 months
@@ -37,15 +51,21 @@ const WhyInvestSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="flex flex-col gap-0.5 justify-center">
-            <div className="flex h-full flex-col gap-5 bg-black p-10">
+          <div className="flex flex-col justify-center gap-0.5">
+            <motion.div
+              initial="hide"
+              whileInView="show"
+              exit="show"
+              variants={rightToLeftVariants}
+              className="flex h-full flex-col gap-5 bg-black p-10"
+            >
               <p className="flex flex-col gap-2 text-xl sm:flex-row">
                 <span className="font-bold uppercase">First Release</span>
                 <span className="text-white/70">JUL 24</span>
               </p>
-              <span className="text-lg text-white/50 font-sans">
+              <span className="font-sans text-lg text-white/50">
                 We're launching a crypto investment platform with secure Vaults
                 offering high APY. New features will be added based on your
                 feedback.
@@ -54,8 +74,14 @@ const WhyInvestSection = () => {
                 Invest safely, earn reliably. <br /> Your input shapes what's
                 next
               </span>
-            </div>
-            <div className="flex flex-col justify-center gap-1 bg-secondary px-10 py-16">
+            </motion.div>
+            <motion.div
+              initial="hide"
+              whileInView="show"
+              exit="show"
+              variants={rightToLeftVariants}
+              className="flex flex-col justify-center gap-1 bg-secondary px-10 py-16"
+            >
               <span className="text-2xl uppercase text-gray2">
                 Supportive community of:
               </span>
@@ -63,14 +89,20 @@ const WhyInvestSection = () => {
                 <span className="font-bold">7456</span>
                 <span className="font-light uppercase text-gray2">Holders</span>
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-        <div className="flex items-center justify-center">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="flex items-center justify-center"
+        >
           <button className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black">
             Buy LNBG Coin
           </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

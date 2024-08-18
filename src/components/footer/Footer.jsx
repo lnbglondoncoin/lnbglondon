@@ -1,140 +1,157 @@
 import Image from "next/image";
 import Link from "next/link";
+import { WavyBackground } from "../ui/wavy-background";
 
 const Footer = () => {
   return (
-    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center px-5 pt-20">
-      <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="flex flex-col gap-7">
-          <div className="flex items-center gap-x-3">
-            <Image
-              src="/logo.png"
-              width={40}
-              height={40}
-              alt="logo"
-              quality={100}
-            />
-            <span className="font-sans text-2xl font-black md:text-3xl">
-              LNBG COIN
+    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center">
+      <WavyBackground
+        blur={0}
+        containerClassName="w-full h-[450px]"
+        waveWidth={500}
+        colors={[
+          "#0a0b10",
+          "#16181d",
+          "#0a0b10",
+          "#16181d",
+          "#0a0b10",
+          "#16181d",
+        ]}
+        backgroundFill="transparent"
+        className="flex flex-col items-center justify-center px-5 pt-20"
+      >
+        <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col gap-7">
+            <div className="flex items-center gap-x-3">
+              <Image
+                src="/logo.png"
+                width={40}
+                height={40}
+                alt="logo"
+                quality={100}
+              />
+              <span className="font-sans text-2xl font-black md:text-3xl">
+                LNBG COIN
+              </span>
+            </div>
+            <span className="font-sans text-sm text-gray2">
+              Discover the future of decentralized funding with Lnbg Coin.
+              Harness the power of blockchain technology, unlock new investment
+              opportunities, and generate passive revenue.
             </span>
+            <div className="flex gap-5">
+              <Link className="hover:text-primary" href="/">
+                {twitterIcon}
+              </Link>
+              <Link className="hover:text-primary" href="/">
+                {globeIcon}
+              </Link>
+              <Link className="hover:text-primary" href="/">
+                {linkedInIcon}
+              </Link>
+              <Link className="hover:text-primary" href="/">
+                {facebookIcon}
+              </Link>
+            </div>
           </div>
-          <span className="font-sans text-sm text-gray2">
-            Discover the future of decentralized funding with Lnbg Coin. Harness
-            the power of blockchain technology, unlock new investment
-            opportunities, and generate passive revenue.
-          </span>
-          <div className="flex gap-5">
-            <Link className="hover:text-primary" href="/">
-              {twitterIcon}
+          <div className="flex flex-col gap-3 py-5 lg:items-center">
+            <h1 className="mb-1">COMPANY</h1>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              About us
             </Link>
-            <Link className="hover:text-primary" href="/">
-              {globeIcon}
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Services
             </Link>
-            <Link className="hover:text-primary" href="/">
-              {linkedInIcon}
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Careers
             </Link>
-            <Link className="hover:text-primary" href="/">
-              {facebookIcon}
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Teams
+            </Link>
+          </div>
+          <div className="flex flex-col gap-3 py-5 lg:items-center">
+            <h1 className="mb-1">RESOURCES</h1>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Whitepaper
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Lightpaper
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Github
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Roadmap
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Documentation
+            </Link>
+          </div>
+          <div className="flex flex-col gap-3 py-5 lg:items-center">
+            <h1 className="mb-1">COMMUNITY</h1>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Roles
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Ecosystem
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              Blogs
+            </Link>
+            <Link
+              href="/"
+              className="font-sans text-sm text-gray2 hover:text-primary"
+            >
+              FAQs
             </Link>
           </div>
         </div>
-        <div className="flex flex-col gap-3 lg:items-center py-5">
-          <h1 className="mb-1">COMPANY</h1>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            About us
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Services
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Careers
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Teams
-          </Link>
+        <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
+          Copyright © All right reserved 2024.
+          <div className="flex">
+            <span className="cursor-pointer text-lightgray hover:text-primary">
+              LNBG LONDON
+            </span>{" "}
+            - Intial Coin Offering.
+          </div>
         </div>
-        <div className="flex flex-col gap-3 lg:items-center py-5">
-          <h1 className="mb-1">RESOURCES</h1>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Whitepaper
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Lightpaper
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Github
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Roadmap
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Documentation
-          </Link>
-        </div>
-        <div className="flex flex-col gap-3 lg:items-center py-5">
-          <h1 className="mb-1">COMMUNITY</h1>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Roles
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Ecosystem
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            Blogs
-          </Link>
-          <Link
-            href="/"
-            className="font-sans text-sm text-gray2 hover:text-primary"
-          >
-            FAQs
-          </Link>
-        </div>
-      </div>
-      <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
-        Copyright © All right reserved 2024.
-        <div className="flex">
-          <span className="cursor-pointer text-lightgray hover:text-primary">
-            LNBG LONDON
-          </span>{" "}
-          - Intial Coin Offering.
-        </div>
-      </div>
+      </WavyBackground>
     </footer>
   );
 };

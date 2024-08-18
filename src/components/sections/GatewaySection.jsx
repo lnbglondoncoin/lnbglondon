@@ -1,12 +1,22 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
 const GatewaySection = () => {
   return (
     <section
-      className="flex items-center justify-center px-5 py-20"
+      className="flex items-center justify-center px-5 py-20 overflow-hidden max-w-[100vw]"
       id="aboutus"
     >
-      <div className="grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2">
+      <motion.div
+        initial="hide"
+        whileInView="show"
+        exit="show"
+        variants={leftToRightVariants}
+        className="grid w-full max-w-7xl grid-cols-1 gap-10 lg:grid-cols-2"
+      >
         <div className="flex flex-col justify-center gap-y-5 px-5">
           <span className="text-2xl tracking-widest text-primary">
             Invest in the Future of Finance
@@ -33,7 +43,13 @@ const GatewaySection = () => {
             of expertise.
           </span>
         </div>
-        <div className="flex w-full items-center justify-center">
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={rightToLeftVariants}
+          className="flex w-full items-center justify-center"
+        >
           <Image
             src="/phone.png"
             width={500}
@@ -41,8 +57,8 @@ const GatewaySection = () => {
             alt="phone"
             quality={100}
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { ethSvg, usdcSvg, usdtSvg } from "./icons";
 import Image from "next/image";
 import { Store } from "@/context/Store/Store";
+import { motion } from "framer-motion";
 import {
   useWeb3Modal,
   useWeb3ModalAccount,
@@ -136,7 +137,21 @@ export default function PresaleCard() {
   };
 
   return (
-    <div className="flex flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9">
+    <motion.div
+      initial={{
+        x: 100,
+        opacity: 0,
+      }}
+      animate={{
+        x: 0,
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1.5,
+        delay: 0.5,
+      }}
+      className="flex flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9"
+    >
       <h1 className="text-xl font-extrabold uppercase">Buy LNBG Coin</h1>
       <div className="flex w-full flex-col gap-3 rounded-xl bg-coal px-4 py-5">
         <span className="text-sm font-bold text-gray2">USD raised</span>
@@ -247,6 +262,6 @@ export default function PresaleCard() {
           </button>
         ))}
       <span className="text-sm text-gray2/60">How to buy?</span>
-    </div>
+    </motion.div>
   );
 }

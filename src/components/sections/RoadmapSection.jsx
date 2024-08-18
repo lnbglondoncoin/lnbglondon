@@ -1,8 +1,21 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { leftToRightVariants, rightToLeftVariants } from "../variants";
+
 const RoadmapSection = () => {
   return (
-    <section className="mt-10 flex w-full flex-col items-center justify-center">
-      <div className="flex w-full max-w-7xl flex-col items-center justify-center px-10 pt-20 rounded-xl bg-ash">
-        <h1 className="text-4xl font-bold uppercase sm:text-6xl">RoadMap</h1>
+    <section className="mt-10 flex w-full flex-col items-center justify-center bg-ash overflow-hidden max-w-[100vw]">
+      <div className="flex w-full max-w-7xl flex-col items-center justify-center rounded-xl px-10 pt-20">
+        <motion.h1
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="text-4xl font-bold uppercase sm:text-6xl"
+        >
+          RoadMap
+        </motion.h1>
         <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             step="Q1"
@@ -38,7 +51,13 @@ const RoadmapSection = () => {
             ]}
           />
         </div>
-      <div className="w-full bg-[url(/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"></div>
+        <motion.div
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="w-full bg-[url(/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"
+        ></motion.div>
       </div>
     </section>
   );
@@ -46,7 +65,11 @@ const RoadmapSection = () => {
 
 const Card = ({ step, year, points, active = false }) => {
   return (
-    <div
+    <motion.div
+      initial="hide"
+      whileInView="show"
+      exit="show"
+      variants={rightToLeftVariants}
       className={`relative w-full overflow-hidden rounded-xl bg-coal p-2.5 ${active && "scale-105 border-4 border-dashed border-primary"}`}
     >
       {active && (
@@ -78,7 +101,7 @@ const Card = ({ step, year, points, active = false }) => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

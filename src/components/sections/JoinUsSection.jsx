@@ -2,7 +2,7 @@ import PresaleCard from "../PresaleCard";
 
 const JoinUsSection = () => {
   return (
-    <section className="flex items-center justify-center px-5 pt-20">
+    <section className="flex items-center justify-center px-5 pt-20 overflow-hidden max-w-[100vw]">
       <div className="w-full max-w-7xl border-t border-darkgray pt-20">
         <div className="grid w-full grid-cols-1 gap-10 bg-[url('/bgs/clock.svg')] bg-contain bg-center bg-no-repeat px-3 py-20 sm:px-7 lg:grid-cols-2">
           <div className="flex flex-col gap-y-10">

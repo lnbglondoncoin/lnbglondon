@@ -27,7 +27,7 @@ const PartnersSection = () => {
     });
   }, [api]);
   return (
-    <div className="flex items-center justify-center px-5">
+    <div className="flex items-center justify-center px-5 overflow-hidden max-w-[100vw]">
       <div className="flex w-full max-w-7xl items-center justify-center gap-x-10 px-5">
         <Carousel
           className="flex items-center gap-10"
