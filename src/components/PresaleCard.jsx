@@ -240,18 +240,15 @@ export default function PresaleCard() {
               Buy
             </button>
           ) : (
-            isConnected ==
-            false(
-              <button
-                className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-                disabled={loader}
-                onClick={() =>
-                  BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
-                }
-              >
-                Buy
-              </button>,
-            )
+            <button
+              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+              disabled={loader}
+              onClick={() =>
+                BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
+              }
+            >
+              Buy
+            </button>
           )
         ) : (
           <button
