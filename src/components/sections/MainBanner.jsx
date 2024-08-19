@@ -5,6 +5,7 @@ import PresaleCard from "../PresaleCard";
 import { Vortex } from "../ui/vortex";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const MainBanner = () => {
   const texts = [
@@ -13,6 +14,7 @@ const MainBanner = () => {
     "Trading",
     "Future",
   ];
+  const router = useRouter();
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">
       <Vortex
@@ -49,7 +51,7 @@ const MainBanner = () => {
             </span>
             <div className="mt-10 flex items-center gap-x-5">
               <Button title="Details" />
-              <Button title="Whitepaper" />
+              <Button title="Whitepaper" onClick={()=>router.push("/whitepaper.pdf")} />
             </div>
           </motion.div>
           <PresaleCard />

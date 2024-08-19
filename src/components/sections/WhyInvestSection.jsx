@@ -59,17 +59,19 @@ const WhyInvestSection = () => {
               whileInView="show"
               exit="show"
               variants={rightToLeftVariants}
-              className="flex h-full flex-col gap-5 bg-black p-10"
+              className="flex h-full flex-col justify-between gap-5 bg-black p-10"
             >
-              <p className="flex flex-col gap-2 text-xl sm:flex-row">
-                <span className="font-bold uppercase">First Release</span>
-                <span className="text-white/70">JUL 24</span>
-              </p>
-              <span className="font-sans text-lg text-white/50">
-                We're launching a crypto investment platform with secure Vaults
-                offering high APY. New features will be added based on your
-                feedback.
-              </span>
+              <div className="flex flex-col gap-5">
+                <p className="flex flex-col gap-2 text-xl sm:flex-row">
+                  <span className="font-bold uppercase">First Release</span>
+                  <span className="text-white/70">JUL 24</span>
+                </p>
+                <span className="font-sans text-lg text-white/50">
+                  We're launching a crypto investment platform with secure
+                  Vaults offering high APY. New features will be added based on
+                  your feedback.
+                </span>
+              </div>
               <span className="text-xl font-semibold">
                 Invest safely, earn reliably. <br /> Your input shapes what's
                 next
