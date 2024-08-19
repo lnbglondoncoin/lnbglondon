@@ -87,6 +87,12 @@ const Header = () => {
                   <div className="flex h-[85vh] flex-col justify-between gap-10">
                     <div className="flex flex-col items-start gap-5 py-10">
                       <Link
+                        href="/"
+                        className="font-sans text-lg text-gray2 hover:text-primary"
+                      >
+                        Home
+                      </Link>
+                      <Link
                         href="/#aboutus"
                         className="font-sans text-lg text-gray2 hover:text-primary"
                       >
