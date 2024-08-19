@@ -3,17 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Button from "./buttons/Button";
 import { Menu } from "lucide-react";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useWeb3Modal } from "@web3modal/ethers5/react";
+import SimpleButton from "./buttons/SimpleButton";
 
 const Header = () => {
   const { open } = useWeb3Modal();
@@ -59,7 +59,7 @@ const Header = () => {
           </Link>
           {/* Nav */}
           <div className="flex items-center gap-5">
-            <Button
+            <SimpleButton
               title="Connect Wallet"
               onClick={() => open()}
               className="hidden w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:flex"
@@ -86,47 +86,61 @@ const Header = () => {
                   </SheetTitle>
                   <div className="flex h-[85vh] flex-col justify-between gap-10">
                     <div className="flex flex-col items-start gap-5 py-10">
-                      <Link
-                        href="/"
-                        className="font-sans text-lg text-gray2 hover:text-primary"
-                      >
-                        Home
-                      </Link>
-                      <Link
-                        href="/#aboutus"
-                        className="font-sans text-lg text-gray2 hover:text-primary"
-                      >
-                        About us
-                      </Link>
-                      <Link
-                        href="/our-team"
-                        className="font-sans text-lg text-gray2 hover:text-primary"
-                      >
-                        Our Team
-                      </Link>
-                      <Link
-                        href="/cryptocurrencies"
-                        className="font-sans text-lg text-gray2 hover:text-primary"
-                      >
-                        Cryptocurrencies
-                      </Link>
-                      <Link
-                        href="/contact"
-                        className="font-sans text-lg text-gray2 hover:text-primary"
-                      >
-                        Contact
-                      </Link>
-                      <Link
-                        href="https://app.lnbglondon.com"
-                        className="w-fit rounded-lg bg-primary px-5 py-3 text-xs font-semibold uppercase text-black"
-                      >
-                        Launch Dapp
-                      </Link>
-                      <Button
-                        title="Connect Wallet"
-                        onClick={() => open()}
-                        className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
-                      />
+                      <SheetClose asChild>
+                        <Link
+                          href="/"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Home
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="/#aboutus"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          About us
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="/our-team"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Our Team
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="/cryptocurrencies"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Cryptocurrencies
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="/contact"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Contact
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
+                          href="https://app.lnbglondon.com"
+                          className="w-fit rounded-lg bg-primary px-5 py-3 text-xs font-semibold uppercase text-black"
+                        >
+                          Launch Dapp
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <SimpleButton
+                          title="Connect Wallet"
+                          onClick={() => open()}
+                          className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
+                        />
+                      </SheetClose>
                     </div>
                     <div className="flex flex-col items-center gap-5">
                       <div className="flex gap-5">

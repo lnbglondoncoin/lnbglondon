@@ -16,8 +16,8 @@ export default function FaqSection() {
     <section className="flex w-full items-center justify-center px-2 py-20">
       <div className="flex w-full max-w-7xl flex-col gap-10">
         <h1 className="text-center text-6xl font-bold">FAQ</h1>
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div className="flex flex-col gap-5">
+        <div className="grid md:grid-cols-2 lg:gap-10">
+          <div className="order-2 flex flex-col gap-5 md:order-1">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
                 className="border border-white/20 px-8 py-4 hover:border-primary"
@@ -87,9 +87,9 @@ export default function FaqSection() {
                 <AccordionContent className="font-light text-gray2">
                   After purchasing tokens, you will be able to check your
                   balance by connecting your wallet on the website:
-                  https://lnbglondon.com/ . The tokens will appear in your wallet after
-                  the Token Generation Event (TGE) which is scheduled for Q3
-                  2024.
+                  https://lnbglondon.com/ . The tokens will appear in your
+                  wallet after the Token Generation Event (TGE) which is
+                  scheduled for Q3 2024.
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
@@ -135,7 +135,7 @@ export default function FaqSection() {
             width={400}
             height={500}
             alt="robot"
-            className="scale-x-[-1] justify-self-end"
+            className="order-1 w-[250px] scale-x-[-1] justify-self-center md:order-2 md:w-[400px] md:justify-self-end"
           />
         </div>
       </div>
