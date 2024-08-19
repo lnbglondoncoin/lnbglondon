@@ -50,8 +50,18 @@ const MainBanner = () => {
               Shaping the Future
             </span>
             <div className="mt-10 flex items-center gap-x-5">
-              <Button title="Details" />
-              <Button title="Whitepaper" onClick={()=>router.push("/whitepaper.pdf")} />
+              <Button
+                title="Details"
+                onClick={() =>
+                  router.push(
+                    "https://lnbg-london.gitbook.io/lnbg-london/getting-started/quickstart",
+                  )
+                }
+              />
+              <Button
+                title="Whitepaper"
+                onClick={() => router.push("/whitepaper.pdf")}
+              />
             </div>
           </motion.div>
           <PresaleCard />
