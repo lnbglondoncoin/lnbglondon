@@ -1,5 +1,6 @@
 const ProgressBar = ({soldPercentage}) => {
   console.log(soldPercentage, "soldPercentage");
+  let integerPart = Math.trunc(soldPercentage);
   return (
     <div className="flex w-full flex-col gap-y-1">
       <div className="flex justify-between">
@@ -11,7 +12,7 @@ const ProgressBar = ({soldPercentage}) => {
       <div className="border-ash h-4 w-full rounded-full border-4 sm:h-[17px]">
         <div
           className="h-full rounded-full bg-primary"
-          style={{ width: `${soldPercentage}` }}
+          style={{ width: `${integerPart}` }}
         ></div>
       </div>
       <div className="flex justify-between py-1 md:py-1.5">
