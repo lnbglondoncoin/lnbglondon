@@ -13,11 +13,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useWeb3Modal } from "@web3modal/ethers5/react";
 
 const Header = () => {
+  const { open } = useWeb3Modal();
   // on scroll make header fixed
   const [isSticky, setIsSticky] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsSticky(true);
@@ -60,6 +61,7 @@ const Header = () => {
           <div className="flex items-center gap-5">
             <Button
               title="Connect Wallet"
+              onClick={() => open()}
               className="hidden w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:flex"
             />
             <Sheet>
@@ -110,12 +112,13 @@ const Header = () => {
                       </Link>
                       <Link
                         href="https://app.lnbglondon.com"
-                        className="w-fit rounded-lg text-xs font-semibold uppercase bg-primary px-5 py-3 text-black"
+                        className="w-fit rounded-lg bg-primary px-5 py-3 text-xs font-semibold uppercase text-black"
                       >
                         Launch Dapp
                       </Link>
                       <Button
                         title="Connect Wallet"
+                        onClick={() => open()}
                         className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
                       />
                     </div>

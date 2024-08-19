@@ -3,11 +3,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="flex w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center pt-10">
+    <footer className="footer-inner flex w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center pt-10">
       <div className="relative flex w-full max-w-7xl flex-col gap-10">
-        <h1 className="absolute bottom-0 text-[24vw] font-bold leading-[220px] text-coal sm:-right-20">
-          LNBG
-        </h1>
         <div className="static z-10 grid grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-7">
             <div className="flex items-center gap-x-3">
