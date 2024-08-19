@@ -1,5 +1,6 @@
 import DappSection from "@/components/sections/DappSection";
 import EarnFreeSection from "@/components/sections/EarnFreeSection";
+import FaqSection from "@/components/sections/FaqSection";
 import FeaturedSection from "@/components/sections/FeaturedSection";
 import GatewaySection from "@/components/sections/GatewaySection";
 import LaptopSection from "@/components/sections/LaptopSection";
@@ -20,6 +21,7 @@ export default function Home() {
       <TokenomicsSection />
       <LaptopSection />
       <EarnFreeSection />
+      <FaqSection />
     </main>
   );
 }

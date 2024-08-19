@@ -1,26 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { WavyBackground } from "../ui/wavy-background";
 
 const Footer = () => {
   return (
-    <footer className="flex h-full w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center">
-      <WavyBackground
-        blur={0}
-        containerClassName="w-full h-[450px]"
-        waveWidth={500}
-        colors={[
-          "#0a0b10",
-          "#16181d",
-          "#0a0b10",
-          "#16181d",
-          "#0a0b10",
-          "#16181d",
-        ]}
-        backgroundFill="transparent"
-        className="flex flex-col items-center justify-center px-5 pt-20"
-      >
-        <div className="static z-10 grid w-full max-w-7xl grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="flex w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center pt-10">
+      <div className="relative flex w-full max-w-7xl flex-col gap-10">
+        <h1 className="absolute bottom-0 text-[24vw] font-bold leading-[220px] text-coal sm:-right-20">
+          LNBG
+        </h1>
+        <div className="static z-10 grid grid-cols-1 gap-5 px-5 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-7">
             <div className="flex items-center gap-x-3">
               <Image
@@ -84,7 +72,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3 py-5 lg:items-center">
             <h1 className="mb-1">RESOURCES</h1>
             <Link
-              href="/"
+              href="/whitepaper.pdf"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Whitepaper
@@ -108,7 +96,7 @@ const Footer = () => {
               Roadmap
             </Link>
             <Link
-              href="/"
+              href="https://lnbg-london.gitbook.io/lnbg-london"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Documentation
@@ -117,41 +105,29 @@ const Footer = () => {
           <div className="flex flex-col gap-3 py-5 lg:items-center">
             <h1 className="mb-1">COMMUNITY</h1>
             <Link
-              href="/"
+              href="https://lnbg-london.gitbook.io/lnbg-london/usdlnbg-coin/markdown"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Roles
             </Link>
             <Link
-              href="/"
+              href="https://lnbg-london.gitbook.io/lnbg-london/getting-started/publish-your-docs"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Ecosystem
             </Link>
             <Link
-              href="/"
-              className="font-sans text-sm text-gray2 hover:text-primary"
-            >
-              Blogs
-            </Link>
-            <Link
-              href="/"
+              href="https://lnbg-london.gitbook.io/lnbg-london/information/faqs"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               FAQs
             </Link>
           </div>
         </div>
-        <div className="static z-10 mt-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
+        <div className="static z-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
           Copyright © All right reserved 2024.
-          <div className="flex">
-            <span className="cursor-pointer text-lightgray hover:text-primary">
-              LNBG LONDON
-            </span>{" "}
-            - Intial Coin Offering.
-          </div>
         </div>
-      </WavyBackground>
+      </div>
     </footer>
   );
 };
