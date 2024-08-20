@@ -252,33 +252,59 @@ export default function PresaleCard() {
       {isClient &&
         (isConnected == true ? (
           selectedToken == "Ethereum" ? (
-            <button
-              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-              disabled={loader}
-              onClick={() => BuyWithETH(lnbgValue?.toString(), tokenAmount)}
-            >
-              Buy
-            </button>
+            <div className="flex flex-col gap-5 w-full">
+              <button
+                className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+                disabled={loader}
+                onClick={() =>
+                  BuyWithETH(tokenAmount, lnbgValue?.toString(), false)
+                }
+              >
+                Buy
+              </button>
+              <button
+                className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
+                disabled={loader}
+              >
+                Add token in metamask
+              </button>
+            </div>
           ) : selectedToken == "USDC" ? (
-            <button
-              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-              disabled={loader}
-              onClick={() =>
-                BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), false)
-              }
-            >
-              Buy
-            </button>
+            <div className="flex flex-col gap-5 w-full">
+              <button
+                className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+                disabled={loader}
+                onClick={() =>
+                  BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), false)
+                }
+              >
+                Buy
+              </button>
+              <button
+                className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
+                disabled={loader}
+              >
+                Add token in metamask
+              </button>
+            </div>
           ) : (
-            <button
-              className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-              disabled={loader}
-              onClick={() =>
-                BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
-              }
-            >
-              Buy
-            </button>
+            <div className="flex flex-col gap-5 w-full">
+              <button
+                className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
+                disabled={loader}
+                onClick={() =>
+                  BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
+                }
+              >
+                Buy
+              </button>
+              <button
+                className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
+                disabled={loader}
+              >
+                Add token in metamask
+              </button>
+            </div>
           )
         ) : (
           <button
