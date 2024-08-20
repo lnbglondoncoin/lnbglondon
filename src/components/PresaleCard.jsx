@@ -76,7 +76,7 @@ export default function PresaleCard() {
 
   useEffect(() => {
     const main = async () => {
-      if (selectedToken == "Ethereum" && tokenAmount !== 0) {
+      if (selectedToken == "Binance" && tokenAmount !== 0) {
         setTimeout(async () => {
           let parse = ethers.utils.parseEther(
             tokenAmount?.toString() > 0 ? tokenAmount?.toString() : "0",
@@ -104,8 +104,8 @@ export default function PresaleCard() {
             console.log(parse2?.toString(), "Tokenssss");
             setLnbgValue(parse2?.toString()); // Tokens in ether
           }
-        }, 2000);
-      } else if (selectedToken !== "Ethereum" && tokenAmount !== "") {
+        }, 1000);
+      } else if (selectedToken !== "Binance" && tokenAmount !== "") {
         console.log(typeof tokenAmount, "dadadasd");
         let parse2 = ethers.utils.parseEther(tokenAmount?.toString());
         console.log(parse2?.toString(), "parseparseparse");
@@ -152,7 +152,7 @@ export default function PresaleCard() {
     if (copySuccess) {
       setTimeout(() => {
         setCopySuccess(false);
-      }, 2000);
+      }, 1000);
     }
   }, [copySuccess]);
   // -------------------------------------------------------------------------------
@@ -213,8 +213,8 @@ export default function PresaleCard() {
       </div>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
         <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
-          {selectedToken == "Ethereum" ? (
-            ethSvg
+          {selectedToken == "Binance" ? (
+          <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
           ) : selectedToken == "USDC" ? (
             usdcSvg
           ) : selectedToken == "USDT" ? (
@@ -259,7 +259,7 @@ export default function PresaleCard() {
       </div>
       {isClient &&
         (isConnected == true ? (
-          selectedToken == "Ethereum" ? (
+          selectedToken == "Binance" ? (
             <div className="flex w-full flex-col gap-5">
               <button
                 className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"

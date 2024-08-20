@@ -44,8 +44,8 @@ const Binance = {
 const metadata = {
   name: 'Lnbg Presale',
   description: 'This is Lnbg Presale',
-  url: 'https://Lnbg.com/', // origin must match your domain & subdomain
-  icons: ['https://Lnbg.com']
+  url: 'https://www.lnbglondon.com/', // origin must match your domain & subdomain
+  icons: ['https://www.lnbglondon.com/']
 }
 
 // 4. Create Ethers config
