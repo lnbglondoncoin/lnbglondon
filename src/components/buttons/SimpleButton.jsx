@@ -1,8 +1,18 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 
 const SimpleButton = ({ title = "Click me", onClick = () => {}, className = "" }) => {
+  const { address, isConnected } = useWeb3ModalAccount();
+  const [isClient, setIsClient] = useState(false);
+
+  // Set isClient to true when the component is mounted on the client
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <button
       className={cn(
@@ -11,7 +21,7 @@ const SimpleButton = ({ title = "Click me", onClick = () => {}, className = "" }
       )}
       onClick={onClick}
     >
-      {title}
+      {isClient && isConnected ? `${address.slice(0, 6)}...${address.slice(-4)}` : title}
     </button>
   );
 };

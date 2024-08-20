@@ -93,9 +93,7 @@ export default function PresaleCard() {
               howMuch?.toString() / (+contractData?.tokenPrice / 10 ** 18);
 
             console.log(tokenTokens?.toString(), "tokenTokens");
-            let parse2 = ethers.utils.parseEther(
-              tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
-            );
+            let parse2 = ethers.utils.parseEther(tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0);
             console.log(parse2?.toString(), "Tokenssss");
             setLnbgValue(parse2?.toString()); // Tokens in ether
           }
@@ -121,13 +119,13 @@ export default function PresaleCard() {
   }, [tokenAmount, selectedToken]);
 
   console.log(
-    lnbgValue?.toString(),
-    "lnbgValue?.toString()lnbgValue?.toString()lnbgValue?.toString()t",
+    contractData,
+    "contractDatacontractDatacontractDatacontractDatacontractDatacontractDatacontractData",
   );
 
   useEffect(() => {
     GetValues();
-  }, []);
+  }, [isConnected]);
 
   const roundOff = (num) => {
     // convert string to int
@@ -136,6 +134,8 @@ export default function PresaleCard() {
     return number.toFixed(4);
   };
 
+
+  let remainTokens = (+contractData?.tokensInContract - 3000000)
   return (
     <motion.div
       initial={{
@@ -160,11 +160,11 @@ export default function PresaleCard() {
             ${roundOff(contractData?.raisedAmount)}
           </span>
           <span className="pb-1 text-lg font-normal text-gray2">
-            /$7,000,000
+            /$300,000
           </span>
         </div>
         <div className="text-xs text-gray2/60">
-          74,214,591 of 215,000,000 tokens
+        {+contractData?.tokensInContract > 0 ? remainTokens : 0} of 10,000,000 tokens
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
       </div>
@@ -215,8 +215,8 @@ export default function PresaleCard() {
           1 lnbg = {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}
         </span>
         <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold">Next price = 0.035$</span>
-          <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">+17%</div>
+          <span className="text-sm font-semibold">Next price = 0.039$</span>
+          <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">+30%</div>
         </div>
       </div>
       {isClient &&
