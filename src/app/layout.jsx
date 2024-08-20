@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import MovingBar from "@/components/moving-bar/MovingBar";
 import Header from "@/components/Header";
 import Footer from "@/components/footer/Footer";
+import PreloaderProvider from "./PreloaderProvider";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
 
