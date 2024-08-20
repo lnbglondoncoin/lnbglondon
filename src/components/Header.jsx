@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet";
 import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import SimpleButton from "./buttons/SimpleButton";
+import { Transak } from "@transak/transak-sdk";
 
 const Header = () => {
   // --------------For hydration error-------------------
@@ -42,6 +43,21 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // ----------------BUY--------------------------------
+  const transakConfig = {
+    apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
+    environment: Transak.ENVIRONMENTS.PRODUCTION,
+    defaultCryptoCurrency: "ETH",
+    themeColor: "11121a", // App theme color
+    widgetHeight: "600px",
+    widgetWidth: "500px",
+  };
+  const transak = new Transak(transakConfig);
+  const launchTransak = () => {
+    transak.init();
+  };
+  // ----------------------------------------------------
 
   return (
     <>
@@ -119,12 +135,12 @@ const Header = () => {
                         </Link>
                       </SheetClose>
                       <SheetClose asChild>
-                        <Link
-                          href="/buy"
+                        <button
+                          onClick={() => launchTransak()}
                           className="font-sans text-lg text-gray2 hover:text-primary"
                         >
-                          Buy
-                        </Link>
+                          Buy Tokens
+                        </button>
                       </SheetClose>
                       <SheetClose asChild>
                         <Link
