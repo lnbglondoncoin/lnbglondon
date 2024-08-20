@@ -9,15 +9,32 @@ import {
 import Button from "../buttons/Button";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { leftToRightVariants, rightToLeftVariants } from "../variants";
+import { Meteors } from "../ui/meteors";
 
 export default function FaqSection() {
   const router = useRouter();
   return (
     <section className="flex w-full items-center justify-center px-2 py-20">
       <div className="flex w-full max-w-7xl flex-col gap-10">
-        <h1 className="text-center text-6xl font-bold">FAQ</h1>
+        <motion.h1
+          initial="hide"
+          whileInView="show"
+          exit="show"
+          variants={leftToRightVariants}
+          className="text-center text-6xl font-bold"
+        >
+          FAQ
+        </motion.h1>
         <div className="grid md:grid-cols-2 lg:gap-10">
-          <div className="order-2 flex flex-col gap-5 md:order-1">
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={leftToRightVariants}
+            className="order-2 flex flex-col gap-5 md:order-1"
+          >
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem
                 className="border border-white/20 px-8 py-4 hover:border-primary"
@@ -129,14 +146,23 @@ export default function FaqSection() {
               }
               className="w-fit font-sans"
             />
-          </div>
-          <Image
-            src="/robot-2.png"
-            width={400}
-            height={500}
-            alt="robot"
-            className="order-1 w-[250px] scale-x-[-1] justify-self-center md:order-2 md:w-[400px] md:justify-self-end"
-          />
+          </motion.div>
+          <motion.div
+            initial="hide"
+            whileInView="show"
+            exit="show"
+            variants={rightToLeftVariants}
+            className="relative order-1 flex w-full flex-col overflow-hidden md:order-2 md:pb-[70px]"
+          >
+            <Image
+              src="/robot-2.png"
+              className="static z-10 w-[250px] scale-x-[-1] self-end justify-self-center md:w-[400px] md:justify-self-end"
+              width={400}
+              height={500}
+              alt="robot"
+            />
+            <Meteors className="bg-red-200" number={20} />
+          </motion.div>
         </div>
       </div>
     </section>

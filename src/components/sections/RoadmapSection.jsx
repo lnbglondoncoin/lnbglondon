@@ -5,7 +5,10 @@ import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
 const RoadmapSection = () => {
   return (
-    <section className="mt-10 flex w-full flex-col items-center justify-center bg-ash overflow-hidden max-w-[100vw]">
+    <section
+      className="mt-10 flex w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden bg-ash"
+      id="roadmap"
+    >
       <div className="flex w-full max-w-7xl flex-col items-center justify-center rounded-xl px-10 pt-20">
         <motion.h1
           initial="hide"
