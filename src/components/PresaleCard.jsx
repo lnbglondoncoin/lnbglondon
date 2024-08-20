@@ -15,6 +15,7 @@ import {
 } from "@web3modal/ethers5/react";
 import { ethers } from "ethers";
 import React from "react";
+import { Copy } from "lucide-react";
 
 export default function PresaleCard() {
   const {
@@ -93,7 +94,9 @@ export default function PresaleCard() {
               howMuch?.toString() / (+contractData?.tokenPrice / 10 ** 18);
 
             console.log(tokenTokens?.toString(), "tokenTokens");
-            let parse2 = ethers.utils.parseEther(tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0);
+            let parse2 = ethers.utils.parseEther(
+              tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
+            );
             console.log(parse2?.toString(), "Tokenssss");
             setLnbgValue(parse2?.toString()); // Tokens in ether
           }
@@ -134,8 +137,21 @@ export default function PresaleCard() {
     return number.toFixed(4);
   };
 
-
-  let remainTokens = (+contractData?.tokensInContract - 3000000)
+  //----------------------------- Copy address to clipboard-------------------------
+  const [copySuccess, setCopySuccess] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(address);
+    setCopySuccess(true);
+  };
+  useEffect(() => {
+    if (copySuccess) {
+      setTimeout(() => {
+        setCopySuccess(false);
+      }, 2000);
+    }
+  }, [copySuccess]);
+  // -------------------------------------------------------------------------------
+  let remainTokens = +contractData?.tokensInContract - 3000000;
   return (
     <motion.div
       initial={{
@@ -159,14 +175,27 @@ export default function PresaleCard() {
           <span className="text-3xl text-primary">
             ${roundOff(contractData?.raisedAmount)}
           </span>
-          <span className="pb-1 text-lg font-normal text-gray2">
-            /$300,000
-          </span>
+          <span className="pb-1 text-lg font-normal text-gray2">/$300,000</span>
         </div>
         <div className="text-xs text-gray2/60">
-        {+contractData?.tokensInContract > 0 ? remainTokens : 0} of 10,000,000 tokens
+          {+contractData?.tokensInContract > 0 ? remainTokens : 0} of 10,000,000
+          tokens
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
+        <div className="rounded-xd flex items-center gap-5 bg-ash px-2 py-3 text-gray2">
+          {isClient && (
+            <span className="w-full text-xs">
+              {address?.slice(0, 6)}........{address?.slice(-4)}
+            </span>
+          )}
+          {copySuccess ? (
+            <span className="text-nowrap text-[8px]">Copied to clipboard</span>
+          ) : (
+            <button onClick={() => handleCopy()}>
+              <Copy size={18} />
+            </button>
+          )}
+        </div>
       </div>
       <CountdownTimer />
       <SelectTokenModal

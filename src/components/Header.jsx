@@ -12,11 +12,20 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { useWeb3Modal } from "@web3modal/ethers5/react";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import SimpleButton from "./buttons/SimpleButton";
 
 const Header = () => {
+  // --------------For hydration error-------------------
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  // ----------------------------------------------------
+
   const { open } = useWeb3Modal();
+  const { isConnected } = useWeb3ModalAccount();
   // on scroll make header fixed
   const [isSticky, setIsSticky] = useState(false);
   const handleScroll = () => {
@@ -59,11 +68,18 @@ const Header = () => {
           </Link>
           {/* Nav */}
           <div className="flex items-center gap-5">
-            <SimpleButton
-              title="Connect Wallet"
-              onClick={() => open()}
-              className="hidden w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:flex"
-            />
+            <div className="hidden sm:block">
+              {isClient &&
+                (isConnected ? (
+                  <w3m-account-button balance="show" size="md" />
+                ) : (
+                  <SimpleButton
+                    title="Connect Wallet"
+                    onClick={() => open()}
+                    className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
+                  />
+                ))}
+            </div>
             <Sheet>
               <SheetTrigger>
                 <Menu size={24} />
@@ -79,7 +95,7 @@ const Header = () => {
                         height={40}
                         alt="lnbgcoin"
                       />
-                      <span className="text-2xl font-semibold md:text-3xl">
+                      <span className="text-xl font-semibold md:text-3xl">
                         LNBG COIN
                       </span>
                     </Link>
@@ -135,11 +151,16 @@ const Header = () => {
                         </Link>
                       </SheetClose>
                       <SheetClose asChild>
-                        <SimpleButton
-                          title="Connect Wallet"
-                          onClick={() => open()}
-                          className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
-                        />
+                        {isClient &&
+                          (isConnected ? (
+                            <w3m-account-button balance="show" size="md" />
+                          ) : (
+                            <SimpleButton
+                              title="Connect Wallet"
+                              onClick={() => open()}
+                              className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
+                            />
+                          ))}
                       </SheetClose>
                     </div>
                     <div className="flex flex-col items-center gap-5">

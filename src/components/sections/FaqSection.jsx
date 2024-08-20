@@ -16,7 +16,7 @@ import { Meteors } from "../ui/meteors";
 export default function FaqSection() {
   const router = useRouter();
   return (
-    <section className="flex w-full items-center justify-center px-2 py-20">
+    <section className="flex w-full items-center justify-center overflow-hidden px-2 py-20">
       <div className="flex w-full max-w-7xl flex-col gap-10">
         <motion.h1
           initial="hide"
