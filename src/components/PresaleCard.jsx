@@ -17,6 +17,7 @@ import { ethers } from "ethers";
 import React from "react";
 import { Copy } from "lucide-react";
 import Link from "next/link";
+import lnbgAddress from '../contractsData/LnbgLondonCoin-address.json'
 
 export default function PresaleCard() {
   const {
@@ -25,6 +26,8 @@ export default function PresaleCard() {
     getProviderPresaleContract,
     GetValues,
     loader,
+    copyToClipboard,
+    addTokenToMetamask,
     networkChange,
     BuyWithETH,
     presaleStart,
@@ -138,6 +141,7 @@ export default function PresaleCard() {
     return number.toFixed(4);
   };
 
+
   //----------------------------- Copy address to clipboard-------------------------
   const [copySuccess, setCopySuccess] = useState(false);
   const handleCopy = () => {
@@ -152,6 +156,8 @@ export default function PresaleCard() {
     }
   }, [copySuccess]);
   // -------------------------------------------------------------------------------
+
+
   let remainTokens = +contractData?.tokensInContract - 3000000;
   return (
     <motion.div
@@ -184,15 +190,13 @@ export default function PresaleCard() {
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
         <div className="rounded-xd flex items-center gap-5 bg-ash px-2 py-3 text-gray2">
-          {isClient && (
             <span className="w-full text-xs">
-              {address?.slice(0, 6)}........{address?.slice(-4)}
+              {lnbgAddress?.address?.slice(0, 6)}........{lnbgAddress?.address?.slice(-4)}
             </span>
-          )}
           {copySuccess ? (
             <span className="text-nowrap text-[8px]">Copied to clipboard</span>
           ) : (
-            <button onClick={() => handleCopy()}>
+            <button onClick={() => copyToClipboard()}>
               <Copy size={18} />
             </button>
           )}
@@ -302,7 +306,7 @@ export default function PresaleCard() {
               >
                 Buy
               </button>
-              <button
+              <button onClick={()=>addTokenToMetamask()}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >
