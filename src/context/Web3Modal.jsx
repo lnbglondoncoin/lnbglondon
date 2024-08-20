@@ -14,10 +14,10 @@ const projectId = '48d44678afcba02c797f5d30369c89a7'
 // }
 
 const Binance = {
-  chainId: 97,
+  chainId: 56,
   name: 'Binance',
   currency: 'BNB',
-  explorerUrl: 'https://testnet.bscscan.com',
+  explorerUrl: 'https://bscscan.com',
   rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_BNB}`
 }
 
@@ -57,7 +57,7 @@ const ethersConfig = defaultConfig({
   enableInjected: true, // true by default
   enableCoinbase: true, // true by default
   // rpcUrl: '...', // used for the Coinbase SDK
-  defaultChainId: 56, // used for the Coinbase SDK
+  defaultChainId: 97, // used for the Coinbase SDK
 })
 
 
