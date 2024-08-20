@@ -43,7 +43,7 @@ export default function PresaleCard() {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { error } = useWeb3ModalError();
 
-  const [selectedToken, setSelectedToken] = useState("Ethereum");
+  const [selectedToken, setSelectedToken] = useState("Binance");
   const [tokenAmount, setTokensAmount] = useState("");
   const [lnbgValue, setLnbgValue] = useState(0);
 
@@ -209,11 +209,15 @@ export default function PresaleCard() {
       </div>
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
         <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
-          {selectedToken == "Ethereum"
-            ? ethSvg
-            : selectedToken == "USDC"
-              ? usdcSvg
-              : usdtSvg}
+          {selectedToken == "Ethereum" ? (
+            ethSvg
+          ) : selectedToken == "USDC" ? (
+            usdcSvg
+          ) : selectedToken == "USDT" ? (
+            usdtSvg
+          ) : (
+            <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
+          )}
           <input
             type="text"
             // inputMode="numeric"
@@ -252,7 +256,7 @@ export default function PresaleCard() {
       {isClient &&
         (isConnected == true ? (
           selectedToken == "Ethereum" ? (
-            <div className="flex flex-col gap-5 w-full">
+            <div className="flex w-full flex-col gap-5">
               <button
                 className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                 disabled={loader}
@@ -270,7 +274,7 @@ export default function PresaleCard() {
               </button>
             </div>
           ) : selectedToken == "USDC" ? (
-            <div className="flex flex-col gap-5 w-full">
+            <div className="flex w-full flex-col gap-5">
               <button
                 className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                 disabled={loader}
@@ -288,7 +292,7 @@ export default function PresaleCard() {
               </button>
             </div>
           ) : (
-            <div className="flex flex-col gap-5 w-full">
+            <div className="flex w-full flex-col gap-5">
               <button
                 className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                 disabled={loader}

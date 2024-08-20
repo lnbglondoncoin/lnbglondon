@@ -120,6 +120,14 @@ const Header = () => {
                       </SheetClose>
                       <SheetClose asChild>
                         <Link
+                          href="/buy"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Buy
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
                           href="/our-team"
                           className="font-sans text-lg text-gray2 hover:text-primary"
                         >
