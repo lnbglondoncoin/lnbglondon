@@ -16,6 +16,7 @@ import {
 import { ethers } from "ethers";
 import React from "react";
 import { Copy } from "lucide-react";
+import Link from "next/link";
 
 export default function PresaleCard() {
   const {
@@ -287,7 +288,12 @@ export default function PresaleCard() {
             Connect Wallet
           </button>
         ))}
-      <span className="text-sm text-gray2/60">How to buy?</span>
+      <Link
+        href="https://lnbg-london.gitbook.io/lnbg-london/information/how-to-buy"
+        className="text-sm text-gray2/60"
+      >
+        How to buy?
+      </Link>
     </motion.div>
   );
 }
