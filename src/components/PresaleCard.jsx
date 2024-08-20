@@ -76,7 +76,7 @@ export default function PresaleCard() {
 
   useEffect(() => {
     const main = async () => {
-      if (selectedToken == "Binance" && tokenAmount !== 0) {
+      if (selectedToken == "Binance" && tokenAmount !== "") {
         setTimeout(async () => {
           let parse = ethers.utils.parseEther(
             tokenAmount?.toString() > 0 ? tokenAmount?.toString() : "0",
@@ -118,6 +118,7 @@ export default function PresaleCard() {
           ); // Tokens in ether
         }
       } else {
+        console.log("Doneeeeeeeeeeeeeeeeeee");
         setLnbgValue(0);
         setTokensAmount("");
       }
@@ -204,6 +205,8 @@ export default function PresaleCard() {
       </div>
       <CountdownTimer />
       <SelectTokenModal
+      setLnbgValue={setLnbgValue}
+      setTokensAmount={setTokensAmount}
         selectedToken={selectedToken}
         setSelectedToken={setSelectedToken}
       />
@@ -224,6 +227,7 @@ export default function PresaleCard() {
           )}
           <input
             type="text"
+            placeholder="0.0"
             // inputMode="numeric"
             value={tokenAmount}
             onChange={handleTokenChange}
@@ -243,7 +247,7 @@ export default function PresaleCard() {
             value={Number(
               ethers.utils.formatEther(lnbgValue?.toString()),
             )?.toFixed(4)}
-            onChange={handleTokenChange}
+            // onChange={handleTokenChange}
             className="w-full bg-transparent text-gray2"
           />
         </div>
@@ -270,7 +274,7 @@ export default function PresaleCard() {
               >
                 Buy
               </button>
-              <button
+              <button onClick={()=>addTokenToMetamask()}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >
@@ -288,7 +292,7 @@ export default function PresaleCard() {
               >
                 Buy
               </button>
-              <button
+              <button onClick={()=>addTokenToMetamask()}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >

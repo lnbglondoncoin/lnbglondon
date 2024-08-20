@@ -188,7 +188,7 @@ export const StoreProvider = ({ children }) => {
       }
     } else {
       if (isMobile) {
-        window.open("https://metamask.app.link/dapp/lnbgcoin.org");
+        window.open("https://metamask.app.link/dapp/https://www.lnbglondon.com/");
       } else {
         alert(
           "MetaMask or Trust Wallet is not installed. Please consider installing one of them."
