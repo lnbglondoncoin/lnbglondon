@@ -29,6 +29,21 @@ img {
   user-select: none;
 }
 
+/* Loader */
+.circle {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-family: "Neue Machina Bold", sans-serif;
+  color: #cbfb45;
+}
+/* Loader END */
+
 /* hide scrollbar */
 ::-webkit-scrollbar {
   display: none;

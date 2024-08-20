@@ -18,9 +18,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
       <DialogTrigger className="w-full">
         <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
           <div className="flex items-center gap-2">
-            {selectedToken == "Ethereum" ? (
-              ethSvg
-            ) : selectedToken == "USDC" ? (
+            {selectedToken == "USDC" ? (
               usdcSvg
             ) : selectedToken == "USDT" ? (
               usdtSvg
@@ -36,20 +34,6 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
         <DialogHeader>
           <DialogTitle>Select a token</DialogTitle>
           <div className="flex flex-col gap-2 py-5">
-            <button
-              className={cn(
-                "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
-                selectedToken == "Ethereum"
-                  ? "border border-primary"
-                  : "bg-gray2/10",
-              )}
-              onClick={() => {
-                setSelectedToken("Ethereum");
-                setIsOpen(false); // Modal ko band karne ka function
-              }}
-            >
-              {ethSvg} Ethereum
-            </button>
             <button
               className={cn(
                 "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
