@@ -25,45 +25,54 @@ const Footer = () => {
               opportunities, and generate passive revenue.
             </span>
             <div className="flex gap-5">
-              <Link className="hover:text-primary" href="/">
+              <Link
+                className="hover:text-primary"
+                href="https://twitter.com/lnbglondon"
+              >
                 {twitterIcon}
               </Link>
-              <Link className="hover:text-primary" href="/">
-                {globeIcon}
+              <Link
+                className="hover:text-primary"
+                href="https://lnbglondon.com"
+              >
+                {telegramIcon}
               </Link>
-              <Link className="hover:text-primary" href="/">
+              <Link
+                className="hover:text-primary"
+                href="https://www.linkedin.com/company/lnbg-international-investments/"
+              >
                 {linkedInIcon}
               </Link>
-              <Link className="hover:text-primary" href="/">
-                {facebookIcon}
+              <Link className="hover:text-primary" href="">
+                {discordIcon}
               </Link>
             </div>
           </div>
           <div className="flex flex-col gap-3 py-5 lg:items-center">
             <h1 className="mb-1">COMPANY</h1>
             <Link
-              href="/"
+              href="/#aboutus"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               About us
             </Link>
             <Link
-              href="/"
+              href="/our-team"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
-              Services
+              Our Team
             </Link>
             <Link
-              href="/"
+              href="/cryptocurrencies"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
-              Careers
+              Cryptocurrencies
             </Link>
             <Link
-              href="/"
+              href="/contact"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
-              Teams
+              Contact
             </Link>
           </div>
           <div className="flex flex-col gap-3 py-5 lg:items-center">
@@ -81,13 +90,13 @@ const Footer = () => {
               Lightpaper
             </Link>
             <Link
-              href="/"
+              href="https://github.com/lordneilgibson/lnbglondon"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Github
             </Link>
             <Link
-              href="/"
+              href="/#roadmap"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Roadmap
@@ -121,7 +130,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="static z-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-white/40">
+        <div className="static z-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-black">
           Copyright © All right reserved 2024.
         </div>
       </div>
@@ -144,18 +153,24 @@ const twitterIcon = (
   </svg>
 );
 
-const facebookIcon = (
+const discordIcon = (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 127.14 96.36"
+    fill="currentColor"
   >
-    <path
-      d="M15.75 8C15.75 3.71875 12.2812 0.25 8 0.25C3.71875 0.25 0.25 3.71875 0.25 8C0.25 11.875 3.0625 15.0938 6.78125 15.6562V10.25H4.8125V8H6.78125V6.3125C6.78125 4.375 7.9375 3.28125 9.6875 3.28125C10.5625 3.28125 11.4375 3.4375 11.4375 3.4375V5.34375H10.4688C9.5 5.34375 9.1875 5.9375 9.1875 6.5625V8H11.3438L11 10.25H9.1875V15.6562C12.9062 15.0938 15.75 11.875 15.75 8Z"
-      fill="currentColor"
-    />
+    <g id="图层_2" data-name="图层 2">
+      <g id="Discord_Logos" data-name="Discord Logos">
+        <g
+          id="Discord_Logo_-_Large_-_White"
+          data-name="Discord Logo - Large - White"
+        >
+          <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z" />
+        </g>
+      </g>
+    </g>
   </svg>
 );
 
@@ -182,18 +197,16 @@ const linkedInIcon = (
   </svg>
 );
 
-const globeIcon = (
+const telegramIcon = (
   <svg
     width="16"
     height="16"
-    viewBox="0 0 664 668"
+    viewBox="0 0 28 28"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M439.478 457.349L436.351 476.075C415.826 589.65 372.836 667.333 332 667.333C291.164 667.333 248.174 589.65 227.649 476.075L224.522 457.349C220.352 430.206 217.456 401.264 216.138 371.038H447.862C446.544 401.264 443.648 430.206 439.478 457.349ZM449.944 645.866C487.037 579.592 510.35 481.503 514.622 371.038L663.299 371.039C649.333 497.366 564.774 602.416 449.944 645.866ZM214.058 645.862C99.2256 602.415 14.6666 497.365 0.701174 371.039L149.378 371.038C153.65 481.503 176.963 579.592 214.058 645.862ZM214.054 22.1343C176.962 88.4088 153.649 186.498 149.378 296.963L0.701172 296.961C14.6665 170.635 99.2253 65.5847 214.054 22.1343ZM332 0.666504C372.836 0.666504 415.826 78.35 436.351 191.925L439.478 210.651C443.648 237.794 446.544 266.737 447.862 296.962H216.138C217.456 266.737 220.352 237.794 224.522 210.651L227.649 191.925C247.969 79.4858 290.306 2.22376 330.774 0.689767L332 0.666504ZM449.945 22.1343C564.774 65.5847 649.333 170.635 663.299 296.961L514.622 296.963C510.368 186.946 487.226 89.2049 450.393 22.9461L449.945 22.1343Z"
+      d="M27.95 2.73954L22.85 23.7595C22.61 24.7495 21.5 25.2595 20.59 24.7895L14.14 21.4595L11.09 26.4495C10.26 27.8095 8.16003 27.2195 8.16003 25.6295V20.0695C8.16003 19.6395 8.34003 19.2295 8.65003 18.9295L21.22 6.92955C21.21 6.77955 21.05 6.64955 20.89 6.75955L5.89003 17.1995L0.850028 14.5995C-0.329972 13.9895 -0.279972 12.2795 0.940028 11.7495L25.79 0.919545C26.98 0.399545 28.26 1.46954 27.95 2.73954Z"
       fill="currentColor"
     />
   </svg>

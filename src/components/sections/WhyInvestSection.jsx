@@ -101,7 +101,7 @@ const WhyInvestSection = () => {
           variants={leftToRightVariants}
           className="flex items-center justify-center"
         >
-          <button className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black">
+          <button className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black hover:bg-primary2">
             Buy LNBG Coin
           </button>
         </motion.div>
