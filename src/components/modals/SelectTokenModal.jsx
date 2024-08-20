@@ -18,12 +18,12 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
       <DialogTrigger className="w-full">
         <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
           <div className="flex items-center gap-2">
-            {selectedToken == "USDC" ? (
+            {selectedToken == "Binance" ? (
+           <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />
+            ) : selectedToken == "USDC" ? (
               usdcSvg
-            ) : selectedToken == "USDT" ? (
-              usdtSvg
             ) : (
-              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />
+              usdtSvg
             )}
             {selectedToken}
           </div>
@@ -34,6 +34,21 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
         <DialogHeader>
           <DialogTitle>Select a token</DialogTitle>
           <div className="flex flex-col gap-2 py-5">
+            <button
+              className={cn(
+                "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
+                selectedToken == "Binance"
+                  ? "border border-primary"
+                  : "bg-gray2/10",
+              )}
+              onClick={() => {
+                setSelectedToken("Binance");
+                setIsOpen(false); // Modal ko band karne ka function
+              }}
+            >
+              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
+              Binance
+            </button>
             <button
               className={cn(
                 "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
@@ -62,7 +77,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
             >
               {usdtSvg} USDT
             </button>
-            <button
+            {/* <button
               className={cn(
                 "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
                 selectedToken == "USDT"
@@ -76,7 +91,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
             >
               <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
               Binance
-            </button>
+            </button> */}
           </div>
         </DialogHeader>
       </DialogContent>
@@ -86,7 +101,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
     //   <DialogTrigger className="w-full">
     //     <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
     //       <div className="flex items-center gap-2">
-    //         {selectedToken == "Ethereum"
+    //         {selectedToken == "Binance"
     //           ? ethSvg
     //           : selectedToken == "USDC"
     //             ? usdcSvg
@@ -103,13 +118,13 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
     //         <button
     //           className={cn(
     //             "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
-    //             selectedToken == "Ethereum"
+    //             selectedToken == "Binance"
     //               ? "border border-primary"
     //               : "bg-gray2/10",
     //           )}
-    //           onClick={() => setSelectedToken("Ethereum")}
+    //           onClick={() => setSelectedToken("Binance")}
     //         >
-    //           {ethSvg} Ethereum
+    //           {ethSvg} Binance
     //         </button>
     //         <button
     //           className={cn(

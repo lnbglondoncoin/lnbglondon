@@ -149,50 +149,100 @@ export const StoreProvider = ({ children }) => {
   };
 
   const addTokenToMetamask = async () => {
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
-      );
-
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    );
+  
+    console.log("isMobile:", isMobile);
+  
     if (typeof window.ethereum !== "undefined") {
       try {
         if (!isConnected) {
-          return toast.error("Please Connect Your Wallet."), setloader(false);
+          setloader(false);
+          return toast.error("Please Connect Your Wallet.");
         }
+        
         const wasAdded = await window.ethereum.request({
           method: "wallet_watchAsset",
           params: {
             type: "ERC20",
             options: {
-              address: lnbgCoinAddress?.address, // Token address
-              symbol: "$LLC", // Token symbol
-              decimals: 18, // Token decimals
-              image: "https://lnbgcoin.org/assets/logo/lnbglogo.png", // Token image URL
+              address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66",
+              symbol: "$LLC",
+              decimals: 18,
+              image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75",
             },
           },
         });
-
+  
+        console.log("wasAdded:", wasAdded);
+  
         if (wasAdded) {
           toast.success("Token successfully added to Metamask!");
         } else {
           toast.error("Failed to add the token.");
         }
       } catch (error) {
-        toast.error("Failed to add token to Metamask. Please try again later.");
         console.error("Failed to add token to Metamask: ", error);
+        toast.error("Failed to add token to Metamask. Please try again later.");
       }
     } else {
       if (isMobile) {
-        // Metamask app is not installed, redirect to installation page
         window.open("https://metamask.app.link/dapp/lnbgcoin.org");
       } else {
-        // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
         alert(
-          "MetaMask or Trust Wallet is not installed. Please consider installing one of them.",
+          "MetaMask or Trust Wallet is not installed. Please consider installing one of them."
         );
       }
     }
   };
+
+  
+  // const addTokenToMetamask = async () => {
+  //   const isMobile =
+  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //       navigator.userAgent,
+  //     );
+
+  //   if (typeof window.ethereum !== "undefined") {
+  //     try {
+  //       if (!isConnected) {
+  //         return toast.error("Please Connect Your Wallet."), setloader(false);
+  //       }
+  //       const wasAdded = await window.ethereum.request({
+  //         method: "wallet_watchAsset",
+  //         params: {
+  //           type: "ERC20",
+  //           options: {
+  //             address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66", // Token address
+  //             symbol: "$LLC", // Token symbol
+  //             decimals: 18, // Token decimals
+  //             image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75", // Token image URL
+  //           },
+  //         },
+  //       });
+
+  //       if (wasAdded) {
+  //         toast.success("Token successfully added to Metamask!");
+  //       } else {
+  //         toast.error("Failed to add the token.");
+  //       }
+  //     } catch (error) {
+  //       toast.error("Failed to add token to Metamask. Please try again later.");
+  //       console.error("Failed to add token to Metamask: ", error);
+  //     }
+  //   } else {
+  //     if (isMobile) {
+  //       // Metamask app is not installed, redirect to installation page
+  //       window.open("https://metamask.app.link/dapp/lnbgcoin.org");
+  //     } else {
+  //       // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
+  //       alert(
+  //         "MetaMask or Trust Wallet is not installed. Please consider installing one of them.",
+  //       );
+  //     }
+  //   }
+  // };
 
   const copyToClipboard = () => {
     const tokenAddress = lnbgCoinAddress?.address; // Your token address
