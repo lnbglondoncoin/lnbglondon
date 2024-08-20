@@ -26,7 +26,7 @@ const Header = () => {
   // ----------------------------------------------------
 
   const { open } = useWeb3Modal();
-  const { isConnected } = useWeb3ModalAccount();
+  const { isConnected, chainId } = useWeb3ModalAccount();
   // on scroll make header fixed
   const [isSticky, setIsSticky] = useState(false);
   const handleScroll = () => {
@@ -84,7 +84,7 @@ const Header = () => {
           </Link>
           {/* Nav */}
           <div className="flex items-center gap-5">
-            <div className="hidden sm:block">
+            <div className="hidden items-center gap-1 sm:flex">
               {isClient &&
                 (isConnected ? (
                   <w3m-account-button balance="show" size="md" />
@@ -174,7 +174,34 @@ const Header = () => {
                           Launch Dapp
                         </Link>
                       </SheetClose>
-                      <SheetClose asChild>
+                      <div className="flex items-center gap-1 sm:hidden">
+                        {chainId === 1 ? (
+                          <button
+                            onClick={() => open({ view: "Networks" })}
+                            className="rounded-full border border-white/10 p-2"
+                          >
+                            <Image
+                              src="/header/ethereum.svg"
+                              width={20}
+                              height={20}
+                              alt="ethereum"
+                            />
+                          </button>
+                        ) : chainId === 56 ? (
+                          <button
+                            onClick={() => open({ view: "Networks" })}
+                            className="rounded-full border border-white/10 p-2"
+                          >
+                            <Image
+                              src="/header/binance.png"
+                              width={20}
+                              height={20}
+                              alt="binance"
+                            />
+                          </button>
+                        ) : (
+                          <p></p>
+                        )}
                         {isClient &&
                           (isConnected ? (
                             <w3m-account-button balance="show" size="md" />
@@ -182,10 +209,10 @@ const Header = () => {
                             <SimpleButton
                               title="Connect Wallet"
                               onClick={() => open()}
-                              className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white sm:hidden"
+                              className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
                             />
                           ))}
-                      </SheetClose>
+                      </div>
                     </div>
                     <div className="flex flex-col items-center gap-5">
                       <div className="flex gap-5">

@@ -44,7 +44,7 @@ const Loader = () => {
     animateLoader();
   }, []);
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <div className="flex h-screen w-screen absolute inset-0 z-[99999999999999] bg-ash items-center justify-center">
       <motion.div ref={scope} className="circle" style={{ width: radius * 2 }}>
         <p aria-label={text} />
         <p aria-hidden="true" className="text">

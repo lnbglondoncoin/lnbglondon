@@ -9,13 +9,7 @@ const PreloaderProvider = ({ children }) => {
     setTimeout(() => setLoading(false), 2000);
   }, []);
 
-  return !loading ? (
-    <main className="absolute inset-0 z-[9999999999999999999999] h-full min-h-screen w-full bg-coal">
-      {children}
-    </main>
-  ) : (
-    <Loader />
-  );
+  return !loading ? children : <Loader />;
 };
 
 export default PreloaderProvider;

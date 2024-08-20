@@ -34,13 +34,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>
-          <StoreProvider>
-            <ToastContainer />
-            <MovingBar />
-            <Header />
-            {children}
-            <Footer />
-          </StoreProvider>
+          <PreloaderProvider>
+            <StoreProvider>
+              <ToastContainer />
+              <MovingBar />
+              <Header />
+              {children}
+              <Footer />
+            </StoreProvider>
+          </PreloaderProvider>
         </Web3Modal>
       </body>
     </html>
