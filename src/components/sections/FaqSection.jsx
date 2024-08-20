@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
+import { Meteors } from "../ui/meteors";
 
 export default function FaqSection() {
   const router = useRouter();
@@ -151,15 +152,16 @@ export default function FaqSection() {
             whileInView="show"
             exit="show"
             variants={rightToLeftVariants}
-            className="order-1 md:pb-[70px] self-end justify-self-center md:order-2 md:justify-self-end"
+            className="relative order-1 flex w-full flex-col overflow-hidden md:order-2 md:pb-[70px]"
           >
             <Image
               src="/robot-2.png"
-              className="w-[250px] scale-x-[-1] md:w-[400px]"
+              className="static z-10 w-[250px] scale-x-[-1] self-end justify-self-center md:w-[400px] md:justify-self-end"
               width={400}
               height={500}
               alt="robot"
             />
+            <Meteors className="bg-red-200" number={20} />
           </motion.div>
         </div>
       </div>
