@@ -48,6 +48,7 @@ export default function PresaleCard() {
   const { error } = useWeb3ModalError();
 
   const [selectedToken, setSelectedToken] = useState("Binance");
+  const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");
   const [lnbgValue, setLnbgValue] = useState(0);
 
@@ -125,14 +126,11 @@ export default function PresaleCard() {
     main();
   }, [tokenAmount, selectedToken]);
 
-  console.log(
-    contractData,
-    "contractDatacontractDatacontractDatacontractDatacontractDatacontractDatacontractData",
-  );
+  console.log(contractData,"contractDatacontractDatacontractDatacontractDatacontractDatacontractDatacontractData");
 
   useEffect(() => {
     GetValues();
-  }, []);
+  }, [address]);
 
   const roundOff = (num) => {
     // convert string to int
@@ -141,24 +139,30 @@ export default function PresaleCard() {
     return number.toFixed(4);
   };
 
-  //----------------------------- Copy address to clipboard-------------------------
-  // const [copySuccess, setCopySuccess] = useState(false);
-  // const handleCopy = () => {
-  //   navigator.clipboard.writeText(address);
-  //   setCopySuccess(true);
-  // };
-  // useEffect(() => {
-  //   if (copySuccess) {
-  //     setTimeout(() => {
-  //       setCopySuccess(false);
-  //     }, 1000);
-  //   }
-  // }, [copySuccess]);
+  //----------------------------- Inssufficient address to clipboard-------------------------
+
+  useEffect(() => {
+  const checked = () => {
+    let tokenBalance = selectedToken == "Binance" ? contractData?.ethBalance : selectedToken == "USDC" ? contractData?.usdcBalance : contractData?.usdtBalance;
+    console.log(tokenBalance,"tokenBalancetokenBalancetokenBalance");
+    if (parseFloat(tokenAmount) > parseFloat(tokenBalance)) {
+      console.log("checkkkkkkkkkkkkkkkk1");
+      setButtonText("Insufficient Balance")
+      return
+    } else {
+      setButtonText("Buy")
+      return
+    }
+  }
+    checked();
+  }, [tokenAmount, selectedToken]);
+console.log(buttonText,"buttonTextbuttonTextbuttonText");
   // -------------------------------------------------------------------------------
 
-  let remainTokens = +contractData?.tokensInContract - 3000000;
+  let remainTokens = 10000000 - +contractData?.tokensInContract;
 
   console.log(loader, "loaderloaderloaderloader1");
+
   return (
     <motion.div
       initial={{
@@ -185,7 +189,7 @@ export default function PresaleCard() {
           <span className="pb-1 text-lg font-normal text-gray2">/$300,000</span>
         </div>
         <div className="text-xs text-gray2/60">
-          {+contractData?.tokensInContract > 0 ? remainTokens : 0} of 10,000,000
+          {+contractData?.tokensInContract > 0 ? Number(remainTokens)?.toFixed(4) : 0} of 10,000,000
           tokens
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
@@ -272,7 +276,7 @@ export default function PresaleCard() {
                   BuyWithETH(lnbgValue?.toString(), tokenAmount)
                 }
               >
-                Buy
+                {buttonText}
               </button>
               <button
                 onClick={addTokenToMetamask}
@@ -291,7 +295,7 @@ export default function PresaleCard() {
                   BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), false)
                 }
               >
-                Buy
+               {buttonText}
               </button>
               <button
                 onClick={addTokenToMetamask}
@@ -310,7 +314,7 @@ export default function PresaleCard() {
                   BuyWithUSDTandUSDC(tokenAmount, lnbgValue?.toString(), true)
                 }
               >
-                Buy
+                {buttonText}
               </button>
               <button
                 onClick={addTokenToMetamask}

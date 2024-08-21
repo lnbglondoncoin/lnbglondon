@@ -12,7 +12,7 @@ import USDCContractAddress from "../../contractsData/USDCToken-address.json";
 import USDCContract from "../../contractsData/USDCToken.json";
 
 import lnbgCoinAddress from "../../contractsData/LnbgLondonCoin-address.json";
-import lnbgCoin from "../../contractsData/LnbgLondonCoin-address.json";
+import lnbgCoin from "../../contractsData/LnbgLondonCoin.json";
 
 import {
   useSwitchNetwork,
@@ -24,16 +24,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
 import Loader from "@/components/Loader";
 
-// const getProviderMasterContract = () => {
-//   const providers = process.env.REACT_MAIN_RPC;
-//   const provider = new ethers.providers.JsonRpcProvider(providers); //"http://localhost:8545/"
-//   const masterContract = new ethers.Contract(
-//     lnbgMasterContractAddress.address,
-//     lnbgMasterContract.abi,
-//     provider,
-//   );
-//   return masterContract;
-// };
 
 const getProviderPresaleContract = () => {
   const providers = process.env.NEXT_PUBLIC_RPC_URL_BNB;
@@ -72,12 +62,6 @@ export const StoreProvider = ({ children }) => {
     tokensInContract: 0,
   });
 
-  const [masterContractData, setMasterContractData] = useState({
-    totalStakers: 0,
-    totalStakeAmount: 0,
-    totalRewards: 0,
-    distributed: 0,
-  });
 
   ////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////
@@ -86,11 +70,6 @@ export const StoreProvider = ({ children }) => {
   const GetValues = async () => {
     try {
       setloader(true);
-
-      console.log(
-        lnbgPresaleContractAddress.address,
-        "lnbgPresaleContractAddress.address",
-      );
 
       const sellPrice = await getProviderPresaleContract().salePrice();
       const raisedAmount = await getProviderPresaleContract().raisedAmount();
@@ -102,48 +81,48 @@ export const StoreProvider = ({ children }) => {
         tokenPrice: sellPrice?.toString(),
         isPreSaleActive: isPresale,
       }));
-      console.log(isConnected, "isConnectedisConnected");
+   
       if (isConnected) {
-        console.log("first");
-        const ethersProvider = new ethers.providers.Web3Provider(
-          walletProvider,
-        );
+    
+        const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
         const signer = ethersProvider.getSigner();
         const USDTContracts = new ethers.Contract(
           USDTContractAddress.address,
           USDTContract.abi,
-          signer,
+          signer
         );
-        console.log("second");
+       
         const USDCContracts = new ethers.Contract(
           USDCContractAddress.address,
           USDCContract.abi,
-          signer,
+          signer
         );
-        console.log("third");
+  
         const lnbgContracts = new ethers.Contract(
           lnbgCoinAddress.address,
           lnbgCoin.abi,
-          signer,
+          signer
         );
-        console.log("fifth");
+        
+
+  
         const balance = await ethersProvider.getBalance(address);
-        console.log("sixth");
+    
         const USDTBalance = await USDTContracts.balanceOf(address);
-        console.log("seventh");
+    
         const USDCBalance = await USDCContracts.balanceOf(address);
-        console.log("eight");
+  
         const lnbgBalance = await lnbgContracts.balanceOf(address);
-        console.log("nine");
-        // const TokensInContract = await lnbgContracts.balanceOf(lnbgPresaleContractAddress.address);
-        // console.log(TokensInContract,"TokensInContractTokensInContract");
+
+        const TokensInContract = await lnbgContracts.balanceOf(lnbgPresaleContractAddress.address);
+
         setContractData((prevState) => ({
           ...prevState,
           ethBalance: formatUnits(balance, 18)?.toString(),
           usdcBalance: formatUnits(USDTBalance, 18)?.toString(),
           usdtBalance: formatUnits(USDCBalance, 18)?.toString(),
           lnbgBalance: formatUnits(lnbgBalance, 18)?.toString(),
-          // tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
+          tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
         }));
       }
       setloader(false);
@@ -155,52 +134,45 @@ export const StoreProvider = ({ children }) => {
     }
   };
 
-  // const addTokenToMetamask = async () => {
-  //   console.log("functionCalled");
-  //     try {
-  //       const wasAdded = await window.ethereum.request({
-  //         method: "wallet_watchAsset",
-  //         params: {
-  //           type: "ERC20",
-  //           options: {
-  //             address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66",
-  //             symbol: "$LLC",
-  //             decimals: 18,
-  //             image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75",
-  //           },
-  //         },
-  //       });
-  //     } catch (error) {
-  //       setloader(false);
-  //       console.error("Failed to add token to Metamask: ", error);
-  //       toast.error("Failed to add token to Metamask. Please try again later.");
-  //     }
-  // };
 
   const addTokenToMetamask = async () => {
-    const isMobile =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent,
-      );
-
-    if (typeof window.ethereum !== "undefined") {
+    // console.log("testttttttttttttttttttt");
+    // const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // if (typeof window.ethereum !== "undefined") {
+    //   console.log("testttttttttttttttttttt2");
       try {
         if (!isConnected) {
+          
           return toast.error("Please Connect Your Wallet."), setloader(false);
         }
-        const wasAdded = await window.ethereum.request({
-          method: "wallet_watchAsset",
+      
+        const provider = new ethers.providers.Web3Provider(walletProvider);
+        const wasAdded = await provider.provider.request({
+          method: 'wallet_watchAsset',
           params: {
-            type: "ERC20",
+            type: 'ERC20',
             options: {
-              address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66", // Token address
-              symbol: "$LLC", // Token symbol
+              address: '0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66', // Token address
+              symbol: '$LLC', // Token symbol
               decimals: 18, // Token decimals
-              image:
-                "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75", // Token image URL
+              image: 'https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75', // Token image URL
             },
           },
         });
+
+        // const wasAdded = await window.ethereum.request({
+        //   method: "wallet_watchAsset",
+        //   params: {
+        //     type: "ERC20",
+        //     options: {
+        //       address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66", // Token address
+        //       symbol: "$LLC", // Token symbol
+        //       decimals: 18, // Token decimals
+        //       image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75", // Token image URL
+        //     },
+        //   },
+        // });
 
         if (wasAdded) {
           toast.success("Token successfully added to Metamask!");
@@ -211,17 +183,17 @@ export const StoreProvider = ({ children }) => {
         toast.error("Failed to add token to Metamask. Please try again later.");
         console.error("Failed to add token to Metamask: ", error);
       }
-    } else {
-      if (isMobile) {
-        // Metamask app is not installed, redirect to installation page
-        window.open("https://metamask.app.link/dapp/lnbgcoin.org");
-      } else {
-        // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
-        alert(
-          "MetaMask or Trust Wallet is not installed. Please consider installing one of them.",
-        );
-      }
-    }
+    // } else {
+    //   if (isMobile) {
+    //     console.log("testttttttttttttttttttt9");
+    //     // Metamask app is not installed, redirect to installation page
+    //     window.open("https://metamask.app.link/dapp/https://www.lnbglondon.com/");
+    //   } else {
+    //     console.log("testttttttttttttttttttt10");
+    //     // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
+    //     alert("MetaMask or Trust Wallet is not installed. Please consider installing one of them.");
+    //   }
+    // }
   };
 
   const copyToClipboard = () => {
@@ -242,13 +214,13 @@ export const StoreProvider = ({ children }) => {
     }
     try {
       let tokensss = ethers.utils.formatEther(tokens?.toString());
-      console.log(+tokensss?.toString(), "tokenssstokenssstokensss");
+
       if (+tokensss?.toString() < 10) {
         return toast.error("Please buy minimum One (1) Dollar");
       } else if (+tokensss?.toString() > 30000) {
         return toast.error("Please buy maximum One Thousand (3000) Dollar");
       }
-      console.log(tokens, "tokenstokenstokenstokenstokens");
+
       setloader(true);
       const provider = new ethers.providers.Web3Provider(walletProvider);
       const signer = provider.getSigner();
@@ -304,10 +276,8 @@ export const StoreProvider = ({ children }) => {
       return toast.error("Please Connect Your Wallet."), setloader(false);
     }
     try {
-      console.log(tokens?.toString(),"tokens?.toString()11");
-      console.log(amountInEthPayable?.toString(),"amountInEthPayable");
+  
       let tokensss = ethers.utils.formatEther(tokens?.toString());
-      console.log(tokensss?.toString(), "tokenssstokenssstokensss333");
 
       if (+tokensss < 10) {
         return toast.error("Please buy minimum One (1) Dollar");
@@ -315,11 +285,6 @@ export const StoreProvider = ({ children }) => {
         return toast.error("Please buy maximum One Thousand (1000) Dollar");
       }
 
-      console.log(tokens?.toString(), "tokens?.toString()tokens?.toString()");
-      console.log(
-        amountInEthPayable?.toString(),
-        "tokens?.toString()tokens?.toString()",
-      );
       setloader(true);
 
       const provider = new ethers.providers.Web3Provider(walletProvider);
