@@ -163,7 +163,8 @@ console.log(buttonText,"buttonTextbuttonTextbuttonText");
 
   console.log(loader, "loaderloaderloaderloader1");
 
-  return (
+  return loader ? <Loader/> : ( 
+
     <motion.div
       initial={{
         x: 100,
