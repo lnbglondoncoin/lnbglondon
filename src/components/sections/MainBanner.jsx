@@ -41,7 +41,7 @@ const MainBanner = () => {
               duration: 1.5,
               delay: 0.5,
             }}
-            className="flex w-7/12 flex-col items-center gap-y-5 text-center lg:items-start lg:text-left"
+            className="flex w-7/12 w-full flex-col items-center gap-y-5 text-center lg:items-start lg:text-left"
           >
             <h1 className="text-3xl font-bold sm:text-5xl md:text-6xl">
               Digital <FlipWords className="text-primary" words={texts} /> C
@@ -51,7 +51,7 @@ const MainBanner = () => {
             <span className="min-w-[250px] text-2xl text-primary md:text-4xl">
               Shaping the Future
             </span>
-            <div className="flex min-h-[70px] flex-wrap items-center justify-center gap-2">
+            <div className="flex min-h-[70px] w-full items-center justify-center gap-2">
               <Link
                 href="https://solidityscan.com/published-report/project/bd15e426b5e94bcb"
                 className="transition-all duration-200 ease-in-out hover:pb-1"
