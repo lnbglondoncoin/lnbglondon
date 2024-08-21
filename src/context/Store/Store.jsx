@@ -1,5 +1,5 @@
 "use client";
-import React, { useState,createContext } from "react";
+import React, { useState, createContext } from "react";
 import { ethers } from "ethers";
 
 import lnbgPresaleContractAddress from "../../contractsData/LngbPreSaleContract-address.json";
@@ -22,6 +22,7 @@ import {
 } from "@web3modal/ethers5/react";
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
+import Loader from "@/components/Loader";
 
 // const getProviderMasterContract = () => {
 //   const providers = process.env.REACT_MAIN_RPC;
@@ -68,7 +69,7 @@ export const StoreProvider = ({ children }) => {
     duration: 0,
     rewardEarned: 0,
     ClaimedReward: 0,
-    tokensInContract:0,
+    tokensInContract: 0,
   });
 
   const [masterContractData, setMasterContractData] = useState({
@@ -86,7 +87,10 @@ export const StoreProvider = ({ children }) => {
     try {
       setloader(true);
 
-      console.log(lnbgPresaleContractAddress.address,"lnbgPresaleContractAddress.address");
+      console.log(
+        lnbgPresaleContractAddress.address,
+        "lnbgPresaleContractAddress.address",
+      );
 
       const sellPrice = await getProviderPresaleContract().salePrice();
       const raisedAmount = await getProviderPresaleContract().raisedAmount();
@@ -98,10 +102,12 @@ export const StoreProvider = ({ children }) => {
         tokenPrice: sellPrice?.toString(),
         isPreSaleActive: isPresale,
       }));
-      console.log(isConnected,"isConnectedisConnected");
+      console.log(isConnected, "isConnectedisConnected");
       if (isConnected) {
         console.log("first");
-        const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+        const ethersProvider = new ethers.providers.Web3Provider(
+          walletProvider,
+        );
         const signer = ethersProvider.getSigner();
         const USDTContracts = new ethers.Contract(
           USDTContractAddress.address,
@@ -136,7 +142,7 @@ export const StoreProvider = ({ children }) => {
           ethBalance: formatUnits(balance, 18)?.toString(),
           usdcBalance: formatUnits(USDTBalance, 18)?.toString(),
           usdtBalance: formatUnits(USDCBalance, 18)?.toString(),
-          lnbgBalance: formatUnits(lnbgBalance, 18)?.toString()
+          lnbgBalance: formatUnits(lnbgBalance, 18)?.toString(),
           // tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
         }));
       }
@@ -149,101 +155,74 @@ export const StoreProvider = ({ children }) => {
     }
   };
 
+  // const addTokenToMetamask = async () => {
+  //   console.log("functionCalled");
+  //     try {
+  //       const wasAdded = await window.ethereum.request({
+  //         method: "wallet_watchAsset",
+  //         params: {
+  //           type: "ERC20",
+  //           options: {
+  //             address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66",
+  //             symbol: "$LLC",
+  //             decimals: 18,
+  //             image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75",
+  //           },
+  //         },
+  //       });
+  //     } catch (error) {
+  //       setloader(false);
+  //       console.error("Failed to add token to Metamask: ", error);
+  //       toast.error("Failed to add token to Metamask. Please try again later.");
+  //     }
+  // };
+
   const addTokenToMetamask = async () => {
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
-  
-    console.log("isMobile:", isMobile);
-  
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent,
+      );
+
     if (typeof window.ethereum !== "undefined") {
       try {
         if (!isConnected) {
-          setloader(false);
-          return toast.error("Please Connect Your Wallet.");
+          return toast.error("Please Connect Your Wallet."), setloader(false);
         }
-        
         const wasAdded = await window.ethereum.request({
           method: "wallet_watchAsset",
           params: {
             type: "ERC20",
             options: {
-              address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66",
-              symbol: "$LLC",
-              decimals: 18,
-              image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75",
+              address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66", // Token address
+              symbol: "$LLC", // Token symbol
+              decimals: 18, // Token decimals
+              image:
+                "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75", // Token image URL
             },
           },
         });
-  
-        console.log("wasAdded:", wasAdded);
-  
+
         if (wasAdded) {
           toast.success("Token successfully added to Metamask!");
         } else {
           toast.error("Failed to add the token.");
         }
       } catch (error) {
-        console.error("Failed to add token to Metamask: ", error);
         toast.error("Failed to add token to Metamask. Please try again later.");
+        console.error("Failed to add token to Metamask: ", error);
       }
     } else {
       if (isMobile) {
-        window.open("https://metamask.app.link/dapp/https://www.lnbglondon.com/");
+        // Metamask app is not installed, redirect to installation page
+        window.open("https://metamask.app.link/dapp/lnbgcoin.org");
       } else {
+        // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
         alert(
-          "MetaMask or Trust Wallet is not installed. Please consider installing one of them."
+          "MetaMask or Trust Wallet is not installed. Please consider installing one of them.",
         );
       }
     }
   };
-
-  
-  // const addTokenToMetamask = async () => {
-  //   const isMobile =
-  //     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-  //       navigator.userAgent,
-  //     );
-
-  //   if (typeof window.ethereum !== "undefined") {
-  //     try {
-  //       if (!isConnected) {
-  //         return toast.error("Please Connect Your Wallet."), setloader(false);
-  //       }
-  //       const wasAdded = await window.ethereum.request({
-  //         method: "wallet_watchAsset",
-  //         params: {
-  //           type: "ERC20",
-  //           options: {
-  //             address: "0xdB6675D9740f6401DcD0BB3092fa4dc88c2a0F66", // Token address
-  //             symbol: "$LLC", // Token symbol
-  //             decimals: 18, // Token decimals
-  //             image: "https://lnbglondon.vercel.app/_next/image?url=%2Flogo.png&w=48&q=75", // Token image URL
-  //           },
-  //         },
-  //       });
-
-  //       if (wasAdded) {
-  //         toast.success("Token successfully added to Metamask!");
-  //       } else {
-  //         toast.error("Failed to add the token.");
-  //       }
-  //     } catch (error) {
-  //       toast.error("Failed to add token to Metamask. Please try again later.");
-  //       console.error("Failed to add token to Metamask: ", error);
-  //     }
-  //   } else {
-  //     if (isMobile) {
-  //       // Metamask app is not installed, redirect to installation page
-  //       window.open("https://metamask.app.link/dapp/lnbgcoin.org");
-  //     } else {
-  //       // if no window.ethereum and no window.web3, then MetaMask or Trust Wallet is not installed
-  //       alert(
-  //         "MetaMask or Trust Wallet is not installed. Please consider installing one of them.",
-  //       );
-  //     }
-  //   }
-  // };
 
   const copyToClipboard = () => {
     const tokenAddress = lnbgCoinAddress?.address; // Your token address
@@ -325,12 +304,14 @@ export const StoreProvider = ({ children }) => {
       return toast.error("Please Connect Your Wallet."), setloader(false);
     }
     try {
+      console.log(tokens?.toString(),"tokens?.toString()11");
+      console.log(amountInEthPayable?.toString(),"amountInEthPayable");
       let tokensss = ethers.utils.formatEther(tokens?.toString());
-      console.log(tokensss?.toString(), "tokenssstokenssstokensss");
+      console.log(tokensss?.toString(), "tokenssstokenssstokensss333");
 
-      if (tokensss < 10) {
+      if (+tokensss < 10) {
         return toast.error("Please buy minimum One (1) Dollar");
-      } else if (tokensss > 30000) {
+      } else if (+tokensss > 30000) {
         return toast.error("Please buy maximum One Thousand (1000) Dollar");
       }
 
@@ -343,10 +324,11 @@ export const StoreProvider = ({ children }) => {
 
       const provider = new ethers.providers.Web3Provider(walletProvider);
       const signer = provider.getSigner();
+
       const presaleContract = new ethers.Contract(
         lnbgPresaleContractAddress.address,
         lnbgPresaleContract.abi,
-        signer,
+        signer
       );
 
       let amountInWei = ethers.utils.parseEther(amountInEthPayable?.toString());
@@ -362,11 +344,12 @@ export const StoreProvider = ({ children }) => {
       if (error?.reason) {
         // If error.reason is defined, show it in the toast
         toast.error(`${JSON.stringify(error.reason)}`);
-    } else {
+      } else {
         // If error.reason is undefined, show a custom message
-        const shortErrorMessage = error?.data?.message?.split(':')[0] + ": insufficient funds";
+        const shortErrorMessage =
+          error?.data?.message?.split(":")[0] + ": insufficient funds";
         toast.error(shortErrorMessage || "An unknown error occurred.");
-    }
+      }
       // toast.error(`${JSON.stringify(error.reason)}`);
       // const shortErrorMessage = error?.data?.message.split(':')[0] + ": insufficient funds";
       // toast.error(`${JSON.stringify(shortErrorMessage)}`);
@@ -449,7 +432,7 @@ export const StoreProvider = ({ children }) => {
           BuyWithUSDTandUSDC,
           BuyWithETH,
           presaleStart,
-          presaleStop
+          presaleStop,
         }}
       >
         {children}

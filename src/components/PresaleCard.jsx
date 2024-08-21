@@ -17,7 +17,7 @@ import { ethers } from "ethers";
 import React from "react";
 import { Copy } from "lucide-react";
 import Link from "next/link";
-import lnbgAddress from '../contractsData/LnbgLondonCoin-address.json'
+import lnbgAddress from "../contractsData/LnbgLondonCoin-address.json";
 import Loader from "./Loader";
 
 export default function PresaleCard() {
@@ -99,9 +99,7 @@ export default function PresaleCard() {
               howMuch?.toString() / (+contractData?.tokenPrice / 10 ** 18);
 
             console.log(tokenTokens?.toString(), "tokenTokens");
-            let parse2 = ethers.utils.parseEther(
-              tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
-            );
+            let parse2 = ethers.utils.parseEther(tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0);
             console.log(parse2?.toString(), "Tokenssss");
             setLnbgValue(parse2?.toString()); // Tokens in ether
           }
@@ -134,7 +132,7 @@ export default function PresaleCard() {
 
   useEffect(() => {
     GetValues();
-  }, [isConnected]);
+  }, []);
 
   const roundOff = (num) => {
     // convert string to int
@@ -143,24 +141,24 @@ export default function PresaleCard() {
     return number.toFixed(4);
   };
 
-
   //----------------------------- Copy address to clipboard-------------------------
-  const [copySuccess, setCopySuccess] = useState(false);
-  const handleCopy = () => {
-    navigator.clipboard.writeText(address);
-    setCopySuccess(true);
-  };
-  useEffect(() => {
-    if (copySuccess) {
-      setTimeout(() => {
-        setCopySuccess(false);
-      }, 1000);
-    }
-  }, [copySuccess]);
+  // const [copySuccess, setCopySuccess] = useState(false);
+  // const handleCopy = () => {
+  //   navigator.clipboard.writeText(address);
+  //   setCopySuccess(true);
+  // };
+  // useEffect(() => {
+  //   if (copySuccess) {
+  //     setTimeout(() => {
+  //       setCopySuccess(false);
+  //     }, 1000);
+  //   }
+  // }, [copySuccess]);
   // -------------------------------------------------------------------------------
 
-
   let remainTokens = +contractData?.tokensInContract - 3000000;
+
+  console.log(loader, "loaderloaderloaderloader1");
   return (
     <motion.div
       initial={{
@@ -192,22 +190,23 @@ export default function PresaleCard() {
         </div>
         <ProgressBar soldPercentage={soldPercentage} />
         <div className="rounded-xd flex items-center gap-5 bg-ash px-2 py-3 text-gray2">
-            <span className="w-full text-xs">
-              {lnbgAddress?.address?.slice(0, 6)}........{lnbgAddress?.address?.slice(-4)}
-            </span>
-          {copySuccess ? (
+          <span className="w-full text-xs">
+            {lnbgAddress?.address?.slice(0, 6)}........
+            {lnbgAddress?.address?.slice(-4)}
+          </span>
+          {/* {copySuccess ? (
             <span className="text-nowrap text-[8px]">Copied to clipboard</span>
-          ) : (
-            <button onClick={() => copyToClipboard()}>
-              <Copy size={18} />
-            </button>
-          )}
+          ) : ( */}
+          <button onClick={() => copyToClipboard()}>
+            <Copy size={18} />
+          </button>
+          {/* )} */}
         </div>
       </div>
       <CountdownTimer />
       <SelectTokenModal
-      setLnbgValue={setLnbgValue}
-      setTokensAmount={setTokensAmount}
+        setLnbgValue={setLnbgValue}
+        setTokensAmount={setTokensAmount}
         selectedToken={selectedToken}
         setSelectedToken={setSelectedToken}
       />
@@ -218,7 +217,7 @@ export default function PresaleCard() {
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
         <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
           {selectedToken == "Binance" ? (
-          <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
+            <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
           ) : selectedToken == "USDC" ? (
             usdcSvg
           ) : selectedToken == "USDT" ? (
@@ -270,12 +269,13 @@ export default function PresaleCard() {
                 className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                 disabled={loader}
                 onClick={() =>
-                  BuyWithETH(tokenAmount, lnbgValue?.toString(), false)
+                  BuyWithETH(lnbgValue?.toString(), tokenAmount)
                 }
               >
                 Buy
               </button>
-              <button onClick={()=>addTokenToMetamask()}
+              <button
+                onClick={addTokenToMetamask}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >
@@ -293,7 +293,8 @@ export default function PresaleCard() {
               >
                 Buy
               </button>
-              <button onClick={()=>addTokenToMetamask()}
+              <button
+                onClick={addTokenToMetamask}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >
@@ -311,7 +312,8 @@ export default function PresaleCard() {
               >
                 Buy
               </button>
-              <button onClick={()=>addTokenToMetamask()}
+              <button
+                onClick={addTokenToMetamask}
                 className="w-full rounded-xl border border-black bg-black py-3 font-bold hover:border-primary"
                 disabled={loader}
               >
