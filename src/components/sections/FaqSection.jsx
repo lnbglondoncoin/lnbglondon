@@ -155,7 +155,7 @@ export default function FaqSection() {
             className="relative order-1 flex w-full flex-col overflow-hidden md:order-2 md:pb-[70px]"
           >
             <Image
-              src="/robot-2.png"
+              src="/static/robot-2.png"
               className="static z-10 w-[250px] scale-x-[-1] self-end justify-self-center md:w-[400px] md:justify-self-end"
               width={400}
               height={500}

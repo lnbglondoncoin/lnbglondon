@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 export default function DappSection() {
   return (
     <div className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden">
-      <div className="flex w-full max-w-7xl items-center justify-center overflow-hidden rounded-xl bg-[url(/robot.png)] bg-cover bg-center">
+      <div className="flex w-full max-w-7xl items-center justify-center overflow-hidden rounded-xl bg-[url(/static/robot.png)] bg-cover bg-center">
         <div className="grid w-full max-w-7xl bg-black/70 px-5 py-20 md:grid-cols-2 md:px-10">
           <div className="flex flex-col gap-10">
             <motion.div

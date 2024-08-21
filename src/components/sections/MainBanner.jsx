@@ -57,7 +57,7 @@ const MainBanner = () => {
                 className="transition-all duration-200 ease-in-out hover:pb-1"
               >
                 <Image
-                  src="/solidity-scan-lnbg.png"
+                  src="/static/solidity-scan-lnbg.png"
                   width={146}
                   height={61}
                   alt="Solidity Scan"
@@ -68,7 +68,7 @@ const MainBanner = () => {
                 className="transition-all duration-200 ease-in-out hover:pb-1"
               >
                 <Image
-                  src="/cred-sheild-lnbg.png"
+                  src="/static/cred-sheild-lnbg.png"
                   width={146}
                   height={61}
                   alt="Cred Sheild"

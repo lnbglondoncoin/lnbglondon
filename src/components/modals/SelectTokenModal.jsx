@@ -24,7 +24,7 @@ const SelectTokenModal = ({
         <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
           <div className="flex items-center gap-2">
             {selectedToken == "Binance" ? (
-              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />
+              <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />
             ) : selectedToken == "USDC" ? (
               usdcSvg
             ) : (
@@ -53,7 +53,7 @@ const SelectTokenModal = ({
                 setTokensAmount(""); // Modal ko band karne ka function
               }}
             >
-              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
+              <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
               Binance
             </button>
             <button

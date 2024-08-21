@@ -11,7 +11,7 @@ const Professionals = () => {
         <div className="flex flex-col items-center gap-10">
           <div className="group relative">
             <Image
-              src="/authors/author1.png"
+              src="/static/authors/author1.png"
               width={300}
               height={300}
               alt="author"
@@ -30,7 +30,7 @@ const Professionals = () => {
         <div className="flex flex-col items-center gap-10">
           <div className="group relative">
             <Image
-              src="/authors/author2.png"
+              src="/static/authors/author2.png"
               width={300}
               height={300}
               alt="author"
@@ -49,7 +49,7 @@ const Professionals = () => {
         <div className="flex flex-col items-center gap-10">
           <div className="group relative">
             <Image
-              src="/authors/author3.png"
+              src="/static/authors/author3.png"
               width={300}
               height={300}
               alt="author"
@@ -68,7 +68,7 @@ const Professionals = () => {
         <div className="flex flex-col items-center gap-10">
           <div className="group relative">
             <Image
-              src="/authors/author4.png"
+              src="/static/authors/author4.png"
               width={300}
               height={300}
               alt="author"

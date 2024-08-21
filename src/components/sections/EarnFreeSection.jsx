@@ -41,7 +41,7 @@ const EarnFreeSection = () => {
           </span>
           <div className="flex flex-wrap gap-5">
             <div className="flex cursor-pointer gap-x-2 rounded-full border-4 border-lightgray bg-transparent py-4 pl-8 pr-10 font-bold tracking-tighter text-lightgray transition-all duration-200 ease-in-out hover:bg-lightgray hover:text-black">
-              <Image src="/apple.svg" width={30} height={30} alt="apple icon" />
+              <Image src="/static/apple.svg" width={30} height={30} alt="apple icon" />
               <div className="flex flex-col text-start">
                 <span className="text-xs text-darkgray">download on</span>
                 <span className="">Apple Store</span>
@@ -49,7 +49,7 @@ const EarnFreeSection = () => {
             </div>
             <div className="group flex cursor-pointer gap-x-2 rounded-full border-4 border-primary bg-primary py-4 pl-8 pr-10 font-bold tracking-tighter text-lightgray transition-all duration-200 ease-in-out hover:border-lightgray hover:bg-transparent hover:text-white">
               <Image
-                src="/playstore.svg"
+                src="/static/playstore.svg"
                 width={30}
                 height={30}
                 alt="apple icon"
@@ -73,7 +73,7 @@ const EarnFreeSection = () => {
           className="flex w-full items-center justify-center"
         >
           <Image
-            src="/phone.png"
+            src="/static/phone.png"
             width={500}
             height={540}
             alt="phone"

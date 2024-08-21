@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const OurTeamBanner = () => {
   return (
-    <section className="relative flex w-full items-center justify-center overflow-hidden bg-[url('/bgs/bg-2.png')] bg-contain 2xl:bg-cover bg-center bg-no-repeat py-[120px]">
+    <section className="relative flex w-full items-center justify-center overflow-hidden bg-[url(/static/bgs/bg-2.png)] bg-contain 2xl:bg-cover bg-center bg-no-repeat py-[120px]">
       <Vortex
         backgroundColor="transparent"
         containerClassName="h-full w-full max-w-screen"

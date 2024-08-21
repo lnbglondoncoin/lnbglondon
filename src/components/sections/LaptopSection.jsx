@@ -5,13 +5,13 @@ import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
 const LaptopSection = () => {
   return (
-    <div className="flex w-full items-center justify-center bg-[url(/bgs/bg-2.png)] bg-contain bg-center bg-no-repeat px-5 py-20 2xl:min-h-[1200px] 2xl:bg-cover overflow-hidden max-w-[100vw]">
+    <div className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-[url(/static/bgs/bg-2.png)] bg-contain bg-center bg-no-repeat px-5 py-20 2xl:min-h-[1200px] 2xl:bg-cover">
       <motion.div
         initial="hide"
         whileInView="show"
         exit="show"
         variants={leftToRightVariants}
-        className="flex h-full w-full max-w-7xl justify-end bg-contain bg-no-repeat sm:bg-[url(/pc.png)]"
+        className="flex h-full w-full max-w-7xl justify-end bg-contain bg-no-repeat sm:bg-[url(/static/pc.png)]"
       >
         <motion.div
           initial="hide"

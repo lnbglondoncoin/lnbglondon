@@ -73,7 +73,7 @@ const Header = () => {
           <Link href="/" className="flex items-center gap-x-3">
             <Image
               className=""
-              src="/logo.png"
+              src="/static/logo.png"
               width={40}
               height={40}
               alt="lnbgcoin"
@@ -106,7 +106,7 @@ const Header = () => {
                     <Link href="/" className="flex items-center gap-x-3">
                       <Image
                         className=""
-                        src="/logo.png"
+                        src="/static/logo.png"
                         width={40}
                         height={40}
                         alt="lnbgcoin"
@@ -181,7 +181,7 @@ const Header = () => {
                             className="rounded-full border border-white/10 p-2"
                           >
                             <Image
-                              src="/header/ethereum.svg"
+                              src="/static/header/ethereum.svg"
                               width={20}
                               height={20}
                               alt="ethereum"
@@ -193,7 +193,7 @@ const Header = () => {
                             className="rounded-full border border-white/10 p-2"
                           >
                             <Image
-                              src="/header/binance.png"
+                              src="/static/header/binance.png"
                               width={20}
                               height={20}
                               alt="binance"

@@ -51,7 +51,7 @@ const GatewaySection = () => {
           className="flex w-full items-center justify-center"
         >
           <Image
-            src="/phone.png"
+            src="/static/phone.png"
             width={500}
             height={540}
             alt="phone"

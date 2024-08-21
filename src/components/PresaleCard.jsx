@@ -223,13 +223,13 @@ console.log(buttonText,"buttonTextbuttonTextbuttonText");
       <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
         <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
           {selectedToken == "Binance" ? (
-            <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
+            <Image src="/static/bnb-logo.png" width={21} height={21} alt="bnb" />
           ) : selectedToken == "USDC" ? (
             usdcSvg
           ) : selectedToken == "USDT" ? (
             usdtSvg
           ) : (
-            <Image src="/bnb-logo.png" width={21} height={21} alt="bnb" />
+            <Image src="/static/bnb-logo.png" width={21} height={21} alt="bnb" />
           )}
           <input
             type="text"
@@ -242,7 +242,7 @@ console.log(buttonText,"buttonTextbuttonTextbuttonText");
         </div>
         <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
           <Image
-            src="/coins/lnbgcoin.png"
+            src="/static/coins/lnbgcoin.png"
             width={21}
             height={21}
             alt="lnbgcoin"

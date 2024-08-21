@@ -9,6 +9,7 @@ import RoadmapSection from "@/components/sections/RoadmapSection";
 import TokenomicsSection from "@/components/sections/TokenomicsSection";
 import WhyInvestSection from "@/components/sections/WhyInvestSection";
 import { getLocation } from "@/utils/location";
+import Image from "next/image";
 
 export default async function Home({ params }) {
   const language = params.lang;

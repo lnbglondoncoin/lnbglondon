@@ -135,7 +135,7 @@ img {
 }
 
 .why-invest-box {
-  background: url(/coin.png), url(/bg.png);
+  background: url(/static/coin.png), url(/static/bg.png);
   background-repeat: no-repeat, no-repeat;
   background-size:
     300px 250px,

@@ -19,7 +19,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
         <div className="flex w-full items-center justify-between gap-2 rounded-md bg-ash p-2 text-xl">
           <div className="flex items-center gap-2">
             {selectedToken == "Binance" ? (
-              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />
+              <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />
             ) : selectedToken == "USDC" ? (
               usdcSvg
             ) : (
@@ -49,7 +49,7 @@ const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
                 setIsOpen(false);
               }}
             >
-              <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
+              <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
               Binance
             </button>
             <button

@@ -9,7 +9,7 @@ const Footer = () => {
           <div className="flex flex-col gap-7">
             <div className="flex items-center gap-x-3">
               <Image
-                src="/logo.png"
+                src="/static/logo.png"
                 width={40}
                 height={40}
                 alt="logo"

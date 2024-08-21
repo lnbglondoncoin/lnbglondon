@@ -21,7 +21,7 @@ const TokenomicsSection = () => {
           whileInView="show"
           exit="show"
           variants={leftToRightVariants}
-          className="flex h-[350px] w-[350px] flex-col bg-[url(/tokenomics.png)] bg-[length:190px_190px] bg-center bg-no-repeat sm:h-[460px] sm:w-[640px] sm:bg-[length:270px_270px]"
+          className="flex h-[350px] w-[350px] flex-col bg-[url(/static/tokenomics.png)] bg-[length:190px_190px] bg-center bg-no-repeat sm:h-[460px] sm:w-[640px] sm:bg-[length:270px_270px]"
         >
           <div className="flex h-full w-full flex-col gap-3">
             <div className="flex w-full flex-col items-center">

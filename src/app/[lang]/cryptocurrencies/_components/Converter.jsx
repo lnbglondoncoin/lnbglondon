@@ -21,7 +21,7 @@ const Converter = () => {
             Go to Coin Market {">"}
           </Link>
         </div>
-        <div className="flex flex-col rounded-3xl bg-primary bg-[url('/bgs/bg-convert.png')] bg-center bg-no-repeat px-16 py-24">
+        <div className="flex flex-col rounded-3xl bg-primary bg-[url(/static/bgs/bg-convert.png)] bg-center bg-no-repeat px-16 py-24">
           <span className="tracking-tight text-black">1 Bitcoin equals</span>
           <span className="text-2xl tracking-tight text-white">
             31.92400000 LNBG COIN

@@ -44,7 +44,7 @@ const PartnersSection = () => {
             <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
               <Image
                 quality={100}
-                src="/clients/client1.png"
+                src="/static/clients/client1.png"
                 width={160}
                 height={50}
                 alt="client1"
@@ -53,7 +53,7 @@ const PartnersSection = () => {
             <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
               <Image
                 quality={100}
-                src="/clients/client2.png"
+                src="/static/clients/client2.png"
                 width={160}
                 height={50}
                 alt="client1"
@@ -62,7 +62,7 @@ const PartnersSection = () => {
             <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
               <Image
                 quality={100}
-                src="/clients/client3.png"
+                src="/static/clients/client3.png"
                 width={160}
                 height={50}
                 alt="client1"
@@ -71,7 +71,7 @@ const PartnersSection = () => {
             <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
               <Image
                 quality={100}
-                src="/clients/client4.png"
+                src="/static/clients/client4.png"
                 width={160}
                 height={50}
                 alt="client1"
@@ -80,7 +80,7 @@ const PartnersSection = () => {
             <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
               <Image
                 quality={100}
-                src="/clients/client5.png"
+                src="/static/clients/client5.png"
                 width={160}
                 height={50}
                 alt="client1"

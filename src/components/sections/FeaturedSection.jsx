@@ -63,7 +63,7 @@ export default function FeaturedSection() {
               <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <Image
                   quality={100}
-                  src="/clients/client1.png"
+                  src="/static/clients/client1.png"
                   width={180}
                   height={60}
                   className="grayscale"
@@ -73,7 +73,7 @@ export default function FeaturedSection() {
               <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <Image
                   quality={100}
-                  src="/clients/client2.png"
+                  src="/static/clients/client2.png"
                   width={180}
                   height={60}
                   className="grayscale"
@@ -83,7 +83,7 @@ export default function FeaturedSection() {
               <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <Image
                   quality={100}
-                  src="/clients/client3.png"
+                  src="/static/clients/client3.png"
                   width={180}
                   height={60}
                   className="grayscale"
@@ -93,7 +93,7 @@ export default function FeaturedSection() {
               <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <Image
                   quality={100}
-                  src="/clients/client4.png"
+                  src="/static/clients/client4.png"
                   width={180}
                   height={60}
                   className="grayscale"
@@ -103,7 +103,7 @@ export default function FeaturedSection() {
               <CarouselItem className="flex items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
                 <Image
                   quality={100}
-                  src="/clients/client5.png"
+                  src="/static/clients/client5.png"
                   width={180}
                   height={60}
                   className="grayscale"
@@ -127,7 +127,7 @@ export default function FeaturedSection() {
           className="grid w-full rounded-3xl bg-black p-1.5 md:grid-cols-2 md:rounded-[32px]"
         >
           <Image
-            src="/feature.png"
+            src="/static/feature.png"
             width={600}
             height={400}
             className="w-full"

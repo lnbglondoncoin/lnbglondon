@@ -59,7 +59,7 @@ const RoadmapSection = () => {
           whileInView="show"
           exit="show"
           variants={leftToRightVariants}
-          className="w-full bg-[url(/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"
+          className="w-full bg-[url(/static/tesla.webp)] bg-contain bg-no-repeat sm:h-[200px] md:h-[300px] lg:h-[350px]"
         ></motion.div>
       </div>
     </section>

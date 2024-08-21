@@ -4,7 +4,7 @@ import ContactForm from "./ContactForm";
 
 export default function ContactBanner() {
   return (
-    <section className="relative flex w-full items-center justify-center bg-[url('/bgs/bg-2.png')] bg-contain bg-center bg-no-repeat py-[120px]">
+    <section className="relative flex w-full items-center justify-center bg-[url(/static/bgs/bg-2.png)] bg-contain bg-center bg-no-repeat py-[120px]">
       <div className="z-10 flex w-full max-w-7xl flex-col items-center gap-10 px-5 text-center">
         <span className="text-xl tracking-[0.2em] text-primary sm:text-2xl">
           LNBG LONDON TEAM

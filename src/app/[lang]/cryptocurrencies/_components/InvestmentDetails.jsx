@@ -9,7 +9,7 @@ const InvestmentDetails = () => {
         <div className="relative mx-10 hidden items-center justify-between md:flex">
           <div className="absolute flex h-56 w-48 -rotate-12 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-black/50 transition-all duration-300 ease-in-out hover:bg-primary/70">
             <Image
-              src="/coins/bitcoin.png"
+              src="/static/coins/bitcoin.png"
               width={80}
               height={80}
               alt="bitcoin"
@@ -18,7 +18,7 @@ const InvestmentDetails = () => {
           </div>
           <div className="absolute left-24 flex h-56 w-48 -rotate-12 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-black/50 transition-all duration-300 ease-in-out hover:bg-primary/70">
             <Image
-              src="/payment/paypal.png"
+              src="/static/payment/paypal.png"
               width={80}
               height={80}
               alt="bitcoin"
@@ -27,7 +27,7 @@ const InvestmentDetails = () => {
           </div>
           <div className="absolute left-48 flex h-56 w-48 -rotate-12 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-black/50 transition-all duration-300 ease-in-out hover:bg-primary/70">
             <Image
-              src="/payment/visa.png"
+              src="/static/payment/visa.png"
               width={80}
               height={80}
               alt="bitcoin"
@@ -36,7 +36,7 @@ const InvestmentDetails = () => {
           </div>
           <div className="absolute left-72 flex h-56 w-48 -rotate-12 cursor-pointer flex-col items-center justify-center gap-2 rounded-lg bg-black/50 transition-all duration-300 ease-in-out hover:bg-primary/70">
             <Image
-              src="/payment/mastercard.png"
+              src="/static/payment/mastercard.png"
               width={80}
               height={80}
               alt="bitcoin"

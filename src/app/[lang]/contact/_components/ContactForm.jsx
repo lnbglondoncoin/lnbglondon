@@ -204,7 +204,7 @@ export default function ContactForm() {
             <div className="mr-auto flex gap-1 pl-[0.45rem]">
               {" "}
               <Image
-                src="/contactpage/tick.svg"
+                src="/static/contactpage/tick.svg"
                 width={16}
                 height={3}
                 alt="tick"
