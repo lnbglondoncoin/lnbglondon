@@ -7,10 +7,16 @@ let locales = ["fr", "en", "es", "ru"];
 async function getLocale(request) {
   const location = await getLocation();
   const country = location.country;
-  return country == "Russia" ? "ru" : country == ""
+  return country == "Russia"
+    ? "ru"
+    : country == "France"
+      ? "fr"
+      : country == "Spain"
+        ? "es"
+        : "en";
 }
 
-export function middleware(request) {
+export async function middleware(request) {
   const { pathname } = request.nextUrl;
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
@@ -18,8 +24,17 @@ export function middleware(request) {
 
   if (pathnameHasLocale) return;
 
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  const locale = await getLocale(request);
+  if (
+    locale === "en" ||
+    locale === "fr" ||
+    locale === "es" ||
+    locale === "ru"
+  ) {
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(request.nextUrl);
+  }
+  request.nextUrl.pathname = `/en${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
 
