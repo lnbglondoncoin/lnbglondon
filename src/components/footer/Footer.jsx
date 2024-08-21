@@ -43,7 +43,10 @@ const Footer = () => {
               >
                 {linkedInIcon}
               </Link>
-              <Link className="hover:text-primary" href="">
+              <Link
+                className="hover:text-primary"
+                href="https://discord.gg/KJhf24Uz"
+              >
                 {discordIcon}
               </Link>
             </div>

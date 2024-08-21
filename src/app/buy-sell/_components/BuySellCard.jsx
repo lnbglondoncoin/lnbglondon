@@ -7,19 +7,17 @@ import SimpleButton from "@/components/buttons/SimpleButton";
 import { cn } from "@/lib/utils";
 
 export default function BuySellCard() {
-  const amountRef = useRef();
-  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("");
+  const [currencyAmount, setCurrencyAmount] = useState("");
+  const [token, setToken] = useState("");
+  const [tokenAmount, setTokenAmount] = useState("");
   const [tab, setTab] = useState("buy");
   const [selectedToken, setSelectedToken] = useState("Binance");
 
-  const handleAmountChange = (e) => {
-    const amountValue = amountRef.current.value;
-    setAmount(amountValue);
-  };
   return (
     <div className="flex w-full max-w-[400px] flex-col gap-2 rounded-lg border border-white/10 bg-coal/80 p-4">
       <div className="flex items-center justify-between gap-3">
-        <span className="mb-3 text-xl">LNBG</span>
+        <span className="mb-3 text-xl">{tab == "buy" ? "Buy" : "Sell"}</span>
         <div className="flex items-center gap-1">
           <SimpleButton
             title="Buy"
@@ -43,43 +41,105 @@ export default function BuySellCard() {
           />
         </div>
       </div>
-      <div className="flex w-full flex-col rounded-md bg-ash p-3">
-        <span className="font-sans text-sm text-gray2/60">
-          Your are selling
-        </span>
-        <div className="flex flex-col">
-          <input
-            className="w-full bg-transparent text-center text-7xl outline-none"
-            placeholder="0"
-            name="amount"
-            id="amount"
-            ref={amountRef}
-            autoComplete="off"
-            value={amount}
-            onChange={handleAmountChange}
-          />
-        </div>
+      {tab == "buy" ? (
+        <>
+          <div className="flex w-full flex-col rounded-md bg-ash p-3">
+            <span className="font-sans text-sm text-gray2/60">You Pay</span>
+            <div className="flex items-center justify-between">
+              <input
+                className="w-full bg-transparent font-sans text-5xl font-light outline-none"
+                placeholder="0"
+                name="currencyAmount"
+                id="currencyAmount"
+                autoComplete="off"
+                value={currencyAmount}
+                onChange={(e) => setCurrencyAmount(e.target.value)}
+              />
+              <div className="bg-coal p-3">USD</div>
+            </div>
+          </div>
+          <div className="flex w-full flex-col rounded-md bg-ash p-3">
+            <span className="font-sans text-sm text-gray2/60">You Get</span>
+            <div className="flex items-center justify-between">
+              <input
+                className="w-full bg-transparent font-sans text-5xl font-light outline-none"
+                placeholder="0"
+                name="tokenAmount"
+                id="tokenAmount"
+                autoComplete="off"
+                value={tokenAmount}
+                onChange={(e) => setTokenAmount(e.target.value)}
+              />
+              <div className="bg-coal p-3">BTC</div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center font-sans text-sm">
+            1 BTC = 59999.26 USD
+          </div>
+          <div className="flex gap-1 rounded-md bg-ash p-3">
+            <div className="flex w-full items-center justify-between gap-4">
+              <span className="font-sans text-xs text-gray2">
+                {currencyAmount} USD is all you pay, fees included
+              </span>
+              <span className="font-sans text-xs text-gray2 hover:text-white">
+                Details
+              </span>
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex w-full flex-col rounded-md bg-ash p-3">
+            <span className="font-sans text-sm text-gray2/60">You Sell</span>
+            <div className="flex items-center justify-between">
+              <input
+                className="w-full bg-transparent font-sans text-5xl font-light outline-none"
+                placeholder="0"
+                name="tokenAmount"
+                id="tokenAmount"
+                autoComplete="off"
+                value={tokenAmount}
+                onChange={(e) => setTokenAmount(e.target.value)}
+              />
+              <div className="bg-coal p-3">BTC</div>
+            </div>
+          </div>
+          <div className="flex w-full flex-col rounded-md bg-ash p-3">
+            <span className="font-sans text-sm text-gray2/60">
+              You Receive (Estimate)
+            </span>
+            <div className="flex items-center justify-between">
+              <input
+                className="w-full bg-transparent font-sans text-5xl font-light outline-none"
+                placeholder="0"
+                name="currencyAmount"
+                id="currencyAmount"
+                autoComplete="off"
+                value={currencyAmount}
+                onChange={(e) => setCurrencyAmount(e.target.value)}
+              />
+              <div className="bg-coal p-3">USD</div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center font-sans text-sm">
+            1 BTC = 59999.26 USD
+          </div>
+          <div className="flex gap-1 rounded-md bg-ash p-3">
+            <div className="flex w-full items-center justify-between gap-4">
+              <span className="font-sans text-xs text-gray2">
+                {currencyAmount} USD is what you receive, after fees
+              </span>
+              <span className="font-sans text-xs text-gray2 hover:text-white">
+                Details
+              </span>
+            </div>
+          </div>
+        </>
+      )}
+      <Button title="Proceed" className="my-5 font-sans" />
+      <div className="flex justify-center border-t border-white/10 px-2 text-gray2 pt-2 font-sans text-xs">
+        Powered by LNBG, a registered cryptoasset business
       </div>
-      <SelectTokenModal
-        selectedToken={selectedToken}
-        setSelectedToken={setSelectedToken}
-      />
-      <div className="flex gap-1 rounded-md bg-ash p-3">
-        <div className="flex w-full flex-col bg-red-100">
-          <span className="font-sans text-sm text-gray2">To Recieve</span>
-          <input
-            type="text"
-            name="walletaddress"
-            id="walletaddress"
-            className="bg-transparent font-sans placeholder:text-gray2/50"
-            placeholder="0"
-          />
-        </div>
-      </div>
-      <div className="flex items-center justify-center font-sans text-sm">
-        1 BTC = 59999.26 USD
-      </div>
-      <Button title="Send" className="mt-10" />
     </div>
   );
 }
