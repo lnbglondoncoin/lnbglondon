@@ -173,6 +173,7 @@ export default function PresaleCard() {
         duration: 1.5,
         delay: 0.5,
       }}
+      id="presale"
       className="flex flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9"
     >
       <h1 className="text-xl font-extrabold uppercase">Buy LNBG Coin</h1>

@@ -6,6 +6,8 @@ import { Vortex } from "../ui/vortex";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 
 const MainBanner = () => {
   const texts = [
@@ -49,6 +51,30 @@ const MainBanner = () => {
             <span className="min-w-[250px] text-2xl text-primary md:text-4xl">
               Shaping the Future
             </span>
+            <div className="flex min-h-[70px] flex-wrap items-center justify-center gap-2">
+              <Link
+                href="https://solidityscan.com/published-report/project/bd15e426b5e94bcb"
+                className="transition-all duration-200 ease-in-out hover:pb-1"
+              >
+                <Image
+                  src="/solidity-scan-lnbg.png"
+                  width={146}
+                  height={61}
+                  alt="Solidity Scan"
+                />
+              </Link>
+              <Link
+                href="https://solidityscan.com/published-report/project/bd15e426b5e94bcb"
+                className="transition-all duration-200 ease-in-out hover:pb-1"
+              >
+                <Image
+                  src="/cred-sheild-lnbg.png"
+                  width={146}
+                  height={61}
+                  alt="Cred Sheild"
+                />
+              </Link>
+            </div>
             <div className="mt-10 flex items-center gap-x-5">
               <Button
                 title="Details"
