@@ -52,6 +52,7 @@ export const StoreProvider = ({ children }) => {
   const { walletProvider } = useWeb3ModalProvider();
 
   const [loader, setloader] = useState(false);
+  console.log("LOADER", loader)
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,

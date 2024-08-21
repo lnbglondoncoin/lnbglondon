@@ -2,7 +2,6 @@
 
 import Button from "@/components/buttons/Button";
 import { Vortex } from "@/components/ui/vortex";
-import { Transak } from "@transak/transak-sdk";
 
 export default function BuyPage() {
   

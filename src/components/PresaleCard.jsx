@@ -18,6 +18,7 @@ import React from "react";
 import { Copy } from "lucide-react";
 import Link from "next/link";
 import lnbgAddress from '../contractsData/LnbgLondonCoin-address.json'
+import Loader from "./Loader";
 
 export default function PresaleCard() {
   const {
