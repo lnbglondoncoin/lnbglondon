@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const WhyInvestSection = () => {
   const router = useRouter();
@@ -103,9 +104,12 @@ const WhyInvestSection = () => {
           variants={leftToRightVariants}
           className="flex items-center justify-center"
         >
-          <button onClick={()=>router.push("/buy-sell")} className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black hover:bg-primary2">
+          <Link
+            href="/#presale"
+            className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black hover:bg-primary2"
+          >
             Buy LNBG Coin
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>
