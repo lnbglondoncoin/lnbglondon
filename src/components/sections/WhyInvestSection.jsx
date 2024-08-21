@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
+import { useRouter } from "next/navigation";
 
 const WhyInvestSection = () => {
+  const router = useRouter();
   return (
     <section className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden px-5">
       <div className="flex flex-col gap-10 py-10">
@@ -101,7 +103,7 @@ const WhyInvestSection = () => {
           variants={leftToRightVariants}
           className="flex items-center justify-center"
         >
-          <button className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black hover:bg-primary2">
+          <button onClick={()=>router.push("/buy-sell")} className="w-fit rounded-lg bg-primary px-10 py-4 font-black uppercase text-black hover:bg-primary2">
             Buy LNBG Coin
           </button>
         </motion.div>

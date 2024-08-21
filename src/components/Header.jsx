@@ -135,19 +135,11 @@ const Header = () => {
                         </Link>
                       </SheetClose>
                       <SheetClose asChild>
-                        <button
-                          onClick={() => launchTransak()}
-                          className="font-sans text-lg text-gray2 hover:text-primary"
-                        >
-                          Buy Tokens
-                        </button>
-                      </SheetClose>
-                      <SheetClose asChild>
                         <Link
-                          href="/sell"
+                          href="/buy-sell"
                           className="font-sans text-lg text-gray2 hover:text-primary"
                         >
-                          Sell Tokens
+                          Buy / Sell
                         </Link>
                       </SheetClose>
                       <SheetClose asChild>
