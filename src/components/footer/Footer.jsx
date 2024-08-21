@@ -84,7 +84,7 @@ const Footer = () => {
               Whitepaper
             </Link>
             <Link
-              href="/"
+              href="https://lnbg-london.gitbook.io/lnbg-london"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Lightpaper

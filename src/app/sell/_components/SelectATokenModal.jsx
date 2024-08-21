@@ -7,21 +7,16 @@ import {
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
-import { ethSvg, usdcSvg, usdtSvg } from "../icons";
 import { useState } from "react";
 import Image from "next/image";
+import { usdcSvg, usdtSvg } from "@/components/icons";
 
-const SelectTokenModal = ({
-  setLnbgValue,
-  setTokensAmount,
-  selectedToken,
-  setSelectedToken,
-}) => {
+const SelectTokenModal = ({ selectedToken, setSelectedToken }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger className="w-full">
-        <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
+        <div className="flex w-full items-center justify-between gap-2 rounded-md bg-ash p-2 text-xl">
           <div className="flex items-center gap-2">
             {selectedToken == "Binance" ? (
               <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />
@@ -30,7 +25,10 @@ const SelectTokenModal = ({
             ) : (
               usdtSvg
             )}
-            {selectedToken}
+            <div className="flex flex-col items-start gap-0.5">
+              <span className="text-sm">{selectedToken}</span>
+              <span className="text-xs text-gray2 font-sans">Balance: 0</span>
+            </div>
           </div>
           <ChevronRight size={20} />
         </div>
@@ -49,8 +47,6 @@ const SelectTokenModal = ({
               onClick={() => {
                 setSelectedToken("Binance");
                 setIsOpen(false);
-                setLnbgValue(0);
-                setTokensAmount(""); // Modal ko band karne ka function
               }}
             >
               <Image src="/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
@@ -66,8 +62,6 @@ const SelectTokenModal = ({
               onClick={() => {
                 setSelectedToken("USDC");
                 setIsOpen(false);
-                setLnbgValue(0);
-                setTokensAmount(""); // Modal ko band karne ka function
               }}
             >
               {usdcSvg} USDC
@@ -82,8 +76,6 @@ const SelectTokenModal = ({
               onClick={() => {
                 setSelectedToken("USDT");
                 setIsOpen(false);
-                setLnbgValue(0);
-                setTokensAmount(""); // Modal ko band karne ka function
               }}
             >
               {usdtSvg} USDT

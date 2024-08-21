@@ -144,6 +144,14 @@ const Header = () => {
                       </SheetClose>
                       <SheetClose asChild>
                         <Link
+                          href="/sell"
+                          className="font-sans text-lg text-gray2 hover:text-primary"
+                        >
+                          Sell Tokens
+                        </Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link
                           href="/our-team"
                           className="font-sans text-lg text-gray2 hover:text-primary"
                         >

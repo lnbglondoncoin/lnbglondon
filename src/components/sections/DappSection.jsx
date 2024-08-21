@@ -3,10 +3,11 @@
 import Button from "../buttons/Button";
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
+import { useRouter } from "next/navigation";
 
 export default function DappSection() {
   return (
-    <div className="flex w-full items-center justify-center overflow-hidden max-w-[100vw]">
+    <div className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden">
       <div className="flex w-full max-w-7xl items-center justify-center overflow-hidden rounded-xl bg-[url(/robot.png)] bg-cover bg-center">
         <div className="grid w-full max-w-7xl bg-black/70 px-5 py-20 md:grid-cols-2 md:px-10">
           <div className="flex flex-col gap-10">
@@ -44,6 +45,7 @@ export default function DappSection() {
             >
               <Button
                 title="Launch App"
+                onClick={() => window.open("https://app.lnbglondon.com")}
                 className="h-full px-20 text-sm font-bold uppercase shadow-xl shadow-primary/30"
               />
               <span className="font-sans text-lg leading-6 text-gray2/80">
