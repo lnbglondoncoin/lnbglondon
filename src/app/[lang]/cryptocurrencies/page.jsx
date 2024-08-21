@@ -1,13 +1,12 @@
-import React from 'react'
-import CoinsGraph from './_components/CoinsGraph'
-import Graphs from './_components/Graphs'
+import React from "react";
+import CoinsGraph from "./_components/CoinsGraph";
 
 const CryptocurrenciesPage = () => {
   return (
     <div className="flex flex-col gap-10">
-        <CoinsGraph />
+      <CoinsGraph />
     </div>
-  )
-}
+  );
+};
 
-export default CryptocurrenciesPage
+export default CryptocurrenciesPage;

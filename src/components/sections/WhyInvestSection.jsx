@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-const WhyInvestSection = () => {
+const WhyInvestSection = ({ lang = "en" }) => {
   const router = useRouter();
   return (
     <section className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden px-5">
@@ -19,8 +20,29 @@ const WhyInvestSection = () => {
               variants={leftToRightVariants}
               className="bg-coal p-10"
             >
-              <h1 className="text-4xl font-bold uppercase sm:text-6xl sm:leading-[4.5rem]">
-                Why invest <br /> in LNBG?
+              <h1
+                className={cn(
+                  "font-bold uppercase",
+                  lang === "ru"
+                    ? "text-2xl"
+                    : "text-4xl sm:text-6xl sm:leading-[4.5rem]",
+                )}
+              >
+                {lang === "en"
+                  ? "Why invest"
+                  : lang === "ru"
+                    ? "Почему инвестировать"
+                    : lang === "fr"
+                      ? "Pourquoi investir"
+                      : "¿Por qué invertir"}
+                <br />
+                {lang === "en"
+                  ? "in LNBG?"
+                  : lang === "ru"
+                    ? "в LNBG?"
+                    : lang === "fr"
+                      ? "dans LNBG?"
+                      : "en LNBG?"}
               </h1>
             </motion.div>
             <motion.div
@@ -32,12 +54,25 @@ const WhyInvestSection = () => {
             >
               <div className="static z-10 flex h-full min-h-[320px] flex-col gap-4 px-8 py-4">
                 <p className="w-fit rounded-sm bg-primary px-1 font-sans text-xl text-black">
-                  <span className="font-bold">+100%</span> in 2 months
+                  <span className="font-bold">+100%</span>{" "}
+                  {lang === "en"
+                    ? "in 2 months"
+                    : lang === "ru"
+                      ? "за 2 месяца"
+                      : lang === "fr"
+                        ? "en 2 mois"
+                        : "en 2 meses"}
                 </p>
                 <div className="flex items-center gap-5">
                   <div className="flex flex-col">
                     <span className="text-[10px] text-gray2 sm:text-sm">
-                      Price now
+                      {lang === "en"
+                        ? "Price now"
+                        : lang === "ru"
+                          ? "Цена сейчас"
+                          : lang === "fr"
+                            ? "Prix maintenant"
+                            : "Precio ahora"}
                     </span>
                     <span className="font-sans text-3xl font-extrabold">
                       $0.03
@@ -46,7 +81,13 @@ const WhyInvestSection = () => {
                   <div className="flex">{chevRight}</div>
                   <div className="flex flex-col">
                     <span className="text-[10px] text-gray2 sm:text-sm">
-                      Price at listing
+                      {lang === "en"
+                        ? "Price at listing"
+                        : lang === "ru"
+                          ? "Цена при листинге"
+                          : lang === "fr"
+                            ? "Prix à la cotation"
+                            : "Precio en la cotización"}
                     </span>
                     <span className="font-sans text-3xl font-extrabold">
                       $0.06
@@ -66,18 +107,43 @@ const WhyInvestSection = () => {
             >
               <div className="flex flex-col gap-5">
                 <p className="flex flex-col gap-2 text-xl sm:flex-row">
-                  <span className="font-bold uppercase">First Release</span>
+                  <span className="font-bold uppercase">
+                    {lang === "en"
+                      ? "First Release"
+                      : lang === "ru"
+                        ? "Первый релиз"
+                        : lang === "fr"
+                          ? "Première sortie"
+                          : "Primera liberación"}
+                  </span>
                   <span className="text-white/70">JUL 24</span>
                 </p>
                 <span className="font-sans text-lg text-white/50">
-                  We're launching a crypto investment platform with secure
-                  Vaults offering high APY. New features will be added based on
-                  your feedback.
+                  {lang === "en"
+                    ? "We're launching a crypto investment platform with secure Vaults offering high APY. New features will be added based on your feedback."
+                    : lang === "ru"
+                      ? "Мы запускаем платформу для инвестиций в криптовалюту с безопасными хранилищами, предлагающими высокий APY. Новые функции будут добавлены на основе ваших отзывов."
+                      : lang === "fr"
+                        ? "Nous lançons une plateforme d'investissement en crypto-monnaie avec des coffres-forts sécurisés offrant un APY élevé. De nouvelles fonctionnalités seront ajoutées en fonction de vos commentaires."
+                        : "Lanzamos una plataforma de inversión en criptomonedas con bóvedas seguras que ofrecen un APY alto. Se agregarán nuevas funciones en función de sus comentarios."}
                 </span>
               </div>
               <span className="text-xl font-semibold">
-                Invest safely, earn reliably. <br /> Your input shapes what's
-                next
+                {lang === "en"
+                  ? "Invest safely, earn reliably."
+                  : lang === "ru"
+                    ? "Инвестируйте безопасно, зарабатывайте надежно."
+                    : lang === "fr"
+                      ? "Investissez en toute sécurité, gagnez de manière fiable."
+                      : "Invierta de forma segura, gane de forma fiable."}{" "}
+                <br />{" "}
+                {lang === "en"
+                  ? "Your input shapes what's next"
+                  : lang === "ru"
+                    ? "Ваш вклад формирует то, что будет дальше"
+                    : lang === "fr"
+                      ? "Votre contribution façonne la suite"
+                      : "Tu aporte da forma a lo que sigue"}
               </span>
             </motion.div>
             <motion.div
@@ -88,11 +154,25 @@ const WhyInvestSection = () => {
               className="flex flex-col justify-center gap-1 bg-secondary px-10 py-16"
             >
               <span className="text-2xl uppercase text-gray2">
-                Supportive community of:
+                {lang === "en"
+                  ? "Supportive community of:"
+                  : lang === "ru"
+                    ? "Поддерживающее сообщество из:"
+                    : lang === "fr"
+                      ? "Communauté de soutien de:"
+                      : "Comunidad solidaria de:"}
               </span>
               <p className="flex gap-2 font-sans text-4xl">
                 <span className="font-bold">7456</span>
-                <span className="font-light uppercase text-gray2">Holders</span>
+                <span className="font-light uppercase text-gray2">
+                  {lang === "en"
+                    ? "Holders"
+                    : lang === "ru"
+                      ? "Держателей"
+                      : lang === "fr"
+                        ? "Titulaires"
+                        : "Titulares"}
+                </span>
               </p>
             </motion.div>
           </div>

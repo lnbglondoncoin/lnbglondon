@@ -3,10 +3,6 @@ import "./globals.css";
 import { StoreProvider } from "@/context/Store/Store";
 import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-import MovingBar from "@/components/moving-bar/MovingBar";
-import Header from "@/components/Header";
-import Footer from "@/components/footer/Footer";
 import PreloaderProvider from "./PreloaderProvider";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
@@ -35,13 +31,7 @@ export default function RootLayout({ children }) {
       <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>
           <PreloaderProvider>
-            <StoreProvider>
-              <ToastContainer />
-              <MovingBar />
-              <Header />
-              {children}
-              <Footer />
-            </StoreProvider>
+            <StoreProvider>{children}</StoreProvider>
           </PreloaderProvider>
         </Web3Modal>
       </body>
