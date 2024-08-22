@@ -20,14 +20,14 @@ const JoinUsSection = () => {
               <span className="text-primary">!</span>
             </h1>
             <span className="font-sans text-lg text-gray2">
-              In today's rapidly evolving financial landscape, Lnbg Coin emerges
+              In today's rapidly evolving financial landscape, LNBG Coin emerges
               as a trailblazer, offering a gateway to decentralized funding and
               a world of untapped potential. Our mission is to revolutionize the
               way asset owners raise funds globally, harnessing the
               transformative capabilities of blockchain technology.
             </span>
             <span className="font-sans text-lg text-gray2">
-              Lnbg Coin aligns perfectly with the principles of decentralized
+              LNBG Coin aligns perfectly with the principles of decentralized
               finance (DeFi), a paradigm that seeks to democratize financial
               services and make them accessible to everyone. Our platform
               embraces the tenets of transparency, security, and efficiency,
@@ -35,12 +35,12 @@ const JoinUsSection = () => {
               navigating the decentralized funding landscape.
             </span>
             <span className="font-sans text-lg text-gray2">
-              Invest in Lnbg Coin today and become part of a global movement
+              Invest in LNBG Coin today and become part of a global movement
               that is reshaping the future of funding. Unleash the power of
               tokenization, unlock new horizons of financial opportunity, and
               embark on a path towards a decentralized and prosperous future.
               The time is now to embrace the potential of decentralized funding
-              with Lnbg London Coin.
+              with LNBG London Coin.
             </span>
             <div className="flex gap-x-3">
               <div className="text-darkgray">{peopleIcon}</div>

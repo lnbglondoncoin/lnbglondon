@@ -31,21 +31,21 @@ const LaptopSection = ({ lang = "en" }) => {
           </div>
           <span className="font-sans text-lg text-lightgray">
             {lang === "en"
-              ? "Lnbg Coin is leading the charge in facilitating decentralized funding for asset owners worldwide, harnessing the power of blockchain technology.Our mission is to empower individuals and businesses to generate passive revenue and unlock new opportunities through tokenization."
+              ? "LNBG Coin is leading the charge in facilitating decentralized funding for asset owners worldwide, harnessing the power of blockchain technology.Our mission is to empower individuals and businesses to generate passive revenue and unlock new opportunities through tokenization."
               : lang === "ru"
-                ? "Lnbg Coin является лидером в области обеспечения децентрализованного финансирования для владельцев активов по всему миру, используя силу технологии блокчейн. Наша миссия - дать людям и бизнесу возможность генерировать пассивный доход и открывать новые возможности через токенизацию."
+                ? "LNBG Coin является лидером в области обеспечения децентрализованного финансирования для владельцев активов по всему миру, используя силу технологии блокчейн. Наша миссия - дать людям и бизнесу возможность генерировать пассивный доход и открывать новые возможности через токенизацию."
                 : lang === "fr"
-                  ? "Lnbg Coin est à l'avant-garde de la facilitation du financement décentralisé pour les propriétaires d'actifs du monde entier, exploitant la puissance de la technologie blockchain. Notre mission est de permettre aux particuliers et aux entreprises de générer des revenus passifs et de débloquer de nouvelles opportunités grâce à la tokenisation."
-                  : "Lnbg Coin lidera la carga en la facilitación de financiamiento descentralizado para propietarios de activos en todo el mundo, aprovechando el poder de la tecnología blockchain. Nuestra misión es capacitar a individuos y empresas para generar ingresos pasivos y desbloquear nuevas oportunidades a través de la tokenización."}
+                  ? "LNBG Coin est à l'avant-garde de la facilitation du financement décentralisé pour les propriétaires d'actifs du monde entier, exploitant la puissance de la technologie blockchain. Notre mission est de permettre aux particuliers et aux entreprises de générer des revenus passifs et de débloquer de nouvelles opportunités grâce à la tokenisation."
+                  : "LNBG Coin lidera la carga en la facilitación de financiamiento descentralizado para propietarios de activos en todo el mundo, aprovechando el poder de la tecnología blockchain. Nuestra misión es capacitar a individuos y empresas para generar ingresos pasivos y desbloquear nuevas oportunidades a través de la tokenización."}
           </span>
           <span className="font-sans text-lg text-lightgray">
             {lang === "en"
-              ? "Invest with Lnbg London Coin today and be part of a movement that is reshaping the future of finance. Together, we can unlock new horizons, generate passive revenue, and embrace the boundless potential of tokenization. Get ready to redefine the way you invest and open doors to a world of opportunities."
+              ? "Invest with LNBG London Coin today and be part of a movement that is reshaping the future of finance. Together, we can unlock new horizons, generate passive revenue, and embrace the boundless potential of tokenization. Get ready to redefine the way you invest and open doors to a world of opportunities."
               : lang === "ru"
-                ? "Инвестируйте в Lnbg London Coin уже сегодня и станьте частью движения, которое переформатирует будущее финансов. Вместе мы можем открывать новые горизонты, генерировать пассивный доход и обнимать безграничный потенциал токенизации. Приготовьтесь переопределить способ инвестирования и открывать двери в мир возможностей."
+                ? "Инвестируйте в LNBG London Coin уже сегодня и станьте частью движения, которое переформатирует будущее финансов. Вместе мы можем открывать новые горизонты, генерировать пассивный доход и обнимать безграничный потенциал токенизации. Приготовьтесь переопределить способ инвестирования и открывать двери в мир возможностей."
                 : lang === "fr"
-                  ? "Investissez avec Lnbg London Coin dès aujourd'hui et faites partie d'un mouvement qui redéfinit l'avenir de la finance. Ensemble, nous pouvons ouvrir de nouveaux horizons, générer des revenus passifs et embrasser le potentiel illimité de la tokenisation. Préparez-vous à redéfinir votre façon d'investir et à ouvrir les portes à un monde d'opportunités."
-                  : "Invierta con Lnbg London Coin hoy y forme parte de un movimiento que está remodelando el futuro de las finanzas. Juntos, podemos desbloquear nuevos horizontes, generar ingresos pasivos y abrazar el potencial ilimitado de la tokenización. Prepárese para redefinir la forma en que invierte y abrir las puertas a un mundo de oportunidades."}
+                  ? "Investissez avec LNBG London Coin dès aujourd'hui et faites partie d'un mouvement qui redéfinit l'avenir de la finance. Ensemble, nous pouvons ouvrir de nouveaux horizons, générer des revenus passifs et embrasser le potentiel illimité de la tokenisation. Préparez-vous à redéfinir votre façon d'investir et à ouvrir les portes à un monde d'opportunités."
+                  : "Invierta con LNBG London Coin hoy y forme parte de un movimiento que está remodelando el futuro de las finanzas. Juntos, podemos desbloquear nuevos horizontes, generar ingresos pasivos y abrazar el potencial ilimitado de la tokenización. Prepárese para redefinir la forma en que invierte y abrir las puertas a un mundo de oportunidades."}
           </span>
         </motion.div>
       </motion.div>

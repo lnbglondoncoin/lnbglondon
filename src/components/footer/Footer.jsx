@@ -21,12 +21,12 @@ const Footer = ({ lang = "en" }) => {
             </div>
             <span className="font-sans text-sm text-gray2">
               {lang === "en"
-                ? "Discover the future of decentralized funding with Lnbg Coin. Harness the power of blockchain technology, unlock new investment opportunities, and generate passive revenue."
+                ? "Discover the future of decentralized funding with LNBG Coin. Harness the power of blockchain technology, unlock new investment opportunities, and generate passive revenue."
                 : lang === "ru"
-                  ? "Откройте для себя будущее децентрализованного финансирования с Lnbg Coin. Используйте мощь технологии блокчейн, разблокируйте новые инвестиционные возможности и генерируйте пассивный доход."
+                  ? "Откройте для себя будущее децентрализованного финансирования с LNBG Coin. Используйте мощь технологии блокчейн, разблокируйте новые инвестиционные возможности и генерируйте пассивный доход."
                   : lang === "fr"
-                    ? "Découvrez l'avenir du financement décentralisé avec Lnbg Coin. Exploitez la puissance de la technologie blockchain, débloquez de nouvelles opportunités d'investissement et générez des revenus passifs."
-                    : "Descubra el futuro de la financiación descentralizada con Lnbg Coin. Aproveche el poder de la tecnología blockchain, desbloquee nuevas oportunidades de inversión y genere ingresos pasivos."}
+                    ? "Découvrez l'avenir du financement décentralisé avec LNBG Coin. Exploitez la puissance de la technologie blockchain, débloquez de nouvelles opportunités d'investissement et générez des revenus passifs."
+                    : "Descubra el futuro de la financiación descentralizada con LNBG Coin. Aproveche el poder de la tecnología blockchain, desbloquee nuevas oportunidades de inversión y genere ingresos pasivos."}
             </span>
             <div className="flex gap-5">
               <Link
