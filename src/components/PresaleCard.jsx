@@ -19,6 +19,7 @@ import { Copy } from "lucide-react";
 import Link from "next/link";
 import lnbgAddress from "../contractsData/LnbgLondonCoin-address.json";
 import Loader from "./Loader";
+import { Skeleton } from "./ui/skeleton";
 
 export default function PresaleCard({ lang = "en" }) {
   const {
@@ -173,9 +174,7 @@ export default function PresaleCard({ lang = "en" }) {
 
   console.log(loader, "loaderloaderloaderloader1");
 
-  return loader ? (
-    <Loader />
-  ) : (
+  return (
     <motion.div
       initial={{
         x: 100,
@@ -190,7 +189,7 @@ export default function PresaleCard({ lang = "en" }) {
         delay: 0.5,
       }}
       id="presale"
-      className="flex flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9"
+      className="flex w-full flex-col items-center gap-y-5 rounded-lg bg-ash/70 px-5 py-6 md:px-8 md:py-9"
     >
       <h1 className="text-xl font-extrabold uppercase">
         {lang === "en"
@@ -214,138 +213,175 @@ export default function PresaleCard({ lang = "en" }) {
                 : "recaudado"}
         </span>
         <div className="flex flex-wrap items-end gap-1 font-bold">
-          <span className="text-3xl text-primary">
-            ${roundOff(contractData?.raisedAmount)}
-          </span>
-          <span className="pb-1 text-lg font-normal text-gray2">/$300,000</span>
-        </div>
-        <div className="text-xs text-gray2/60">
-          {+contractData?.tokensInContract > 0
-            ? Number(remainTokens)?.toFixed(4)
-            : 0}{" "}
-          {lang === "en"
-            ? "of"
-            : lang === "ru"
-              ? "из"
-              : lang === "fr"
-                ? "de"
-                : "de"}{" "}
-          10,000,000{" "}
-          {lang === "en"
-            ? "tokens"
-            : lang === "ru"
-              ? "токенов"
-              : lang === "fr"
-                ? "jetons"
-                : "tokens"}
-        </div>
-        <ProgressBar lang={lang} soldPercentage={soldPercentage} />
-        <div className="rounded-xd flex items-center gap-5 bg-ash px-2 py-3 text-gray2">
-          <span className="w-full text-xs">
-            {lnbgAddress?.address?.slice(0, 6)}........
-            {lnbgAddress?.address?.slice(-4)}
-          </span>
-          {/* {copySuccess ? (
-            <span className="text-nowrap text-[8px]">Copied to clipboard</span>
-          ) : ( */}
-          <button onClick={() => copyToClipboard()}>
-            <Copy size={18} />
-          </button>
-          {/* )} */}
-        </div>
-      </div>
-      <CountdownTimer lang={lang} />
-      <SelectTokenModal
-        setLnbgValue={setLnbgValue}
-        setTokensAmount={setTokensAmount}
-        selectedToken={selectedToken}
-        setSelectedToken={setSelectedToken}
-      />
-      <div className="flex w-full items-center justify-between gap-4 px-1 text-sm text-gray2">
-        <span>
-          {lang === "en"
-            ? "You pay:"
-            : lang === "ru"
-              ? "Вы платите:"
-              : lang === "fr"
-                ? "Tu paies:"
-                : "Usted paga:"}
-        </span>
-        <span>
-          {lang === "en"
-            ? "You receive:"
-            : lang === "ru"
-              ? "Вы получаете:"
-              : lang === "fr"
-                ? "Tu reçois:"
-                : "Usted recibe:"}
-        </span>
-      </div>
-      <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
-        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
-          {selectedToken == "Binance" ? (
-            <Image
-              src="/static/bnb-logo.png"
-              width={21}
-              height={21}
-              alt="bnb"
-            />
-          ) : selectedToken == "USDC" ? (
-            usdcSvg
-          ) : selectedToken == "USDT" ? (
-            usdtSvg
+          {loader ? (
+            <Skeleton className="h-6 w-[250px] max-w-full" />
           ) : (
-            <Image
-              src="/static/bnb-logo.png"
-              width={21}
-              height={21}
-              alt="bnb"
-            />
+            <>
+              <span className="text-3xl text-primary">
+                ${roundOff(contractData?.raisedAmount)}
+              </span>
+              <span className="pb-1 text-lg font-normal text-gray2">
+                /$300,000
+              </span>
+            </>
           )}
-          <input
-            type="text"
-            placeholder="0.0"
-            // inputMode="numeric"
-            value={tokenAmount}
-            onChange={handleTokenChange}
-            className="w-full bg-transparent text-gray2"
-          />
         </div>
-        <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
-          <Image
-            src="/static/coins/lnbgcoin.png"
-            width={21}
-            height={21}
-            alt="lnbgcoin"
-          />
-          <input
-            type="text"
-            // inputMode="numeric"
-            value={Number(
-              ethers.utils.formatEther(lnbgValue?.toString()),
-            )?.toFixed(4)}
-            // onChange={handleTokenChange}
-            className="w-full bg-transparent text-gray2"
-          />
-        </div>
-      </div>
-      <div className="grid w-full sm:grid-cols-2">
-        <span className="text-sm font-semibold">
-          1 lnbg = {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}
-        </span>
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold">
+        {loader ? (
+          <Skeleton className="h-2 w-[150px]" />
+        ) : (
+          <div className="text-xs text-gray2/60">
+            {+contractData?.tokensInContract > 0
+              ? Number(remainTokens)?.toFixed(4)
+              : 0}{" "}
             {lang === "en"
-              ? "Next price = 0.039$"
+              ? "of"
               : lang === "ru"
-                ? "Следующая цена = 0.039$"
+                ? "из"
                 : lang === "fr"
-                  ? "Prochain prix = 0.039$"
-                  : "Próximo precio = 0.039$"}
-          </span>
-          <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">+30%</div>
-        </div>
+                  ? "de"
+                  : "de"}{" "}
+            10,000,000{" "}
+            {lang === "en"
+              ? "tokens"
+              : lang === "ru"
+                ? "токенов"
+                : lang === "fr"
+                  ? "jetons"
+                  : "tokens"}
+          </div>
+        )}
+        {loader ? (
+          <Skeleton className="h-16 w-full" />
+        ) : (
+          <ProgressBar lang={lang} soldPercentage={soldPercentage} />
+        )}
+        {loader ? (
+          <Skeleton className="h-10 w-full" />
+        ) : (
+          <div className="rounded-xd flex items-center gap-5 bg-ash px-2 py-3 text-gray2">
+            <span className="w-full text-xs">
+              {lnbgAddress?.address?.slice(0, 6)}........
+              {lnbgAddress?.address?.slice(-4)}
+            </span>
+            {/* {copySuccess ? (
+              <span className="text-nowrap text-[8px]">Copied to clipboard</span>
+            ) : ( */}
+            <button onClick={() => copyToClipboard()}>
+              <Copy size={18} />
+            </button>
+            {/* )} */}
+          </div>
+        )}
       </div>
+      {loader ? (
+        <Skeleton className="h-14 w-[250px]" />
+      ) : (
+        <CountdownTimer lang={lang} />
+      )}
+      {loader ? (
+        <Skeleton className="h-16 w-full" />
+      ) : (
+        <SelectTokenModal
+          setLnbgValue={setLnbgValue}
+          setTokensAmount={setTokensAmount}
+          selectedToken={selectedToken}
+          setSelectedToken={setSelectedToken}
+        />
+      )}
+      {loader ? (
+        <Skeleton className="h-32 w-full" />
+      ) : (
+        <>
+          <div className="flex w-full items-center justify-between gap-4 px-1 text-sm text-gray2">
+            <span>
+              {lang === "en"
+                ? "You pay:"
+                : lang === "ru"
+                  ? "Вы платите:"
+                  : lang === "fr"
+                    ? "Tu paies:"
+                    : "Usted paga:"}
+            </span>
+            <span>
+              {lang === "en"
+                ? "You receive:"
+                : lang === "ru"
+                  ? "Вы получаете:"
+                  : lang === "fr"
+                    ? "Tu reçois:"
+                    : "Usted recibe:"}
+            </span>
+          </div>
+          <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
+            <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
+              {selectedToken == "Binance" ? (
+                <Image
+                  src="/static/bnb-logo.png"
+                  width={21}
+                  height={21}
+                  alt="bnb"
+                />
+              ) : selectedToken == "USDC" ? (
+                usdcSvg
+              ) : selectedToken == "USDT" ? (
+                usdtSvg
+              ) : (
+                <Image
+                  src="/static/bnb-logo.png"
+                  width={21}
+                  height={21}
+                  alt="bnb"
+                />
+              )}
+              <input
+                type="text"
+                placeholder="0.0"
+                // inputMode="numeric"
+                value={tokenAmount}
+                onChange={handleTokenChange}
+                className="w-full bg-transparent text-gray2"
+              />
+            </div>
+            <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
+              <Image
+                src="/static/coins/lnbgcoin.png"
+                width={21}
+                height={21}
+                alt="lnbgcoin"
+              />
+              <input
+                type="text"
+                // inputMode="numeric"
+                value={Number(
+                  ethers.utils.formatEther(lnbgValue?.toString()),
+                )?.toFixed(4)}
+                // onChange={handleTokenChange}
+                className="w-full bg-transparent text-gray2"
+              />
+            </div>
+          </div>
+          <div className="grid w-full sm:grid-cols-2">
+            <span className="text-sm font-semibold">
+              1 lnbg = {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}
+            </span>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-semibold">
+                {lang === "en"
+                  ? "Next price = 0.039$"
+                  : lang === "ru"
+                    ? "Следующая цена = 0.039$"
+                    : lang === "fr"
+                      ? "Prochain prix = 0.039$"
+                      : "Próximo precio = 0.039$"}
+              </span>
+              <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">
+                +30%
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
       {isClient &&
         (isConnected == true ? (
           selectedToken == "Binance" ? (
