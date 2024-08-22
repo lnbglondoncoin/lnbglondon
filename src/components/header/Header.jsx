@@ -8,6 +8,7 @@ import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import SimpleButton from "../buttons/SimpleButton";
 import { Transak } from "@transak/transak-sdk";
 import Sidebar from "./Sidebar";
+import ProfileDropdown from "../dropdown/ProfileDropdown";
 
 const Header = ({ lang = "en" }) => {
   // --------------For hydration error-------------------
@@ -71,12 +72,13 @@ const Header = ({ lang = "en" }) => {
               height={40}
               alt="lnbgcoin"
             />
-            <span className="text-2xl font-semibold md:text-3xl">
+            <span className="text-xl font-semibold sm:text-2xl md:text-3xl">
               LNBG COIN
             </span>
           </Link>
           {/* Nav */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2">
+            {isClient && isConnected && <ProfileDropdown />}
             <div className="hidden items-center gap-1 sm:flex">
               {isClient &&
                 (isConnected ? (

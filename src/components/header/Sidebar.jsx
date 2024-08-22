@@ -17,9 +17,8 @@ export default function Sidebar({
   lang = "en",
   selectedLang,
   setSelectedLang,
-  isClient
+  isClient,
 }) {
-
   const { open } = useWeb3Modal();
   const { isConnected, chainId } = useWeb3ModalAccount();
 
@@ -35,21 +34,64 @@ export default function Sidebar({
               <Image
                 className=""
                 src="/static/logo.png"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 alt="lnbgcoin"
               />
-              <span className="text-xl font-semibold md:text-3xl">
+              <span className="text-lg font-semibold md:text-3xl">
                 LNBG COIN
               </span>
             </Link>
           </SheetTitle>
-          <div className="flex h-[85vh] flex-col justify-between gap-10">
-            <div className="flex flex-col items-start gap-5 py-10">
-              <LanguageDropdown
-                selectedLang={selectedLang}
-                setSelectedLang={setSelectedLang}
-              />
+          <div className="flex h-[85vh] flex-col justify-between gap-2">
+            <div className="flex flex-col items-start gap-3 py-2">
+              <div className="flex items-center gap-1 sm:hidden">
+                {chainId === 1 ? (
+                  <button
+                    onClick={() => open({ view: "Networks" })}
+                    className="rounded-full border border-white/10 p-2"
+                  >
+                    <Image
+                      src="/static/header/ethereum.svg"
+                      width={20}
+                      height={20}
+                      alt="ethereum"
+                    />
+                  </button>
+                ) : chainId === 56 ? (
+                  <button
+                    onClick={() => open({ view: "Networks" })}
+                    className="rounded-full border border-white/10 p-2"
+                  >
+                    <Image
+                      src="/static/header/binance.png"
+                      width={20}
+                      height={20}
+                      alt="binance"
+                    />
+                  </button>
+                ) : (
+                  <p></p>
+                )}
+                {isClient &&
+                  (isConnected ? (
+                    <w3m-account-button balance="show" size="md" />
+                  ) : (
+                    <SimpleButton
+                      title={
+                        lang === "en"
+                          ? "Connect wallet"
+                          : lang === "ru"
+                            ? "Подключить кошелек"
+                            : lang === "fr"
+                              ? "Connecter le portefeuille"
+                              : "Conectar billetera"
+                      }
+                      onClick={() => open()}
+                      className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
+                    />
+                  ))}
+              </div>
               <SheetClose asChild>
                 <Link
                   href="/"
@@ -106,53 +148,10 @@ export default function Sidebar({
                   Launch Dapp
                 </Link>
               </SheetClose>
-              <div className="flex items-center gap-1 sm:hidden">
-                {chainId === 1 ? (
-                  <button
-                    onClick={() => open({ view: "Networks" })}
-                    className="rounded-full border border-white/10 p-2"
-                  >
-                    <Image
-                      src="/static/header/ethereum.svg"
-                      width={20}
-                      height={20}
-                      alt="ethereum"
-                    />
-                  </button>
-                ) : chainId === 56 ? (
-                  <button
-                    onClick={() => open({ view: "Networks" })}
-                    className="rounded-full border border-white/10 p-2"
-                  >
-                    <Image
-                      src="/static/header/binance.png"
-                      width={20}
-                      height={20}
-                      alt="binance"
-                    />
-                  </button>
-                ) : (
-                  <p></p>
-                )}
-                {isClient &&
-                  (isConnected ? (
-                    <w3m-account-button balance="show" size="md" />
-                  ) : (
-                    <SimpleButton
-                      title={
-                        lang === "en"
-                          ? "Connect wallet"
-                          : lang === "ru"
-                            ? "Подключить кошелек"
-                            : lang === "fr"
-                              ? "Connecter le portefeuille"
-                              : "Conectar billetera"
-                      }
-                      onClick={() => open()}
-                      className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
-                    />
-                  ))}
-              </div>
+              <LanguageDropdown
+                selectedLang={selectedLang}
+                setSelectedLang={setSelectedLang}
+              />
             </div>
             <div className="flex flex-col items-center gap-5">
               <div className="flex gap-5">
