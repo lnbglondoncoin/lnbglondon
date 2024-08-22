@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 
-const CountdownTimer = () => {
+const CountdownTimer = ({ lang = "en" }) => {
   const Ref = useRef(null);
   const [timer, setTimer] = useState("00:00:00:00");
 
@@ -88,25 +88,57 @@ const CountdownTimer = () => {
         <span className="text-2xl font-semibold text-primary">
           {timer.substring(0, 2)}
         </span>
-        <span className="text-xs">days</span>
+        <span className="text-xs">
+          {lang === "en"
+            ? "days"
+            : lang === "ru"
+              ? "дни"
+              : lang === "fr"
+                ? "journées"
+                : "días"}
+        </span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
         <span className="text-2xl font-semibold text-primary">
           {timer.substring(3, 5)}
         </span>
-        <span className="text-xs">hours</span>
+        <span className="text-xs">
+          {lang === "en"
+            ? "hours"
+            : lang === "ru"
+              ? "часы"
+              : lang === "fr"
+                ? "heures"
+                : "horas"}
+        </span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
         <span className="text-2xl font-semibold text-primary">
           {timer.substring(6, 8)}
         </span>
-        <span className="text-xs">mins</span>
+        <span className="text-xs">
+          {lang === "en"
+            ? "mins"
+            : lang === "ru"
+              ? "мин"
+              : lang === "fr"
+                ? "mins"
+                : "mins"}
+        </span>
       </div>
       <div className="flex flex-col items-center gap-y-1">
         <span className="text-2xl font-semibold text-primary">
           {timer.substring(9, 11)}
         </span>
-        <span className="text-xs">secs</span>
+        <span className="text-xs">
+          {lang === "en"
+            ? "secs"
+            : lang === "ru"
+              ? "сек"
+              : lang === "fr"
+                ? "secs"
+                : "secs"}
+        </span>
       </div>
     </div>
   );

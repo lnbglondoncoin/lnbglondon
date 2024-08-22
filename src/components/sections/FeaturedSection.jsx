@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 import { arrowLeft } from "../icons";
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
+import { cn } from "@/lib/utils";
 
-export default function FeaturedSection() {
+export default function FeaturedSection({ lang = "en" }) {
   const [api, setApi] = useState();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -30,7 +31,7 @@ export default function FeaturedSection() {
   }, [api]);
 
   return (
-    <section className="flex w-full items-center justify-center overflow-hidden max-w-[100vw]">
+    <section className="flex w-full max-w-[100vw] items-center justify-center overflow-hidden">
       <div className="flex w-full max-w-7xl flex-col items-center justify-center rounded-xl bg-coal px-5 py-20">
         <motion.h1
           initial="hide"
@@ -39,7 +40,13 @@ export default function FeaturedSection() {
           variants={leftToRightVariants}
           className="text-3xl font-semibold"
         >
-          Featured in
+          {lang === "en"
+            ? "Featured in"
+            : lang === "ru"
+              ? "Представлено в"
+              : lang === "fr"
+                ? "En vedette dans"
+                : "Destacado en"}
         </motion.h1>
         <motion.div
           initial="hide"
@@ -134,12 +141,25 @@ export default function FeaturedSection() {
           />
           <div className="flex flex-col items-center justify-center gap-5 p-10 text-center">
             <h1 className="text-4xl font-bold">
-              6285 <span className="uppercase text-gray2/70">Holders</span>
+              6285{" "}
+              <span className={cn("uppercase text-gray2/70", lang === "ru" && "text-sm")}>
+                {lang === "en"
+                  ? "Holders"
+                  : lang === "ru"
+                    ? "Держатели"
+                    : lang === "fr"
+                      ? "Titulaires"
+                      : "Titulares"}
+              </span>
             </h1>
             <span className="font-sans text-xl text-gray2">
-              With our supporters, we're building something bigger and more
-              impactful with each new connection. Join now our network of
-              innovators!
+              {lang === "en"
+                ? "With our supporters, we're building something bigger and more impactful with each new connection. Join now our network of innovators!"
+                : lang === "ru"
+                  ? "С нашими сторонниками мы создаем нечто большее и более значимое с каждым новым соединением. Присоединяйтесь к нашей сети инноваторов!"
+                  : lang === "fr"
+                    ? "Avec nos supporters, nous construisons quelque chose de plus grand et plus impactant à chaque nouvelle connexion. Rejoignez maintenant notre réseau d'innovateurs!"
+                    : "Con nuestros seguidores, estamos construyendo algo más grande y más impactante con cada nueva conexión. ¡Únete ahora a nuestra red de innovadores!"}
             </span>
           </div>
         </motion.div>

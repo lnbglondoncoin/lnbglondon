@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
-const RoadmapSection = () => {
+const RoadmapSection = ({ lang = "en" }) => {
   return (
     <section
       className="mt-10 flex w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden bg-ash"
@@ -17,41 +17,115 @@ const RoadmapSection = () => {
           variants={leftToRightVariants}
           className="text-4xl font-bold uppercase sm:text-6xl"
         >
-          RoadMap
+          {lang === "en"
+            ? "RoadMap"
+            : lang === "ru"
+              ? "Дорожная карта"
+              : lang === "fr"
+                ? "Feuille de route"
+                : "Hoja de ruta"}
         </motion.h1>
         <div className="grid w-full gap-5 py-8 sm:grid-cols-2 lg:grid-cols-4">
           <Card
             step="Q1"
             year="2024"
-            points={[
-              "Presale Launch",
-              "Community Building",
-              "MVP Lauch: Vaults & Exchange",
-            ]}
+            points={
+              lang === "en"
+                ? [
+                    "Presale Launch",
+                    "Community Building",
+                    "MVP Lauch: Vaults & Exchange",
+                  ]
+                : lang === "ru"
+                  ? [
+                      "Запуск предпродажи",
+                      "Строительство сообщества",
+                      "MVP Lauch: Хранилища и обмен",
+                    ]
+                  : lang === "fr"
+                    ? [
+                        "Lancement de la prévente",
+                        "Construction de la communauté",
+                        "Lancement MVP: Coffres-forts et échange",
+                      ]
+                    : [
+                        "Lanzamiento de preventa",
+                        "Construcción de la comunidad",
+                        "Lanzamiento MVP: Vaults y Exchange",
+                      ]
+            }
           />
           <Card
             step="Q2"
             year="2024"
-            points={[
-              "Token Generation Event",
-              "One-click Investment feature",
-              "Airdrop",
-            ]}
+            points={
+              lang === "en"
+                ? [
+                    "Token Generation Event",
+                    "One-click Investment feature",
+                    "Airdrop",
+                  ]
+                : lang === "ru"
+                  ? [
+                      "Событие генерации токенов",
+                      "Функция инвестирования в один клик",
+                      "Аирдроп",
+                    ]
+                  : lang === "fr"
+                    ? [
+                        "Événement de génération de jetons",
+                        "Fonction d'investissement en un clic",
+                        "Distribution aérienne",
+                      ]
+                    : [
+                        "Evento de generación de tokens",
+                        "Función de inversión en un clic",
+                        "Airdrop",
+                      ]
+            }
             active
           />
           <Card
             step="Q3"
             year="2024"
-            points={["Staking", "Lending Aggregator", "Zap-in and zap-out"]}
+            points={
+              lang === "en"
+                ? ["Staking", "Lending Aggregator", "Zap-in and zap-out"]
+                : lang === "ru"
+                  ? ["Стейкинг", "Агрегатор кредитования", "Zap-in и zap-out"]
+                  : lang === "fr"
+                    ? [
+                        "Mise en jeu",
+                        "Agrégateur de prêts",
+                        "Zap-in et zap-out",
+                      ]
+                    : ["Staking", "Agregador de préstamos", "Zap-in y zap-out"]
+            }
           />
           <Card
             step="Q4"
             year="2025"
-            points={[
-              "AI-Broker feature",
-              "Insurance program",
-              "Leverage farming",
-            ]}
+            points={
+              lang === "en"
+                ? ["AI-Broker feature", "Insurance program", "Leverage farming"]
+                : lang === "ru"
+                  ? [
+                      "Функция AI-Broker",
+                      "Программа страхования",
+                      "Фермерство с плечом",
+                    ]
+                  : lang === "fr"
+                    ? [
+                        "Fonction AI-Broker",
+                        "Programme d'assurance",
+                        "Ferme de levier",
+                      ]
+                    : [
+                        "Función AI-Broker",
+                        "Programa de seguros",
+                        "Granja de apalancamiento",
+                      ]
+            }
           />
         </div>
         <motion.div

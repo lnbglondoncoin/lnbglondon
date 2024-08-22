@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = ({ lang = "en" }) => {
   return (
     <footer className="footer-inner flex w-full flex-col items-center justify-center overflow-hidden bg-ash bg-cover bg-center pt-10">
       <div className="relative flex w-full max-w-7xl flex-col gap-10">
@@ -20,9 +20,13 @@ const Footer = () => {
               </span>
             </div>
             <span className="font-sans text-sm text-gray2">
-              Discover the future of decentralized funding with Lnbg Coin.
-              Harness the power of blockchain technology, unlock new investment
-              opportunities, and generate passive revenue.
+              {lang === "en"
+                ? "Discover the future of decentralized funding with Lnbg Coin. Harness the power of blockchain technology, unlock new investment opportunities, and generate passive revenue."
+                : lang === "ru"
+                  ? "Откройте для себя будущее децентрализованного финансирования с Lnbg Coin. Используйте мощь технологии блокчейн, разблокируйте новые инвестиционные возможности и генерируйте пассивный доход."
+                  : lang === "fr"
+                    ? "Découvrez l'avenir du financement décentralisé avec Lnbg Coin. Exploitez la puissance de la technologie blockchain, débloquez de nouvelles opportunités d'investissement et générez des revenus passifs."
+                    : "Descubra el futuro de la financiación descentralizada con Lnbg Coin. Aproveche el poder de la tecnología blockchain, desbloquee nuevas oportunidades de inversión y genere ingresos pasivos."}
             </span>
             <div className="flex gap-5">
               <Link
@@ -134,7 +138,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="static z-10 flex w-full flex-col items-center justify-center gap-2 py-5 font-sans text-sm text-black">
-          Copyright © All right reserved 2024.
+          {lang === "en"
+            ? "Copyright © All right reserved 2024."
+            : lang === "ru"
+              ? "Авторские права © Все права защищены 2024."
+              : lang === "fr"
+                ? "Droits d'auteur © Tous droits réservés 2024."
+                : "Derechos de autor © Todos los derechos reservados 2024."}
         </div>
       </div>
     </footer>

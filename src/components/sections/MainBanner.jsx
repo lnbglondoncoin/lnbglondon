@@ -9,13 +9,15 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-const MainBanner = () => {
-  const texts = [
-    "Finance",
-    // also 7 length words
-    "Trading",
-    "Future",
-  ];
+const MainBanner = ({ lang = "en" }) => {
+  const texts =
+    lang === "en"
+      ? ["Finance", "Trading", "Future"]
+      : lang === "ru"
+        ? ["Финансы", "Торговля", "Будущее"]
+        : lang === "fr"
+          ? ["Finance", "Trading", "Futur"]
+          : ["Finanzas", "Comercio", "Futuro"];
   const router = useRouter();
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">
@@ -41,17 +43,36 @@ const MainBanner = () => {
               duration: 1.5,
               delay: 0.5,
             }}
-            className="flex w-7/12 w-full flex-col items-center gap-y-5 text-center lg:items-start lg:text-left"
+            className="flex w-full flex-col items-center gap-y-5 text-center lg:w-7/12 lg:items-start lg:text-left"
           >
             <h1 className="text-3xl font-bold sm:text-5xl md:text-6xl">
-              Digital <FlipWords className="text-primary" words={texts} /> C
-              <span className="tracking-normal">ry</span>
-              ptocurrency<span className="text-primary">.</span>
+              {lang === "en"
+                ? "Digital"
+                : lang === "ru"
+                  ? "Цифровой"
+                  : lang === "fr"
+                    ? "Numérique"
+                    : "Digital"}
+              <FlipWords className="text-primary" words={texts} />{" "}
+              {lang === "en"
+                ? " Cryptocurrency"
+                : lang === "ru"
+                  ? " Криптовалюта"
+                  : lang === "fr"
+                    ? " Cryptomonnaie"
+                    : " Criptomoneda"}
+              <span className="text-primary">.</span>
             </h1>
             <span className="min-w-[250px] text-2xl text-primary md:text-4xl">
-              Shaping the Future
+              {lang === "en"
+                ? "Shaping the Future"
+                : lang === "ru"
+                  ? "Формирование будущего"
+                  : lang === "fr"
+                    ? "Façonner l'avenir"
+                    : "Moldando el futuro"}
             </span>
-            <div className="flex min-h-[70px] w-full items-center justify-center gap-2">
+            <div className="flex min-h-[70px] w-full items-center justify-center gap-2 md:w-fit">
               <Link
                 href="https://solidityscan.com/published-report/project/bd15e426b5e94bcb"
                 className="transition-all duration-200 ease-in-out hover:pb-1"
@@ -77,7 +98,15 @@ const MainBanner = () => {
             </div>
             <div className="mt-10 flex items-center gap-x-5">
               <Button
-                title="Details"
+                title={
+                  lang === "en"
+                    ? "Details"
+                    : lang === "ru"
+                      ? "Детали"
+                      : lang === "fr"
+                        ? "Détails"
+                        : "Detalles"
+                }
                 onClick={() =>
                   router.push(
                     "https://lnbg-london.gitbook.io/lnbg-london/getting-started/quickstart",
@@ -85,12 +114,20 @@ const MainBanner = () => {
                 }
               />
               <Button
-                title="Whitepaper"
+                title={
+                  lang === "en"
+                    ? "Whitepaper"
+                    : lang === "ru"
+                      ? "Белая бумага"
+                      : lang === "fr"
+                        ? "Livre blanc"
+                        : "Libro blanco"
+                }
                 onClick={() => router.push("/whitepaper.pdf")}
               />
             </div>
           </motion.div>
-          <PresaleCard />
+          <PresaleCard lang={lang} />
         </div>
       </Vortex>
     </section>

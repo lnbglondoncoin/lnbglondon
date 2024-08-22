@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { leftToRightVariants, rightToLeftVariants } from "../variants";
 
-const TokenomicsSection = () => {
+const TokenomicsSection = ({ lang = "en" }) => {
   return (
-    <section className="flex w-full justify-center px-1 overflow-hidden max-w-[100vw]">
+    <section className="flex w-full max-w-[100vw] justify-center overflow-hidden px-1">
       <div className="flex w-full max-w-7xl flex-col items-center gap-10 py-20">
         <motion.h1
           initial="hide"
@@ -14,7 +14,13 @@ const TokenomicsSection = () => {
           variants={rightToLeftVariants}
           className="text-center text-3xl font-bold sm:text-4xl md:text-5xl"
         >
-          TOKENOMICS
+          {lang === "en"
+            ? "Tokenomics"
+            : lang === "ru"
+              ? "Токеномика"
+              : lang === "fr"
+                ? "Tokenomique"
+                : "Tokenomics"}
         </motion.h1>
         <motion.div
           initial="hide"
@@ -25,7 +31,15 @@ const TokenomicsSection = () => {
         >
           <div className="flex h-full w-full flex-col gap-3">
             <div className="flex w-full flex-col items-center">
-              <span className="text-sm text-gray2">Total tokens:</span>
+              <span className="text-sm text-gray2">
+                {lang === "en"
+                  ? "Total Supply"
+                  : lang === "ru"
+                    ? "Общее количество"
+                    : lang === "fr"
+                      ? "Offre totale"
+                      : "Suministro total"}
+              </span>
               <span className="text-2xl font-bold">7,000,000,000</span>
             </div>
             <div className="grid h-full w-full grid-cols-2 font-sans">
