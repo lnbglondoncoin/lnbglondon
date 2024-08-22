@@ -101,9 +101,7 @@ const Header = ({ lang = "en" }) => {
               lang={lang}
               selectedLang={selectedLang}
               setSelectedLang={setSelectedLang}
-              chainId={chainId}
               isClient={isClient}
-              isConnected={isConnected}
             />
           </div>
         </div>
