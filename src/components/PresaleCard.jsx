@@ -162,7 +162,7 @@ console.log(buttonText,"buttonTextbuttonTextbuttonText");
   let remainTokens = 10000000 - +contractData?.tokensInContract;
 
   console.log(loader, "loaderloaderloaderloader1");
-
+  
   return loader ? <Loader/> : ( 
 
     <motion.div

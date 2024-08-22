@@ -16,9 +16,8 @@ import lnbgCoin from "../../contractsData/LnbgLondonCoin.json";
 
 import {
   useSwitchNetwork,
-  useWeb3Modal,
   useWeb3ModalAccount,
-  useWeb3ModalProvider,
+  useWeb3ModalProvider
 } from "@web3modal/ethers5/react";
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
@@ -43,6 +42,7 @@ export const StoreProvider = ({ children }) => {
   const { walletProvider } = useWeb3ModalProvider();
 
   const [loader, setloader] = useState(false);
+
   console.log("LOADER", loader)
 
   const [contractData, setContractData] = useState({
@@ -81,7 +81,7 @@ export const StoreProvider = ({ children }) => {
         tokenPrice: sellPrice?.toString(),
         isPreSaleActive: isPresale,
       }));
-   
+      setloader(false);
       if (isConnected) {
     
         const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
@@ -130,6 +130,7 @@ export const StoreProvider = ({ children }) => {
       setloader(false);
       console.log("Fourth");
       console.log(error);
+      setloader(false);
       // toast.error(`${JSON.stringify(error.reason)}`);
     }
   };

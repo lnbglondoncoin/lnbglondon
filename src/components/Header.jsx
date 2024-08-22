@@ -92,7 +92,7 @@ const Header = () => {
                   <SimpleButton
                     title="Connect Wallet"
                     onClick={() => open()}
-                    className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
+                    className="z-99 w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
                   />
                 ))}
             </div>
@@ -100,7 +100,7 @@ const Header = () => {
               <SheetTrigger>
                 <Menu size={24} />
               </SheetTrigger>
-              <SheetContent className="z-[999999999] border-none bg-ash py-10 pl-10 text-white">
+              <SheetContent className="z-[99] border-none bg-ash py-10 pl-10 text-white">
                 <SheetHeader>
                   <SheetTitle className="text-3xl font-bold text-white">
                     <Link href="/" className="flex items-center gap-x-3">
@@ -209,7 +209,7 @@ const Header = () => {
                             <SimpleButton
                               title="Connect Wallet"
                               onClick={() => open()}
-                              className="w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
+                              className=" z-99 w-fit border border-secondary bg-secondary text-xs uppercase text-gray2 transition-all duration-200 ease-in-out hover:border-primary hover:text-white"
                             />
                           ))}
                       </div>
