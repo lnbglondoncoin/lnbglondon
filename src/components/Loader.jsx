@@ -1,9 +1,10 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion, useAnimate } from "framer-motion";
 import { useEffect } from "react";
 
-const Loader = () => {
+const Loader = ({ isPresale = false }) => {
   // const text = "THANK YOU. HAVE A NICE DAY.";
   const text = "LOADING - LNBG COIN";
   const characters = text.split("");
@@ -44,7 +45,14 @@ const Loader = () => {
     animateLoader();
   }, []);
   return (
-    <div className="flex h-screen w-screen absolute inset-0 z-[100] bg-ash items-center justify-center">
+    <div
+      className={cn(
+        "absolute inset-0 z-[100] flex items-center justify-center",
+        isPresale
+          ? "left-0 top-0 h-full min-h-[1000px] w-full bg-black/70"
+          : "h-screen w-screen bg-ash",
+      )}
+    >
       <motion.div ref={scope} className="circle" style={{ width: radius * 2 }}>
         <p aria-label={text} />
         <p aria-hidden="true" className="text">
