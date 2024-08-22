@@ -45,6 +45,9 @@ export const StoreProvider = ({ children }) => {
   // FOR PRESALE CARD LOADER WHILE PURCHASING STUFF
   const [purchaseLoader, setPurchaseLoader] = useState(false);
 
+  // TRANSACTION SUCCESS DIALOGUE BOX
+  const [transactionSuccess, setTransactionSuccess] = useState(false);
+
   console.log("LOADER", loader);
 
   const [contractData, setContractData] = useState({
@@ -277,7 +280,9 @@ export const StoreProvider = ({ children }) => {
 
   const BuyWithETH = async (tokens, amountInEthPayable) => {
     if (!isConnected) {
-      return toast.error("Please Connect Your Wallet."), setPurchaseLoader(false);
+      return (
+        toast.error("Please Connect Your Wallet."), setPurchaseLoader(false)
+      );
     }
     try {
       let tokensss = ethers.utils.formatEther(tokens?.toString());
@@ -393,6 +398,8 @@ export const StoreProvider = ({ children }) => {
           setloader,
           purchaseLoader,
           setPurchaseLoader,
+          transactionSuccess,
+          setTransactionSuccess,
           contractData,
           addTokenToMetamask,
           copyToClipboard,
