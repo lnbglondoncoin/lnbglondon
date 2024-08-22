@@ -11,6 +11,7 @@ import Link from "next/link";
 import SimpleButton from "../buttons/SimpleButton";
 import Image from "next/image";
 import LanguageDropdown from "../dropdown/LanguageDropdown";
+import { useWeb3Modal } from "@web3modal/ethers5/react";
 
 export default function Sidebar({
   lang = "en",
@@ -20,6 +21,7 @@ export default function Sidebar({
   isClient,
   isConnected,
 }) {
+  const { open } = useWeb3Modal();
   return (
     <Sheet>
       <SheetTrigger>
