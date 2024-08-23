@@ -33,7 +33,6 @@ export default function SellPage() {
         baseHue={50}
         className="flex h-full w-full flex-col items-center px-5 pb-10 pt-20"
       >
-        {/* <BuySellCard /> */}
         <div className="flex w-full max-w-4xl flex-col items-center gap-10 px-5 py-20 text-center">
           <h1 className="text-3xl sm:text-5xl sm:leading-[3.8rem]">
             Buy <span className="text-primary">crypto</span> directly to your

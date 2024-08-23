@@ -10,7 +10,7 @@ import {
 
 export default function BuyWithEaseSection() {
   return (
-    <div className="flex w-full items-center max-w-[1500px] justify-center rounded-t-[30px] bg-white text-black">
+    <div className="static z-10 flex w-full max-w-[1500px] items-center justify-center rounded-t-[30px] bg-white text-black">
       <div className="grid w-full max-w-7xl gap-10 px-5 py-20 lg:grid-cols-2">
         <div className="flex flex-col items-center gap-5 text-center sm:items-start sm:text-start">
           <span className="text-xs uppercase text-black/50">
