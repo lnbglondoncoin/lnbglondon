@@ -7,6 +7,7 @@ import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { Copy } from "lucide-react";
 import Button from "../buttons/Button";
 import { Store } from "@/context/Store/Store";
+import Link from "next/link";
 
 export default function ProfileDropdown({
   selectedLang,
@@ -102,7 +103,8 @@ export default function ProfileDropdown({
             <span className="text-center font-sans text-sm font-medium text-gray2">
               Deposit in total $1000 or more and unlock a higher yield!
             </span>
-            <Button title="TOP UP LNBG NOW!" className="text-sm font-bold" />
+            <Link href="/#presale">
+            <Button title="TOP UP LNBG NOW!" className="text-sm font-bold" /></Link>
           </div>
         </div>
       )}
