@@ -398,9 +398,7 @@ export default function PresaleCard({ lang = "en" }) {
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                     disabled={loader}
-                    onClick={() =>
-                      BuyWithETH(lnbgValue?.toString(), tokenAmount)
-                    }
+                    onClick={() => {buttonText === "Insufficient Balance" ? "" : BuyWithETH(lnbgValue?.toString(), tokenAmount)}}
                   >
                     {buttonText}
                   </button>
