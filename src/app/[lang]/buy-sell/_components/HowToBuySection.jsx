@@ -6,7 +6,7 @@ export default function HowToBuySection() {
           Buying cryptocurrency
         </span>
         <h1 className="text-3xl font-medium md:text-4xl">
-          How to buy crypto online with Ramp
+          How to buy crypto online with LNBG
         </h1>
         <div className="grid grid-cols-2 place-items-center mt-10 sm:grid-cols-4 gap-5">
           <div className="flex flex-col items-center justify-center max-w-[200px] gap-3">

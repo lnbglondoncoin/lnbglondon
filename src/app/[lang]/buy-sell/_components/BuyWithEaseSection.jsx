@@ -17,7 +17,7 @@ export default function BuyWithEaseSection() {
             Buying crypto made easy
           </span>
           <h1 className="text-4xl font-semibold">
-            Buy crypto without an exchange with Ramp
+            Buy crypto without an exchange with LNBG
           </h1>
         </div>
         <div className="grid gap-x-10 gap-y-16 sm:grid-cols-2">
@@ -28,7 +28,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
@@ -72,7 +72,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function BuyWithEaseSection() {
             <div className="flex flex-col items-center gap-3 text-center sm:items-start sm:text-start">
               <span className="text-xl">Competitive Fees</span>
               <span className="font-sans text-sm text-black/50">
-                Purchase cryptocurrency at affordable fees with Ramp
+                Purchase cryptocurrency at affordable fees with LNBG
               </span>
             </div>
           </div>
