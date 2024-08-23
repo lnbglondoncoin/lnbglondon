@@ -68,7 +68,7 @@ export default function ProfileDropdown({
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg"> {contractData?.lnbgBalance} </span>
+                  <span className="text-lg"> {Number(contractData?.lnbgBalance)?.toFixed(4)} </span>
                 </div>
               </div>
               <div className="flex flex-col gap-1">
