@@ -1,6 +1,6 @@
 export default function HowToBuySection() {
   return (
-    <div className="flex w-full max-w-[1500px] items-center justify-center rounded-b-[30px] bg-primary text-center text-black">
+    <div className="flex w-full max-w-[1500px] mb-20 items-center justify-center rounded-b-[30px] bg-primary text-center text-black">
       <div className="flex w-full max-w-7xl flex-col gap-5 px-5 py-20">
         <span className="text-xs uppercase text-black/50">
           Buying cryptocurrency

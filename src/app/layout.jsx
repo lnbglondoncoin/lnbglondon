@@ -11,7 +11,7 @@ export const metadata = {
   title: "LNBG London Coin - Secure & Innovative Cryptocurrency",
   description:
     "LNBG London Coin is a secure and innovative cryptocurrency inspired by London's financial heritage. Explore decentralized digital finance with our trusted and efficient platform.",
-  image: "/logo.png",
+  image: "/static/logo.png",
   author: "LNBG London Coin Team",
   keywords: [
     "LNBG",

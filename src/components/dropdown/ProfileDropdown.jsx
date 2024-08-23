@@ -38,14 +38,14 @@ export default function ProfileDropdown({
     <div className="relative flex items-center" ref={ref}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-8 w-8 rounded-full bg-[url(/static/authors/author1.png)] bg-contain bg-center bg-no-repeat"
+        className="h-8 w-8 rounded-full bg-[url(/static/avatar.png)] bg-contain bg-center bg-no-repeat"
       ></button>
       {isOpen && (
         <div className="absolute -right-12 top-12 flex w-[98vw] max-w-[354px] flex-col gap-1 overflow-hidden rounded-2xl bg-ash">
           <div className="flex flex-col gap-3 p-5 font-sans">
             <span className="text-xs">Your LNBG Profile</span>
             <div className="rounded-xd white flex items-center gap-2 px-2 py-3">
-              <div className="min-h-[24px] min-w-[24px] rounded-full bg-[url(/static/authors/author1.png)] bg-contain bg-center bg-no-repeat"></div>
+              <div className="min-h-[24px] min-w-[24px] rounded-full bg-[url(/static/avatar.png)] bg-contain bg-center bg-no-repeat"></div>
               <span className="w-full font-bold uppercase">
                 {address?.slice(0, 6)}........
                 {address?.slice(-4)}
