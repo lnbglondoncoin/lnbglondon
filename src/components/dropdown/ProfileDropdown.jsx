@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { Copy } from "lucide-react";
 import Button from "../buttons/Button";
+import { Store } from "@/context/Store/Store";
 
 export default function ProfileDropdown({
   selectedLang,
@@ -16,6 +17,9 @@ export default function ProfileDropdown({
   const ref = useRef();
   const router = useRouter();
   const { address } = useWeb3ModalAccount();
+
+  const { copyToClipboardAddress, contractData }=useContext(Store)
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -28,6 +32,7 @@ export default function ProfileDropdown({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <div className="relative flex items-center" ref={ref}>
       <button
@@ -47,7 +52,7 @@ export default function ProfileDropdown({
               {/* {copySuccess ? (
               <span className="text-nowrap text-[8px]">Copied to clipboard</span>
             ) : ( */}
-              <button onClick={() => copyToClipboard()}>
+              <button onClick={() => copyToClipboardAddress()}>
                 <Copy size={18} />
               </button>
               {/* )} */}
@@ -63,7 +68,7 @@ export default function ProfileDropdown({
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg">0.0</span>
+                  <span className="text-lg"> {contractData?.lnbgBalance} </span>
                 </div>
               </div>
               <div className="flex flex-col gap-1">

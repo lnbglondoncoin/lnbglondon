@@ -47,8 +47,8 @@ export const StoreProvider = ({ children }) => {
 
   // TRANSACTION SUCCESS DIALOGUE BOX
   const [transactionSuccess, setTransactionSuccess] = useState(false);
+  const [transactionHash, setTransactionHash] = useState("");
 
-  console.log("LOADER", loader);
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,
@@ -213,6 +213,18 @@ export const StoreProvider = ({ children }) => {
       });
   };
 
+  const copyToClipboardAddress = () => {
+    const tokenAddress = address; // Your token address
+    navigator.clipboard
+      .writeText(tokenAddress)
+      .then(() => {
+        toast.success("User address copied to clipboard!");
+      })
+      .catch((error) => {
+        console.error("Failed to copy: ", error);
+      });
+  };
+
   const BuyWithUSDTandUSDC = async (payAmountInUSDT, tokens, isUSDT) => {
     if (!isConnected) {
       return (
@@ -258,6 +270,8 @@ export const StoreProvider = ({ children }) => {
 
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
+        setTransactionHash(buying?.hash);
+        setTransactionSuccess(true);
       } else {
         let tokenApprove = await USDCContracts.approve(
           lnbgPresaleContractAddress.address,
@@ -267,12 +281,16 @@ export const StoreProvider = ({ children }) => {
 
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
+        setTransactionHash(buying?.hash);
+        setTransactionSuccess(true);
       }
 
       await GetValues();
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
+      setTransactionSuccess(false)
+      setTransactionHash("");
       toast.error(`${JSON.stringify(error.reason)}`);
       console.log(error);
     }
@@ -309,10 +327,15 @@ export const StoreProvider = ({ children }) => {
         value: amountInWei?.toString(),
       });
       buying.wait();
+      console.log(buying,"buyingbuyingbuyingbuying");
+      setTransactionHash(buying?.hash);
+      setTransactionSuccess(true);
       await GetValues();
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
+      setTransactionSuccess(false);
+      setTransactionHash("");
       console.log(error);
       if (error?.reason) {
         // If error.reason is defined, show it in the toast
@@ -400,7 +423,9 @@ export const StoreProvider = ({ children }) => {
           setPurchaseLoader,
           transactionSuccess,
           setTransactionSuccess,
+          copyToClipboardAddress,
           contractData,
+          transactionHash,
           addTokenToMetamask,
           copyToClipboard,
           GetValues,
