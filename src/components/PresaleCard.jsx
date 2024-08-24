@@ -176,8 +176,12 @@ export default function PresaleCard({ lang = "en" }) {
 
   console.log(userDatabaseData, "userDatabaseDatauserDatabaseDatauserDatabaseData");
  
-  // Calculate the percentage of sold tokens
- const soldPercentage = (+remainTokens * 100 ) / 10000000;
+//   // Calculate the percentage of sold tokens
+//  const soldPercentage = (+remainTokens * 100 ) / 10000000;
+
+// Calculate the percentage of sold tokens
+const soldPercentage = (contractData?.raisedAmount * 100) / +contractData?.totalSupply;
+
 
   return (
     <>
@@ -227,7 +231,7 @@ export default function PresaleCard({ lang = "en" }) {
               ) : (
                 <>
                   <span className="text-3xl text-primary">
-                    ${roundOff(remainTokens * ethers.utils.formatUnits(contractData?.tokenPrice, 18))}
+                    ${roundOff(contractData?.raisedAmount)}
                   </span>
                   <span className="pb-1 text-lg font-normal text-gray2">
                     /$300,000
