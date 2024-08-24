@@ -7,23 +7,9 @@ export async function POST(req, res) {
   try {
     const { name, email, message, selectedOption, phoneNumber } =
       await req.json();
-
-    // Send email to support
-    // const data = await resend.emails.send({
-    //   from: "lnbglondon@lnbglondon.com",
-    //   to: ["info@lnbglondon.com"],
-    //   subject: "Customer Inquiry",
-    //   react: EmailTemplate({
-    //     name,
-    //     email,
-    //     message,
-    //     selectedOption,
-    //     phoneNumber,
-    //   }),
-    // });
     const data = await resend.emails.send({
       from: "LNBG <onboarding@resend.dev>",
-      to: ["lnbg@lnbglondon.com"],
+      to: ["Lnbg@lnbgllc.com"],
       subject: selectedOption,
       react: EmailTemplate({
         name,
