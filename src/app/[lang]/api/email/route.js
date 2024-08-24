@@ -78,8 +78,6 @@ const UserEmailTemplate = ({ name, selectedOption }) => (
       <br />
       LNBG London <br />
       Defi Financial Solutions <br />
-      Address: Laurier Ave w, 629, Ottawa, ON K1P 5J2, Canada
-      <br />
       Mail: info@lnbglondon.com
     </p>
     <br />
