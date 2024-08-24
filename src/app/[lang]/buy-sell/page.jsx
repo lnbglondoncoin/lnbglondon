@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export default function SellPage() {
   const transakConfig = {
-    apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
+    apiKey: process.env.TRANSAK_API_KEY,
     environment: Transak.ENVIRONMENTS.PRODUCTION,
   };
 

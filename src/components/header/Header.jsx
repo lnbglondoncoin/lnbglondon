@@ -40,7 +40,7 @@ const Header = ({ lang = "en" }) => {
 
   // ----------------BUY--------------------------------
   const transakConfig = {
-    apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
+    apiKey: process.env.TRANSAK_API_KEY,
     environment: Transak.ENVIRONMENTS.PRODUCTION,
     defaultCryptoCurrency: "ETH",
     themeColor: "11121a", // App theme color

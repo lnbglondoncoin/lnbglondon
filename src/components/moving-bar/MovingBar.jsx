@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 
 const getData = async () => {
-  const apiKey = process.env.NEXT_PUBLIC_COIN_MARKET_CAP_API_KEY;
+  const apiKey = process.env.COIN_MARKET_CAP_API_KEY;
   const baseUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5`;
   const headers = {
     "X-CMC_PRO_API_KEY": apiKey,
