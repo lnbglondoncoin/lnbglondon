@@ -180,9 +180,9 @@ export default function PresaleCard({ lang = "en" }) {
 //  const soldPercentage = (+remainTokens * 100 ) / 10000000;
 
 // Calculate the percentage of sold tokens
-const soldPercentage = (contractData?.raisedAmount * 100) / +contractData?.totalSupply;
+const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
 
-
+console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -234,7 +234,7 @@ const soldPercentage = (contractData?.raisedAmount * 100) / +contractData?.total
                     ${roundOff(contractData?.raisedAmount)}
                   </span>
                   <span className="pb-1 text-lg font-normal text-gray2">
-                    /$300,000
+                    / $300,000
                   </span>
                 </>
               )}
@@ -266,7 +266,7 @@ const soldPercentage = (contractData?.raisedAmount * 100) / +contractData?.total
             {loader ? (
               <Skeleton className="h-16 w-full" />
             ) : (
-              <ProgressBar lang={lang} soldPercentage={soldPercentage} />
+              <ProgressBar contractData={contractData} lang={lang} soldPercentage={soldPercentage} />
             )}
             {loader ? (
               <Skeleton className="h-10 w-full" />
