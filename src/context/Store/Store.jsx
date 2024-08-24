@@ -43,7 +43,13 @@ export const StoreProvider = ({ children }) => {
 
   const [loader, setloader] = useState(false);
 
-  const [userDatabaseData, setUserDatabaseData] = useState("");
+  const [userDatabaseData, setUserDatabaseData] = useState({
+    points: 0,
+    referral_code: "",
+    steps_points: 0,
+    tokens_earned: 0,
+    wallet_address: "",
+  });
 
   // FOR PRESALE CARD LOADER WHILE PURCHASING STUFF
   const [purchaseLoader, setPurchaseLoader] = useState(false);
@@ -216,7 +222,7 @@ export const StoreProvider = ({ children }) => {
   };
 
   const copyToClipboardReferral = () => {
-    const tokenAddress =`https://www.lnbglondon.com/en/${address}`; // Your token address
+    const tokenAddress = `https://www.lnbglondon.com/en?ref=${address}`; // Your token address
     navigator.clipboard
       .writeText(tokenAddress)
       .then(() => {

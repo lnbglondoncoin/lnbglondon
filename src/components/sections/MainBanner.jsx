@@ -27,30 +27,26 @@ const MainBanner = ({ lang = "en" }) => {
   const ref = searchParams.get("ref");
   const { address, chainId, isConnected } = useWeb3ModalAccount();
 
-  // console.log(router,"routerrouterrouter");
-  // const searchParams = useSearchParams();
-  // const referral = searchParams.get('address');
+  console.log(ref,"referralreferralreferralreferral");
 
-  // console.log(referral,"referralreferralreferralreferral");
-
-  // useEffect(() => {
-  //   const mainReferral = async () => {
-  //     try {
-  //       if (isConnected && referralCode) {
-  //         console.log(referralCode, address);
-  //         let apiData = {
-  //           "wallet_address" : address,
-  //           "referral_code" : referralCode,
-  //         };
-  //         let data = await apis.referringto(apiData);
-  //         console.log(data, "useSDataaaaa");
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   mainReferral();
-  // }, [address]);
+  useEffect(() => {
+    const mainReferral = async () => {
+      try {
+        if (isConnected && ref) {
+          console.log(ref, address);
+          let apiData = {
+            "wallet_address" : address,
+            "referral_code" : ref,
+          };
+          let data = await apis.referringto(apiData);
+          console.log(data, "useSDataaaaa");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    mainReferral();
+  }, [address,ref]);
 
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">

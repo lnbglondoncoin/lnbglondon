@@ -96,7 +96,7 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">LNBG Points</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-lg">{userDatabaseData?.points}</span>
+                  <span className="text-lg">{`${Number(userDatabaseData?.points)?.toFixed(1)}`}</span>
                   <span className="text-lg">Points</span>
                 </div>
               </div>
@@ -109,7 +109,7 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg">{userDatabaseData?.tokens_earned}</span>
+                  <span className="text-lg">{`${Number(userDatabaseData?.tokens_earned)?.toFixed(2)}`}</span>
                 </div>
               </div>
             </div>
