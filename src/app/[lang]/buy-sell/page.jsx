@@ -6,23 +6,21 @@ import Button from "@/components/buttons/Button";
 import BuyWithEaseSection from "./_components/BuyWithEaseSection";
 import HowToBuySection from "./_components/HowToBuySection";
 import { Transak } from "@transak/transak-sdk";
-import { useEffect } from "react";
 import Image from "next/image";
 
+const transakConfig = {
+  apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
+  environment: Transak.ENVIRONMENTS.PRODUCTION,
+};
+
 export default function SellPage() {
-  const transakConfig = {
-    apiKey: process.env.TRANSAK_API_KEY,
-    environment: Transak.ENVIRONMENTS.PRODUCTION,
-  };
-
   const transak = new Transak(transakConfig);
-
-  useEffect(() => {
-    // Cleanup code
-    return () => {
-      transak.close();
-    };
-  }, []);
+  // useEffect(() => {
+  //   // Cleanup code
+  //   return () => {
+  //     transak.close();
+  //   };
+  // }, []);
 
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] flex-col items-center justify-center overflow-hidden bg-coal">
@@ -54,7 +52,7 @@ export default function SellPage() {
       <BuyWithEaseSection />
       <HowToBuySection />
       <div className="grid max-w-[1500px] place-items-center gap-5 p-5 lg:grid-cols-2 lg:gap-10 lg:p-10">
-        <div className="flex w-full flex-col items-center h-full gap-5 rounded-3xl bg-[#F0F2F4] px-5 py-20 text-center text-black lg:px-10">
+        <div className="flex h-full w-full flex-col items-center gap-5 rounded-3xl bg-[#F0F2F4] px-5 py-20 text-center text-black lg:px-10">
           <h1 className="text-3xl font-semibold">
             Choose the best way to buy crypto
           </h1>
@@ -73,7 +71,7 @@ export default function SellPage() {
             <Payment imgUrl="/static/payment/sepa.svg" />
           </div>
         </div>
-        <div className="flex w-full flex-col items-center h-full gap-5 rounded-3xl bg-[#F0F2F4] px-5 py-20 text-center text-black lg:px-10">
+        <div className="flex h-full w-full flex-col items-center gap-5 rounded-3xl bg-[#F0F2F4] px-5 py-20 text-center text-black lg:px-10">
           <h1 className="text-3xl font-semibold">Popular tokens available</h1>
           <span className="font-sans text-sm text-black/70">
             Purchase any of 110+ of the most popular cryptocurrencies on top
