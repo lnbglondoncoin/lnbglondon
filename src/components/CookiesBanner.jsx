@@ -15,7 +15,7 @@ export default function CookiesBanner() {
   };
   return isOpen ? (
     <div className="fixed bottom-0 z-50 flex w-screen items-center justify-center bg-ash px-5 py-10">
-      <div className="flex w-full max-w-7xl items-center justify-between">
+      <div className="flex flex-col md:flex-row gap-5 w-full max-w-7xl items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="text-primary">
             <Cookie size={50} />
