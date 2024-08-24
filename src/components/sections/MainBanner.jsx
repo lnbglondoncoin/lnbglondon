@@ -5,9 +5,12 @@ import PresaleCard from "../PresaleCard";
 import { Vortex } from "../ui/vortex";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { useRouter} from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
+import apis from "@/context/Services";
+import { useEffect } from "react";
 
 const MainBanner = ({ lang = "en" }) => {
   const texts =
@@ -18,7 +21,35 @@ const MainBanner = ({ lang = "en" }) => {
         : lang === "fr"
           ? ["Finance", "Trading", "Futur"]
           : ["Finanzas", "Comercio", "Futuro"];
+
   const router = useRouter();
+  const { address, chainId, isConnected } = useWeb3ModalAccount();
+
+  // console.log(router,"routerrouterrouter");
+  // const searchParams = useSearchParams();
+  // const referral = searchParams.get('address');
+
+  // console.log(referral,"referralreferralreferralreferral");
+
+  // useEffect(() => {
+  //   const mainReferral = async () => {
+  //     try {
+  //       if (isConnected && referralCode) {
+  //         console.log(referralCode, address);
+  //         let apiData = {
+  //           "wallet_address" : address,
+  //           "referral_code" : referralCode,
+  //         };
+  //         let data = await apis.referringto(apiData);
+  //         console.log(data, "useSDataaaaa");
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   mainReferral();
+  // }, [address]);
+
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">
       <Vortex

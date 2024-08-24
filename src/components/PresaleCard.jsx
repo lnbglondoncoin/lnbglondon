@@ -54,8 +54,7 @@ export default function PresaleCard({ lang = "en" }) {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { error } = useWeb3ModalError();
 
-  const [copyReferralText, setCopyReferralText] =
-    useState("Copy referral link");
+  const [copyReferralText, setCopyReferralText] = useState("Copy referral link");
   const [selectedToken, setSelectedToken] = useState("Binance");
   const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");

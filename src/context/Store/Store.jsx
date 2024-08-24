@@ -216,7 +216,7 @@ export const StoreProvider = ({ children }) => {
   };
 
   const copyToClipboardReferral = () => {
-    const tokenAddress = address; // Your token address
+    const tokenAddress =`https://www.lnbglondon.com/en/${address}`; // Your token address
     navigator.clipboard
       .writeText(tokenAddress)
       .then(() => {
