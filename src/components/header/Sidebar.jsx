@@ -29,27 +29,24 @@ export default function Sidebar({
       </SheetTrigger>
       <SheetContent className="z-[90] border-none bg-ash py-10 pl-10 text-white">
         <SheetHeader>
-          <SheetTitle className="text-3xl font-bold text-white">
+          <SheetTitle className="flex items-center justify-between font-bold text-white">
             <Link href="/" className="flex items-center gap-x-3">
               <Image
                 className=""
                 src="/static/logo.png"
-                width={30}
-                height={30}
+                width={24}
+                height={24}
                 alt="lnbgcoin"
               />
-              <span className="text-lg font-semibold md:text-3xl">
-                LNBG COIN
-              </span>
+              <span className="font-semibold">LNBG COIN</span>
             </Link>
+            <LanguageDropdown
+              selectedLang={selectedLang}
+              setSelectedLang={setSelectedLang}
+            />
           </SheetTitle>
-          <div className="flex h-[85vh] pt-5 flex-col justify-between gap-2">
+          <div className="flex h-[85vh] flex-col justify-between gap-2 pt-5">
             <div className="flex flex-col items-start gap-3 py-2">
-              <LanguageDropdown
-                selectedLang={selectedLang}
-                setSelectedLang={setSelectedLang}
-              />
-
               <SheetClose asChild>
                 <Link
                   href="/"

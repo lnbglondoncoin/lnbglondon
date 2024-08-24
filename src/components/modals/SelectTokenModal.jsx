@@ -21,7 +21,7 @@ const SelectTokenModal = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger className="w-full">
-        <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2 p-2 text-xl hover:border-primary">
+        <div className="flex w-full items-center justify-between gap-2 rounded-full border border-gray2/40 p-2 text-xl hover:border-primary">
           <div className="flex items-center gap-2">
             {selectedToken == "Binance" ? (
               <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />

@@ -9,19 +9,14 @@ import Button from "../buttons/Button";
 import { Store } from "@/context/Store/Store";
 import apis from "@/context/Services";
 
-export default function ProfileDropdown({
-  selectedLang,
-  setSelectedLang = () => {},
-  showFlag = true,
-}) {
+export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [userDatabaseData, setUserDatabaseData] = useState("");
   const ref = useRef();
   const router = useRouter();
   const { address, isConnected } = useWeb3ModalAccount();
 
-  const { copyToClipboardAddress, contractData }=useContext(Store)
-
+  const { copyToClipboardAddress, contractData } = useContext(Store);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,6 +29,16 @@ export default function ProfileDropdown({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const handleTopUp = () => {
+    router.push("/#presale");
+    setIsOpen(false);
+  };
+
+  const handleTopUp = () => {
+    router.push("/#presale");
+    setIsOpen(false);
+  };
 
   useEffect(()=> {
     const main = async()=> {
@@ -55,14 +60,14 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
     <div className="relative flex items-center" ref={ref}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-8 w-8 rounded-full bg-[url(/static/authors/author1.png)] bg-contain bg-center bg-no-repeat"
+        className="h-8 w-8 rounded-full bg-[url(/static/avatar.png)] bg-contain bg-center bg-no-repeat"
       ></button>
       {isOpen && (
         <div className="absolute -right-12 top-12 flex w-[98vw] max-w-[354px] flex-col gap-1 overflow-hidden rounded-2xl bg-ash">
           <div className="flex flex-col gap-3 p-5 font-sans">
             <span className="text-xs">Your LNBG Profile</span>
             <div className="rounded-xd white flex items-center gap-2 px-2 py-3">
-              <div className="min-h-[24px] min-w-[24px] rounded-full bg-[url(/static/authors/author1.png)] bg-contain bg-center bg-no-repeat"></div>
+              <div className="min-h-[24px] min-w-[24px] rounded-full bg-[url(/static/avatar.png)] bg-contain bg-center bg-no-repeat"></div>
               <span className="w-full font-bold uppercase">
                 {address?.slice(0, 6)}........
                 {address?.slice(-4)}
@@ -86,7 +91,10 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg"> {Number(contractData?.lnbgBalance)?.toFixed(4)} </span>
+                  <span className="text-lg">
+                    {" "}
+                    {Number(contractData?.lnbgBalance)?.toFixed(4)}{" "}
+                  </span>
                 </div>
               </div>
               <div className="flex flex-col gap-1">
@@ -120,7 +128,11 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
             <span className="text-center font-sans text-sm font-medium text-gray2">
               Deposit in total $1000 or more and unlock a higher yield!
             </span>
-            <Button title="TOP UP LNBG NOW!" className="text-sm font-bold" />
+            <Button
+              onClick={() => handleTopUp()}
+              title="TOP UP LNBG NOW!"
+              className="text-sm font-bold"
+            />
           </div>
         </div>
       )}

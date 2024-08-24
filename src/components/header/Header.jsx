@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import SimpleButton from "../buttons/SimpleButton";
-import { Transak } from "@transak/transak-sdk";
 import Sidebar from "./Sidebar";
 import ProfileDropdown from "../dropdown/ProfileDropdown";
 
@@ -37,21 +36,6 @@ const Header = ({ lang = "en" }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // ----------------BUY--------------------------------
-  const transakConfig = {
-    apiKey: process.env.NEXT_PUBLIC_TRANSAK_API_KEY,
-    environment: Transak.ENVIRONMENTS.PRODUCTION,
-    defaultCryptoCurrency: "ETH",
-    themeColor: "11121a", // App theme color
-    widgetHeight: "600px",
-    widgetWidth: "500px",
-  };
-  const transak = new Transak(transakConfig);
-  const launchTransak = () => {
-    transak.init();
-  };
-  // ----------------------------------------------------
 
   return (
     <>

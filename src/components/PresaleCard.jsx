@@ -282,7 +282,31 @@ export default function PresaleCard({ lang = "en" }) {
           {loader ? (
             <Skeleton className="h-14 w-[250px]" />
           ) : (
-            <CountdownTimer lang={lang} />
+            isClient &&
+            (isConnected ? (
+              <div className="grid w-full grid-cols-2">
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm text-gray2">Your LNBG tokens:</span>
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/static/logo.png"
+                      width={18}
+                      height={18}
+                      alt="lnbg"
+                    />
+                    <span className="text-2xl">0</span>
+                  </div>
+                  <span className="text-sm text-gray2">= $ 0.0</span>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm text-gray2">Your Points:</span>
+                  <span className="text-xl text-white/40">Not yet</span>
+                  <span className="text-sm text-gray2">= $ 0.0</span>
+                </div>
+              </div>
+            ) : (
+              <CountdownTimer lang={lang} />
+            ))
           )}
           {loader ? (
             <Skeleton className="h-16 w-full" />
@@ -299,15 +323,22 @@ export default function PresaleCard({ lang = "en" }) {
           ) : (
             <>
               <div className="flex w-full items-center justify-between gap-4 px-1 text-sm text-gray2">
-                <span>
-                  {lang === "en"
-                    ? "You pay:"
-                    : lang === "ru"
-                      ? "Вы платите:"
-                      : lang === "fr"
-                        ? "Tu paies:"
-                        : "Usted paga:"}
-                </span>
+                <div className="flex items-center gap-2">
+                  <span>
+                    {lang === "en"
+                      ? "You pay:"
+                      : lang === "ru"
+                        ? "Вы платите:"
+                        : lang === "fr"
+                          ? "Tu paies:"
+                          : "Usted paga:"}
+                  </span>
+                  {isClient && isConnected && (
+                    <div className="rounded-full border border-gray2 px-3 font-sans text-xs italic">
+                      0.001 available
+                    </div>
+                  )}
+                </div>
                 <span>
                   {lang === "en"
                     ? "You receive:"
@@ -369,7 +400,7 @@ export default function PresaleCard({ lang = "en" }) {
               <div className="grid w-full sm:grid-cols-2">
                 <span className="text-sm font-semibold">
                   1 lnbg ={" "}
-                  {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}
+                  {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}$
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">
@@ -388,15 +419,18 @@ export default function PresaleCard({ lang = "en" }) {
               </div>
             </>
           )}
-
           {isClient &&
             (isConnected == true ? (
               selectedToken == "Binance" ? (
                 <div className="flex w-full flex-col gap-5">
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-                    disabled={loader}
-                    onClick={() => {buttonText === "Insufficient Balance" ? "" : BuyWithETH(lnbgValue?.toString(), tokenAmount)}}
+                    disabled={loader || buttonText === "Insufficient Balance"}
+                    onClick={() => {
+                      buttonText === "Insufficient Balance"
+                        ? ""
+                        : BuyWithETH(lnbgValue?.toString(), tokenAmount);
+                    }}
                   >
                     {buttonText}
                   </button>
@@ -418,7 +452,7 @@ export default function PresaleCard({ lang = "en" }) {
                 <div className="flex w-full flex-col gap-5">
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-                    disabled={loader}
+                    disabled={loader || buttonText === "Insufficient Balance"}
                     onClick={() =>
                       BuyWithUSDTandUSDC(
                         tokenAmount,
@@ -447,7 +481,7 @@ export default function PresaleCard({ lang = "en" }) {
                 <div className="flex w-full flex-col gap-5">
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
-                    disabled={loader}
+                    disabled={loader || buttonText === "Insufficient Balance"}
                     onClick={() =>
                       BuyWithUSDTandUSDC(
                         tokenAmount,

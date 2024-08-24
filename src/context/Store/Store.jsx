@@ -50,6 +50,8 @@ export const StoreProvider = ({ children }) => {
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
 
+  // FOR COOKIES ACCEPTANCE
+  const [cookiesAccepted, setCookiesAccepted] = useState(false);
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,
@@ -290,7 +292,7 @@ export const StoreProvider = ({ children }) => {
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
-      setTransactionSuccess(false)
+      setTransactionSuccess(false);
       setTransactionHash("");
       toast.error(`${JSON.stringify(error.reason)}`);
       console.log(error);
@@ -328,7 +330,7 @@ export const StoreProvider = ({ children }) => {
         value: amountInWei?.toString(),
       });
       buying.wait();
-      console.log(buying,"buyingbuyingbuyingbuying");
+      console.log(buying, "buyingbuyingbuyingbuying");
       setTransactionHash(buying?.hash);
       setTransactionSuccess(true);
       await GetValues();
@@ -450,6 +452,8 @@ export const StoreProvider = ({ children }) => {
           BuyWithETH,
           presaleStart,
           presaleStop,
+          cookiesAccepted,
+          setCookiesAccepted,
         }}
       >
         {children}
