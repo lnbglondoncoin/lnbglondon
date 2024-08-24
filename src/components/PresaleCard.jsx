@@ -234,7 +234,7 @@ console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
                     ${roundOff(contractData?.raisedAmount)}
                   </span>
                   <span className="pb-1 text-lg font-normal text-gray2">
-                    /$300,000
+                    / $300,000
                   </span>
                 </>
               )}
