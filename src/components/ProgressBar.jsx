@@ -12,7 +12,7 @@ const ProgressBar = ({ soldPercentage, lang = "en" }) => {
       <div className="h-4 w-full rounded-full border-4 border-ash sm:h-[17px]">
         <div
           className="h-full rounded-full bg-primary"
-          style={{ width: `${integerPart}` }}
+          style={{ width: `${integerPart}%` }}
         ></div>
       </div>
       <div className="flex justify-between py-1 md:py-1.5">

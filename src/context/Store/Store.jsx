@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { ethers } from "ethers";
 
 import lnbgPresaleContractAddress from "../../contractsData/LngbPreSaleContract-address.json";
@@ -22,6 +22,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import { formatUnits } from "ethers/lib/utils";
 import Loader from "@/components/Loader";
+import apis from "../Services";
 
 const getProviderPresaleContract = () => {
   const providers = process.env.NEXT_PUBLIC_RPC_URL_BNB;
@@ -412,6 +413,20 @@ export const StoreProvider = ({ children }) => {
       return;
     }
   };
+
+  useEffect(()=> {
+    const main = async()=> {
+      try {
+        if(isConnected) {
+          console.log("Testttttttttttttttttttttt");
+          await apis.connectedUser(address);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    main()
+  },[address])
 
   return (
     <>

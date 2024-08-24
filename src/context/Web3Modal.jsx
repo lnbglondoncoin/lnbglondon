@@ -5,13 +5,13 @@ import { createWeb3Modal, defaultConfig } from '@web3modal/ethers5/react'
 const projectId = '48d44678afcba02c797f5d30369c89a7'
 
 // // 2. Set chains
-// const mainnet = {
-//   chainId: 1,
-//   name: 'Ethereum',
-//   currency: 'ETH',
-//   explorerUrl: 'https://etherscan.io',
-//   rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_ETH}`
-// }
+const mainnet = {
+  chainId: 1,
+  name: 'Ethereum',
+  currency: 'ETH',
+  explorerUrl: 'https://etherscan.io',
+  rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_ETH}`
+}
 
 const Binance = {
   chainId: 56,

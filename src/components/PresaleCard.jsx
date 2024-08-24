@@ -75,11 +75,6 @@ export default function PresaleCard({ lang = "en" }) {
     // setLnbgValue(e.target.value * 0.0001);
   };
 
-  // Calculate the percentage of sold tokens
-  const soldPercentage =
-    (contractData?.raisedAmount /
-      ((contractData?.tokenPrice / 10 ** 18) * contractData?.totalSupply)) *
-    100;
 
   useEffect(() => {
     const main = async () => {
@@ -177,7 +172,10 @@ export default function PresaleCard({ lang = "en" }) {
   let remainTokens = 10000000 - +contractData?.tokensInContract;
 
   console.log(loader, "loaderloaderloaderloader1");
-
+ // Calculate the percentage of sold tokens
+ const soldPercentage = (+remainTokens * 100 ) / 10000000
+ console.log(soldPercentage, "soldPercentagesoldPercentage");
+  
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}

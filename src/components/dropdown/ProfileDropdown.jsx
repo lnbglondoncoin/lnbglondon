@@ -7,6 +7,7 @@ import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { Copy } from "lucide-react";
 import Button from "../buttons/Button";
 import { Store } from "@/context/Store/Store";
+import apis from "@/context/Services";
 
 export default function ProfileDropdown({
   selectedLang,
@@ -14,9 +15,10 @@ export default function ProfileDropdown({
   showFlag = true,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [userDatabaseData, setUserDatabaseData] = useState("");
   const ref = useRef();
   const router = useRouter();
-  const { address } = useWeb3ModalAccount();
+  const { address, isConnected } = useWeb3ModalAccount();
 
   const { copyToClipboardAddress, contractData }=useContext(Store)
 
@@ -33,6 +35,22 @@ export default function ProfileDropdown({
     };
   }, []);
 
+  useEffect(()=> {
+    const main = async()=> {
+      try {
+        if(isConnected) {
+          console.log("Testttttttttttttttttttttt2222");
+          let data = await apis.getOneUser(address);
+          console.log(data,"useSDataaaaa");
+          setUserDatabaseData(data?.data?.user[0])
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    main()
+  },[address])
+console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
   return (
     <div className="relative flex items-center" ref={ref}>
       <button
@@ -74,7 +92,7 @@ export default function ProfileDropdown({
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">LNBG Points</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-lg">0</span>
+                  <span className="text-lg">{userDatabaseData?.points}</span>
                   <span className="text-lg">Points</span>
                 </div>
               </div>
@@ -87,7 +105,7 @@ export default function ProfileDropdown({
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg">0.0</span>
+                  <span className="text-lg">{userDatabaseData?.tokens_earned}</span>
                 </div>
               </div>
             </div>
