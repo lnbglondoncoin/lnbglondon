@@ -15,7 +15,7 @@ import {
 } from "@web3modal/ethers5/react";
 import { ethers } from "ethers";
 import React from "react";
-import { Copy } from "lucide-react";
+import { Copy, CopyIcon } from "lucide-react";
 import Link from "next/link";
 import lnbgAddress from "../contractsData/LnbgLondonCoin-address.json";
 import Loader from "./Loader";
@@ -33,6 +33,7 @@ export default function PresaleCard({ lang = "en" }) {
     purchaseLoader,
     transactionSuccess,
     copyToClipboard,
+    copyToClipboardReferral,
     addTokenToMetamask,
     networkChange,
     BuyWithETH,
@@ -53,6 +54,8 @@ export default function PresaleCard({ lang = "en" }) {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { error } = useWeb3ModalError();
 
+  const [copyReferralText, setCopyReferralText] =
+    useState("Copy referral link");
   const [selectedToken, setSelectedToken] = useState("Binance");
   const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");
@@ -75,7 +78,6 @@ export default function PresaleCard({ lang = "en" }) {
     setTokensAmount(e.target.value);
     // setLnbgValue(e.target.value * 0.0001);
   };
-
 
   useEffect(() => {
     const main = async () => {
@@ -174,15 +176,18 @@ export default function PresaleCard({ lang = "en" }) {
 
   console.log(loader, "loaderloaderloaderloader1");
 
-  console.log(userDatabaseData, "userDatabaseDatauserDatabaseDatauserDatabaseData");
- 
-//   // Calculate the percentage of sold tokens
-//  const soldPercentage = (+remainTokens * 100 ) / 10000000;
+  console.log(
+    userDatabaseData,
+    "userDatabaseDatauserDatabaseDatauserDatabaseData",
+  );
 
-// Calculate the percentage of sold tokens
-const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
+  //   // Calculate the percentage of sold tokens
+  //  const soldPercentage = (+remainTokens * 100 ) / 10000000;
 
-console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
+  // Calculate the percentage of sold tokens
+  const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
+
+  console.log(soldPercentage, "soldPercentagesoldPercentagesoldPercentage");
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -266,7 +271,11 @@ console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
             {loader ? (
               <Skeleton className="h-16 w-full" />
             ) : (
-              <ProgressBar contractData={contractData} lang={lang} soldPercentage={soldPercentage} />
+              <ProgressBar
+                contractData={contractData}
+                lang={lang}
+                soldPercentage={soldPercentage}
+              />
             )}
             {loader ? (
               <Skeleton className="h-10 w-full" />
@@ -291,7 +300,7 @@ console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
           ) : (
             isClient &&
             (isConnected ? (
-              <div className="grid w-full grid-cols-2">
+              <div className="grid w-full gap-5 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <span className="text-sm text-gray2">Your LNBG tokens:</span>
                   <div className="flex items-center gap-2">
@@ -301,14 +310,47 @@ console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
                       height={18}
                       alt="lnbg"
                     />
-                    <span className="text-2xl">{Number(contractData?.lnbgBalance)?.toFixed(4)}</span>
+                    <span className="text-2xl">
+                      {Number(contractData?.lnbgBalance)?.toFixed(4)}
+                    </span>
                   </div>
-                  <span className="text-sm text-gray2">= $ {Number(contractData?.lnbgBalance * ethers.utils.formatUnits(contractData?.tokenPrice, 18))?.toFixed(4)}</span>
+                  <span className="text-sm text-gray2">
+                    = ${" "}
+                    {Number(
+                      contractData?.lnbgBalance *
+                        ethers.utils.formatUnits(contractData?.tokenPrice, 18),
+                    )?.toFixed(4)}
+                  </span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm text-gray2">Your Points:</span>
-                  <span className="text-xl text-white/40">{Number(userDatabaseData?.points)}</span>
-                  <span className="text-sm text-gray2">= $ {Number(userDatabaseData?.points)}</span>
+                  <span className="text-xl text-white/40">
+                    {Number(userDatabaseData?.points)}
+                  </span>
+                  <button
+                    onClick={() => {
+                      copyToClipboardReferral();
+                      setCopyReferralText("Copied!");
+
+                      setTimeout(() => {
+                        setCopyReferralText("Copy referral link");
+                      }, 5000);
+                    }}
+                    className="flex items-center gap-3"
+                  >
+                    <span
+                      className={cn(
+                        copyReferralText == "Copied!"
+                          ? "text-primary"
+                          : "text-white",
+                      )}
+                    >
+                      {copyReferralText}
+                    </span>
+                    {copyReferralText === "Copy referral link" && (
+                      <CopyIcon size={18} />
+                    )}
+                  </button>
                 </div>
               </div>
             ) : (
@@ -342,7 +384,14 @@ console.log(soldPercentage,"soldPercentagesoldPercentagesoldPercentage");
                   </span>
                   {isClient && isConnected && (
                     <div className="rounded-full border border-gray2 px-3 font-sans text-xs italic">
-                      {Number(selectedToken == "Binance" ? contractData?.ethBalance : selectedToken == "USDT" ? contractData?.usdtBalance : contractData?.usdcBalance)?.toFixed(6)} available
+                      {Number(
+                        selectedToken == "Binance"
+                          ? contractData?.ethBalance
+                          : selectedToken == "USDT"
+                            ? contractData?.usdtBalance
+                            : contractData?.usdcBalance,
+                      )?.toFixed(6)}{" "}
+                      available
                     </div>
                   )}
                 </div>

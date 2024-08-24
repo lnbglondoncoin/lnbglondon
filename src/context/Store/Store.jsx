@@ -52,7 +52,6 @@ export const StoreProvider = ({ children }) => {
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
 
-
   const [contractData, setContractData] = useState({
     ethBalance: 0,
     usdcBalance: 0,
@@ -216,6 +215,18 @@ export const StoreProvider = ({ children }) => {
       });
   };
 
+  const copyToClipboardReferral = () => {
+    const tokenAddress = address; // Your token address
+    navigator.clipboard
+      .writeText(tokenAddress)
+      .then(() => {
+        toast.success("Referral address copied to clipboard!");
+      })
+      .catch((error) => {
+        console.error("Failed to copy: ", error);
+      });
+  };
+
   const copyToClipboardAddress = () => {
     const tokenAddress = address; // Your token address
     navigator.clipboard
@@ -292,7 +303,7 @@ export const StoreProvider = ({ children }) => {
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
-      setTransactionSuccess(false)
+      setTransactionSuccess(false);
       setTransactionHash("");
       toast.error(`${JSON.stringify(error.reason)}`);
       console.log(error);
@@ -330,7 +341,7 @@ export const StoreProvider = ({ children }) => {
         value: amountInWei?.toString(),
       });
       buying.wait();
-      console.log(buying,"buyingbuyingbuyingbuying");
+      console.log(buying, "buyingbuyingbuyingbuying");
       setTransactionHash(buying?.hash);
       setTransactionSuccess(true);
       await GetValues();
@@ -416,19 +427,19 @@ export const StoreProvider = ({ children }) => {
     }
   };
 
-  useEffect(()=> {
-    const main = async()=> {
+  useEffect(() => {
+    const main = async () => {
       try {
-        if(isConnected) {
+        if (isConnected) {
           console.log("Testttttttttttttttttttttt");
           await apis.connectedUser(address);
         }
       } catch (error) {
         console.log(error);
       }
-    }
-    main()
-  },[address])
+    };
+    main();
+  }, [address]);
 
   return (
     <>
@@ -445,6 +456,7 @@ export const StoreProvider = ({ children }) => {
           transactionHash,
           addTokenToMetamask,
           copyToClipboard,
+          copyToClipboardReferral,
           GetValues,
           networkChange,
           getProviderPresaleContract,
@@ -453,7 +465,7 @@ export const StoreProvider = ({ children }) => {
           presaleStart,
           presaleStop,
           userDatabaseData,
-setUserDatabaseData,
+          setUserDatabaseData,
         }}
       >
         {children}

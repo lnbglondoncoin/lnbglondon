@@ -45,7 +45,6 @@ export default function ContactForm() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("DATA", data);
           if (data) {
             setFormSubmitted(true);
             // setName("");
@@ -148,7 +147,6 @@ export default function ContactForm() {
           <div className="mr-auto pb-4">
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={(value) => console.log("RECAPTCHA VALUE", value)}
             />
           </div>
           <Button type="submit" title="Send Message" className="" />

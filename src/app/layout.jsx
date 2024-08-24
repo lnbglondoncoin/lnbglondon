@@ -12,6 +12,7 @@ export const metadata = {
   description:
     "LNBG London Coin is a secure and innovative cryptocurrency inspired by London's financial heritage. Explore decentralized digital finance with our trusted and efficient platform.",
   image: "/static/logo.png",
+  metadataBase: new URL("https://lnbglondon.com"),
   openGraph: {
     image: ["/static/logo.png"],
   },
