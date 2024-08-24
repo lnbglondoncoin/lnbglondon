@@ -7,20 +7,14 @@ import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import { Copy } from "lucide-react";
 import Button from "../buttons/Button";
 import { Store } from "@/context/Store/Store";
-import Link from "next/link";
 
-export default function ProfileDropdown({
-  selectedLang,
-  setSelectedLang = () => {},
-  showFlag = true,
-}) {
+export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef();
   const router = useRouter();
   const { address } = useWeb3ModalAccount();
 
-  const { copyToClipboardAddress, contractData }=useContext(Store)
-
+  const { copyToClipboardAddress, contractData } = useContext(Store);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -33,6 +27,11 @@ export default function ProfileDropdown({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const handleTopUp = () => {
+    router.push("/#presale");
+    setIsOpen(false);
+  };
 
   return (
     <div className="relative flex items-center" ref={ref}>
@@ -69,7 +68,10 @@ export default function ProfileDropdown({
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg"> {Number(contractData?.lnbgBalance)?.toFixed(4)} </span>
+                  <span className="text-lg">
+                    {" "}
+                    {Number(contractData?.lnbgBalance)?.toFixed(4)}{" "}
+                  </span>
                 </div>
               </div>
               <div className="flex flex-col gap-1">
@@ -103,8 +105,11 @@ export default function ProfileDropdown({
             <span className="text-center font-sans text-sm font-medium text-gray2">
               Deposit in total $1000 or more and unlock a higher yield!
             </span>
-            <Link href="/#presale">
-            <Button title="TOP UP LNBG NOW!" className="text-sm font-bold" /></Link>
+            <Button
+              onClick={() => handleTopUp()}
+              title="TOP UP LNBG NOW!"
+              className="text-sm font-bold"
+            />
           </div>
         </div>
       )}

@@ -5,13 +5,7 @@ import Image from "next/image";
 import ReCAPTCHA from "react-google-recaptcha";
 import Button from "@/components/buttons/Button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import InquiryDropdown from "./InquiryDropdown";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -35,43 +29,43 @@ export default function ContactForm() {
     return () => clearTimeout(timer);
   }, [formSubmitted]);
   const handleSubmit = async (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
-    // // Check if all required fields are filled
-    // if (name && email && isChecked) {
-    //   await fetch("/api/email", {
-    //     method: "POST",
-    //     body: JSON.stringify({
-    //       name,
-    //       email,
-    //       message,
-    //       selectedOption,
-    //       phoneNumber,
-    //     }),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       if (data) {
-    //         setFormSubmitted(true);
-    //         setName("");
-    //         setMessage("");
-    //         setPhoneNumber("");
-    //         setIsChecked(false);
-    //         setEmail("");
-    //         setSelectedOption("Your inquiry about");
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       console.log(err);
-    //     });
-    //   return true;
-    //   // Set formSubmitted to true to display confirmation message
-    // } else {
-    //   alert("Please fill in all required fields.");
-    // }
+    // Check if all required fields are filled
+    if (name && email && isChecked) {
+      await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          selectedOption,
+          phoneNumber,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data) {
+            setFormSubmitted(true);
+            setName("");
+            setMessage("");
+            setPhoneNumber("");
+            setIsChecked(false);
+            setEmail("");
+            setSelectedOption("Your inquiry about");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      return true;
+      // Set formSubmitted to true to display confirmation message
+    } else {
+      alert("Please fill in all required fields.");
+    }
   };
 
   const options = [
@@ -124,52 +118,11 @@ export default function ContactForm() {
             />
           </div>
           <div className="w-full">
-            <DropdownMenu className="w-full bg-red-200">
-              <DropdownMenuTrigger className="flex h-[60px] w-full items-center justify-between gap-5 rounded-md bg-ash px-4 text-start text-gray2">
-                {!selectedOption && "Your inquiry about"}
-                <span className="text-white">{selectedOption}</span>
-                <ChevronDown size={20} />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="start"
-                className="w-full border-none    bg-ash"
-              >
-                <DropdownMenuItem
-                  onClick={() => handleOptionSelect("Technical Support")}
-                  className="font-sans text-white hover:bg-gray2/10"
-                >
-                  Technical Support
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() =>
-                    handleOptionSelect("Partnership Opportunities")
-                  }
-                  className="font-sans text-white hover:bg-gray2/10"
-                >
-                  Partnership Opportunities
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => handleOptionSelect("Investment Inquiries")}
-                  className="font-sans text-white hover:bg-gray2/10"
-                >
-                  Investment Inquiries
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() =>
-                    handleOptionSelect("Regulatory and Community Engagement")
-                  }
-                  className="font-sans text-white hover:bg-gray2/10"
-                >
-                  Regulatory and Community Engagement
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => handleOptionSelect("General Inquiry")}
-                  className="font-sans text-white hover:bg-gray2/10"
-                >
-                  General Inquiry
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <InquiryDropdown
+              selectedOption={selectedOption}
+              setSelectedOption={handleOptionSelect}
+              options={options}
+            />
           </div>
           <textarea
             name="message"
