@@ -4,7 +4,7 @@ import { formatCurrency, formatNumber } from "@/utils/formatters";
 import { cn } from "@/lib/utils";
 
 const getData = async () => {
-  const apiKey = process.env.COIN_MARKET_CAP_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_COIN_MARKET_CAP_API_KEY;
   const baseUrl = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest`;
   const parameters = {
     id: "1,2,74,52,1027",
