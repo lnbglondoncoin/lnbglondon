@@ -35,11 +35,6 @@ export default function ProfileDropdown() {
     setIsOpen(false);
   };
 
-  const handleTopUp = () => {
-    router.push("/#presale");
-    setIsOpen(false);
-  };
-
   useEffect(()=> {
     const main = async()=> {
       try {
@@ -55,7 +50,9 @@ export default function ProfileDropdown() {
     }
     main()
   },[address])
+
 console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
+
   return (
     <div className="relative flex items-center" ref={ref}>
       <button
