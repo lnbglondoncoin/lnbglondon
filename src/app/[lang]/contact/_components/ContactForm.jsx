@@ -7,7 +7,6 @@ import Button from "@/components/buttons/Button";
 import { Checkbox } from "@/components/ui/checkbox";
 import InquiryDropdown from "./InquiryDropdown";
 
-
 export default function ContactForm() {
   const [isChecked, setIsChecked] = useState(false);
   const [name, setName] = useState("");
@@ -46,7 +45,7 @@ export default function ContactForm() {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("DATA",data);
+          console.log("DATA", data);
           if (data) {
             setFormSubmitted(true);
             // setName("");
@@ -148,8 +147,9 @@ export default function ContactForm() {
           </div>
           <div className="mr-auto pb-4">
             <ReCAPTCHA
-              sitekey="6LcAaogpAAAAAAYMj1NNiwkPKhUknmUKVC9F5n-S"
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               theme="Dark"
+              onChange={(value) => console.log("RECAPTCHA VALUE", value)}
             />
           </div>
           <Button type="submit" title="Send Message" className="" />
