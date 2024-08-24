@@ -11,12 +11,11 @@ import apis from "@/context/Services";
 
 export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
-  const [userDatabaseData, setUserDatabaseData] = useState("");
   const ref = useRef();
   const router = useRouter();
   const { address, isConnected } = useWeb3ModalAccount();
 
-  const { copyToClipboardAddress, contractData } = useContext(Store);
+  const { copyToClipboardAddress, userDatabaseData, setUserDatabaseData, contractData } = useContext(Store);
 
   useEffect(() => {
     const handleClickOutside = (event) => {

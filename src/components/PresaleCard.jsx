@@ -38,6 +38,7 @@ export default function PresaleCard({ lang = "en" }) {
     BuyWithETH,
     presaleStart,
     presaleStop,
+    userDatabaseData,
   } = useContext(Store);
 
   // --------------For hydration error-------------------
@@ -172,10 +173,12 @@ export default function PresaleCard({ lang = "en" }) {
   let remainTokens = 10000000 - +contractData?.tokensInContract;
 
   console.log(loader, "loaderloaderloaderloader1");
- // Calculate the percentage of sold tokens
- const soldPercentage = (+remainTokens * 100 ) / 10000000
- console.log(soldPercentage, "soldPercentagesoldPercentage");
-  
+
+  console.log(userDatabaseData, "userDatabaseDatauserDatabaseDatauserDatabaseData");
+ 
+  // Calculate the percentage of sold tokens
+ const soldPercentage = (+remainTokens * 100 ) / 10000000;
+
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -224,7 +227,7 @@ export default function PresaleCard({ lang = "en" }) {
               ) : (
                 <>
                   <span className="text-3xl text-primary">
-                    ${roundOff(contractData?.raisedAmount)}
+                    ${roundOff(remainTokens * ethers.utils.formatUnits(contractData?.tokenPrice, 18))}
                   </span>
                   <span className="pb-1 text-lg font-normal text-gray2">
                     /$300,000
@@ -294,14 +297,14 @@ export default function PresaleCard({ lang = "en" }) {
                       height={18}
                       alt="lnbg"
                     />
-                    <span className="text-2xl">0</span>
+                    <span className="text-2xl">{Number(contractData?.lnbgBalance)?.toFixed(4)}</span>
                   </div>
-                  <span className="text-sm text-gray2">= $ 0.0</span>
+                  <span className="text-sm text-gray2">= $ {Number(contractData?.lnbgBalance * ethers.utils.formatUnits(contractData?.tokenPrice, 18))?.toFixed(4)}</span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <span className="text-sm text-gray2">Your Points:</span>
-                  <span className="text-xl text-white/40">Not yet</span>
-                  <span className="text-sm text-gray2">= $ 0.0</span>
+                  <span className="text-xl text-white/40">{Number(userDatabaseData?.points)}</span>
+                  <span className="text-sm text-gray2">= $ {Number(userDatabaseData?.points)}</span>
                 </div>
               </div>
             ) : (
@@ -335,7 +338,7 @@ export default function PresaleCard({ lang = "en" }) {
                   </span>
                   {isClient && isConnected && (
                     <div className="rounded-full border border-gray2 px-3 font-sans text-xs italic">
-                      0.001 available
+                      {Number(selectedToken == "Binance" ? contractData?.ethBalance : selectedToken == "USDT" ? contractData?.usdtBalance : contractData?.usdcBalance)?.toFixed(6)} available
                     </div>
                   )}
                 </div>
