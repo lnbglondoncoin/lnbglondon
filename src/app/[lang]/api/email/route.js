@@ -9,10 +9,22 @@ export async function POST(req, res) {
       await req.json();
 
     // Send email to support
+    // const data = await resend.emails.send({
+    //   from: "lnbglondon@lnbglondon.com",
+    //   to: ["info@lnbglondon.com"],
+    //   subject: "Customer Inquiry",
+    //   react: EmailTemplate({
+    //     name,
+    //     email,
+    //     message,
+    //     selectedOption,
+    //     phoneNumber,
+    //   }),
+    // });
     const data = await resend.emails.send({
-      from: "lnbglondon@lnbglondon.com",
-      to: ["info@lnbglondon.com"],
-      subject: "Customer Inquiry",
+      from: "LNBG <onboarding@resend.dev>",
+      to: ["delivered@resend.dev"],
+      subject: "hello world",
       react: EmailTemplate({
         name,
         email,
@@ -23,7 +35,7 @@ export async function POST(req, res) {
     });
 
     const data2 = await resend.emails.send({
-      from: "lnbglondon@lnbglondon.com",
+      from: "LNBG <onboarding@resend.dev>",
       to: [email],
       subject: "Hello",
       react: UserEmailTemplate({ name, selectedOption }),

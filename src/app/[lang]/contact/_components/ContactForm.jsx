@@ -49,12 +49,12 @@ export default function ContactForm() {
           console.log("DATA",data);
           if (data) {
             setFormSubmitted(true);
-            setName("");
-            setMessage("");
-            setPhoneNumber("");
-            setIsChecked(false);
-            setEmail("");
-            setSelectedOption("Your inquiry about");
+            // setName("");
+            // setMessage("");
+            // setPhoneNumber("");
+            // setIsChecked(false);
+            // setEmail("");
+            // setSelectedOption("Your inquiry about");
           }
         })
         .catch((err) => {
