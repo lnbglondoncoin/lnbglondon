@@ -5,7 +5,7 @@ import PresaleCard from "../PresaleCard";
 import { Vortex } from "../ui/vortex";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
-import { useRouter} from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
@@ -23,6 +23,8 @@ const MainBanner = ({ lang = "en" }) => {
           : ["Finanzas", "Comercio", "Futuro"];
 
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const ref = searchParams.get("ref");
   const { address, chainId, isConnected } = useWeb3ModalAccount();
 
   // console.log(router,"routerrouterrouter");
