@@ -8,7 +8,7 @@ export async function POST(req, res) {
     const { name, email, message, selectedOption, phoneNumber } =
       await req.json();
     const data = await resend.emails.send({
-      from: "LNBG <onboarding@resend.dev>",
+      from: "LNBG <lnbglondon@lnbglondon.com>",
       to: ["Lnbg@lnbgllc.com"],
       subject: selectedOption,
       react: EmailTemplate({
@@ -21,7 +21,7 @@ export async function POST(req, res) {
     });
 
     const data2 = await resend.emails.send({
-      from: "LNBG <onboarding@resend.dev>",
+      from: "LNBG <lnbglondon@lnbglondon.com>",
       to: [email],
       subject: selectedOption,
       react: UserEmailTemplate({ name, selectedOption }),
