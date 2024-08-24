@@ -147,8 +147,7 @@ export default function ContactForm() {
           </div>
           <div className="mr-auto pb-4">
             <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
-              theme="Dark"
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               onChange={(value) => console.log("RECAPTCHA VALUE", value)}
             />
           </div>
