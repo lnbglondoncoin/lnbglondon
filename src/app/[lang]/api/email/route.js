@@ -1,9 +1,7 @@
-import { EmailTemplate } from "@/components/email/EmailTemplate";
-import { UserEmailTemplate } from "@/components/email/UserEmailTemplate";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
 export async function POST(req, res) {
   try {
@@ -12,8 +10,8 @@ export async function POST(req, res) {
 
     // Send email to support
     const data = await resend.emails.send({
-      from: "forcefinancecoin@forcefinancecoin.com",
-      to: ["info@forcefinancecoin.com"],
+      from: "lnbglondon@lnbglondon.com",
+      to: ["info@lnbglondon.com"],
       subject: "Customer Inquiry",
       react: EmailTemplate({
         name,
@@ -25,11 +23,13 @@ export async function POST(req, res) {
     });
 
     const data2 = await resend.emails.send({
-      from: "forcefinancecoin@forcefinancecoin.com",
+      from: "lnbglondon@lnbglondon.com",
       to: [email],
       subject: "Hello",
       react: UserEmailTemplate({ name, selectedOption }),
     });
+
+    console.log("DATA", data, data2);
 
     return NextResponse.json({ message: "method allowed" });
   } catch (error) {
@@ -37,3 +37,58 @@ export async function POST(req, res) {
     return NextResponse.json({ message: "nope" });
   }
 }
+
+const EmailTemplate = ({
+  name,
+  email,
+  message,
+  selectedOption,
+  phoneNumber,
+}) => (
+  <div>
+    <p>From: {name}</p>
+    <p>Email: {email}</p>
+    <p>PhoneNumber: {phoneNumber}</p>
+    <p>Inquiry About: {selectedOption}</p>
+    <br />
+    <p className="mt-28">Message Body:</p>
+    <p>{message}</p>
+    <p className="mt-12">--</p>
+    <p>
+      This email was sent from a contact form on lnbglondon.com
+      (https://www.lnbglondon.com)
+    </p>
+  </div>
+);
+
+const UserEmailTemplate = ({ name, selectedOption }) => (
+  <div>
+    <p>Subject: {selectedOption}</p>
+    <p>Customer Name: Dear {name}</p>
+    <br />
+    <br />
+    <p className="mt-28">Message Body:</p>
+    <p>
+      Thanks you for your interest in LNBG London. One our support
+      representative will contact you shortly.
+    </p>
+    <br />
+    <p className="mt-12">--</p>
+    <p>
+      Regards
+      <br />
+      <br />
+      LNBG London <br />
+      Defi Financial Solutions <br />
+      Address: Laurier Ave w, 629, Ottawa, ON K1P 5J2, Canada
+      <br />
+      Mail: info@lnbglondon.com
+    </p>
+    <br />
+    <br />
+    <p>
+      This email was sent from a contact form on lnbglondon.com
+      (https://www.lnbglondon.com)
+    </p>
+  </div>
+);

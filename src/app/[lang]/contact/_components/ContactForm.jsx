@@ -7,9 +7,6 @@ import Button from "@/components/buttons/Button";
 import { Checkbox } from "@/components/ui/checkbox";
 import InquiryDropdown from "./InquiryDropdown";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function ContactForm() {
   const [isChecked, setIsChecked] = useState(false);
@@ -19,6 +16,7 @@ export default function ContactForm() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
   useEffect(() => {
     let timer;
     if (formSubmitted) {
@@ -28,9 +26,9 @@ export default function ContactForm() {
     }
     return () => clearTimeout(timer);
   }, [formSubmitted]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // Check if all required fields are filled
     if (name && email && isChecked) {
       await fetch("/api/email", {
@@ -48,6 +46,7 @@ export default function ContactForm() {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log("DATA",data);
           if (data) {
             setFormSubmitted(true);
             setName("");
@@ -75,13 +74,14 @@ export default function ContactForm() {
     "Regulatory and Community Engagement",
     "General Inquiry",
   ];
+
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
 
   return (
     <div className="mb-20 flex items-center justify-center font-sans">
-      <div className="w-[50%]justify-center mt-4 flex items-center rounded-3xl bg-coal px-6 py-10 backdrop-blur-[20px]">
+      <div className="mt-4 flex items-center justify-center rounded-3xl bg-coal px-6 py-10 backdrop-blur-[20px]">
         <form
           className="mx-auto flex w-full max-w-[800px] flex-col items-center"
           onSubmit={handleSubmit}
@@ -92,14 +92,14 @@ export default function ContactForm() {
               onChange={(e) => setName(e.target.value)}
               value={name}
               required
-              className="mb-4 h-[60px] w-full rounded-md bg-ash pl-4 text-white outline-none md:mb-0 md:w-[300px]"
+              className="mb-4 h-[60px] w-full rounded-md bg-ash pl-4 text-white outline-none md:mb-0"
               placeholder="Name*"
               type="text"
             />
             <input
               name="email"
               onChange={(e) => setEmail(e.target.value)}
-              className="mb-4 h-[60px] w-full rounded-md bg-ash pl-4 text-white outline-none md:w-[300px]"
+              className="mb-4 h-[60px] w-full rounded-md bg-ash pl-4 text-white outline-none"
               placeholder="Email*"
               required
               type="email"
@@ -155,13 +155,6 @@ export default function ContactForm() {
           <Button type="submit" title="Send Message" className="" />
           {formSubmitted && (
             <div className="mr-auto flex gap-1 pl-[0.45rem]">
-              {" "}
-              <Image
-                src="/static/contactpage/tick.svg"
-                width={16}
-                height={3}
-                alt="tick"
-              />
               <p className="text-neutralLight select-none	 text-wrap">
                 The form was sent successfully.
               </p>
