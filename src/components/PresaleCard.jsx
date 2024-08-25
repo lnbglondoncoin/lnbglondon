@@ -439,7 +439,7 @@ export default function PresaleCard({ lang = "en" }) {
                   </div>
                 </div>
               </div>
-              <div className="grid w-full sm:grid-cols-2">
+              <div className="px-1 grid w-full sm:grid-cols-2">
                 <span className="text-sm font-semibold">
                   1 lnbg ={" "}
                   {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}$
