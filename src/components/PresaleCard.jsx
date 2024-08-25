@@ -61,6 +61,7 @@ export default function PresaleCard({ lang = "en" }) {
   const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");
   const [lnbgValue, setLnbgValue] = useState(0);
+  const [bnbValue, setBNBValue] = useState(0);
 
   function calculateTokens(price, pricePerToken) {
     // Convert prices to BigNumber objects to handle large numbers
@@ -98,7 +99,9 @@ export default function PresaleCard({ lang = "en" }) {
             let parse2 = ethers.utils.parseEther(
               tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
             );
-            setLnbgValue(parse2?.toString()); // Tokens in ether
+            setLnbgValue(parse2?.toString());
+            setBNBValue(howMuch) // Tokens in ether
+            console.log(howMuch,"howMuchhowMuchhowMuch");
           }
         }, 1000);
       } else if (selectedToken !== "Binance" && tokenAmount !== "") {
@@ -110,9 +113,11 @@ export default function PresaleCard({ lang = "en" }) {
               tokens?.toString() > 0 ? tokens?.toString() : 0,
             ),
           ); // Tokens in ether
+          setBNBValue(tokenAmount)
         }
       } else {
         setLnbgValue(0);
+        setBNBValue(0)
         setTokensAmount("");
       }
     };
@@ -362,7 +367,7 @@ export default function PresaleCard({ lang = "en" }) {
                     </span>
                     <span className="font-sans text-xs">
                       {/* Tell the customer how much he pays in USD */}
-                      (0$)
+                      ({Number(bnbValue)?.toFixed(2)} $)
                     </span>
                   </div>
                   <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
