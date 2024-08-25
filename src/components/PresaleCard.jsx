@@ -145,7 +145,7 @@ export default function PresaleCard({ lang = "en" }) {
     // convert string to int
     let number = parseFloat(num);
     // round off to 2 decimal
-    return number.toFixed(4);
+    return number.toFixed(2);
   };
 
   //----------------------------- Inssufficient address to clipboard-------------------------
@@ -250,7 +250,7 @@ export default function PresaleCard({ lang = "en" }) {
             ) : (
               <div className="text-xs text-gray2/60">
                 {+contractData?.tokensInContract > 0
-                  ? Number(remainTokens)?.toFixed(4)
+                  ? Number(remainTokens)?.toFixed(2)
                   : 0}{" "}
                 {lang === "en"
                   ? "of"
@@ -398,7 +398,7 @@ export default function PresaleCard({ lang = "en" }) {
                           : selectedToken == "USDT"
                             ? contractData?.usdtBalance
                             : contractData?.usdcBalance,
-                      )?.toFixed(6)}{" "}
+                      )?.toFixed(2)}{" "}
                       available
                     </div>
                   )}
@@ -455,7 +455,7 @@ export default function PresaleCard({ lang = "en" }) {
                     // inputMode="numeric"
                     value={Number(
                       ethers.utils.formatEther(lnbgValue?.toString()),
-                    )?.toFixed(4)}
+                    )?.toFixed(2)}
                     // onChange={handleTokenChange}
                     className="w-full bg-transparent text-gray2"
                   />

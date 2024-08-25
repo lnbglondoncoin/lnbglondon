@@ -8,6 +8,7 @@ import { Copy } from "lucide-react";
 import Button from "../buttons/Button";
 import { Store } from "@/context/Store/Store";
 import apis from "@/context/Services";
+import { formatCurrency } from "@/utils/formatters";
 
 export default function ProfileDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,12 @@ export default function ProfileDropdown() {
   const router = useRouter();
   const { address, isConnected } = useWeb3ModalAccount();
 
-  const { copyToClipboardAddress, userDatabaseData, setUserDatabaseData, contractData } = useContext(Store);
+  const {
+    copyToClipboardAddress,
+    userDatabaseData,
+    setUserDatabaseData,
+    contractData,
+  } = useContext(Store);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -34,23 +40,23 @@ export default function ProfileDropdown() {
     setIsOpen(false);
   };
 
-  useEffect(()=> {
-    const main = async()=> {
+  useEffect(() => {
+    const main = async () => {
       try {
-        if(isConnected) {
+        if (isConnected) {
           console.log("Testttttttttttttttttttttt2222");
           let data = await apis.getOneUser(address);
-          console.log(data,"useSDataaaaa");
-          setUserDatabaseData(data?.data?.user[0])
+          console.log(data, "useSDataaaaa");
+          setUserDatabaseData(data?.data?.user[0]);
         }
       } catch (error) {
         console.log(error);
       }
-    }
-    main()
-  },[address])
+    };
+    main();
+  }, [address]);
 
-console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
+  console.log(userDatabaseData, "userDatabaseDatauserDatabaseData");
 
   return (
     <div className="relative flex items-center" ref={ref}>
@@ -89,14 +95,16 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
                   />
                   <span className="text-lg">
                     {" "}
-                    {Number(contractData?.lnbgBalance)?.toFixed(4)}{" "}
+                    {formatCurrency(
+                      Number(contractData?.lnbgBalance)?.toFixed(2),
+                    )}{" "}
                   </span>
                 </div>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">LNBG Points</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-lg">{`${Number(userDatabaseData?.points)?.toFixed(1)}`}</span>
+                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.points)?.toFixed(1))}`}</span>
                   <span className="text-lg">Points</span>
                 </div>
               </div>
@@ -109,7 +117,7 @@ console.log(userDatabaseData,"userDatabaseDatauserDatabaseData");
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg">{`${Number(userDatabaseData?.tokens_earned)?.toFixed(2)}`}</span>
+                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.tokens_earned)?.toFixed(2))}`}</span>
                 </div>
               </div>
             </div>

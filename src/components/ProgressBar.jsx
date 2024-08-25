@@ -8,7 +8,7 @@ const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
     // convert string to int
     let number = parseFloat(num);
     // round off to 2 decimal
-    return number.toFixed(4);
+    return number.toFixed(2);
   };
 
   return (
@@ -21,7 +21,7 @@ const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
           <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
             ${roundOff(contractData?.raisedAmount)} / $300,000
           </h3>
-          <span className="text-sm pb-0.5 font-sans text-gray2">
+          <span className="pb-0.5 font-sans text-sm text-gray2">
             (
             {formatNumber(
               (roundOff(contractData?.raisedAmount) / 300000) * 100,

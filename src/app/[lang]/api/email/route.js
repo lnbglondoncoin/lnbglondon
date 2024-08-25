@@ -8,8 +8,8 @@ export async function POST(req, res) {
     const { name, email, message, selectedOption, phoneNumber } =
       await req.json();
     const data = await resend.emails.send({
-      from: "LNBG <lnbglondon@lnbglondon.com>",
-      to: ["Lnbg@lnbgllc.com"],
+      from: "LNBG <noreply@lnbglondon.com>",
+      to: ["info@lnbglondon.com"],
       subject: selectedOption,
       react: EmailTemplate({
         name,
@@ -21,15 +21,17 @@ export async function POST(req, res) {
     });
 
     const data2 = await resend.emails.send({
-      from: "LNBG <lnbglondon@lnbglondon.com>",
+      from: "LNBG <noreply@lnbglondon.com>",
       to: [email],
       subject: selectedOption,
       react: UserEmailTemplate({ name, selectedOption }),
     });
 
-    console.log("DATA", data, data2);
-
-    return NextResponse.json({ message: "method allowed" });
+    console.log("DATA", data.error === null, data2.error === null);
+    if (data.error === null && data2.error === null) {
+      return NextResponse.json({ message: "success" });
+    }
+    return NextResponse.json({ message: "something went wrong" });
   } catch (error) {
     console.error("Error:", error);
     return NextResponse.json({ message: "nope" });
@@ -78,7 +80,7 @@ const UserEmailTemplate = ({ name, selectedOption }) => (
       <br />
       LNBG London <br />
       Defi Financial Solutions <br />
-      Mail: info@lnbglondon.com
+      Mail: noreply@lnbglondon.com
     </p>
     <br />
     <br />
