@@ -8,7 +8,7 @@ const CryptoMainBanner = () => {
           Top 5 Cryptocurrencies
         </span>
         <div className="bg-gradient-to-r from-primary via-white to-white bg-clip-text text-4xl text-transparent sm:text-6xl">
-          Cryptocurrencies<span className="text-primary">.</span>
+          Crypto<span className="text-primary">.</span>
         </div>
         <span className="max-w-4xl text-2xl text-lightgray">
           Explore crypto like Bitcoin, Ethereum, and Dogecoin. Simply and

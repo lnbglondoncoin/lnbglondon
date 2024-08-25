@@ -70,10 +70,10 @@ const Footer = ({ lang = "en" }) => {
               Our Team
             </Link>
             <Link
-              href="/cryptocurrencies"
+              href="/crypto"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
-              Cryptocurrencies
+              Crypto
             </Link>
             <Link
               href="/contact"

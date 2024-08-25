@@ -81,10 +81,10 @@ export default function Sidebar({
               </SheetClose>
               <SheetClose asChild>
                 <Link
-                  href="/cryptocurrencies"
+                  href="/crypto"
                   className="font-sans text-lg text-gray2 hover:text-primary"
                 >
-                  Cryptocurrencies
+                  Crypto
                 </Link>
               </SheetClose>
               <SheetClose asChild>
