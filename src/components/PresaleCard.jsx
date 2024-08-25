@@ -22,6 +22,7 @@ import Loader from "./Loader";
 import { Skeleton } from "./ui/skeleton";
 import { cn } from "@/lib/utils";
 import TransactionSuccessModal from "./TransactionSuccessModal";
+import { formatCurrency, formatNumber } from "@/utils/formatters";
 
 export default function PresaleCard({ lang = "en" }) {
   const {
@@ -54,7 +55,8 @@ export default function PresaleCard({ lang = "en" }) {
   const { address, chainId, isConnected } = useWeb3ModalAccount();
   const { error } = useWeb3ModalError();
 
-  const [copyReferralText, setCopyReferralText] = useState("Copy referral link");
+  const [copyReferralText, setCopyReferralText] =
+    useState("Copy referral link");
   const [selectedToken, setSelectedToken] = useState("Binance");
   const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");
@@ -310,15 +312,22 @@ export default function PresaleCard({ lang = "en" }) {
                       alt="lnbg"
                     />
                     <span className="text-2xl">
-                      {Number(contractData?.lnbgBalance)?.toFixed(4)}
+                      {formatCurrency(
+                        Number(contractData?.lnbgBalance),
+                      )}
                     </span>
                   </div>
                   <span className="text-sm text-gray2">
                     = ${" "}
-                    {Number(
-                      contractData?.lnbgBalance *
-                        ethers.utils.formatUnits(contractData?.tokenPrice, 18),
-                    )?.toFixed(4)}
+                    {formatNumber(
+                      Number(
+                        contractData?.lnbgBalance *
+                          ethers.utils.formatUnits(
+                            contractData?.tokenPrice,
+                            18,
+                          ),
+                      )?.toFixed(2),
+                    )}
                   </span>
                 </div>
                 <div className="flex flex-col gap-2">
