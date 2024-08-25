@@ -394,9 +394,10 @@ export default function PresaleCard({ lang = "en" }) {
                       className="w-full bg-transparent text-gray2"
                     />
                   </div>
-                  <div className="flex items-center gap-3 text-gray2">
-                    <span className="text-sm">Balance:</span>
-                    {isClient && isConnected && (
+
+                  {isClient && isConnected && (
+                    <div className="flex items-center gap-3 text-gray2">
+                      <span className="text-sm">Balance:</span>
                       <div className="w-fit rounded-full border border-gray2 px-3 font-sans text-xs italic">
                         {Number(
                           selectedToken == "Binance"
@@ -407,8 +408,8 @@ export default function PresaleCard({ lang = "en" }) {
                         )?.toFixed(2)}{" "}
                         available
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col gap-3">
                   <span className="text-sm">
@@ -439,7 +440,7 @@ export default function PresaleCard({ lang = "en" }) {
                   </div>
                 </div>
               </div>
-              <div className="px-1 grid w-full sm:grid-cols-2">
+              <div className="grid w-full px-1 sm:grid-cols-2">
                 <span className="text-sm font-semibold">
                   1 lnbg ={" "}
                   {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}$
