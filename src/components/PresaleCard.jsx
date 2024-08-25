@@ -66,8 +66,6 @@ export default function PresaleCard({ lang = "en" }) {
     // Convert prices to BigNumber objects to handle large numbers
     const priceBN = ethers.BigNumber.from(price?.toString());
 
-    console.log(priceBN?.toString(), "priceBNpriceBNpriceBN");
-
     const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString());
 
     let final = +priceBN?.toString() / +pricePerTokenBN?.toString();
@@ -88,33 +86,23 @@ export default function PresaleCard({ lang = "en" }) {
             tokenAmount?.toString() > 0 ? tokenAmount?.toString() : "0",
           );
 
-          console.log(parse?.toString(), "parseparseparse");
-
           if (parse > 0) {
             let oneDoller =
               await getProviderPresaleContract().getLatestUSDTPrice();
 
-            console.log(oneDoller?.toString(), "oneDoller");
-
             let howMuch = +parse?.toString() / +oneDoller?.toString();
-
-            console.log(howMuch?.toString(), "howMuch");
 
             let tokenTokens =
               howMuch?.toString() / (+contractData?.tokenPrice / 10 ** 18);
 
-            console.log(tokenTokens?.toString(), "tokenTokens");
             let parse2 = ethers.utils.parseEther(
               tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
             );
-            console.log(parse2?.toString(), "Tokenssss");
             setLnbgValue(parse2?.toString()); // Tokens in ether
           }
         }, 1000);
       } else if (selectedToken !== "Binance" && tokenAmount !== "") {
-        console.log(typeof tokenAmount, "dadadasd");
         let parse2 = ethers.utils.parseEther(tokenAmount?.toString());
-        console.log(parse2?.toString(), "parseparseparse");
         if (parse2 > 0) {
           const tokens = calculateTokens(parse2, contractData?.tokenPrice);
           setLnbgValue(
@@ -124,18 +112,12 @@ export default function PresaleCard({ lang = "en" }) {
           ); // Tokens in ether
         }
       } else {
-        console.log("Doneeeeeeeeeeeeeeeeeee");
         setLnbgValue(0);
         setTokensAmount("");
       }
     };
     main();
   }, [tokenAmount, selectedToken]);
-
-  console.log(
-    contractData,
-    "contractDatacontractDatacontractDatacontractDatacontractDatacontractDatacontractData",
-  );
 
   useEffect(() => {
     GetValues();
@@ -158,9 +140,7 @@ export default function PresaleCard({ lang = "en" }) {
           : selectedToken == "USDC"
             ? contractData?.usdcBalance
             : contractData?.usdtBalance;
-      console.log(tokenBalance, "tokenBalancetokenBalancetokenBalance");
       if (parseFloat(tokenAmount) > parseFloat(tokenBalance)) {
-        console.log("checkkkkkkkkkkkkkkkk1");
         setButtonText("Insufficient Balance");
         return;
       } else {
@@ -170,17 +150,9 @@ export default function PresaleCard({ lang = "en" }) {
     };
     checked();
   }, [tokenAmount, selectedToken]);
-  console.log(buttonText, "buttonTextbuttonTextbuttonText");
   // -------------------------------------------------------------------------------
 
   let remainTokens = 10000000 - +contractData?.tokensInContract;
-
-  console.log(loader, "loaderloaderloaderloader1");
-
-  console.log(
-    userDatabaseData,
-    "userDatabaseDatauserDatabaseDatauserDatabaseData",
-  );
 
   //   // Calculate the percentage of sold tokens
   //  const soldPercentage = (+remainTokens * 100 ) / 10000000;
@@ -188,7 +160,6 @@ export default function PresaleCard({ lang = "en" }) {
   // Calculate the percentage of sold tokens
   const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
 
-  console.log(soldPercentage, "soldPercentagesoldPercentagesoldPercentage");
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -312,9 +283,7 @@ export default function PresaleCard({ lang = "en" }) {
                       alt="lnbg"
                     />
                     <span className="text-2xl">
-                      {formatCurrency(
-                        Number(contractData?.lnbgBalance),
-                      )}
+                      {formatCurrency(Number(contractData?.lnbgBalance))}
                     </span>
                   </div>
                   <span className="text-sm text-gray2">
@@ -378,87 +347,96 @@ export default function PresaleCard({ lang = "en" }) {
           {loader ? (
             <Skeleton className="h-32 w-full" />
           ) : (
-            <>
-              <div className="flex w-full items-center justify-between gap-4 px-1 text-sm text-gray2">
-                <div className="flex items-center gap-2">
-                  <span>
+            <div className="flex w-full flex-col gap-3">
+              <div className="grid w-full gap-y-5 px-1 text-sm text-gray2 sm:grid-cols-2">
+                <div className="flex flex-col gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm">
+                      {lang === "en"
+                        ? "You pay:"
+                        : lang === "ru"
+                          ? "Вы платите:"
+                          : lang === "fr"
+                            ? "Tu paies:"
+                            : "Usted paga:"}
+                    </span>
+                    <span className="font-sans text-xs">
+                      {/* Tell the customer how much he pays in USD */}
+                      (0$)
+                    </span>
+                  </div>
+                  <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
+                    {selectedToken == "Binance" ? (
+                      <Image
+                        src="/static/bnb-logo.png"
+                        width={21}
+                        height={21}
+                        alt="bnb"
+                      />
+                    ) : selectedToken == "USDC" ? (
+                      usdcSvg
+                    ) : selectedToken == "USDT" ? (
+                      usdtSvg
+                    ) : (
+                      <Image
+                        src="/static/bnb-logo.png"
+                        width={21}
+                        height={21}
+                        alt="bnb"
+                      />
+                    )}
+                    <input
+                      type="text"
+                      placeholder="0.0"
+                      // inputMode="numeric"
+                      value={tokenAmount}
+                      onChange={handleTokenChange}
+                      className="w-full bg-transparent text-gray2"
+                    />
+                  </div>
+                  <div className="flex items-center gap-3 text-gray2">
+                    <span className="text-sm">Balance:</span>
+                    {isClient && isConnected && (
+                      <div className="w-fit rounded-full border border-gray2 px-3 font-sans text-xs italic">
+                        {Number(
+                          selectedToken == "Binance"
+                            ? contractData?.ethBalance
+                            : selectedToken == "USDT"
+                              ? contractData?.usdtBalance
+                              : contractData?.usdcBalance,
+                        )?.toFixed(2)}{" "}
+                        available
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <span className="text-sm">
                     {lang === "en"
-                      ? "You pay:"
+                      ? "You receive:"
                       : lang === "ru"
-                        ? "Вы платите:"
+                        ? "Вы получаете:"
                         : lang === "fr"
-                          ? "Tu paies:"
-                          : "Usted paga:"}
+                          ? "Tu reçois:"
+                          : "Usted recibe:"}
                   </span>
-                  {isClient && isConnected && (
-                    <div className="rounded-full border border-gray2 px-3 font-sans text-xs italic">
-                      {Number(
-                        selectedToken == "Binance"
-                          ? contractData?.ethBalance
-                          : selectedToken == "USDT"
-                            ? contractData?.usdtBalance
-                            : contractData?.usdcBalance,
-                      )?.toFixed(2)}{" "}
-                      available
-                    </div>
-                  )}
-                </div>
-                <span>
-                  {lang === "en"
-                    ? "You receive:"
-                    : lang === "ru"
-                      ? "Вы получаете:"
-                      : lang === "fr"
-                        ? "Tu reçois:"
-                        : "Usted recibe:"}
-                </span>
-              </div>
-              <div className="flex w-full flex-col items-center gap-2 sm:flex-row sm:gap-0">
-                <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
-                  {selectedToken == "Binance" ? (
+                  <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
                     <Image
-                      src="/static/bnb-logo.png"
+                      src="/static/coins/lnbgcoin.png"
                       width={21}
                       height={21}
-                      alt="bnb"
+                      alt="lnbgcoin"
                     />
-                  ) : selectedToken == "USDC" ? (
-                    usdcSvg
-                  ) : selectedToken == "USDT" ? (
-                    usdtSvg
-                  ) : (
-                    <Image
-                      src="/static/bnb-logo.png"
-                      width={21}
-                      height={21}
-                      alt="bnb"
+                    <input
+                      type="text"
+                      // inputMode="numeric"
+                      value={Number(
+                        ethers.utils.formatEther(lnbgValue?.toString()),
+                      )?.toFixed(2)}
+                      // onChange={handleTokenChange}
+                      className="w-full bg-transparent text-gray2"
                     />
-                  )}
-                  <input
-                    type="text"
-                    placeholder="0.0"
-                    // inputMode="numeric"
-                    value={tokenAmount}
-                    onChange={handleTokenChange}
-                    className="w-full bg-transparent text-gray2"
-                  />
-                </div>
-                <div className="flex w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-none sm:rounded-r-xl">
-                  <Image
-                    src="/static/coins/lnbgcoin.png"
-                    width={21}
-                    height={21}
-                    alt="lnbgcoin"
-                  />
-                  <input
-                    type="text"
-                    // inputMode="numeric"
-                    value={Number(
-                      ethers.utils.formatEther(lnbgValue?.toString()),
-                    )?.toFixed(2)}
-                    // onChange={handleTokenChange}
-                    className="w-full bg-transparent text-gray2"
-                  />
+                  </div>
                 </div>
               </div>
               <div className="grid w-full sm:grid-cols-2">
@@ -481,7 +459,7 @@ export default function PresaleCard({ lang = "en" }) {
                   </div>
                 </div>
               </div>
-            </>
+            </div>
           )}
           {isClient &&
             (isConnected == true ? (
