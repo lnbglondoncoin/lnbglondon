@@ -351,7 +351,7 @@ export default function PresaleCard({ lang = "en" }) {
               <div className="grid w-full gap-y-5 px-1 text-sm text-gray2 sm:grid-cols-2">
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">
+                    <span>
                       {lang === "en"
                         ? "You pay:"
                         : lang === "ru"
@@ -412,7 +412,7 @@ export default function PresaleCard({ lang = "en" }) {
                   )}
                 </div>
                 <div className="flex flex-col gap-3">
-                  <span className="text-sm">
+                  <span>
                     {lang === "en"
                       ? "You receive:"
                       : lang === "ru"
