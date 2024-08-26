@@ -29,7 +29,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
           </h1>
         </div>
         <div className="pb-5 text-darkgray">{desc}</div>
-        <div className="h-[600px]">
+        <div className="h-[600px] relative">
           <AdvancedRealTimeChartNoSSR
             symbol={symbolGraph}
             theme="dark"
@@ -42,6 +42,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
             details={false}
             hide_side_toolbar={true}
           />
+          <div className="h-12 w-full bg-coal absolute -bottom-12"></div>
         </div>
       </div>
     </div>
