@@ -165,6 +165,9 @@ export default function PresaleCard({ lang = "en" }) {
   // Calculate the percentage of sold tokens
   const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
 
+
+  console.log(contractData,"contractDatacontractDatacontractData");
+  
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}

@@ -132,8 +132,8 @@ export const StoreProvider = ({ children }) => {
         setContractData((prevState) => ({
           ...prevState,
           ethBalance: formatUnits(balance, 18)?.toString(),
-          usdcBalance: formatUnits(USDTBalance, 18)?.toString(),
-          usdtBalance: formatUnits(USDCBalance, 18)?.toString(),
+          usdcBalance: formatUnits(USDCBalance, 18)?.toString(),
+          usdtBalance: formatUnits(USDTBalance, 18)?.toString(),
           lnbgBalance: formatUnits(lnbgBalance, 18)?.toString(),
           tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
         }));
