@@ -64,19 +64,17 @@ export default function PresaleCard({ lang = "en" }) {
   const [bnbValue, setBNBValue] = useState(0);
 
   function calculateTokens(price, pricePerToken) {
-    console.log(price?.toString(),"price?.toString()");
-    console.log(pricePerToken?.toString(),"pricePerToken?.toString()");
+    console.log(price?.toString(), "price?.toString()");
+    console.log(pricePerToken?.toString(), "pricePerToken?.toString()");
     // Convert prices to BigNumber objects to handle large numbers
     const priceBN = ethers.BigNumber.from(price?.toString());
-    console.log(priceBN,"priceBNpriceBN");
+    console.log(priceBN, "priceBNpriceBN");
     const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString());
-    console.log(pricePerTokenBN,"pricePerTokenBN");
+    console.log(pricePerTokenBN, "pricePerTokenBN");
     let final = +priceBN?.toString() / +pricePerTokenBN?.toString();
-    console.log(final,"finalfinal");
+    console.log(final, "finalfinal");
     return final;
   }
-
-
 
   const handleTokenChange = (e) => {
     setTokensAmount(e.target.value);
@@ -111,10 +109,20 @@ export default function PresaleCard({ lang = "en" }) {
       } else if (selectedToken !== "Binance" && tokenAmount !== "") {
         let parse2 = ethers.utils.parseEther(tokenAmount?.toString());
         if (parse2 > 0) {
-          console.log(contractData?.tokenPrice?.toString(),"contractData?.tokenPrice?.toString()");
-          const tokens = calculateTokens(parse2?.toString(), contractData?.tokenPrice?.toString());
-          console.log(tokenAmount,"tokenAmount");
-          setLnbgValue(ethers.utils.parseEther(tokens?.toString() > 0 ? tokens?.toString() : "0")); // Tokens in ether
+          console.log(
+            contractData?.tokenPrice?.toString(),
+            "contractData?.tokenPrice?.toString()",
+          );
+          const tokens = calculateTokens(
+            parse2?.toString(),
+            contractData?.tokenPrice?.toString(),
+          );
+          console.log(tokenAmount, "tokenAmount");
+          setLnbgValue(
+            ethers.utils.parseEther(
+              tokens?.toString() > 0 ? tokens?.toString() : "0",
+            ),
+          ); // Tokens in ether
           setBNBValue(tokenAmount);
         }
       } else {
@@ -421,7 +429,7 @@ export default function PresaleCard({ lang = "en" }) {
                             : selectedToken == "USDT"
                               ? contractData?.usdtBalance
                               : contractData?.usdcBalance,
-                        )}{" "}
+                        )?.toFixed(4)}{" "}
                         available
                       </div>
                       <button
