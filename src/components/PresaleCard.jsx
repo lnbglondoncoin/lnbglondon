@@ -165,6 +165,16 @@ export default function PresaleCard({ lang = "en" }) {
   // Calculate the percentage of sold tokens
   const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
 
+  const handleUseMaxBalance = () => {
+    let tokenBalance =
+      selectedToken == "Binance"
+        ? contractData?.ethBalance
+        : selectedToken == "USDC"
+          ? contractData?.usdcBalance
+          : contractData?.usdtBalance;
+    setTokensAmount(tokenBalance);
+  };
+
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -369,9 +379,6 @@ export default function PresaleCard({ lang = "en" }) {
                       {/* Tell the customer how much he pays in USD */}(
                       {formatCurrency(Number(bnbValue)?.toFixed(2))})
                     </span>
-                    <span className="flex h-[18px] w-fit  items-center justify-center text-nowrap rounded-full bg-red-500 px-1.5 pb-0.5 font-sans text-[12px] text-white">
-                      use max
-                    </span>
                   </div>
                   <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
                     {selectedToken == "Binance" ? (
@@ -412,9 +419,15 @@ export default function PresaleCard({ lang = "en" }) {
                             : selectedToken == "USDT"
                               ? contractData?.usdtBalance
                               : contractData?.usdcBalance,
-                        )?.toFixed(2)}{" "}
+                        )}{" "}
                         available
                       </div>
+                      <button
+                        onClick={() => handleUseMaxBalance()}
+                        className="flex h-[18px] w-fit  items-center justify-center text-nowrap rounded-full bg-red-500 px-1.5 pb-0.5 font-sans text-[12px] text-white"
+                      >
+                        use max
+                      </button>
                     </div>
                   )}
                 </div>
