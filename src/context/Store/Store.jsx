@@ -132,8 +132,8 @@ export const StoreProvider = ({ children }) => {
         setContractData((prevState) => ({
           ...prevState,
           ethBalance: formatUnits(balance, 18)?.toString(),
-          usdcBalance: formatUnits(USDTBalance, 18)?.toString(),
-          usdtBalance: formatUnits(USDCBalance, 18)?.toString(),
+          usdcBalance: formatUnits(USDCBalance, 18)?.toString(),
+          usdtBalance: formatUnits(USDTBalance, 18)?.toString(),
           lnbgBalance: formatUnits(lnbgBalance, 18)?.toString(),
           tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
         }));
@@ -253,8 +253,9 @@ export const StoreProvider = ({ children }) => {
     }
     try {
       let tokensss = ethers.utils.formatEther(tokens?.toString());
+      console.log(tokensss,"tokenssstokensss will buy");
 
-      if (+tokensss?.toString() < 10) {
+      if (+tokensss?.toString() < 33) {
         return toast.error("Please buy minimum One (1) Dollar");
       } else if (+tokensss?.toString() > 30000) {
         return toast.error("Please buy maximum One Thousand (3000) Dollar");
@@ -280,27 +281,43 @@ export const StoreProvider = ({ children }) => {
         signer,
       );
 
+      console.log(payAmountInUSDT?.toString(),"payAmountInUSDT?.toString()payAmountInUSDT?.toString()");
+     
       let amountInWei = ethers.utils.parseEther(payAmountInUSDT?.toString());
+      
+      console.log(amountInWei?.toString(),"payAmountInUSDT?.toString()payAmountInUSDT?.toString()");
+      
+      let amountAginstTokens = await getProviderPresaleContract().sellTokenInUDSTPrice(tokens?.toString())
+     
+      console.log(tokens?.toString(),"tokens");
+      console.log(amountInWei?.toString(),"amountInWei");
+      console.log(amountAginstTokens?.toString(),"amountAginstTokens");
+      
       if (isUSDT) {
+
         let tokenApprove = await USDTContracts.approve(
           lnbgPresaleContractAddress.address,
-          amountInWei,
-        );
+          amountAginstTokens);
+
         await tokenApprove.wait();
 
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
+
         setTransactionHash(buying?.hash);
         setTransactionSuccess(true);
+
       } else {
+
         let tokenApprove = await USDCContracts.approve(
           lnbgPresaleContractAddress.address,
-          amountInWei,
-        );
+          amountAginstTokens);
+
         await tokenApprove.wait();
 
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
+
         setTransactionHash(buying?.hash);
         setTransactionSuccess(true);
       }
