@@ -100,8 +100,8 @@ export default function PresaleCard({ lang = "en" }) {
               tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
             );
             setLnbgValue(parse2?.toString());
-            setBNBValue(howMuch) // Tokens in ether
-            console.log(howMuch,"howMuchhowMuchhowMuch");
+            setBNBValue(howMuch); // Tokens in ether
+            console.log(howMuch, "howMuchhowMuchhowMuch");
           }
         }, 1000);
       } else if (selectedToken !== "Binance" && tokenAmount !== "") {
@@ -113,11 +113,11 @@ export default function PresaleCard({ lang = "en" }) {
               tokens?.toString() > 0 ? tokens?.toString() : 0,
             ),
           ); // Tokens in ether
-          setBNBValue(tokenAmount)
+          setBNBValue(tokenAmount);
         }
       } else {
         setLnbgValue(0);
-        setBNBValue(0)
+        setBNBValue(0);
         setTokensAmount("");
       }
     };
@@ -359,7 +359,7 @@ export default function PresaleCard({ lang = "en" }) {
               <div className="grid w-full gap-y-5 px-1 text-sm text-gray2 sm:grid-cols-2">
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm">
+                    <span>
                       {lang === "en"
                         ? "You pay:"
                         : lang === "ru"
@@ -368,9 +368,12 @@ export default function PresaleCard({ lang = "en" }) {
                             ? "Tu paies:"
                             : "Usted paga:"}
                     </span>
-                    <span className="font-sans text-xs">
-                      {/* Tell the customer how much he pays in USD */}
-                      ({Number(bnbValue)?.toFixed(2)} $)
+                    <span className="font-sans">
+                      {/* Tell the customer how much he pays in USD */}(
+                      {formatCurrency(Number(bnbValue)?.toFixed(2))})
+                    </span>
+                    <span className="flex h-[18px] w-fit  items-center justify-center text-nowrap rounded-full bg-red-500 px-1.5 pb-0.5 font-sans text-[12px] text-white">
+                      use max
                     </span>
                   </div>
                   <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
@@ -402,7 +405,6 @@ export default function PresaleCard({ lang = "en" }) {
                       className="w-full bg-transparent text-gray2"
                     />
                   </div>
-
                   {isClient && isConnected && (
                     <div className="flex items-center gap-3 text-gray2">
                       <span className="text-sm">Balance:</span>
@@ -420,7 +422,7 @@ export default function PresaleCard({ lang = "en" }) {
                   )}
                 </div>
                 <div className="flex flex-col gap-3">
-                  <span className="text-sm">
+                  <span>
                     {lang === "en"
                       ? "You receive:"
                       : lang === "ru"
