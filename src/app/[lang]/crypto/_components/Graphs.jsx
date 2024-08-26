@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 const AdvancedRealTimeChartNoSSR = dynamic(
   () =>
     import("react-ts-tradingview-widgets").then((w) => w.AdvancedRealTimeChart),
@@ -29,7 +30,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
           </h1>
         </div>
         <div className="pb-5 text-darkgray">{desc}</div>
-        <div className="h-[600px] relative">
+        <div className="relative h-[600px]">
           <AdvancedRealTimeChartNoSSR
             symbol={symbolGraph}
             theme="dark"
@@ -42,7 +43,19 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
             details={false}
             hide_side_toolbar={true}
           />
-          <div className="h-12 w-full bg-coal absolute -bottom-12"></div>
+          <div className="absolute bottom-[4.5rem] left-0 grid h-12 w-16 border-y border-white/20 border-r place-items-center rounded-r-full bg-coal">
+            <div className="rounded-full grid place-items-center w-10 h-10 p-1 border border-white/20 bg-ash">
+              <Image
+                src="/static/logo.png"
+                alt="coin"
+                className="mt-1"
+                width={20}
+                height={20}
+                quality={100}
+              />
+            </div>
+          </div>
+          <div className="absolute -bottom-20 h-20 w-full bg-coal"></div>
         </div>
       </div>
     </div>
