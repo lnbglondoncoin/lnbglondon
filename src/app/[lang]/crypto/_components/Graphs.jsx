@@ -43,7 +43,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
             details={false}
             hide_side_toolbar={true}
           />
-          <div className="absolute bottom-[4.5rem] left-0 grid h-12 w-16 border-y border-white/20 border-r place-items-center rounded-r-full bg-coal">
+          <div className="absolute bottom-[4.6rem] left-0 grid h-12 w-16 place-items-center rounded-r-full">
             <div className="rounded-full grid place-items-center w-10 h-10 p-1 border border-white/20 bg-ash">
               <Image
                 src="/static/logo.png"
