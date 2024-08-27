@@ -10,7 +10,8 @@ const mainnet = {
   name: 'Ethereum',
   currency: 'ETH',
   explorerUrl: 'https://etherscan.io',
-  rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_ETH}`
+  // rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_ETH}`
+  rpcUrl: "https://ethereum-rpc.publicnode.com"
 }
 
 const Binance = {

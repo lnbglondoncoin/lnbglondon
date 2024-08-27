@@ -47,7 +47,8 @@ const getProviderPresaleContract = () => {
 };
 
 const getProviderBridgePresale = () => {
-  const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+  // const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+  const providersss = "https://ethereum-rpc.publicnode.com";
   const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
   const presaleContract = new ethers.Contract(
     WrapedBridgeLnbgLondonCoinEthereumAddress.address,
@@ -484,7 +485,8 @@ export const StoreProvider = ({ children }) => {
   };
 
   const networkChange = async () => {
-    let chainid = process.env.NEXT_PUBLIC_CHAIN_ID_ETHEREUM;
+    // let chainid = process.env.NEXT_PUBLIC_CHAIN_ID_ETHEREUM;
+    let chainid = 1;
     if (isConnected && chainId?.toString() !== chainid?.toString()) {
       console.log(chainid, chainId, "chainidchainid");
       useSwitchNetwork(Number(chainid));
@@ -500,7 +502,8 @@ export const StoreProvider = ({ children }) => {
     try {
       setloader(true);
 
-      const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+      // const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+      const providersss = "https://ethereum-rpc.publicnode.com";
       const provider = new ethers.providers.JsonRpcProvider(providersss);
       const presaleContract = new ethers.Contract(WrapedBridgeLnbgLondonCoinEthereumAddress.address, WrapedBridgeLnbgLondonCoinEthereumAbis.abi, provider);
 
