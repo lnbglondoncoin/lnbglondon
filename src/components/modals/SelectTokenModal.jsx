@@ -12,6 +12,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 const SelectTokenModal = ({
+  chainId,
   setLnbgValue,
   setTokensAmount,
   selectedToken,
@@ -27,7 +28,9 @@ const SelectTokenModal = ({
               <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />
             ) : selectedToken == "USDC" ? (
               usdcSvg
-            ) : (
+            ) : selectedToken == "Ethereum" ? (
+              ethSvg
+            ):(
               usdtSvg
             )}
             {selectedToken}
@@ -39,7 +42,23 @@ const SelectTokenModal = ({
         <DialogHeader>
           <DialogTitle>Select a token</DialogTitle>
           <div className="flex flex-col gap-2 py-5">
-            <button
+         {chainId === 1 && ( <button
+              className={cn(
+                "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
+                selectedToken == "Ethereum"
+                  ? "border border-primary"
+                  : "bg-gray2/10",
+              )}
+              onClick={() => {
+                setSelectedToken("Ethereum");
+                setIsOpen(false);
+                setLnbgValue(0);
+                setTokensAmount(""); // Modal ko band karne ka function
+              }}
+            >
+              {ethSvg} Ethereum
+            </button> )}
+            {chainId !== 1 && ( <button
               className={cn(
                 "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",
                 selectedToken == "Binance"
@@ -55,7 +74,7 @@ const SelectTokenModal = ({
             >
               <Image src="/static/bnb-logo.png" width={32} height={32} alt="bnb" />{" "}
               Binance
-            </button>
+            </button> )}
             <button
               className={cn(
                 "flex w-full items-center gap-2 rounded-full px-3 py-2 text-start font-medium hover:bg-gray2/5",

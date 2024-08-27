@@ -2,17 +2,28 @@
 import React, { useState, createContext, useEffect } from "react";
 import { ethers } from "ethers";
 
+/////////////////////////////////////////// BINANCE CHAIN PRESALE ////////////////////////////////////
+
 import lnbgPresaleContractAddress from "../../contractsData/LngbPreSaleContract-address.json";
 import lnbgPresaleContract from "../../contractsData/LngbPreSaleContract.json";
-
 import USDTContractAddress from "../../contractsData/USDTToken-address.json";
 import USDTContract from "../../contractsData/USDCToken.json";
-
 import USDCContractAddress from "../../contractsData/USDCToken-address.json";
 import USDCContract from "../../contractsData/USDCToken.json";
-
 import lnbgCoinAddress from "../../contractsData/LnbgLondonCoin-address.json";
 import lnbgCoin from "../../contractsData/LnbgLondonCoin.json";
+
+/////////////////////////////////////////// ETHEREUM CHAIN PRESALE ////////////////////////////////////
+
+import USDTContractAbis from "../../contractsData/USDCToken.json";
+import USDTTokenEthereumAddress from "../../contractsData/USDTTokenEthereum-address.json";
+import USDCTokenEthereumAddress from "../../contractsData/USDCTokenEthereum-address.json";
+import WrapedBridgeLnbgLondonCoinEthereumAddress from "../../contractsData/WrapedBridgeLnbgLondonCoinEthereum-address.json";
+import WrapedBridgeLnbgLondonCoinEthereumAbis from "../../contractsData/WrapedBridgeLnbgLondonCoinEthereum.json";
+import WrapedLnbgLondonCoinEthereumAddress from "../../contractsData/WrapedLnbgLondonCoinEthereum-address.json";
+import WrapedLnbgLondonCoinEthereumAbis from "../../contractsData/WrapedLnbgLondonCoinEthereum.json";
+
+///////////////////////////////////// ----------**************----------------- //////////////////////////
 
 import {
   useSwitchNetwork,
@@ -34,6 +45,19 @@ const getProviderPresaleContract = () => {
   );
   return presaleContract;
 };
+
+const getProviderBridgePresale = () => {
+  const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+  const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
+  const presaleContract = new ethers.Contract(
+    WrapedBridgeLnbgLondonCoinEthereumAddress.address,
+    WrapedBridgeLnbgLondonCoinEthereumAbis.abi,
+    provider
+  );
+  return presaleContract;
+};
+
+
 
 export const Store = createContext();
 
@@ -83,18 +107,42 @@ export const StoreProvider = ({ children }) => {
     try {
       setloader(true);
 
-      const sellPrice = await getProviderPresaleContract().salePrice();
       const raisedAmount = await getProviderPresaleContract().raisedAmount();
-      const isPresale = await getProviderPresaleContract().isSale();
+      const raisedAmountEthereum = await getProviderBridgePresale().raisedAmount();
 
+      ////////////////////// Smart Contract Balance Check ////////////////////////////
+
+      const providers = process.env.NEXT_PUBLIC_RPC_URL_BNB;
+      const provider = new ethers.providers.JsonRpcProvider(providers);
+      const lnbgContracts = new ethers.Contract(lnbgCoinAddress.address,lnbgCoin.abi,provider);
+      const TokensInContract = await lnbgContracts.balanceOf(lnbgPresaleContractAddress.address);
+
+      console.log(raisedAmount?.toString(),"raisedAmountraisedAmountraisedAmountraisedAmount");
+
+      setContractData(prevState => ({
+        ...prevState,
+        raisedAmount: (+formatUnits(raisedAmount, 18)?.toString()  +  +formatUnits(raisedAmountEthereum, 6)?.toString()), //TODO:Test
+        tokensInContract: formatUnits(TokensInContract, 18)?.toString()
+      }));
+
+      if(chainId === 56) {
+        const sellPrice = await getProviderPresaleContract().salePrice();
+        setContractData((prevState) => ({
+          ...prevState,
+          tokenPrice: sellPrice?.toString()
+        }));
+
+      }
+      const isPresale = await getProviderPresaleContract().isSale();
+      
       setContractData((prevState) => ({
         ...prevState,
-        raisedAmount: formatUnits(raisedAmount, 18)?.toString(),
-        tokenPrice: sellPrice?.toString(),
-        isPreSaleActive: isPresale,
+        // raisedAmount: formatUnits(raisedAmount, 18)?.toString(),
+        isPreSaleActive: isPresale
       }));
+
       setloader(false);
-      if (isConnected) {
+      if (isConnected && chainId === 56) {
         const ethersProvider = new ethers.providers.Web3Provider(
           walletProvider,
         );
@@ -125,17 +173,12 @@ export const StoreProvider = ({ children }) => {
 
         const lnbgBalance = await lnbgContracts.balanceOf(address);
 
-        const TokensInContract = await lnbgContracts.balanceOf(
-          lnbgPresaleContractAddress.address,
-        );
-
         setContractData((prevState) => ({
           ...prevState,
           ethBalance: formatUnits(balance, 18)?.toString(),
           usdcBalance: formatUnits(USDCBalance, 18)?.toString(),
           usdtBalance: formatUnits(USDTBalance, 18)?.toString(),
-          lnbgBalance: formatUnits(lnbgBalance, 18)?.toString(),
-          tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
+          lnbgBalance: formatUnits(lnbgBalance, 18)?.toString()
         }));
       }
       setloader(false);
@@ -257,8 +300,8 @@ export const StoreProvider = ({ children }) => {
 
       if (+tokensss?.toString() < 33) {
         return toast.error("Please buy minimum One (1) Dollar");
-      } else if (+tokensss?.toString() > 30000) {
-        return toast.error("Please buy maximum One Thousand (3000) Dollar");
+      } else if (+tokensss?.toString() > 100000) {
+        return toast.error("Please buy maximum Three Thousands (3000) Dollars");
       }
 
       setPurchaseLoader(true);
@@ -342,10 +385,10 @@ export const StoreProvider = ({ children }) => {
     try {
       let tokensss = ethers.utils.formatEther(tokens?.toString());
 
-      if (+tokensss < 10) {
+      if (+tokensss < 33) {
         return toast.error("Please buy minimum One (1) Dollar");
-      } else if (+tokensss > 30000) {
-        return toast.error("Please buy maximum One Thousand (1000) Dollar");
+      } else if (+tokensss > 100000) {
+        return toast.error("Please buy maximum Three Thousands (3000) Dollars");
       }
 
       setPurchaseLoader(true);
@@ -441,14 +484,189 @@ export const StoreProvider = ({ children }) => {
   };
 
   const networkChange = async () => {
-    let chainid = process.env.NEXT_PUBLIC_CHAIN_ID;
-
+    let chainid = process.env.NEXT_PUBLIC_CHAIN_ID_ETHEREUM;
     if (isConnected && chainId?.toString() !== chainid?.toString()) {
       console.log(chainid, chainId, "chainidchainid");
       useSwitchNetwork(Number(chainid));
       return;
     }
   };
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////-------  ETHEREUM -------////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
+
+  const GetBridgeValues = async () => {
+    try {
+      setloader(true);
+
+      const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
+      const provider = new ethers.providers.JsonRpcProvider(providersss);
+      const presaleContract = new ethers.Contract(WrapedBridgeLnbgLondonCoinEthereumAddress.address, WrapedBridgeLnbgLondonCoinEthereumAbis.abi, provider);
+
+      // const raisedAmount = await presaleContract.raisedAmount();
+     
+      if(chainId === 1) {
+        const sellPrice = await presaleContract.salePrice();
+        setContractData(prevState => ({
+          ...prevState,
+          tokenPrice: sellPrice?.toString()
+        }));
+      }
+
+    //  console.log(raisedAmount?.toString(),"raisedAmountraisedAmount");
+     
+      // setContractData(prevState => ({
+      //   ...prevState,
+      //   raisedAmount: (+prevState.raisedAmount  +  +formatUnits(raisedAmount, 6)?.toString()) //TODO:Test
+      // }));
+
+      if (isConnected && chainId === 1) { //TODO: change ChainId
+
+        const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+        const balance = await ethersProvider.getBalance(address);
+
+        const USDTContracts = new ethers.Contract(USDTTokenEthereumAddress.address, USDTContractAbis.abi, ethersProvider);
+        const USDCContracts = new ethers.Contract(USDCTokenEthereumAddress.address, USDTContractAbis.abi, ethersProvider);
+        const LNBGContracts = new ethers.Contract(WrapedLnbgLondonCoinEthereumAddress.address, WrapedLnbgLondonCoinEthereumAbis.abi, ethersProvider);
+
+        console.log(balance?.toString(), "balancebalancebalancebalancebalance")
+
+        const USDTBalance = await USDTContracts.balanceOf(address);
+        const USDCBalance = await USDCContracts.balanceOf(address);
+        const LNBGBalance = await LNBGContracts.balanceOf(address);
+
+        setContractData(prevState => ({
+          ...prevState,
+          ethBalance: formatUnits(balance, 18)?.toString(),
+          usdcBalance: formatUnits(USDTBalance, 6)?.toString(),
+          usdtBalance: formatUnits(USDCBalance, 6)?.toString(),
+          lnbgBalance: formatUnits(LNBGBalance, 18)?.toString()
+        }));
+      }
+      setloader(false);
+    } catch (error) {
+      setloader(false);
+      console.log("Ethereum")
+      console.log(error);
+    }
+  };
+
+  const BuyWithUSDTandUSDCOnEthereum = async (payAmountInUSDT, tokens, isUSDT) => {
+
+    try {
+      networkChange();
+
+      let tokensss = ethers.utils.formatEther(tokens?.toString());
+      console.log(+tokensss?.toString(), "tokenssstokenssstokensss")
+
+      if (+tokensss?.toString() < 33) {
+        return toast.error("Please buy minimum One (1) Dollar");
+      } else if (+tokensss?.toString() > 100000) {
+        return toast.error("Please buy maximum Three Thousands (3000) Dollars");
+      }
+
+      setPurchaseLoader(true);
+
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const presaleContract = new ethers.Contract(WrapedBridgeLnbgLondonCoinEthereumAddress.address, WrapedBridgeLnbgLondonCoinEthereumAbis.abi, signer);
+      const USDTContracts = new ethers.Contract(USDTTokenEthereumAddress.address, USDTContractAbis.abi, signer);
+      const USDCContracts = new ethers.Contract(USDCTokenEthereumAddress.address, USDTContractAbis.abi, signer);
+
+      let amountInWei = (+payAmountInUSDT?.toString() * 10 ** 6);
+      if (isUSDT) {
+        let allowance = await USDTContracts.allowance(address, WrapedBridgeLnbgLondonCoinEthereumAddress?.address);
+
+        if (+allowance?.toString() < +amountInWei?.toString()) {
+          let tokenApprove = await USDTContracts.approve(WrapedBridgeLnbgLondonCoinEthereumAddress?.address, amountInWei);
+          await tokenApprove.wait();
+        }
+
+        const buying = await presaleContract.buyWithUSDT(address,tokens,isUSDT);
+        buying.wait();
+      } else {
+        console.log("check2")
+        let allowance = await USDCContracts.allowance(address, WrapedBridgeLnbgLondonCoinEthereumAddress?.address);
+        console.log(+allowance?.toString(), "allowanceallowanceallowance")
+        if (+allowance?.toString() < +amountInWei?.toString()) {
+          console.log("check3")
+          let tokenApprove = await USDCContracts.approve(WrapedBridgeLnbgLondonCoinEthereumAddress?.address, amountInWei);
+          await tokenApprove.wait();
+        }
+        console.log("check", isUSDT)
+        const buying = await presaleContract.buyWithUSDT(address,tokens,isUSDT);
+        buying.wait();
+
+      }
+
+      await GetBridgeValues();
+      setPurchaseLoader(false);
+    } catch (error) {
+      setPurchaseLoader(false);
+      toast.error(`${JSON.stringify(error.reason)}`);
+      console.log(error);
+    }
+  };
+
+  const BuyWithETHOnEthereum = async (tokens, amountInEthPayable) => {
+    try {
+      networkChange();
+      let tokensss = ethers.utils.formatEther(tokens?.toString());
+
+      if (tokensss?.toString() < 33) {
+        return toast.error("Please buy minimum One (1) Doller");
+      } else if (tokensss?.toString() > 100000) {
+        return toast.error("Please buy maximum Three Thousands (3000) Dollers");
+      }
+
+      console.log(tokens?.toString(), "tokens?.toString()tokens?.toString()")
+      console.log(amountInEthPayable?.toString(), "tokens?.toString()tokens?.toString()")
+
+      setPurchaseLoader(true);
+
+      const ethersProvider = new ethers.providers.Web3Provider(walletProvider);
+      const signer = ethersProvider.getSigner();
+      const bridgePresaleContract = new ethers.Contract(WrapedBridgeLnbgLondonCoinEthereumAddress.address, WrapedBridgeLnbgLondonCoinEthereumAbis.abi, signer);
+      let amountInWei = ethers.utils.parseEther(amountInEthPayable?.toString())
+      const buying = await bridgePresaleContract.buyWithETH(address,tokens?.toString(),{ value: amountInWei?.toString()});
+      buying.wait();
+      await GetBridgeValues();
+      setPurchaseLoader(false);
+    } catch (error) {
+      setPurchaseLoader(false);
+      console.log(error);
+      toast.error(`${JSON.stringify(error.reason)}`);
+    }
+  };
+
+  ////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////-------  ETHEREUM -------////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     const main = async () => {
@@ -489,6 +707,12 @@ export const StoreProvider = ({ children }) => {
           presaleStop,
           userDatabaseData,
           setUserDatabaseData,
+
+          ////////////////////////////////////////////////
+          getProviderBridgePresale,
+          GetBridgeValues,
+          BuyWithUSDTandUSDCOnEthereum,
+          BuyWithETHOnEthereum
         }}
       >
         {children}

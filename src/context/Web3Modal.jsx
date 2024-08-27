@@ -30,12 +30,12 @@ const Binance = {
 // }
 
 
-// const seoiliaTestnet = {
+// const sepoiliaTestnet = {
 //   chainId: 11155111,
 //   name: 'Sepolia',
 //   currency: 'ETH',
 //   explorerUrl: 'https://sepolia.etherscan.io',
-//   rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_SEPO}`
+//   rpcUrl: `${process.env.NEXT_PUBLIC_RPC_URL_ETH}`
 // }
 
 // // 
@@ -63,7 +63,7 @@ const ethersConfig = defaultConfig({
 
 createWeb3Modal({
   ethersConfig,
-  chains: [Binance],
+  chains: [Binance,mainnet],
   projectId,
   enableAnalytics: true, // Optional - defaults to your Cloud configuration,
   enableOnramp: true // Optional - false as default

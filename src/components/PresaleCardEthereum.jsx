@@ -24,11 +24,9 @@ import { cn } from "@/lib/utils";
 import TransactionSuccessModal from "./TransactionSuccessModal";
 import { formatCurrency, formatNumber } from "@/utils/formatters";
 
-export default function PresaleCard({ lang = "en" }) {
+export default function PresaleCardEthereum({ lang = "en" }) {
   const {
     contractData,
-    BuyWithUSDTandUSDC,
-    getProviderPresaleContract,
     GetValues,
     loader,
     purchaseLoader,
@@ -37,10 +35,12 @@ export default function PresaleCard({ lang = "en" }) {
     copyToClipboardReferral,
     addTokenToMetamask,
     networkChange,
-    BuyWithETH,
-    presaleStart,
-    presaleStop,
     userDatabaseData,
+
+    getProviderBridgePresale,
+    GetBridgeValues,
+    BuyWithUSDTandUSDCOnEthereum,
+    BuyWithETHOnEthereum
   } = useContext(Store);
 
   // --------------For hydration error-------------------
@@ -57,86 +57,87 @@ export default function PresaleCard({ lang = "en" }) {
 
   const [copyReferralText, setCopyReferralText] =
     useState("Copy referral link");
-  const [selectedToken, setSelectedToken] = useState("Binance");
+  const [selectedToken, setSelectedToken] = useState("Ethereum");
   const [buttonText, setButtonText] = useState("Buy");
   const [tokenAmount, setTokensAmount] = useState("");
   const [lnbgValue, setLnbgValue] = useState(0);
-  const [bnbValue, setBNBValue] = useState(0);
+  const [ethValue, setETHValue] = useState(0);
 
-  function calculateTokens(price, pricePerToken) {
-    console.log(price?.toString(), "price?.toString()");
-    console.log(pricePerToken?.toString(), "pricePerToken?.toString()");
-    // Convert prices to BigNumber objects to handle large numbers
-    const priceBN = ethers.BigNumber.from(price?.toString());
-    console.log(priceBN, "priceBNpriceBN");
-    const pricePerTokenBN = ethers.BigNumber.from(pricePerToken?.toString());
-    console.log(pricePerTokenBN, "pricePerTokenBN");
-    let final = +priceBN?.toString() / +pricePerTokenBN?.toString();
-    console.log(final, "finalfinal");
-    return final;
-  }
 
   const handleTokenChange = (e) => {
     setTokensAmount(e.target.value);
     // setLnbgValue(e.target.value * 0.0001);
   };
 
+
   useEffect(() => {
     const main = async () => {
-      if (selectedToken == "Binance" && tokenAmount !== "") {
+      if (selectedToken == "Ethereum" && tokenAmount !== "") {
         setTimeout(async () => {
-          let parse = ethers.utils.parseEther(
-            tokenAmount?.toString() > 0 ? tokenAmount?.toString() : "0",
-          );
+          try {
+            let parse = ethers.utils.parseEther(tokenAmount?.toString());
 
-          if (parse > 0) {
-            let oneDoller =
-              await getProviderPresaleContract().getLatestUSDTPrice();
+            console.log(parse.toString(), "parse");
 
-            let howMuch = +parse?.toString() / +oneDoller?.toString();
+            if (parse.gt(0)) {
+              let oneDollar = await getProviderBridgePresale().getLatestUSDTPrice();
 
-            let tokenTokens =
-              howMuch?.toString() / (+contractData?.tokenPrice / 10 ** 18);
+              console.log(oneDollar?.toString(), "oneDollaroneDollar");
 
-            let parse2 = ethers.utils.parseEther(
-              tokenTokens?.toString() > 0 ? tokenTokens?.toString() : 0,
-            );
-            setLnbgValue(parse2?.toString());
-            setBNBValue(howMuch); // Tokens in ether
-            console.log(howMuch, "howMuchhowMuchhowMuch");
+              if (oneDollar.isZero()) {
+                throw new Error(
+                  "oneDollar price is zero, cannot divide by zero",
+                );
+              }
+
+              let howMuch = parse.div(oneDollar);
+              console.log(
+                contractData?.tokenPrice / 10 ** 6,
+                "contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6contractData?.tokenPrice / 10**6",
+              );
+              let price = contractData?.tokenPrice / 10 ** 6;
+              console.log(howMuch?.toString(), "howMuchhowMuch");
+              let tokens = +howMuch?.toString() / +price;
+              let parse2 = ethers.utils.parseEther(tokens?.toString())?.toString();
+              setLnbgValue(parse2); // Tokens in ether
+              setETHValue(howMuch)
+            }
+          } catch (error) {
+            console.error("Error in timeout:", error);
           }
         }, 500);
-      } else if (selectedToken !== "Binance" && tokenAmount !== "") {
-        let parse2 = ethers.utils.parseEther(tokenAmount?.toString());
-        if (parse2 > 0) {
-          console.log(
-            contractData?.tokenPrice?.toString(),
-            "contractData?.tokenPrice?.toString()",
-          );
-          const tokens = calculateTokens(
-            parse2?.toString(),
-            contractData?.tokenPrice?.toString(),
-          );
-          console.log(tokenAmount, "tokenAmount");
-          setLnbgValue(
-            ethers.utils.parseEther(
-              tokens?.toString() > 0 ? tokens?.toString() : "0",
-            ),
-          ); // Tokens in ether
-          setBNBValue(tokenAmount);
+      } else if (selectedToken !== "Ethereum" && tokenAmount !== "") {
+        try {
+          if (tokenAmount > 0) {
+            console.log(tokenAmount,"tokenAmounttokenAmounttokenAmount");
+            let price = contractData?.tokenPrice / 10 ** 6;
+            console.log(price,"pricepricepricepriceprice");
+            let tokens = +tokenAmount?.toString() / +price;
+            console.log(tokens,"tokenstokenstokenstokens");
+            let force = ethers.utils.parseEther(tokens?.toString())?.toString();
+            setLnbgValue(force?.toString()); // Tokens in smallest unit
+            setETHValue(tokenAmount)
+          }
+        } catch (error) {
+          console.error("Error in else block:", error);
         }
       } else {
         setLnbgValue(0);
-        setBNBValue(0);
+        setETHValue(0)
         setTokensAmount("");
+        
+
       }
     };
+
     main();
   }, [tokenAmount, selectedToken]);
 
   useEffect(() => {
+    GetBridgeValues();
     GetValues();
-  }, [address]);
+    networkChange();
+  }, [address , chainId]);
 
   const roundOff = (num) => {
     // convert string to int
@@ -150,7 +151,7 @@ export default function PresaleCard({ lang = "en" }) {
   useEffect(() => {
     const checked = () => {
       let tokenBalance =
-        selectedToken == "Binance"
+        selectedToken == "Ethereum"
           ? contractData?.ethBalance
           : selectedToken == "USDC"
             ? contractData?.usdcBalance
@@ -177,7 +178,7 @@ export default function PresaleCard({ lang = "en" }) {
 
   const handleUseMaxBalance = () => {
     let tokenBalance =
-      selectedToken == "Binance"
+      selectedToken == "Ethereum"
         ? contractData?.ethBalance
         : selectedToken == "USDC"
           ? contractData?.usdcBalance
@@ -185,6 +186,8 @@ export default function PresaleCard({ lang = "en" }) {
     setTokensAmount(tokenBalance);
   };
 
+
+  console.log(contractData,"contractDatacontractData");
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}
@@ -307,9 +310,8 @@ export default function PresaleCard({ lang = "en" }) {
                       height={18}
                       alt="lnbg"
                     />
-                    <span className="text-2xl">
-                      {/* {formatCurrency(Number(contractData?.lnbgBalance))} */}
-                      {Number(+contractData?.lnbgBalance)?.toFixed(2)}
+                    <span className="text-2xl break-all">
+                      {Number(contractData?.lnbgBalance)?.toFixed(2)}
                     </span>
                   </div>
                   <span className="text-sm text-gray2">
@@ -319,7 +321,7 @@ export default function PresaleCard({ lang = "en" }) {
                         contractData?.lnbgBalance *
                           ethers.utils.formatUnits(
                             contractData?.tokenPrice,
-                            18,
+                            6,
                           ),
                       )?.toFixed(2),
                     )}
@@ -364,6 +366,7 @@ export default function PresaleCard({ lang = "en" }) {
             <Skeleton className="h-16 w-full" />
           ) : (
             <SelectTokenModal
+            chainId={chainId}
               setLnbgValue={setLnbgValue}
               setTokensAmount={setTokensAmount}
               selectedToken={selectedToken}
@@ -388,17 +391,12 @@ export default function PresaleCard({ lang = "en" }) {
                     </span>
                     <span className="font-sans">
                       {/* Tell the customer how much he pays in USD */}(
-                      {formatCurrency(Number(bnbValue)?.toFixed(2))})
+                      {formatCurrency(Number(ethValue)?.toFixed(2))})
                     </span>
                   </div>
                   <div className="flex h-[56px] w-full items-center gap-2 rounded-xl border border-gray2/40 px-3 py-3 text-lg sm:rounded-l-xl sm:rounded-r-none">
-                    {selectedToken == "Binance" ? (
-                      <Image
-                        src="/static/bnb-logo.png"
-                        width={21}
-                        height={21}
-                        alt="bnb"
-                      />
+                    {selectedToken == "Ethereum" ? (
+                         ethSvg
                     ) : selectedToken == "USDC" ? (
                       usdcSvg
                     ) : selectedToken == "USDT" ? (
@@ -425,7 +423,7 @@ export default function PresaleCard({ lang = "en" }) {
                       <span className="text-sm">Balance:</span>
                       <div className="w-fit rounded-full border border-gray2 px-3 font-sans text-xs italic">
                         {Number(
-                          selectedToken == "Binance"
+                          selectedToken == "Ethereum"
                             ? contractData?.ethBalance
                             : selectedToken == "USDT"
                               ? contractData?.usdtBalance
@@ -474,7 +472,7 @@ export default function PresaleCard({ lang = "en" }) {
               <div className="grid w-full px-1 sm:grid-cols-2">
                 <span className="text-sm font-semibold">
                   1 lnbg ={" "}
-                  {ethers.utils.formatUnits(contractData?.tokenPrice, 18)}$
+                  {ethers.utils.formatUnits(contractData?.tokenPrice, 6)}$
                 </span>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">
@@ -495,7 +493,7 @@ export default function PresaleCard({ lang = "en" }) {
           )}
           {isClient &&
             (isConnected == true ? (
-              selectedToken == "Binance" ? (
+              selectedToken == "Ethereum" ? (
                 <div className="flex w-full flex-col gap-5">
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
@@ -503,7 +501,7 @@ export default function PresaleCard({ lang = "en" }) {
                     onClick={() => {
                       buttonText === "Insufficient Balance"
                         ? ""
-                        : BuyWithETH(lnbgValue?.toString(), tokenAmount);
+                        : BuyWithETHOnEthereum(lnbgValue?.toString(), tokenAmount);
                     }}
                   >
                     {buttonText}
@@ -528,11 +526,7 @@ export default function PresaleCard({ lang = "en" }) {
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                     disabled={loader || buttonText === "Insufficient Balance"}
                     onClick={() =>
-                      BuyWithUSDTandUSDC(
-                        tokenAmount,
-                        lnbgValue?.toString(),
-                        false,
-                      )
+                        BuyWithUSDTandUSDCOnEthereum(tokenAmount,lnbgValue?.toString(),false)
                     }
                   >
                     {buttonText}
@@ -557,11 +551,7 @@ export default function PresaleCard({ lang = "en" }) {
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                     disabled={loader || buttonText === "Insufficient Balance"}
                     onClick={() =>
-                      BuyWithUSDTandUSDC(
-                        tokenAmount,
-                        lnbgValue?.toString(),
-                        true,
-                      )
+                        BuyWithUSDTandUSDCOnEthereum(tokenAmount,lnbgValue?.toString(),true)
                     }
                   >
                     {buttonText}

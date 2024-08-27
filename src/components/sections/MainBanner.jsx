@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useWeb3ModalAccount } from "@web3modal/ethers5/react";
 import apis from "@/context/Services";
 import { useEffect } from "react";
+import PresaleCardEthereum from "../PresaleCardEthereum";
 
 const MainBanner = ({ lang = "en" }) => {
   const texts =
@@ -48,6 +49,9 @@ const MainBanner = ({ lang = "en" }) => {
     mainReferral();
   }, [address,ref]);
 
+console.log(chainId,"chainIdchainIdchainId");
+
+useEffect(()=>{},[chainId])
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">
       <Vortex
@@ -156,7 +160,8 @@ const MainBanner = ({ lang = "en" }) => {
               />
             </div>
           </motion.div>
-          <PresaleCard lang={lang} />
+         {chainId === 1 ? <PresaleCardEthereum lang={lang} /> :
+          <PresaleCard lang={lang} /> }
         </div>
       </Vortex>
     </section>
