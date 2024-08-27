@@ -64,7 +64,7 @@ const ethersConfig = defaultConfig({
 
 createWeb3Modal({
   ethersConfig,
-  chains: [Binance],
+  chains: [Binance , mainnet],
   projectId,
   enableAnalytics: true, // Optional - defaults to your Cloud configuration,
   enableOnramp: true // Optional - false as default
