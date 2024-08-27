@@ -307,7 +307,7 @@ export default function PresaleCard({ lang = "en" }) {
                       height={18}
                       alt="lnbg"
                     />
-                    <span className="text-2xl">
+                    <span className="text-2xl break-all">
                       {/* {formatCurrency(Number(contractData?.lnbgBalance))} */}
                       {Number(+contractData?.lnbgBalance)?.toFixed(2)}
                     </span>
