@@ -40,10 +40,11 @@ const CoinsGraph = () => {
 
   return (
     <div className="flex flex-col min-h-fit">
-      <CoinSelector
+      {/* <CoinSelector
         selectedCoin={selectedCoin}
         setSelectedCoin={setSelectedCoin}
-      />
+      /> */}
+      
       <Graphs
         coin={selectedCoin}
         symbolGraph={symbolGraph}
