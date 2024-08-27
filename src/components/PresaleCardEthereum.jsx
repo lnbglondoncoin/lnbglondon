@@ -125,8 +125,6 @@ export default function PresaleCardEthereum({ lang = "en" }) {
         setLnbgValue(0);
         setETHValue(0)
         setTokensAmount("");
-        
-
       }
     };
 

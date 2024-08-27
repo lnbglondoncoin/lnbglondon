@@ -47,8 +47,7 @@ const getProviderPresaleContract = () => {
 };
 
 const getProviderBridgePresale = () => {
-  // const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
-  const providersss = "https://ethereum-rpc.publicnode.com";
+  const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
   const provider = new ethers.providers.JsonRpcProvider(providersss); //"http://localhost:8545/"
   const presaleContract = new ethers.Contract(
     WrapedBridgeLnbgLondonCoinEthereumAddress.address,
@@ -502,8 +501,7 @@ export const StoreProvider = ({ children }) => {
     try {
       setloader(true);
 
-      // const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
-      const providersss = "https://ethereum-rpc.publicnode.com";
+      const providersss = process.env.NEXT_PUBLIC_RPC_URL_ETH;
       const provider = new ethers.providers.JsonRpcProvider(providersss);
       const presaleContract = new ethers.Contract(WrapedBridgeLnbgLondonCoinEthereumAddress.address, WrapedBridgeLnbgLondonCoinEthereumAbis.abi, provider);
 
