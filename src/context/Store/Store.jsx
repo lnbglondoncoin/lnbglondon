@@ -484,8 +484,7 @@ export const StoreProvider = ({ children }) => {
   };
 
   const networkChange = async () => {
-    // let chainid = process.env.NEXT_PUBLIC_CHAIN_ID_ETHEREUM;
-    let chainid = 1;
+    let chainid = process.env.NEXT_PUBLIC_CHAIN_ID_ETHEREUM;
     if (isConnected && chainId?.toString() !== chainid?.toString()) {
       console.log(chainid, chainId, "chainidchainid");
       useSwitchNetwork(Number(chainid));
