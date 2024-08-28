@@ -17,9 +17,12 @@ const SymbolOverviewNoSSR = dynamic(
   },
 );
 
-const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
-  // make first letter capital
-  coin = coin.charAt(0).toUpperCase() + coin.slice(1);
+const Graphs = ({
+  coin = "Bitcoin",
+  symbolGraph = "BINANCE:BTCUSDT",
+  symbol = "BTC",
+  desc = "Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009 Bitcoin is a peer-to-peer online currency, meaning that all transactions happen directly between equal, independent network participants, without the need for any intermediary to permit or facilitate them.",
+}) => {
   return (
     <div className="flex items-center justify-center">
       <div className="mx-5 h-full w-full max-w-7xl rounded-lg bg-coal p-5 py-10 sm:p-20 sm:py-20">
@@ -44,7 +47,7 @@ const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
             hide_side_toolbar={true}
           />
           <div className="absolute bottom-[4.6rem] left-0 grid h-12 w-16 place-items-center rounded-r-full">
-            <div className="rounded-full grid place-items-center w-10 h-10 p-1 border border-white/20 bg-ash">
+            <div className="grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-ash p-1">
               <Image
                 src="/static/logo.png"
                 alt="coin"
