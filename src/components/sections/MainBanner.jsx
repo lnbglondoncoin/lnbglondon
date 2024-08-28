@@ -28,16 +28,25 @@ const MainBanner = ({ lang = "en" }) => {
   const ref = searchParams.get("ref");
   const { address, chainId, isConnected } = useWeb3ModalAccount();
 
-  console.log(ref,"referralreferralreferralreferral");
+  console.log(ref, "referralreferralreferralreferral");
 
   useEffect(() => {
+    const main = async () => {
+      try {
+        if (isConnected) {
+          await apis.connectedUser(address);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     const mainReferral = async () => {
       try {
         if (isConnected && ref) {
-          console.log(ref, address);
           let apiData = {
-            "wallet_address" : address,
-            "referral_code" : ref,
+            wallet_address: address,
+            referral_code: ref,
           };
           let data = await apis.referringto(apiData);
           console.log(data, "useSDataaaaa");
@@ -46,12 +55,14 @@ const MainBanner = ({ lang = "en" }) => {
         console.log(error);
       }
     };
+
+    main();
     mainReferral();
-  }, [address,ref]);
+  }, [address, ref]);
 
-console.log(chainId,"chainIdchainIdchainId");
+  console.log(chainId, "chainIdchainIdchainId");
 
-useEffect(()=>{},[chainId])
+  useEffect(() => {}, [chainId]);
   return (
     <section className="relative top-0 flex w-full max-w-[100vw] items-center justify-center overflow-hidden bg-coal">
       <Vortex
@@ -160,8 +171,11 @@ useEffect(()=>{},[chainId])
               />
             </div>
           </motion.div>
-         {chainId === 1 ? <PresaleCardEthereum lang={lang} /> :
-          <PresaleCard lang={lang} /> }
+          {chainId === 1 ? (
+            <PresaleCardEthereum lang={lang} />
+          ) : (
+            <PresaleCard lang={lang} />
+          )}
         </div>
       </Vortex>
     </section>

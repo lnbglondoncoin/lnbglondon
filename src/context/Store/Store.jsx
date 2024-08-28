@@ -68,11 +68,11 @@ export const StoreProvider = ({ children }) => {
   const [loader, setloader] = useState(false);
 
   const [userDatabaseData, setUserDatabaseData] = useState({
-    points: 0,
-    referral_code: "",
-    steps_points: 0,
-    tokens_earned: 0,
-    wallet_address: "",
+    referral_code:"",
+    referral_reward:0,
+    steps_points:0,
+    tokens_earned:0,
+    wallet_address:"",
   });
 
   // FOR PRESALE CARD LOADER WHILE PURCHASING STUFF
@@ -668,19 +668,7 @@ export const StoreProvider = ({ children }) => {
 
 
 
-  useEffect(() => {
-    const main = async () => {
-      try {
-        if (isConnected) {
-          console.log("Testttttttttttttttttttttt");
-          await apis.connectedUser(address);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    main();
-  }, [address]);
+
 
   return (
     <>
