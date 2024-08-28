@@ -156,7 +156,7 @@ useEffect(()=>{},[chainId])
                         ? "Livre blanc"
                         : "Libro blanco"
                 }
-                onClick={() => router.push("/whitepaper.pdf")}
+                onClick={() => router.push("/static/whitepaper.pdf")}
               />
             </div>
           </motion.div>

@@ -85,7 +85,7 @@ const Footer = ({ lang = "en" }) => {
           <div className="flex flex-col gap-3 py-5 lg:items-center">
             <h1 className="mb-1">RESOURCES</h1>
             <Link
-              href="/whitepaper.pdf"
+              href="/static/whitepaper.pdf"
               className="font-sans text-sm text-gray2 hover:text-primary"
             >
               Whitepaper
