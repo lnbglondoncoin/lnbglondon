@@ -7,7 +7,7 @@ const CryptocurrenciesPage = () => {
   const searchParams = useSearchParams();
   const coin = searchParams.get("coin");
   const symbol = searchParams.get("symbol");
-  const symbolGraph = "BINANCE:BTCUSDT";
+  const symbolGraph = `BINANCE:${symbol}USDT`;
   const desc =
     coin === "Bitcoin"
       ? "Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009 Bitcoin is a peer-to-peer online currency, meaning that all transactions happen directly between equal, independent network participants, without the need for any intermediary to permit or facilitate them."

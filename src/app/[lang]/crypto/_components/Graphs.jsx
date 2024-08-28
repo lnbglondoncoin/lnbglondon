@@ -17,7 +17,12 @@ const SymbolOverviewNoSSR = dynamic(
   },
 );
 
-const Graphs = ({ coin, symbolGraph, symbol, desc }) => {
+const Graphs = ({
+  coin = "Bitcoin",
+  symbolGraph = "BINANCE:BTCUSDT",
+  symbol = "BTC",
+  desc = "Bitcoin is a decentralized cryptocurrency originally described in a 2008 whitepaper by a person, or group of people, using the alias Satoshi Nakamoto. It was launched soon after, in January 2009 Bitcoin is a peer-to-peer online currency, meaning that all transactions happen directly between equal, independent network participants, without the need for any intermediary to permit or facilitate them.",
+}) => {
   return (
     <div className="flex items-center justify-center">
       <div className="mx-5 h-full w-full max-w-7xl rounded-lg bg-coal p-5 py-10 sm:p-20 sm:py-20">
