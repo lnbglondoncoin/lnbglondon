@@ -4,6 +4,7 @@ import { StoreProvider } from "@/context/Store/Store";
 import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
 import PreloaderProvider from "./PreloaderProvider";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="G-MQLFLKFWKC" />
       <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>
           <PreloaderProvider>
