@@ -88,7 +88,7 @@ export const StoreProvider = ({ children }) => {
     usdtBalance: 0,
     lnbgBalance: 0,
     raisedAmount: 0,
-    tokenPrice: 0,
+    tokenPrice: "30000000000000000",
     totalSupply: 7000000000,
     isPreSaleActive: false,
     stakedTokens: 0,
