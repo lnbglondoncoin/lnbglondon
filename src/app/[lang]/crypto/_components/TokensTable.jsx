@@ -35,18 +35,10 @@ const getData = async () => {
   }
 };
 
-const TokensTable = async ({ query }) => {
+const TokensTable = async () => {
   const data = await getData();
   console.log("DATA", data);
-  const fetchFilteredData = () => {
-    if (query) {
-      return data.filter((coin) =>
-        coin.name.toLowerCase().includes(query.toLowerCase()),
-      );
-    }
-    return data;
-  };
-  const filteredData = fetchFilteredData();
+
   return (
     <div className="my-5 flex flex-col items-center justify-center gap-y-5 px-10">
       <div className="w-[90vw] overflow-auto px-5 lg:max-w-7xl">
@@ -77,7 +69,7 @@ const TokensTable = async ({ query }) => {
             </tr>
           </thead>
           <tbody>
-            {filteredData?.map((coin, index) => (
+            {data?.map((coin, index) => (
               <tr className="h-[58px] cursor-pointer even:bg-ash">
                 <th
                   scope="row"
@@ -88,7 +80,7 @@ const TokensTable = async ({ query }) => {
                 <td>
                   <Link
                     className="text-neutralLight flex items-center gap-x-3.5 px-6 py-4"
-                    href={`/tokens/${coin.id}`}
+                    href={`/crypto?coin=${coin.name}&symbol=${coin.symbol}`}
                   >
                     <img
                       src={coin.logoUrl}
