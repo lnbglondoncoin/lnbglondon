@@ -328,7 +328,7 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                 <div className="flex flex-col gap-2">
                   <span className="text-sm text-gray2">Your Points:</span>
                   <span className="text-xl text-white/40">
-                    {Number(+userDatabaseData?.points)?.toFixed(1)}
+                    {Number(+userDatabaseData?.tokens_earned)?.toFixed(1)}
                   </span>
                   <button
                     onClick={() => {
