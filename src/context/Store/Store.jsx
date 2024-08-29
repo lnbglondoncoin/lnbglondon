@@ -346,8 +346,8 @@ export const StoreProvider = ({ children }) => {
 
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
-
-        setTransactionHash(buying?.hash);
+        const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+        setTransactionHash(bnbLink);
         setTransactionSuccess(true);
 
       } else {
@@ -361,7 +361,8 @@ export const StoreProvider = ({ children }) => {
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
 
-        setTransactionHash(buying?.hash);
+        const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+        setTransactionHash(bnbLink);
         setTransactionSuccess(true);
       }
 
@@ -407,8 +408,8 @@ export const StoreProvider = ({ children }) => {
         value: amountInWei?.toString(),
       });
       buying.wait();
-      console.log(buying, "buyingbuyingbuyingbuying");
-      setTransactionHash(buying?.hash);
+      const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+      setTransactionHash(bnbLink);
       setTransactionSuccess(true);
       await GetValues();
       setPurchaseLoader(false);
@@ -585,6 +586,9 @@ export const StoreProvider = ({ children }) => {
 
         const buying = await presaleContract.buyWithUSDT(address,tokens,isUSDT);
         buying.wait();
+        const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+        setTransactionHash(ethLink);
+        setTransactionSuccess(true);
       } else {
         console.log("check2")
         let allowance = await USDCContracts.allowance(address, WrapedBridgeLnbgLondonCoinEthereumAddress?.address);
@@ -597,13 +601,17 @@ export const StoreProvider = ({ children }) => {
         console.log("check", isUSDT)
         const buying = await presaleContract.buyWithUSDT(address,tokens,isUSDT);
         buying.wait();
-
+        const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+        setTransactionHash(ethLink);
+        setTransactionSuccess(true);
       }
 
       await GetBridgeValues();
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
+      setTransactionHash("");
+      setTransactionSuccess(false);
       toast.error(`${JSON.stringify(error.reason)}`);
       console.log(error);
     }
@@ -631,11 +639,16 @@ export const StoreProvider = ({ children }) => {
       let amountInWei = ethers.utils.parseEther(amountInEthPayable?.toString())
       const buying = await bridgePresaleContract.buyWithETH(address,tokens?.toString(),{ value: amountInWei?.toString()});
       buying.wait();
+      const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+      setTransactionHash(ethLink);
+      setTransactionSuccess(true);
       await GetBridgeValues();
       setPurchaseLoader(false);
     } catch (error) {
       setPurchaseLoader(false);
       console.log(error);
+      setTransactionHash("");
+      setTransactionSuccess(false);
       toast.error(`${JSON.stringify(error.reason)}`);
     }
   };
