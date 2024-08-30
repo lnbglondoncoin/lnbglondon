@@ -47,7 +47,7 @@ export default function ProfileDropdown() {
           console.log("Testttttttttttttttttttttt2222");
           let data = await apis.getOneUser(address);
           console.log(data, "useSDataaaaa");
-          setUserDatabaseData(data?.data?.user[0]);
+          setUserDatabaseData(data?.data?.user);
         }
       } catch (error) {
         console.log(error);
@@ -104,7 +104,7 @@ export default function ProfileDropdown() {
               <div className="flex flex-col gap-1">
                 <span className="text-sm font-semibold">LNBG Points</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.points)?.toFixed(1))}`}</span>
+                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.tokens_earned)?.toFixed(1))}`}</span>
                   <span className="text-lg">Points</span>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function ProfileDropdown() {
                     height={16}
                     alt="coin"
                   />
-                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.tokens_earned)?.toFixed(2))}`}</span>
+                  <span className="text-lg">{`${formatCurrency(Number(userDatabaseData?.referral_reward)?.toFixed(2))}`}</span>
                 </div>
               </div>
             </div>

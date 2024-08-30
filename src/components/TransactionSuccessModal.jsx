@@ -7,8 +7,7 @@ export default function TransactionSuccessModal() {
   const { setTransactionSuccess, transactionHash } = useContext(Store);
 
   const handleLinkOpen = () => {
-    const bnbLink = `https://bscscan.com/tx/${transactionHash}`;
-    window.open(bnbLink, "_blank");
+    window.open(transactionHash, "_blank");
   }
 
   return (
