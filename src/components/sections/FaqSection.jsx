@@ -113,29 +113,6 @@ export default function FaqSection({ lang = "en" }) {
               </AccordionItem>
               <AccordionItem
                 className="border border-white/20 px-8 py-4 hover:border-primary"
-                value="item-4"
-              >
-                <AccordionTrigger>
-                  {lang === "en"
-                    ? "When is the TGE?"
-                    : lang === "ru"
-                      ? "Когда TGE?"
-                      : lang === "fr"
-                        ? "Quand est le TGE?"
-                        : "¿Cuándo es el TGE?"}
-                </AccordionTrigger>
-                <AccordionContent className="font-light text-gray2">
-                  {lang === "en"
-                    ? "The Token Generation Event (TGE) is scheduled for Q3 2024, though the date may be adjusted based on market conditions."
-                    : lang === "ru"
-                      ? "Token Generation Event (TGE) запланирован на 3 квартал 2024 года, хотя дата может быть скорректирована в зависимости от рыночных условий."
-                      : lang === "fr"
-                        ? "L'événement de génération de jetons (TGE) est prévu pour le troisième trimestre 2024, bien que la date puisse être ajustée en fonction des conditions du marché."
-                        : "El evento de generación de tokens (TGE) está programado para el tercer trimestre de 2024, aunque la fecha puede ajustarse en función de las condiciones del mercado."}
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem
-                className="border border-white/20 px-8 py-4 hover:border-primary"
                 value="item-5"
               >
                 <AccordionTrigger>
@@ -149,12 +126,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "The listing price is $0.06 per LNBG"
+                    ? "The listing price for LNBG on both CEXes and DEXes is set at 0.15 per LNBG."
                     : lang === "ru"
-                      ? "Цена листинга составляет $0.06 за LNBG"
+                      ? "Цена листинга LNBG как на CEXes, так и на DEXes установлена на уровне 0.15 за LNBG."
                       : lang === "fr"
-                        ? "Le prix de référence est de 0,06 $ par LNBG"
-                        : "El precio de listado es de $0.06 por LNBG"}
+                        ? "Le prix de référence de LNBG sur les CEXes et les DEXes est fixé à 0.15 par LNBG."
+                        : "El precio de listado de LNBG en CEXes y DEXes se establece en 0.15 por LNBG."}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
@@ -172,12 +149,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "After purchasing tokens, you will be able to check your balance by connecting your wallet on the website: https://lnbglondon.com/ . The tokens will appear in your wallet after the Token Generation Event (TGE) which is scheduled for Q3 2024."
+                    ? "After purchasing tokens, you will be able to check your balance by connecting your wallet on the website: https://lnbglondon.com/. The tokens will appear in your wallet immediately after purchase."
                     : lang === "ru"
-                      ? "После покупки токенов вы сможете проверить свой баланс, подключив кошелек на сайте: https://lnbglondon.com/ . Токены появятся в вашем кошельке после Token Generation Event (TGE), который запланирован на 3 квартал 2024 года."
+                      ? "После покупки токенов вы сможете проверить свой баланс, подключив свой кошелек на сайте: https://lnbglondon.com/. Токены появятся в вашем кошельке сразу после покупки."
                       : lang === "fr"
-                        ? "Après l'achat de jetons, vous pourrez vérifier votre solde en connectant votre portefeuille sur le site Web: https://lnbglondon.com/ . Les jetons apparaîtront dans votre portefeuille après l'événement de génération de jetons (TGE) prévu pour le troisième trimestre 2024."
-                        : "Después de comprar tokens, podrá verificar su saldo conectando su billetera en el sitio web: https://lnbglondon.com/ . Los tokens aparecerán en su billetera después del Token Generation Event (TGE), que está programado para el tercer trimestre de 2024."}
+                        ? "Après l'achat de jetons, vous pourrez vérifier votre solde en connectant votre portefeuille sur le site Web : https://lnbglondon.com/. Les jetons apparaîtront dans votre portefeuille immédiatement après l'achat."
+                        : "Después de comprar tokens, podrá verificar su saldo conectando su billetera en el sitio web: https://lnbglondon.com/. Los tokens aparecerán en su billetera inmediatamente después de la compra."}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
@@ -195,12 +172,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "The token will be listed on both centralized exchanges (CEXes) and decentralized exchanges (DEXes) following the Token Generation Event (TGE). The exact list of exchanges will be announced as the TGE date approaches."
+                    ? "Our token is gearing up for listing on both CEXes and DEXes. Stay informed by following us on Discord and Twitter for the latest announcements. Keep an eye out—exciting updates are coming soon"
                     : lang === "ru"
-                      ? "Токен будет добавлен как на централизованные биржи (CEXes), так и на децентрализованные биржи (DEXes) после Token Generation Event (TGE). Точный список бирж будет объявлен по мере приближения даты TGE."
+                      ? "Наш токен готовится к листингу как на CEXes, так и на DEXes. Будьте в курсе, следите за нами в Discord и Twitter для получения последних объявлений. Следите за новостями - скоро будут интересные обновления"
                       : lang === "fr"
-                        ? "Le jeton sera listé sur les bourses centralisées (CEXes) et décentralisées (DEXes) après l'événement de génération de jetons (TGE). La liste exacte des bourses sera annoncée à l'approche de la date du TGE."
-                        : "El token se listará tanto en intercambios centralizados (CEXes) como en intercambios descentralizados (DEXes) tras el Token Generation Event (TGE). La lista exacta de intercambios se anunciará a medida que se acerque la fecha del TGE."}
+                        ? "Notre jeton se prépare à être listé sur les CEXes et les DEXes. Restez informé en nous suivant sur Discord et Twitter pour les dernières annonces. Restez à l'écoute - des mises à jour passionnantes arrivent bientôt"
+                        : "Nuestro token se está preparando para ser listado en CEXes y DEXes. Manténgase informado siguiéndonos en Discord y Twitter para conocer las últimas novedades. Esté atento: pronto llegarán actualizaciones emocionantes"}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem

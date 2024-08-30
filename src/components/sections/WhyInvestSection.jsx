@@ -90,7 +90,7 @@ const WhyInvestSection = ({ lang = "en" }) => {
                             : "Precio en la cotización"}
                     </span>
                     <span className="font-sans text-3xl font-extrabold">
-                      $0.06
+                      $0.15
                     </span>
                   </div>
                 </div>

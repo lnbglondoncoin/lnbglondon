@@ -121,10 +121,10 @@ export default function BuySellFaqSection({ lang = "en" }) {
                   {lang === "en"
                     ? "How long does it take to buy crypto?"
                     : lang === "ru"
-                      ? "Когда TGE?"
+                      ? "Сколько стоит листинг?"
                       : lang === "fr"
-                        ? "Quand est le TGE?"
-                        : "¿Cuándo es el TGE?"}
+                        ? "Combien coûte le référencement?"
+                        : "¿Cuánto cuesta la lista?"}
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
