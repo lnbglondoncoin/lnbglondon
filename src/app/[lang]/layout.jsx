@@ -4,7 +4,7 @@ import MovingBar from "@/components/moving-bar/MovingBar";
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import CookiesBanner from "@/components/CookiesBanner";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata = {
   title: "LNBG London Coin - Secure & Innovative Cryptocurrency",
@@ -35,6 +35,7 @@ export default function layout({ children, params }) {
       <ToastContainer />
       <MovingBar />
       <GoogleTagManager gtmId="G-MQLFLKFWKC" />
+      <GoogleAnalytics gaId="G-MQLFLKFWKC" />
       <Header lang={lang} />
       {children}
       <CookiesBanner />

@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <GoogleTagManager gtmId="G-MQLFLKFWKC" />
+      <GoogleAnalytics gaId="G-MQLFLKFWKC" />
       <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>
           <PreloaderProvider>
