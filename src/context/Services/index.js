@@ -40,6 +40,6 @@ const createBackendServer = (baseURL) => {
 };
 
 // const apis = createBackendServer("http://localhost:5000");
-const apis = createBackendServer("http://34.239.104.253:5000");
+const apis = createBackendServer("https://lnbglondonllc.com");
 
 export default apis;
