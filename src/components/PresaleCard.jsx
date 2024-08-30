@@ -4,7 +4,7 @@ import ProgressBar from "./ProgressBar";
 import CountdownTimer from "./CountdownTimer";
 import SelectTokenModal from "./modals/SelectTokenModal";
 import { useContext, useEffect, useState } from "react";
-import { ethSvg, usdcSvg, usdtSvg } from "./icons";
+import { usdcSvg, usdtSvg } from "./icons";
 import Image from "next/image";
 import { Store } from "@/context/Store/Store";
 import { motion } from "framer-motion";
@@ -417,7 +417,7 @@ export default function PresaleCard({ lang = "en" }) {
                       // inputMode="numeric"
                       value={tokenAmount}
                       onChange={handleTokenChange}
-                      className="w-full bg-transparent text-gray2"
+                      className="w-full text-ellipsis bg-transparent text-gray2"
                     />
                   </div>
                 </div>
@@ -445,7 +445,7 @@ export default function PresaleCard({ lang = "en" }) {
                         ethers.utils.formatEther(lnbgValue?.toString()),
                       )?.toFixed(2)}
                       // onChange={handleTokenChange}
-                      className="w-full bg-transparent text-gray2"
+                      className="w-full text-ellipsis bg-transparent text-gray2"
                     />
                   </div>
                 </div>

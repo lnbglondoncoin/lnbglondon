@@ -410,7 +410,7 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                       // inputMode="numeric"
                       value={tokenAmount}
                       onChange={handleTokenChange}
-                      className="w-full bg-transparent text-gray2"
+                      className="w-full text-ellipsis bg-transparent text-gray2"
                     />
                   </div>
                 </div>
@@ -438,7 +438,7 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                         ethers.utils.formatEther(lnbgValue?.toString()),
                       )?.toFixed(2)}
                       // onChange={handleTokenChange}
-                      className="w-full bg-transparent text-gray2"
+                      className="w-full text-ellipsis bg-transparent text-gray2"
                     />
                   </div>
                 </div>
