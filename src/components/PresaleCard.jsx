@@ -307,7 +307,7 @@ export default function PresaleCard({ lang = "en" }) {
                       height={18}
                       alt="lnbg"
                     />
-                    <span className="text-2xl break-all">
+                    <span className="break-all text-2xl">
                       {/* {formatCurrency(Number(contractData?.lnbgBalance))} */}
                       {Number(+contractData?.lnbgBalance)?.toFixed(2)}
                     </span>
@@ -421,16 +421,16 @@ export default function PresaleCard({ lang = "en" }) {
                     />
                   </div>
                   {isClient && isConnected && (
-                    <div className="flex items-center gap-3 text-gray2">
+                    <div className="flex flex-wrap items-center gap-3 text-gray2">
                       <span className="text-sm">Balance:</span>
-                      <div className="w-fit rounded-full border border-gray2 px-3 font-sans text-xs italic">
+                      <div className="w-fit text-nowrap rounded-full border border-gray2 px-3 font-sans text-xs italic">
                         {Number(
                           selectedToken == "Binance"
                             ? contractData?.ethBalance
                             : selectedToken == "USDT"
                               ? contractData?.usdtBalance
                               : contractData?.usdcBalance,
-                        )?.toFixed(4)}{" "}
+                        )}{" "}
                         available
                       </div>
                       <button
