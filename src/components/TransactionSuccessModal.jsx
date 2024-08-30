@@ -23,9 +23,9 @@ export default function TransactionSuccessModal() {
           <CheckCheck size={52} />
         </div>
         <span className="text-center text-xl" onClick={handleLinkOpen}>Transaction Success</span>
-        <div className="mb-3 flex items-center gap-2 font-sans text-sm text-gray2" onClick={handleLinkOpen}>
+        <button className="mb-3 flex items-center gap-2 font-sans text-sm text-gray2" onClick={handleLinkOpen}>
           Transaction details <ChevronRight size={16} />
-        </div>
+        </button>
         <Button title="BUY MORE TOKENS" onClick={()=>setTransactionSuccess(false)} />
       </div>
     </div>
