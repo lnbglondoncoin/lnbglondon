@@ -1,6 +1,88 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import TokenModal from "./TokenModal";
+import CurrencyModal from "./CurrencyModal";
 
 const Converter = () => {
+  const [coinData, setCoinData] = useState([{ bitcoin: { usd: 0 } }]);
+  const [selectedCoin, setSelectedCoin] = useState("bitcoin");
+  const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [coinAmount, setCoinAmount] = useState(null);
+  const [currencyAmount, setCurrencyAmount] = useState(null);
+  const blinkVariants = {
+    hide: {
+      opacity: 0,
+      x: 0,
+    },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        opacity: {
+          duration: 2,
+          type: "tween",
+        },
+      },
+    },
+  };
+
+  const fetchExchangeRate = async () => {
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,cny,cad,eur,gbp`;
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await res.json();
+    setCoinData(data);
+  };
+
+  // If currencyAmount changes
+  const calculateCoinAmount = (amount) => {
+    const exchangeRate = coinData[selectedCoin][selectedCurrency];
+    setCoinAmount((amount / exchangeRate).toFixed(4));
+  };
+
+  // If coinAmount changes
+  const calculateCurrencyAmount = (amount) => {
+    const exchangeRate = coinData[selectedCoin][selectedCurrency];
+    setCurrencyAmount((amount * exchangeRate).toFixed(4));
+  };
+
+  useEffect(() => {
+    fetchExchangeRate();
+  }, []);
+
+  const handleCoinSelect = (coin) => {
+    setSelectedCoin(coin);
+  };
+
+  const handleCurrencySelect = (currency) => {
+    setSelectedCurrency(currency);
+  };
+
+  const handleCoinAmountChange = (e) => {
+    calculateCurrencyAmount(e.target.value);
+    setCoinAmount(e.target.value);
+  };
+
+  const handleCurrencyAmountChange = (e) => {
+    calculateCoinAmount(e.target.value);
+    setCurrencyAmount(e.target.value);
+  };
+
+  useEffect(() => {
+    if (coinAmount === null) return;
+    calculateCurrencyAmount(coinAmount);
+  }, [selectedCurrency]);
+
+  useEffect(() => {
+    if (currencyAmount === null) return;
+    calculateCurrencyAmount(coinAmount);
+  }, [selectedCoin]);
+
+  console.log("DATA", coinData);
   return (
     <div className="flex items-center justify-center px-5 py-20">
       <div className="grid w-full max-w-7xl grid-cols-1 gap-10 px-5 lg:grid-cols-2">
@@ -26,37 +108,33 @@ const Converter = () => {
           <span className="text-2xl tracking-tight text-white">
             31.92400000 LNBG COIN
           </span>
-          <div className="mt-5 flex justify-between text-black">
+          <div className="mt-5 grid grid-cols-2 gap-5 text-black">
             <input
               type="number"
               name="value1"
               id="value1"
-              className="h-12 w-[45%] rounded-md border border-lightgray px-5 bg-white"
+              value={coinAmount}
+              onChange={handleCoinAmountChange}
+              className="h-12 rounded-md border border-lightgray bg-white px-5"
             />
             <input
               type="number"
               name="value2"
               id="value2"
-              className="h-12 w-[45%] rounded-md border border-lightgray px-5 bg-white"
+              value={currencyAmount}
+              onChange={handleCurrencyAmountChange}
+              className="h-12 rounded-md border border-lightgray bg-white px-5"
             />
           </div>
-          <div className="mt-5 flex justify-between">
-            <button
-              type="number"
-              name="value1"
-              id="value1"
-              className="h-12 w-[45%] rounded-md bg-ash text-lightgray"
-            >
-                Select Coin
-            </button>
-            <button
-              type="number"
-              name="value1"
-              id="value1"
-              className="h-12 w-[45%] rounded-md bg-ash text-lightgray"
-            >
-                Select Coin
-            </button>
+          <div className="mt-5 grid grid-cols-2 gap-5">
+            <TokenModal
+              selectedToken={selectedCoin}
+              setSelectedToken={setSelectedCoin}
+            />
+            <CurrencyModal
+              selectedCurrency={selectedCurrency}
+              setSelectedCurrency={setSelectedCurrency}
+            />
           </div>
         </div>
       </div>

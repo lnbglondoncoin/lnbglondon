@@ -8,7 +8,7 @@ const CryptocurrenciesLayout = ({children}) => {
     <div className="flex flex-col gap-10">
         <CryptoMainBanner />
         {children}
-        {/* <Converter /> */}
+        <Converter />
         <InvestmentDetails />
     </div>
   )

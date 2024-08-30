@@ -27,7 +27,6 @@ export async function POST(req, res) {
       react: UserEmailTemplate({ name, selectedOption }),
     });
 
-    console.log("DATA", data.error === null, data2.error === null);
     if (data.error === null && data2.error === null) {
       return NextResponse.json({ message: "success" });
     }

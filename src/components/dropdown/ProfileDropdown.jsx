@@ -44,9 +44,7 @@ export default function ProfileDropdown() {
     const main = async () => {
       try {
         if (isConnected) {
-          console.log("Testttttttttttttttttttttt2222");
           let data = await apis.getOneUser(address);
-          console.log(data, "useSDataaaaa");
           setUserDatabaseData(data?.data?.user);
         }
       } catch (error) {

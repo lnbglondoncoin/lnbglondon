@@ -375,7 +375,7 @@ export default function PresaleCard({ lang = "en" }) {
           ) : (
             <div className="flex w-full flex-col gap-3">
               <div className="grid w-full gap-y-5 px-1 text-sm text-gray2 sm:grid-cols-2">
-                <div className="flex flex-col gap-3">
+                <div className="col-span-2 flex flex-col gap-3 sm:col-span-1">
                   <div className="flex items-center gap-2">
                     <span>
                       {lang === "en"
@@ -420,29 +420,8 @@ export default function PresaleCard({ lang = "en" }) {
                       className="w-full bg-transparent text-gray2"
                     />
                   </div>
-                  {isClient && isConnected && (
-                    <div className="flex flex-wrap items-center gap-3 text-gray2">
-                      <span className="text-sm">Balance:</span>
-                      <div className="w-fit text-nowrap rounded-full border border-gray2 px-3 font-sans text-xs italic">
-                        {Number(
-                          selectedToken == "Binance"
-                            ? contractData?.ethBalance
-                            : selectedToken == "USDT"
-                              ? contractData?.usdtBalance
-                              : contractData?.usdcBalance,
-                        )}{" "}
-                        available
-                      </div>
-                      <button
-                        onClick={() => handleUseMaxBalance()}
-                        className="flex h-[18px] w-fit  items-center justify-center text-nowrap rounded-full bg-red-500 px-1.5 pb-0.5 font-sans text-[12px] text-white"
-                      >
-                        use max
-                      </button>
-                    </div>
-                  )}
                 </div>
-                <div className="flex flex-col gap-3">
+                <div className="col-span-2 flex flex-col gap-3 sm:col-span-1">
                   <span>
                     {lang === "en"
                       ? "You receive:"
@@ -470,6 +449,27 @@ export default function PresaleCard({ lang = "en" }) {
                     />
                   </div>
                 </div>
+                {isClient && isConnected && (
+                  <div className="col-span-2 flex w-full flex-wrap items-center gap-3 text-gray2">
+                    <span className="text-sm">Balance:</span>
+                    <div className="w-fit text-nowrap rounded-full border border-gray2 px-3 font-sans text-xs italic">
+                      {Number(
+                        selectedToken == "Binance"
+                          ? contractData?.ethBalance
+                          : selectedToken == "USDT"
+                            ? contractData?.usdtBalance
+                            : contractData?.usdcBalance,
+                      ).toFixed(4)}{" "}
+                      available
+                    </div>
+                    <button
+                      onClick={() => handleUseMaxBalance()}
+                      className="flex h-[18px] w-fit  items-center justify-center text-nowrap rounded-full bg-red-500 px-1.5 pb-0.5 font-sans text-[12px] text-white"
+                    >
+                      use max
+                    </button>
+                  </div>
+                )}
               </div>
               <div className="grid w-full px-1 sm:grid-cols-2">
                 <span className="text-sm font-semibold">

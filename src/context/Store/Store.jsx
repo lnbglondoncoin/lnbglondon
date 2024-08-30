@@ -184,7 +184,6 @@ export const StoreProvider = ({ children }) => {
       setloader(false);
     } catch (error) {
       setloader(false);
-      console.log("Fourth");
       console.log(error);
       setloader(false);
       // toast.error(`${JSON.stringify(error.reason)}`);

@@ -37,7 +37,6 @@ const getData = async () => {
 
 const TokensTable = async () => {
   const data = await getData();
-  console.log("DATA", data);
 
   return (
     <div className="my-5 flex flex-col items-center justify-center gap-y-5 px-10">
