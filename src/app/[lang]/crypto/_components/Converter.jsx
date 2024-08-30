@@ -104,9 +104,9 @@ const Converter = () => {
           </Link>
         </div>
         <div className="flex flex-col rounded-3xl bg-primary bg-[url(/static/bgs/bg-convert.png)] bg-center bg-no-repeat px-16 py-24">
-          <span className="tracking-tight text-black">1 Bitcoin equals</span>
+          <span className="tracking-tight text-black">1 LNBG equals</span>
           <span className="text-2xl tracking-tight text-white">
-            31.92400000 LNBG COIN
+            0.03$
           </span>
           <div className="mt-5 grid grid-cols-2 gap-5 text-black">
             <input
