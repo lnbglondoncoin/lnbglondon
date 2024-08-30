@@ -113,29 +113,6 @@ export default function FaqSection({ lang = "en" }) {
               </AccordionItem>
               <AccordionItem
                 className="border border-white/20 px-8 py-4 hover:border-primary"
-                value="item-4"
-              >
-                <AccordionTrigger>
-                  {lang === "en"
-                    ? "When is the TGE?"
-                    : lang === "ru"
-                      ? "Когда TGE?"
-                      : lang === "fr"
-                        ? "Quand est le TGE?"
-                        : "¿Cuándo es el TGE?"}
-                </AccordionTrigger>
-                <AccordionContent className="font-light text-gray2">
-                  {lang === "en"
-                    ? "The Token Generation Event (TGE) is scheduled for Q3 2024, though the date may be adjusted based on market conditions."
-                    : lang === "ru"
-                      ? "Token Generation Event (TGE) запланирован на 3 квартал 2024 года, хотя дата может быть скорректирована в зависимости от рыночных условий."
-                      : lang === "fr"
-                        ? "L'événement de génération de jetons (TGE) est prévu pour le troisième trimestre 2024, bien que la date puisse être ajustée en fonction des conditions du marché."
-                        : "El evento de generación de tokens (TGE) está programado para el tercer trimestre de 2024, aunque la fecha puede ajustarse en función de las condiciones del mercado."}
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem
-                className="border border-white/20 px-8 py-4 hover:border-primary"
                 value="item-5"
               >
                 <AccordionTrigger>
@@ -172,12 +149,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "After purchasing tokens, you will be able to check your balance by connecting your wallet on the website: https://lnbglondon.com/ . The tokens will appear in your wallet after the Token Generation Event (TGE) which is scheduled for Q3 2024."
+                    ? "After purchasing tokens, you will be able to check your balance by connecting your wallet on the website: https://lnbglondon.com/. The tokens will appear in your wallet immediately after purchase."
                     : lang === "ru"
-                      ? "После покупки токенов вы сможете проверить свой баланс, подключив кошелек на сайте: https://lnbglondon.com/ . Токены появятся в вашем кошельке после Token Generation Event (TGE), который запланирован на 3 квартал 2024 года."
+                      ? "После покупки токенов вы сможете проверить свой баланс, подключив свой кошелек на сайте: https://lnbglondon.com/. Токены появятся в вашем кошельке сразу после покупки."
                       : lang === "fr"
-                        ? "Après l'achat de jetons, vous pourrez vérifier votre solde en connectant votre portefeuille sur le site Web: https://lnbglondon.com/ . Les jetons apparaîtront dans votre portefeuille après l'événement de génération de jetons (TGE) prévu pour le troisième trimestre 2024."
-                        : "Después de comprar tokens, podrá verificar su saldo conectando su billetera en el sitio web: https://lnbglondon.com/ . Los tokens aparecerán en su billetera después del Token Generation Event (TGE), que está programado para el tercer trimestre de 2024."}
+                        ? "Après l'achat de jetons, vous pourrez vérifier votre solde en connectant votre portefeuille sur le site Web : https://lnbglondon.com/. Les jetons apparaîtront dans votre portefeuille immédiatement après l'achat."
+                        : "Después de comprar tokens, podrá verificar su saldo conectando su billetera en el sitio web: https://lnbglondon.com/. Los tokens aparecerán en su billetera inmediatamente después de la compra."}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
