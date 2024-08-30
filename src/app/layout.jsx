@@ -4,7 +4,7 @@ import { StoreProvider } from "@/context/Store/Store";
 import { Web3Modal } from "@/context/Web3Modal";
 import "react-toastify/dist/ReactToastify.css";
 import PreloaderProvider from "./PreloaderProvider";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const unbounded = Unbounded({ subsets: ["latin"] });
 
