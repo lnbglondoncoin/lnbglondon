@@ -126,12 +126,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "The listing price is $0.06 per LNBG"
+                    ? "The listing price for LNBG on both CEXes and DEXes is set at 0.15 per LNBG."
                     : lang === "ru"
-                      ? "Цена листинга составляет $0.06 за LNBG"
+                      ? "Цена листинга LNBG как на CEXes, так и на DEXes установлена на уровне 0.15 за LNBG."
                       : lang === "fr"
-                        ? "Le prix de référence est de 0,06 $ par LNBG"
-                        : "El precio de listado es de $0.06 por LNBG"}
+                        ? "Le prix de référence de LNBG sur les CEXes et les DEXes est fixé à 0.15 par LNBG."
+                        : "El precio de listado de LNBG en CEXes y DEXes se establece en 0.15 por LNBG."}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
@@ -172,12 +172,12 @@ export default function FaqSection({ lang = "en" }) {
                 </AccordionTrigger>
                 <AccordionContent className="font-light text-gray2">
                   {lang === "en"
-                    ? "The token will be listed on both centralized exchanges (CEXes) and decentralized exchanges (DEXes) following the Token Generation Event (TGE). The exact list of exchanges will be announced as the TGE date approaches."
+                    ? "Our token is gearing up for listing on both CEXes and DEXes. Stay informed by following us on Discord and Twitter for the latest announcements. Keep an eye out—exciting updates are coming soon"
                     : lang === "ru"
-                      ? "Токен будет добавлен как на централизованные биржи (CEXes), так и на децентрализованные биржи (DEXes) после Token Generation Event (TGE). Точный список бирж будет объявлен по мере приближения даты TGE."
+                      ? "Наш токен готовится к листингу как на CEXes, так и на DEXes. Будьте в курсе, следите за нами в Discord и Twitter для получения последних объявлений. Следите за новостями - скоро будут интересные обновления"
                       : lang === "fr"
-                        ? "Le jeton sera listé sur les bourses centralisées (CEXes) et décentralisées (DEXes) après l'événement de génération de jetons (TGE). La liste exacte des bourses sera annoncée à l'approche de la date du TGE."
-                        : "El token se listará tanto en intercambios centralizados (CEXes) como en intercambios descentralizados (DEXes) tras el Token Generation Event (TGE). La lista exacta de intercambios se anunciará a medida que se acerque la fecha del TGE."}
+                        ? "Notre jeton se prépare à être listé sur les CEXes et les DEXes. Restez informé en nous suivant sur Discord et Twitter pour les dernières annonces. Restez à l'écoute - des mises à jour passionnantes arrivent bientôt"
+                        : "Nuestro token se está preparando para ser listado en CEXes y DEXes. Manténgase informado siguiéndonos en Discord y Twitter para conocer las últimas novedades. Esté atento: pronto llegarán actualizaciones emocionantes"}
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem
