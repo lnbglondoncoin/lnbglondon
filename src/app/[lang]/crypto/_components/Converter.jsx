@@ -31,6 +31,7 @@ const Converter = ({ bitcoinPrice = 59000 }) => {
   const fetchExchangeRate = async () => {
     const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,cardano,terra-luna,polkadot&vs_currencies=usd,cny,cad,eur,gbp`;
     const res = await fetch(url);
+    console.log("DATA", res);
     if (!res.ok) {
       throw new Error("Network response was not ok");
     }
@@ -106,7 +107,7 @@ const Converter = ({ bitcoinPrice = 59000 }) => {
         <div className="flex flex-col rounded-3xl bg-primary bg-[url(/static/bgs/bg-convert.png)] bg-center bg-no-repeat px-16 py-24">
           <span className="tracking-tight text-black">1 Bitcoin equals</span>
           <span className="text-2xl tracking-tight text-white">
-            {(bitcoinPrice/0.03).toFixed(2)} LNBG
+            {(bitcoinPrice / 0.03).toFixed(2)} LNBG
           </span>
           <div className="mt-5 grid grid-cols-2 gap-5 text-black">
             <input

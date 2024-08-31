@@ -32,7 +32,17 @@ export default function CurrencyModal({
           id="value1"
           className="h-12 w-full rounded-md bg-ash text-lightgray"
         >
-          {antiSlug(selectedCurrency)}
+          {selectedCurrency == "usd"
+            ? "$ USD"
+            : selectedCurrency == "cny"
+              ? "¥ CNY"
+              : selectedCurrency == "cad"
+                ? "$ CAD"
+                : selectedCurrency == "eur"
+                  ? "€ EURO"
+                  : selectedCurrency == "gbp"
+                    ? "£ GBP"
+                    : "$ USD"}
         </button>
       </DialogTrigger>
       <DialogContent className="border-none bg-coal">
@@ -51,7 +61,7 @@ export default function CurrencyModal({
                 setIsOpen(false);
               }}
             >
-              USD
+              $ USD
             </button>
             <button
               className={cn(
@@ -65,7 +75,7 @@ export default function CurrencyModal({
                 setIsOpen(false);
               }}
             >
-              CNY
+              ¥ CNY
             </button>
             <button
               className={cn(
@@ -79,7 +89,7 @@ export default function CurrencyModal({
                 setIsOpen(false);
               }}
             >
-              CAD
+              $ CAD
             </button>
             <button
               className={cn(
@@ -93,7 +103,7 @@ export default function CurrencyModal({
                 setIsOpen(false);
               }}
             >
-              EURO
+              € EURO
             </button>
             <button
               className={cn(
@@ -107,7 +117,7 @@ export default function CurrencyModal({
                 setIsOpen(false);
               }}
             >
-              GDP
+              £ GBP
             </button>
           </div>
         </DialogHeader>
