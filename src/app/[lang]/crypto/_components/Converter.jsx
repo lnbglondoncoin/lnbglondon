@@ -97,12 +97,6 @@ const Converter = ({ bitcoinPrice = 59000 }) => {
             between your local currency and crypto. More than 40
             cryptocurrencies are available.
           </span>
-          <Link
-            className="w-fit border-b border-transparent text-lg font-bold transition-all duration-75 ease-in-out hover:border-primary hover:text-primary"
-            href="/coin-market"
-          >
-            Go to Coin Market {">"}
-          </Link>
         </div>
         <div className="flex flex-col rounded-3xl bg-primary bg-[url(/static/bgs/bg-convert.png)] bg-center bg-no-repeat px-16 py-24">
           <span className="tracking-tight text-black">1 Bitcoin equals</span>
