@@ -367,14 +367,6 @@ export const StoreProvider = ({ children }) => {
         const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
         setTransactionHash(bnbLink);
         setTransactionSuccess(true);
-        sendGAEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
-        sendGTMEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
       } else {
         let tokenApprove = await USDCContracts.approve(
           lnbgPresaleContractAddress.address,
@@ -389,14 +381,6 @@ export const StoreProvider = ({ children }) => {
         const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
         setTransactionHash(bnbLink);
         setTransactionSuccess(true);
-        sendGAEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
-        sendGTMEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
       }
 
       await GetValues();
@@ -666,14 +650,6 @@ export const StoreProvider = ({ children }) => {
         const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
         setTransactionHash(ethLink);
         setTransactionSuccess(true);
-        sendGAEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
-        sendGTMEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
       } else {
         console.log("check2");
         let allowance = await USDCContracts.allowance(
@@ -699,14 +675,6 @@ export const StoreProvider = ({ children }) => {
         const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
         setTransactionHash(ethLink);
         setTransactionSuccess(true);
-        sendGAEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
-        sendGTMEvent("event", "purchased", {
-          event_category: "purchased",
-          transaction_hash: transactionHash,
-        });
       }
 
       await GetBridgeValues();

@@ -42,6 +42,7 @@ export default function PresaleCard({ lang = "en" }) {
     presaleStart,
     presaleStop,
     userDatabaseData,
+    transactionHash,
   } = useContext(Store);
 
   // --------------For hydration error-------------------

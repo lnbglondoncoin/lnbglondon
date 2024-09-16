@@ -37,11 +37,11 @@ export default function PresaleCardEthereum({ lang = "en" }) {
     addTokenToMetamask,
     networkChange,
     userDatabaseData,
-
     getProviderBridgePresale,
     GetBridgeValues,
     BuyWithUSDTandUSDCOnEthereum,
     BuyWithETHOnEthereum,
+    transactionHash,
   } = useContext(Store);
 
   // --------------For hydration error-------------------
