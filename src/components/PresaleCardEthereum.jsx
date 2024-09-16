@@ -516,6 +516,11 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                             lnbgValue?.toString(),
                             tokenAmount,
                           );
+                      sendGTMEvent("event", "buy", {
+                        event_category: "buy",
+                        event_label: "buy",
+                        value: tokenAmount,
+                      });
                     }}
                   >
                     {buttonText}
@@ -539,13 +544,18 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                     disabled={loader || buttonText === "Insufficient Balance"}
-                    onClick={() =>
+                    onClick={() => {
                       BuyWithUSDTandUSDCOnEthereum(
                         tokenAmount,
                         lnbgValue?.toString(),
                         false,
-                      )
-                    }
+                      );
+                      sendGTMEvent("event", "buy", {
+                        event_category: "buy",
+                        event_label: "buy",
+                        value: tokenAmount,
+                      });
+                    }}
                   >
                     {buttonText}
                   </button>
@@ -568,13 +578,18 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                   <button
                     className="mt-10 w-full rounded-xl bg-primary py-3 font-bold text-black"
                     disabled={loader || buttonText === "Insufficient Balance"}
-                    onClick={() =>
+                    onClick={() => {
                       BuyWithUSDTandUSDCOnEthereum(
                         tokenAmount,
                         lnbgValue?.toString(),
                         true,
-                      )
-                    }
+                      );
+                      sendGTMEvent("event", "buy", {
+                        event_category: "buy",
+                        event_label: "buy",
+                        value: tokenAmount,
+                      });
+                    }}
                   >
                     {buttonText}
                   </button>
