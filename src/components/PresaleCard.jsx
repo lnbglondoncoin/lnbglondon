@@ -521,9 +521,9 @@ export default function PresaleCard({ lang = "en" }) {
                       buttonText === "Insufficient Balance"
                         ? ""
                         : BuyWithETH(lnbgValue?.toString(), tokenAmount);
-                      sendGTMEvent("event", "buy", {
-                        event_category: "buy",
-                        event_label: "buy",
+                      sendGTMEvent("event", "custom-purchase", {
+                        event_category: "custom-purchase",
+                        event_label: "custom-purchase",
                         value: tokenAmount,
                       });
                     }}
@@ -555,9 +555,9 @@ export default function PresaleCard({ lang = "en" }) {
                         lnbgValue?.toString(),
                         false,
                       );
-                      sendGTMEvent("event", "buy", {
-                        event_category: "buy",
-                        event_label: "buy",
+                      sendGTMEvent("event", "custom-purchase", {
+                        event_category: "custom-purchase",
+                        event_label: "custom-purchase",
                         value: tokenAmount,
                       });
                     }}
@@ -589,9 +589,9 @@ export default function PresaleCard({ lang = "en" }) {
                         lnbgValue?.toString(),
                         true,
                       );
-                      sendGTMEvent("event", "buy", {
-                        event_category: "buy",
-                        event_label: "buy",
+                      sendGTMEvent("event", "custom-purchase", {
+                        event_category: "custom-purchase",
+                        event_label: "custom-purchase",
                         value: tokenAmount,
                       });
                     }}
