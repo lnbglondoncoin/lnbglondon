@@ -23,6 +23,7 @@ import { Skeleton } from "./ui/skeleton";
 import { cn } from "@/lib/utils";
 import TransactionSuccessModal from "./TransactionSuccessModal";
 import { formatCurrency, formatNumber } from "@/utils/formatters";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 
 export default function PresaleCardEthereum({ lang = "en" }) {
   const {
@@ -186,6 +187,21 @@ export default function PresaleCardEthereum({ lang = "en" }) {
   };
 
   console.log(contractData, "contractDatacontractData");
+
+  const [gtmEventSent, setGtmEventSent] = useState(false);
+  useEffect(() => {
+    if (transactionSuccess && !gtmEventSent) {
+      sendGAEvent("event", "purchased", {
+        event_category: "purchased",
+        transaction_hash: transactionHash,
+      });
+      sendGTMEvent("event", "purchased", {
+        event_category: "purchased",
+        transaction_hash: transactionHash,
+      });
+      setGtmEventSent(true);
+    }
+  }, [transactionSuccess]);
   return (
     <>
       {transactionSuccess && <TransactionSuccessModal />}

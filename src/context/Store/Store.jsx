@@ -444,14 +444,6 @@ export const StoreProvider = ({ children }) => {
       const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
       setTransactionHash(bnbLink);
       setTransactionSuccess(true);
-      sendGAEvent("event", "purchased", {
-        event_category: "purchased",
-        transaction_hash: transactionHash,
-      });
-      sendGTMEvent("event", "purchased", {
-        event_category: "purchased",
-        transaction_hash: transactionHash,
-      });
       await GetValues();
       setPurchaseLoader(false);
     } catch (error) {
@@ -764,14 +756,6 @@ export const StoreProvider = ({ children }) => {
       const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
       setTransactionHash(ethLink);
       setTransactionSuccess(true);
-      sendGAEvent("event", "purchased", {
-        event_category: "purchased",
-        transaction_hash: transactionHash,
-      });
-      sendGTMEvent("event", "purchased", {
-        event_category: "purchased",
-        transaction_hash: transactionHash,
-      });
       await GetBridgeValues();
       setPurchaseLoader(false);
     } catch (error) {
