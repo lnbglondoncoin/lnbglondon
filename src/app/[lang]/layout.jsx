@@ -34,7 +34,7 @@ export default function layout({ children, params }) {
     <>
       <ToastContainer />
       <MovingBar />
-      <GoogleTagManager gtmId="G-MQLFLKFWKC" />
+      <GoogleTagManager gtmId="GTM-P9G2K2XD" />
       <GoogleAnalytics gaId="G-MQLFLKFWKC" />
       <Header lang={lang} />
       {children}

@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="G-MQLFLKFWKC" />
+      <GoogleTagManager gtmId="GTM-P9G2K2XD" />
       <GoogleAnalytics gaId="G-MQLFLKFWKC" />
       <body className={`bg-coal ${unbounded.className}`}>
         <Web3Modal>

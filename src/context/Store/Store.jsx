@@ -371,10 +371,10 @@ export const StoreProvider = ({ children }) => {
           event_category: "purchased",
           transaction_hash: transactionHash,
         });
-        // sendGTMEvent("event", "purchased", {
-        //   event_category: "purchased",
-        //   transaction_hash: transactionHash,
-        // });
+        sendGTMEvent("event", "purchased", {
+          event_category: "purchased",
+          transaction_hash: transactionHash,
+        });
       } else {
         let tokenApprove = await USDCContracts.approve(
           lnbgPresaleContractAddress.address,
@@ -393,10 +393,10 @@ export const StoreProvider = ({ children }) => {
           event_category: "purchased",
           transaction_hash: transactionHash,
         });
-        // sendGTMEvent("event", "purchased", {
-        //   event_category: "purchased",
-        //   transaction_hash: transactionHash,
-        // });
+        sendGTMEvent("event", "purchased", {
+          event_category: "purchased",
+          transaction_hash: transactionHash,
+        });
       }
 
       await GetValues();
@@ -678,10 +678,10 @@ export const StoreProvider = ({ children }) => {
           event_category: "purchased",
           transaction_hash: transactionHash,
         });
-        // sendGTMEvent("event", "purchased", {
-        //   event_category: "purchased",
-        //   transaction_hash: transactionHash,
-        // });
+        sendGTMEvent("event", "purchased", {
+          event_category: "purchased",
+          transaction_hash: transactionHash,
+        });
       } else {
         console.log("check2");
         let allowance = await USDCContracts.allowance(
@@ -711,10 +711,10 @@ export const StoreProvider = ({ children }) => {
           event_category: "purchased",
           transaction_hash: transactionHash,
         });
-        // sendGTMEvent("event", "purchased", {
-        //   event_category: "purchased",
-        //   transaction_hash: transactionHash,
-        // });
+        sendGTMEvent("event", "purchased", {
+          event_category: "purchased",
+          transaction_hash: transactionHash,
+        });
       }
 
       await GetBridgeValues();
