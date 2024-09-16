@@ -367,7 +367,7 @@ export const StoreProvider = ({ children }) => {
         const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
         setTransactionHash(bnbLink);
         setTransactionSuccess(true);
-        sendGAEvent("event", "purchased", {›
+        sendGAEvent("event", "purchased", {
           event_category: "purchased",
           transaction_hash: transactionHash,
         });
