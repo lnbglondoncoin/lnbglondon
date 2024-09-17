@@ -249,10 +249,10 @@ export default function PresaleCard({ lang = "en" }) {
                 <Skeleton className="h-6 w-[250px] max-w-full" />
               ) : (
                 <>
-                  <span className="text-3xl text-primary">
+                  <span className="text-xl text-primary sm:text-3xl">
                     ${roundOff(contractData?.raisedAmount)}
                   </span>
-                  <span className="pb-1 text-lg font-normal text-gray2">
+                  <span className="font-normal text-gray2 sm:pb-1 sm:text-lg">
                     / $300,000
                   </span>
                 </>
