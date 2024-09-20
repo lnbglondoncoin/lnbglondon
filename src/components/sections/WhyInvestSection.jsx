@@ -54,7 +54,7 @@ const WhyInvestSection = ({ lang = "en" }) => {
             >
               <div className="static z-10 flex h-full min-h-[320px] flex-col gap-4 px-8 py-4">
                 <p className="w-fit rounded-sm bg-primary px-1 font-sans text-xl text-black">
-                  <span className="font-bold">+100%</span>{" "}
+                  <span className="font-bold">+500%</span>{" "}
                   {lang === "en"
                     ? "in 2 months"
                     : lang === "ru"
