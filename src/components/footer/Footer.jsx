@@ -37,7 +37,7 @@ const Footer = ({ lang = "en" }) => {
               </Link>
               <Link
                 className="hover:text-primary"
-                href="https://lnbglondon.com"
+                href="https://t.me/lnglondon"
               >
                 {telegramIcon}
               </Link>

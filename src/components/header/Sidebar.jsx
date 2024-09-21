@@ -161,7 +161,7 @@ export default function Sidebar({
                 </Link>
                 <Link
                   className="hover:text-primary"
-                  href="https://lnbglondon.com"
+                  href="https://t.me/lnglondon"
                 >
                   {telegramIcon}
                 </Link>
