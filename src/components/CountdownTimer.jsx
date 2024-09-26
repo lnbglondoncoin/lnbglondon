@@ -48,7 +48,7 @@ const CountdownTimer = ({ lang = "en" }) => {
   };
 
   const getDeadTime = () => {
-    let deadline = new Date("2024-09-30T00:00:00Z");
+    let deadline = new Date("2024-10-16T00:00:00Z");
 
     return deadline;
   };

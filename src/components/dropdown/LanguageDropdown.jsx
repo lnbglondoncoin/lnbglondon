@@ -1,16 +1,6 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { RussianRuble } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { franceFlag, russiaFlag } from "../icons";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -49,11 +39,11 @@ export default function LanguageDropdown({
         {showFlag && (
           <Image
             src={
-              selectedLang === "RU"
+              selectedLang === "ru"
                 ? "/static/flags/russia.svg"
-                : selectedLang === "FR"
+                : selectedLang === "fr"
                   ? "/static/flags/france.svg"
-                  : selectedLang === "EN"
+                  : selectedLang === "en"
                     ? "/static/flags/us.svg"
                     : "/static/flags/spain.svg"
             }
@@ -67,7 +57,7 @@ export default function LanguageDropdown({
       {isOpen && (
         <div className="absolute right-0 py-2 top-8 flex w-[100px] flex-col gap-1 overflow-hidden rounded-md bg-coal font-sans">
           <button
-            onClick={() => handleSelect("RU")}
+            onClick={() => handleSelect("ru")}
             className="flex items-center gap-2 px-2 py-1 hover:bg-gray2/50 text-sm font-light"
           >
             <Image
@@ -79,7 +69,7 @@ export default function LanguageDropdown({
             RU
           </button>
           <button
-            onClick={() => handleSelect("FR")}
+            onClick={() => handleSelect("fr")}
             className="flex items-center gap-2 px-2 py-1 hover:bg-gray2/50 text-sm font-light"
           >
             <Image
@@ -91,14 +81,14 @@ export default function LanguageDropdown({
             FR
           </button>
           <button
-            onClick={() => handleSelect("EN")}
+            onClick={() => handleSelect("en")}
             className="flex items-center gap-2 px-2 py-1 hover:bg-gray2/50 text-sm font-light"
           >
             <Image src="/static/flags/us.svg" width={20} height={20} alt="us" />
             EN
           </button>
           <button
-            onClick={() => handleSelect("ES")}
+            onClick={() => handleSelect("es")}
             className="flex items-center gap-2 px-2 py-1 hover:bg-gray2/50 text-sm font-light"
           >
             <Image
