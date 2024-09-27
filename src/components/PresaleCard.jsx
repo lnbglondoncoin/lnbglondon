@@ -193,10 +193,12 @@ export default function PresaleCard({ lang = "en" }) {
       sendGAEvent("event", "purchased", {
         event_category: "purchased",
         transaction_hash: transactionHash,
+        amount: tokenAmount,
       });
       sendGTMEvent("event", "purchased", {
         event_category: "purchased",
         transaction_hash: transactionHash,
+        amount: tokenAmount,
       });
       setGtmEventSent(true);
     }
