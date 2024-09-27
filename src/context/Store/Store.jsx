@@ -80,6 +80,7 @@ export const StoreProvider = ({ children }) => {
   // TRANSACTION SUCCESS DIALOGUE BOX
   const [transactionSuccess, setTransactionSuccess] = useState(false);
   const [transactionHash, setTransactionHash] = useState("");
+  const [transactionHashID, setTransactionHashID] = useState("");
 
   const [contractData, setContractData] = useState({
     ethBalance: 0,
@@ -365,6 +366,7 @@ export const StoreProvider = ({ children }) => {
         const buying = await presaleContract.buyWithUSDT(tokens, isUSDT);
         buying.wait();
         const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+        setTransactionHashID(buying?.hash);
         setTransactionHash(bnbLink);
         setTransactionSuccess(true);
       } else {
@@ -379,6 +381,7 @@ export const StoreProvider = ({ children }) => {
         buying.wait();
 
         const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+        setTransactionHashID(buying?.hash);
         setTransactionHash(bnbLink);
         setTransactionSuccess(true);
       }
@@ -426,6 +429,7 @@ export const StoreProvider = ({ children }) => {
       });
       buying.wait();
       const bnbLink = `https://bscscan.com/tx/${buying?.hash}`;
+      setTransactionHashID(buying?.hash);
       setTransactionHash(bnbLink);
       setTransactionSuccess(true);
       await GetValues();
@@ -648,6 +652,7 @@ export const StoreProvider = ({ children }) => {
         );
         buying.wait();
         const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+        setTransactionHashID(buying?.hash);
         setTransactionHash(ethLink);
         setTransactionSuccess(true);
       } else {
@@ -673,6 +678,7 @@ export const StoreProvider = ({ children }) => {
         );
         buying.wait();
         const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+        setTransactionHashID(buying?.hash);
         setTransactionHash(ethLink);
         setTransactionSuccess(true);
       }
@@ -722,6 +728,7 @@ export const StoreProvider = ({ children }) => {
       );
       buying.wait();
       const ethLink = `https://etherscan.io/tx/${buying?.hash}`;
+      setTransactionHashID(buying?.hash);
       setTransactionHash(ethLink);
       setTransactionSuccess(true);
       await GetBridgeValues();
@@ -752,6 +759,7 @@ export const StoreProvider = ({ children }) => {
           copyToClipboardAddress,
           contractData,
           transactionHash,
+          transactionHashID,
           addTokenToMetamask,
           copyToClipboard,
           copyToClipboardReferral,

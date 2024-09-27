@@ -42,6 +42,7 @@ export default function PresaleCardEthereum({ lang = "en" }) {
     BuyWithUSDTandUSDCOnEthereum,
     BuyWithETHOnEthereum,
     transactionHash,
+    transactionHashID,
   } = useContext(Store);
 
   // --------------For hydration error-------------------
@@ -193,13 +194,13 @@ export default function PresaleCardEthereum({ lang = "en" }) {
     if (transactionSuccess && !gtmEventSent) {
       sendGAEvent("event", "purchased", {
         event_category: "purchased",
-        transaction_hash: transactionHash,
-        amount: tokenAmount,
+        transaction_hash: transactionHashID,
+        amount: formatCurrency(Number(ethValue)?.toFixed(2)),
       });
       sendGTMEvent("event", "purchased", {
         event_category: "purchased",
-        transaction_hash: transactionHash,
-        amount: tokenAmount,
+        transaction_hash: transactionHashID,
+        amount: formatCurrency(Number(ethValue)?.toFixed(2)),
       });
       setGtmEventSent(true);
     }
@@ -518,11 +519,6 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                             lnbgValue?.toString(),
                             tokenAmount,
                           );
-                      sendGTMEvent("event", "custom-purchase", {
-                        event_category: "custom-purchase",
-                        event_label: "custom-purchase",
-                        value: tokenAmount,
-                      });
                     }}
                   >
                     {buttonText}
@@ -552,11 +548,6 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                         lnbgValue?.toString(),
                         false,
                       );
-                      sendGTMEvent("event", "custom-purchase", {
-                        event_category: "custom-purchase",
-                        event_label: "custom-purchase",
-                        value: tokenAmount,
-                      });
                     }}
                   >
                     {buttonText}
@@ -586,11 +577,6 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                         lnbgValue?.toString(),
                         true,
                       );
-                      sendGTMEvent("event", "custom-purchase", {
-                        event_category: "custom-purchase",
-                        event_label: "custom-purchase",
-                        value: tokenAmount,
-                      });
                     }}
                   >
                     {buttonText}

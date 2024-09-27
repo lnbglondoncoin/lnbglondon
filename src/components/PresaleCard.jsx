@@ -43,6 +43,7 @@ export default function PresaleCard({ lang = "en" }) {
     presaleStop,
     userDatabaseData,
     transactionHash,
+    transactionHashID,
   } = useContext(Store);
 
   // --------------For hydration error-------------------
@@ -192,13 +193,13 @@ export default function PresaleCard({ lang = "en" }) {
     if (transactionSuccess && !gtmEventSent) {
       sendGAEvent("event", "purchased", {
         event_category: "purchased",
-        transaction_hash: transactionHash,
-        amount: tokenAmount,
+        transaction_hash: transactionHashID,
+        amount: formatCurrency(Number(bnbValue)?.toFixed(2)),
       });
       sendGTMEvent("event", "purchased", {
         event_category: "purchased",
-        transaction_hash: transactionHash,
-        amount: tokenAmount,
+        transaction_hash: transactionHashID,
+        amount: formatCurrency(Number(bnbValue)?.toFixed(2)),
       });
       setGtmEventSent(true);
     }
