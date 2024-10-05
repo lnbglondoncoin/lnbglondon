@@ -15,7 +15,7 @@ import {
 } from "@web3modal/ethers5/react";
 import { ethers } from "ethers";
 import React from "react";
-import { Copy, CopyIcon } from "lucide-react";
+import { ActivitySquare, Circle, Copy, CopyIcon } from "lucide-react";
 import Link from "next/link";
 import lnbgAddress from "../contractsData/LnbgLondonCoin-address.json";
 import Loader from "./Loader";
@@ -309,6 +309,24 @@ export default function PresaleCard({ lang = "en" }) {
                   <Copy size={18} />
                 </button>
                 {/* )} */}
+              </div>
+            )}
+            {loader ? (
+              <Skeleton className="h-10 w-full" />
+            ) : (
+              <div className="flex w-full flex-wrap items-center justify-between">
+                <div className="flex flex-col justify-center font-sans">
+                  <div className="text-sm text-primary">
+                    Buy LNBG in presale
+                  </div>
+                  <div className="text-xs text-gray2">Until it is sold out</div>
+                </div>
+                <div className="flex items-center gap-1 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-black">
+                  <div className="flex h-3.5 w-3.5 items-center justify-center rounded-full border border-black">
+                    <div className="h-2 w-2 rounded-full bg-black"></div>
+                  </div>
+                  Active
+                </div>
               </div>
             )}
           </div>
