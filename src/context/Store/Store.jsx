@@ -128,13 +128,30 @@ export const StoreProvider = ({ children }) => {
         raisedAmount?.toString(),
         "raisedAmountraisedAmountraisedAmountraisedAmount",
       );
+      console.log(
+        TokensInContract?.toString(),
+        "TokensInContractTokensInContractTokensInContract",
+      );
+
+      let totalTokens = Number(
+        +TokensInContract / 10 ** 18 + 83754477.942,
+      )?.toFixed(2);
+
+      console.log(totalTokens, "totalTokenstotalTokens");
+
+      setContractData((prevState) => ({
+        ...prevState,
+        raisedAmount: 0,
+        tokensInContract: 0,
+      }));
 
       setContractData((prevState) => ({
         ...prevState,
         raisedAmount:
-          +formatUnits(raisedAmount, 18)?.toString() +
-          +formatUnits(raisedAmountEthereum, 6)?.toString(), //TODO:Test
-        tokensInContract: formatUnits(TokensInContract, 18)?.toString(),
+          2784624 +
+          (+formatUnits(raisedAmount, 18)?.toString() +
+            +formatUnits(raisedAmountEthereum, 6)?.toString()), //TODO:Test
+        tokensInContract: totalTokens,
       }));
 
       if (chainId === 56) {

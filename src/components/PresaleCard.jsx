@@ -170,13 +170,14 @@ export default function PresaleCard({ lang = "en" }) {
   }, [tokenAmount, selectedToken]);
   // -------------------------------------------------------------------------------
 
-  let remainTokens = 10000000 - +contractData?.tokensInContract;
+  console.log(contractData?.tokensInContract,"+contractData?.tokensInContract+contractData?.tokensInContract");
+  let remainTokens = 333333334 - contractData?.tokensInContract;
 
   //   // Calculate the percentage of sold tokens
   //  const soldPercentage = (+remainTokens * 100 ) / 10000000;
 
   // Calculate the percentage of sold tokens
-  const soldPercentage = (contractData?.raisedAmount * 100) / 300000;
+  const soldPercentage = (contractData?.raisedAmount * 100) / 10000000;
 
   const handleUseMaxBalance = () => {
     let tokenBalance =
@@ -256,7 +257,7 @@ export default function PresaleCard({ lang = "en" }) {
                     ${roundOff(contractData?.raisedAmount)}
                   </span>
                   <span className="font-normal text-gray2 sm:pb-1 sm:text-lg">
-                    / $300,000
+                    / $10,000,000
                   </span>
                 </>
               )}
@@ -275,7 +276,7 @@ export default function PresaleCard({ lang = "en" }) {
                     : lang === "fr"
                       ? "de"
                       : "de"}{" "}
-                10,000,000{" "}
+                333,333,334{" "}
                 {lang === "en"
                   ? "tokens"
                   : lang === "ru"

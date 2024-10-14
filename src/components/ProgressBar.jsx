@@ -19,12 +19,12 @@ const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
         </h3>
         <div className="flex items-center">
           <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
-            ${roundOff(contractData?.raisedAmount)} / $300,000
+            ${roundOff(contractData?.raisedAmount)} / $10,000,000
           </h3>
           <span className="pb-0.5 font-sans text-sm text-gray2">
             (
             {formatNumber(
-              (roundOff(contractData?.raisedAmount) / 300000) * 100,
+              (roundOff(contractData?.raisedAmount) / 10000000) * 100,
             )}
             )%
           </span>
