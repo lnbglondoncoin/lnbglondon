@@ -38,11 +38,20 @@ export default function FeatureSlider() {
             delay: 2000,
           }),
         ]}
+        className="max-w-7xl"
       >
         <CarouselContent>
-          <CarouselItem
-            className="flex items-center min-w-[250px] justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
-          >
+          <CarouselItem className="flex min-w-[250px] items-center justify-center gap-3 sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
+            <Image
+              quality={100}
+              src={`/static/clients/uniswap.svg`}
+              width={50}
+              height={50}
+              alt="uniswap"
+            />
+            <span className="text-2xl">Uniswap</span>
+          </CarouselItem>
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
             <Image
               quality={100}
               src={`/static/clients/zealy.svg`}
@@ -51,9 +60,25 @@ export default function FeatureSlider() {
               alt="zealy"
             />
           </CarouselItem>
-          <CarouselItem
-            className="flex items-center justify-center min-w-[250px] sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
-          >
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
+            <Image
+              quality={100}
+              src={`/static/clients/metamask.svg`}
+              width={180}
+              height={60}
+              alt="metamask"
+            />
+          </CarouselItem>
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
+            <Image
+              quality={100}
+              src={`/static/clients/circle.svg`}
+              width={160}
+              height={60}
+              alt="circle"
+            />
+          </CarouselItem>
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
             <Image
               quality={100}
               src={`/static/clients/xt.svg`}
@@ -62,32 +87,16 @@ export default function FeatureSlider() {
               alt="xt"
             />
           </CarouselItem>
-          <CarouselItem
-            className="flex items-center justify-center min-w-[250px] sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
-          >
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
             <Image
               quality={100}
-              src={`/static/clients/cmc.svg`}
-              width={300}
+              src={`/static/clients/chainlink.svg`}
+              width={200}
               height={100}
-              alt="cmc"
+              alt="chainlink"
             />
           </CarouselItem>
-          <CarouselItem
-            className="flex items-center gap-3 justify-center min-w-[250px] sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
-          >
-            <Image
-              quality={100}
-              src={`/static/clients/uniswap.svg`}
-              width={80}
-              height={80}
-              alt="uniswap"
-            />
-            <span className="text-3xl">Uniswap</span>
-          </CarouselItem>
-          <CarouselItem
-            className="flex items-center justify-center gap-2 min-w-[250px] sm:basis-1/2 md:basis-1/3 lg:basis-1/5"
-          >
+          <CarouselItem className="flex min-w-[250px] items-center justify-center gap-2 sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
             <Image
               quality={100}
               src={`/static/clients/bnb.svg`}
@@ -96,6 +105,15 @@ export default function FeatureSlider() {
               alt="bnb"
             />
             <span className="text-2xl">BNB</span>
+          </CarouselItem>
+          <CarouselItem className="flex min-w-[250px] items-center justify-center sm:basis-1/2 md:basis-1/3 lg:basis-1/5">
+            <Image
+              quality={100}
+              src={`/static/clients/cmc.svg`}
+              width={200}
+              height={100}
+              alt="cmc"
+            />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
