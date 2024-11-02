@@ -35,7 +35,7 @@ export default function FeatureSlider() {
         opts={{ align: "start", loop: true }}
         plugins={[
           Autoplay({
-            delay: 2000,
+            delay: 5000,
           }),
         ]}
         className="max-w-7xl"
