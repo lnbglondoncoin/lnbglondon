@@ -88,7 +88,7 @@ export const StoreProvider = ({ children }) => {
     usdtBalance: 0,
     lnbgBalance: 0,
     raisedAmount: 0,
-    tokenPrice: "30000000000000000",
+    tokenPrice: "39000000000000000",
     totalSupply: 7000000000,
     isPreSaleActive: false,
     stakedTokens: 0,
@@ -108,8 +108,7 @@ export const StoreProvider = ({ children }) => {
       setloader(true);
 
       const raisedAmount = await getProviderPresaleContract().raisedAmount();
-      const raisedAmountEthereum =
-        await getProviderBridgePresale().raisedAmount();
+      const raisedAmountEthereum = await getProviderBridgePresale().raisedAmount();
 
       ////////////////////// Smart Contract Balance Check ////////////////////////////
 
@@ -161,6 +160,7 @@ export const StoreProvider = ({ children }) => {
           tokenPrice: sellPrice?.toString(),
         }));
       }
+
       const isPresale = await getProviderPresaleContract().isSale();
 
       setContractData((prevState) => ({

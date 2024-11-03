@@ -518,12 +518,12 @@ export default function PresaleCard({ lang = "en" }) {
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">
                     {lang === "en"
-                      ? "Next price = 0.039$"
+                      ? "Next price = 0.0507$"
                       : lang === "ru"
-                        ? "Следующая цена = 0.039$"
+                        ? "Следующая цена = 0.0507$"
                         : lang === "fr"
-                          ? "Prochain prix = 0.039$"
-                          : "Próximo precio = 0.039$"}
+                          ? "Prochain prix = 0.0507$"
+                          : "Próximo precio = 0.0507$"}
                   </span>
                   <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">
                     +30%
