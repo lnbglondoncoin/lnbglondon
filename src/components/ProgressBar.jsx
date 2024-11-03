@@ -1,4 +1,4 @@
-import { formatNumber } from "@/utils/formatters";
+import { formatCurrency, formatNumber } from "@/utils/formatters";
 
 const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
   console.log(soldPercentage, "soldPercentage");
@@ -17,16 +17,15 @@ const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
         <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
           Stage 1 / 10
         </h3>
-        <div className="flex items-center">
+        <div className="flex flex-col items-end sm:items-center sm:flex-row">
           <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
-            ${roundOff(contractData?.raisedAmount)} / $10,000,000
+            {formatCurrency(roundOff(contractData?.raisedAmount))} /
+            {formatCurrency(10000000)}
           </h3>
           <span className="pb-0.5 font-sans text-sm text-gray2">
-            (
-            {formatNumber(
+            ({formatNumber(
               (roundOff(contractData?.raisedAmount) / 10000000) * 100,
-            )}
-            )%
+            )})%
           </span>
         </div>
       </div>
