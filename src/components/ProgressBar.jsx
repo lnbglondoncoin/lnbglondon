@@ -15,7 +15,7 @@ const ProgressBar = ({ contractData, soldPercentage, lang = "en" }) => {
     <div className="flex w-full flex-col gap-y-1">
       <div className="flex justify-between">
         <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
-          Stage 1 / 10
+          Stage 2 / 10
         </h3>
         <div className="flex flex-col items-end sm:items-center sm:flex-row">
           <h3 className="px-1 font-sans text-sm sm:leading-[18px]">
