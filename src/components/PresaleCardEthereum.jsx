@@ -491,12 +491,12 @@ export default function PresaleCardEthereum({ lang = "en" }) {
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-semibold">
                     {lang === "en"
-                      ? "Next price = 0.051$"
+                      ? "Next price = 0.0663$"
                       : lang === "ru"
-                        ? "Следующая цена = 0.051$"
+                        ? "Следующая цена = 0.0663$"
                         : lang === "fr"
-                          ? "Prochain prix = 0.051$"
-                          : "Próximo precio = 0.051$"}
+                          ? "Prochain prix = 0.0663$"
+                          : "Próximo precio = 0.0663$"}
                   </span>
                   <div className="rounded-md bg-red-500 px-1 py-0.5 text-xs">
                     +30%

@@ -88,7 +88,7 @@ export const StoreProvider = ({ children }) => {
     usdtBalance: 0,
     lnbgBalance: 0,
     raisedAmount: 0,
-    tokenPrice: "39000000000000000",
+    tokenPrice: "51000000000000000",
     totalSupply: 7000000000,
     isPreSaleActive: false,
     stakedTokens: 0,
@@ -132,9 +132,7 @@ export const StoreProvider = ({ children }) => {
         "TokensInContractTokensInContractTokensInContract",
       );
 
-      let totalTokens = Number(
-        +TokensInContract / 10 ** 18 + 83754477.942,
-      )?.toFixed(2);
+      let totalTokens = Number(+TokensInContract / 10**18 + 83754477.942)?.toFixed(2);
 
       console.log(totalTokens, "totalTokenstotalTokens");
 
