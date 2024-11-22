@@ -764,7 +764,7 @@ export const StoreProvider = ({ children }) => {
   return (
     <>
       <Store.Provider
-        value={{
+        value={{  
           loader,
           setloader,
           purchaseLoader,
