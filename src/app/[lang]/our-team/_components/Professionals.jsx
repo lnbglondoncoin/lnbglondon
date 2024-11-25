@@ -61,7 +61,7 @@ const Professionals = () => {
           <div className="flex flex-col items-center justify-center text-center">
             <span className="text-2xl tracking-tighter">Habib Rehman</span>
             <span className="text-lg tracking-tighter text-gray2">
-              Business Development Manager
+              Cheif Technology Officer
             </span>
           </div>
         </div>
