@@ -173,7 +173,7 @@ export default function Sidebar({
                 </Link>
                 <Link
                   className="hover:text-primary"
-                  href="https://discord.gg/w2mQvwem"
+                  href="https://discord.gg/nmZ5vRyyAg"
                 >
                   {discordIcon}
                 </Link>
